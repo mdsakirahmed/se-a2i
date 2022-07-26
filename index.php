@@ -1,3 +1,9 @@
+<?php
+
+ $baseurl="http://localhost/Socioeconomic-Web-HTML/";
+ 
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,29 +11,28 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Education - Socioeconomic Dashboard</title>
+  <title>Socioeconomic Dashboard</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?php echo $baseurl; ?>assets/img/favicon.png" rel="icon">
+  <link href="<?php echo $baseurl; ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/css/style.css" rel="stylesheet">
+  <link href="<?php echo $baseurl; ?>assets/css/main.css" rel="stylesheet">
 
 </head>
 
@@ -37,9 +42,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.php"><img src="assets/img/logo.png"/></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.php" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <h1 class="logo"><a href="index.html"><img src="<?php echo $baseurl; ?>assets/img/logo.png"/></a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -52,7 +55,7 @@
           <li class="dropdown">
             <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span><p class="mb-0">Hi, <span class="fw-bold">Maruf Huq</span></p></span>
-              <img src="assets/img/avatar2.png" width="40" height="40" class="rounded-circle mx-2"/>
+              <img src="<?php echo $baseurl; ?>assets/img/avatar2.png" width="40" height="40" class="rounded-circle mx-2"/>
             </a>
             <ul>
               <li><a href="#">User Profile</a></li>
@@ -181,19 +184,60 @@
       </div>
     </section>
 
-    <section id="education">
+    <section id="about">
       <div class="content-area">
         <div class="container">
           <header>
             <h3>
-              Education
+              About Dashboard
             </h3>
           </header>
-
           <div class="card">
-
+            <div class="block-group">
+              <div class="block-70">
+                <p class="mb-md-4">
+                  <span class="c-primary fw-bold">The National Socioeconomic Dashboard</span>
+                  is a policy-making critical tool that serves as a nexus between
+                  policymakers and practitioners. It leverages government datasets to work as decision-making action items
+                  that can be time-sensitive as well as demand driven through modular and intuitive visualizations.
+                  The project is born of a goal to make official data on Bangladesh more accessible and easy-to-digest—to
+                  make their insights seamlessly integrate into important policy conversations.
+                </p>
+                <p>
+                  <span class="c-secondary fw-bold">Bangladesh</span>
+                  is advancing in Sustainable Development Goals (SDGs). The aim of the Socioeconomic Dashboard is
+                  to accelerate the growth of SDGs by assisting in policy implicating decision making. The dashboard will
+                  serve the stakeholders in all sectors identified by experts that have a demand-driven approach to it.
+                </p>
+              </div>
+              <div class="block-30">
+                <img src="<?php echo $baseurl; ?>assets/img/about.png"/>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="card-primary">
+            <p>
+              The poverty rate of Bangladesh fell by 1.3% points to 20.5% in FY-2019 which was estimated in FY-2018
+              as 21.8% (Source: Bangladesh Bureau of Statistics, 2019).
+            </p>
+          </div>
+          <div id="dataConcept">
+            <header>
+              <h3>
+                Data and Policy Making Concept
+              </h3>
+            </header>
+            <div class="block-group mt-5">
+              <div class="block">
+                <div class="desktop">
+                  <img src="<?php echo $baseurl; ?>assets/img/demo.png"/>
+                </div>
+                <div class="mobile">
+                  <img src="<?php echo $baseurl; ?>assets/img/demo-moblie.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -215,15 +259,16 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/aos/aos.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/php-email-form/validate.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/purecounter/purecounter.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="<?php echo $baseurl; ?>assets/js/main.js"></script>
 
 </body>
 

@@ -1,3 +1,4 @@
+
 @mixin xs {
   @media only screen and (max-width: 480px) {
     @content;
@@ -486,7 +487,7 @@ header {
 }
 
 #loginPage {
-    background-image: url('../../assets/img/login-bg.jpg');
+    background-image: url('http://localhost/Socioeconomic-Web-HTML/assets/img/login-bg.jpg');
     background-size: contain;
   .login-wrapper {
     display: flex;

@@ -32,6 +32,22 @@ p {
   color: #6EB701;
 }
 
+.button-primary-full {
+  width: 100%;
+  padding: 12px 10px;
+  background: #722A8D;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 25px;
+  border: 0;
+  transition: 0.3s;
+}
+.button-primary-full:hover {
+  background: #430a58;
+}
+
 .block-group {
   display: flex;
   flex-wrap: wrap;
@@ -405,6 +421,126 @@ header h3 {
   #about .content-area .container #dataConcept .block-group .block-50 img {
     width: 100%;
   }
+}
+
+#loginPage {
+  background-image: url("http://localhost/Socioeconomic-Web-HTML/assets/img/login-bg.jpg");
+  background-size: contain;
+}
+#loginPage .login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(226, 226, 226, 0.95);
+  height: 100vh;
+  margin: 0 auto;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper {
+  margin: 0 auto;
+  width: 385px;
+  text-align: center;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .logo {
+  margin-bottom: 25px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .logo img {
+  width: 50px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .title-area h3 {
+  color: #430a58;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  line-height: 1.3;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .title-area h4 {
+  color: #722a8d;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .form-area .form-group .form-control {
+  border-radius: 25px;
+  margin: 20px 0px;
+  padding: 15px 50px 15px 67px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .form-area .help-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 42px 12px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .form-area .help-area .form-check {
+  display: inline-block;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .form-area .help-area .form-check label {
+  color: #766873;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .form-area .help-area .default-link a {
+  color: #766873;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area {
+  margin-top: 70px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area .top {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area .top img {
+  width: 50px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area .top img:nth-child(2) {
+  width: 85px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area .top img:nth-child(3) {
+  width: 65px;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area .bottom {
+  margin-top: 40px;
+  text-align: center;
+}
+#loginPage .login-wrapper .container .login-inner-wrapper .footer-area .bottom img {
+  width: 170px;
+}
+#loginPage .inner-addon {
+  position: relative;
+}
+#loginPage .inner-addon i {
+  position: absolute;
+  padding: 16px 30px;
+  font-size: 24px;
+  color: #AC94BE;
+  pointer-events: none;
+}
+#loginPage .left-addon i {
+  left: 0px;
+}
+#loginPage .right-addon i {
+  right: 0px;
+}
+#loginPage .left-addon input {
+  padding-left: 30px;
+}
+#loginPage .right-addon input {
+  padding-right: 30px;
+}
+@media only screen and (max-width: 480px) {
+  #loginPage .login-wrapper .container .login-inner-wrapper {
+    width: 100%;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #AC94BE !important;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #AC94BE !important;
 }
 
 /*# sourceMappingURL=main.css.map */
