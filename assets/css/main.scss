@@ -490,14 +490,8 @@ header {
     background-image: url('http://localhost/Socioeconomic-Web-HTML/assets/img/login-bg.jpg');
     background-size: contain;
   .login-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: rgba(226, 226, 226, 0.95);
-    height: 100vh;
-    margin: 0 auto;
-
+    padding: 80px 0px;
     .container {
       .login-inner-wrapper {
         margin: 0 auto;

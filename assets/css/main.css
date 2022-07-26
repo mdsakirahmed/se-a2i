@@ -428,13 +428,8 @@ header h3 {
   background-size: contain;
 }
 #loginPage .login-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(226, 226, 226, 0.95);
-  height: 100vh;
-  margin: 0 auto;
+  padding: 80px 0px;
 }
 #loginPage .login-wrapper .container .login-inner-wrapper {
   margin: 0 auto;
