@@ -209,8 +209,10 @@ header {
 
 .main-nav {
   margin-top: 110px;
+
   .faq-list {
     padding: 0;
+
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -219,20 +221,24 @@ header {
       padding: 0;
       list-style: none;
     }
+
     li {
       + {
         li {
           margin-top: 0px;
         }
       }
+
       padding: 0;
       background: transparent;
       border-radius: 4px;
       position: relative;
       margin-right: 20px;
       margin-bottom: 15px;
+
       .sub-collapse {
         position: absolute;
+        left: -90%;
         width: max-content;
         background: #ECEEF4;
         padding: 15px;
@@ -240,14 +246,17 @@ header {
         border-top: 3px solid #000000;
         border-radius: 15px;
         box-shadow: 0px 5px 12px rgb(41 72 152 / 22%);
+
         .sub-alignment {
           display: flex;
+
           a {
             margin-right: 10px;
           }
         }
       }
     }
+
     a {
       display: block;
       position: relative;
@@ -257,6 +266,7 @@ header {
       padding: 0;
       outline: none;
       cursor: pointer;
+
       .nav-title {
         display: flex;
         justify-content: space-between;
@@ -267,12 +277,15 @@ header {
         padding: 10px;
         box-shadow: 0px 4px 10px rgb(41 72 152 / 9%);
         transition: 0.3s;
+
         &:hover {
           background: #80CE0C;
         }
+
         &:focus {
           background: #80CE0C;
         }
+
         h6 {
           font-size: 13px;
           font-weight: 700;
@@ -281,6 +294,7 @@ header {
           align-items: center;
           margin-bottom: 0;
           margin-right: 15px;
+
           i {
             color: #662d91;
             font-size: 22px;
@@ -288,6 +302,7 @@ header {
           }
         }
       }
+
       .nav-title-collapse {
         display: flex;
         justify-content: space-between;
@@ -298,6 +313,7 @@ header {
         padding: 10px;
         box-shadow: 0px 4px 10px rgb(41 72 152 / 9%);
         transition: 0.3s;
+
         h6 {
           font-size: 13px;
           font-weight: 700;
@@ -306,6 +322,7 @@ header {
           align-items: center;
           margin-bottom: 0;
           margin-right: 15px;
+
           i {
             color: #662d91;
             font-size: 22px;
@@ -313,13 +330,16 @@ header {
           }
         }
       }
+
       .sub-active {
         background: #662D91 !important;
+
         h6 {
           font-weight: 600 !important;
           color: white !important;
         }
       }
+
       .nav-title-sub {
         display: flex;
         justify-content: space-between;
@@ -330,24 +350,31 @@ header {
         padding: 8px 15px;
         box-shadow: 0px 4px 12px rgb(41 72 152 / 5%);
         transition: 0.3s;
+
         &:hover {
           background: #662D91;
+
           h6 {
             color: white;
           }
         }
+
         &:active {
           background: #662D91;
+
           h6 {
             color: white;
           }
         }
+
         .sub-active {
           background: #662D91;
+
           h6 {
             color: white;
           }
         }
+
         h6 {
           font-size: 12px;
           font-weight: 600;
@@ -355,6 +382,7 @@ header {
           display: flex;
           align-items: center;
           margin-bottom: 0;
+
           i {
             color: #662d91;
             font-size: 22px;
@@ -363,14 +391,17 @@ header {
         }
       }
     }
+
     .icon-help {
       font-size: 24px;
     }
+
     .icon-show {
       font-size: 12px;
       display: flex;
       color: transparent;
     }
+
     .icon-close {
       font-size: 14px;
       position: absolute;
@@ -378,20 +409,51 @@ header {
       right: 14px;
       color: #000000;
     }
+
     a.collapsed {
       color: #343a40;
+
       .nav-title-collapse {
         background: white;
+
         &:hover {
           background: #80CE0C;
         }
       }
+
       .icon-show {
         display: flex;
         color: #000000;
       }
+
       .icon-close {
         display: none;
+      }
+    }
+  }
+
+  @include xs {
+    .faq-list {
+      ul {
+        display: block;
+      }
+      li {
+        margin-right: 0;
+        margin-bottom: 12px;
+
+        .sub-collapse {
+          position: unset;
+          width: 100%;
+          background: #ECEEF4;
+          padding: 10px;
+          .sub-alignment {
+            display: block;
+            a {
+              margin-right: 0;
+              margin-bottom: 12px;
+            }
+          }
+        }
       }
     }
   }
