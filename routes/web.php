@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Backend\About;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//Landing page
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
+});
+
+//Authentication
+Route::get('login', Login::class)->name('login')->middleware('guest');
+
+//Backend route
+Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.'], function () {
+    Route::get('about', About::class);
 });
