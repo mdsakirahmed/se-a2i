@@ -1,6 +1,6 @@
 <?php
 
- $baseurl="http://localhost/Socioeconomic-Web-HTML/";
+ $baseurl="http://design.test/";
  
  ?>
 
