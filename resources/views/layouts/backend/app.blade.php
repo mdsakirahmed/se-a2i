@@ -36,7 +36,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="index.html"><img src="assets/img/logo.png" /></a></h1>
+            <h1 class="logo"><a href="index.html"><img src="{{ asset('assets/img/logo.png') }}" /></a></h1>
 
             <nav id="navbar" class="navbar">
                 <ul>
@@ -51,7 +51,7 @@
                             <span>
                                 <p class="mb-0">Hi, <span class="fw-bold">Maruf Huq</span></p>
                             </span>
-                            <img src="assets/img/avatar2.png" width="40" height="40" class="rounded-circle mx-2" />
+                            <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" />
                         </a>
                         <ul>
                             <li><a href="#">User Profile</a></li>
@@ -209,6 +209,15 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     @livewireScripts
+    <script>
+        window.addEventListener('swal:modal', event => {
+            swal({
+                title: event.detail.message,
+                text: event.detail.text,
+                icon: event.detail.type,
+            });
+        });
+    </script>
 </body>
 
 </html>

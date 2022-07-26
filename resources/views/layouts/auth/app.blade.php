@@ -50,6 +50,15 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     @livewireScripts
+    <script>
+        window.addEventListener('swal:modal', event => {
+            swal({
+                title: event.detail.message,
+                text: event.detail.text,
+                icon: event.detail.type,
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -26,5 +26,5 @@ Route::get('login', Login::class)->name('login')->middleware('guest');
 
 //Backend route
 Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.'], function () {
-    Route::get('about', About::class);
+    Route::get('about', About::class)->name('about');
 });

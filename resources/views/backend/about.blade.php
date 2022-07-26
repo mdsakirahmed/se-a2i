@@ -25,7 +25,7 @@
                         </p>
                     </div>
                     <div class="block-30">
-                        <img src="assets/img/about.png" />
+                        <img src="{{ asset('assets/img/about.png') }}" />
                     </div>
                 </div>
             </div>
@@ -44,10 +44,10 @@
                 <div class="block-group mt-5">
                     <div class="block">
                         <div class="desktop">
-                            <img src="assets/img/demo.png" />
+                            <img src="{{ asset('assets/img/demo.png') }}" />
                         </div>
                         <div class="mobile">
-                            <img src="assets/img/demo-moblie.png" />
+                            <img src="{{ asset('assets/img/demo-moblie.png') }}" />
                         </div>
                     </div>
                 </div>
