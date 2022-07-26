@@ -24,7 +24,7 @@ class Login extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             return redirect()->route('backend.about');
         } else {
-            toastr()->error('Incorrect credential please try again later.');
+            toastr()->error('Incorrect credential please try again later');
         }
     }
 }

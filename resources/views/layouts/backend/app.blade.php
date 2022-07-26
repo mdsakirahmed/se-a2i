@@ -36,7 +36,7 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="index.html"><img src="{{ asset('assets/img/logo.png') }}" /></a></h1>
+            <h1 class="logo"><a href="{{ route('backend.about') }}"><img src="{{ asset('assets/img/logo.png') }}" /></a></h1>
 
             <nav id="navbar" class="navbar">
                 <ul>
@@ -57,7 +57,7 @@
                             <li><a href="#">User Profile</a></li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Manage Profile</a></li>
-                            <li><a href="#">Log Out</a></li>
+                            <li>@livewire('widgets.logout')</li>
                         </ul>
                     </li>
                 </ul>
