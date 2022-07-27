@@ -11,6 +11,10 @@
                 <div wire:loading wire:target="db_backup">
                     Processing DB Backup...
                 </div> --}}
+                <button class="btn btn-danger text-white" wire:click="local_db_update_by_latest_backup">DB Update</button>
+                <div wire:loading wire:target="local_db_update_by_latest_backup">
+                    Local DB Updating by latedt backup...
+                </div>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
