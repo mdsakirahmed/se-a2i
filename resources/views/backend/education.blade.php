@@ -3,13 +3,10 @@
       <div class="container">
         <header>
           <h3>
-            Education
+            Education 
           </h3>
         </header>
-
-        <div class="card">
-
-        </div>
+        @livewire('widgets.chart1')
       </div>
       </div>
     </div>

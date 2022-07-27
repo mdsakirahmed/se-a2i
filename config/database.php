@@ -63,6 +63,15 @@ return [
             ]) : [],
         ],
 
+        'mysql2' => [
+            'driver' => 'mysql',
+            'host' => '10.10.11.144',
+            'port' => '3306',
+            'database' => 'corona_socio_info',
+            'username' => 'socioinfo',
+            'password' => '$)c1Oinf0',
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

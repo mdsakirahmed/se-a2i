@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Backend\About;
+use App\Http\Livewire\Backend\Backup;
 use App\Http\Livewire\Backend\Education;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,5 @@ Route::get('login', Login::class)->name('login')->middleware('guest');
 Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.'], function () {
     Route::get('about', About::class)->name('about');
     Route::get('education', Education::class)->name('education');
+    Route::get('backup', Backup::class)->name('backup');
 });
