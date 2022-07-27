@@ -49,7 +49,7 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>
-                                <p class="mb-0">Hi, <span class="fw-bold">Maruf Huq</span></p>
+                                <p class="mb-0">Hi, <span class="fw-bold">{{ auth()->user()->name }}</span></p>
                             </span>
                             <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" />
                         </a>
@@ -73,7 +73,7 @@
                 <div class="faq-list">
                     <ul>
                         <li data-aos="fade-up">
-                            <a>
+                            <a href="{{ route('backend.about') }}">
                                 <div class="nav-title">
                                     <h6>
                                         <i class="bx bx-info-circle"></i>
@@ -83,11 +83,21 @@
                             </a>
                         </li>
                         <li data-aos="fade-up">
+                            <a href="{{ route('backend.education') }}">
+                                <div class="nav-title">
+                                    <h6>
+                                        <i class="bx bxs-graduation"></i>
+                                        Education
+                                    </h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li data-aos="fade-up">
                             <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
                                 <div class="nav-title-collapse">
                                     <h6>
                                         <i class="bx bxs-graduation"></i>
-                                        Education
+                                        Sample
                                     </h6>
                                     <div class="arrow">
                                         <i class="bx bxs-down-arrow icon-show"></i>
@@ -208,15 +218,33 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    {{-- amcharts start --}}
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    {{-- amcharts end --}}
+
+    {{-- highcharts end --}}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    {{-- highcharts end --}}
+
+
+
     @livewireScripts
     <script>
         window.addEventListener('swal:modal', event => {
             swal({
-                title: event.detail.message,
-                text: event.detail.text,
-                icon: event.detail.type,
-            });
+                title: event.detail.message
+                , text: event.detail.text
+                , icon: event.detail.type
+            , });
         });
+
     </script>
 </body>
 
