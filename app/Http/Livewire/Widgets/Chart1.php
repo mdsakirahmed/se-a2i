@@ -87,4 +87,8 @@ class Chart1 extends Component
             ]]
         ];
     }
+
+    public function eventCall($number){
+        $this->dispatchBrowserEvent('event_name', ['number' => $number]);
+    }
 }

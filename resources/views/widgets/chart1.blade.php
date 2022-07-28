@@ -52,6 +52,7 @@
         <div id="{{ $chart_id }}"></div>
         <p class="text-center">
             <button type="butto" class="btn btn-secondary btn-sm m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+            <button wire:click="eventCall(100)">postAdded</button>
         </p>
     </figure>
 
