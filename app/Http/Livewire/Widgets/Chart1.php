@@ -27,7 +27,7 @@ class Chart1 extends Component
             year IS NOT NULL
         GROUP BY year");
 
-        return[
+        return [
             'chart' => [
                 'type' => 'column'
             ],
@@ -46,36 +46,43 @@ class Chart1 extends Component
                 ]
             ],
             'tooltip' => [
-                'formatter' => `'<b>' + this.x + '</b><br/>' +
-                this.series.name + ': ' + this.y + '<br/>' +
-                'Total: ' + this.point.stackTotal +'@@'`
-              ],
+                'useHTML' => true,
+                'headerFormat' => '<b>{point.key}</b><br>',
+                'pointFormat' => '{series.name} : {point.y} %',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
+
             'plotOptions' => [
                 'column' => [
-                    'stacking' => 'normal'
+                    'stacking' => 'normal',
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'format' => "{point.y:,.2f}" . '%'
+
+                    ]
                 ]
             ],
             'series' => [[
                 'name' => 'Male',
-                'stack' => 'male',
+                'stack' => 'gender',
                 'color' => "#7F3F98",
                 'data' => collect($data)->pluck('female_student')->map(function ($value) {
                     return round($value, 2);
                 }),
-                'dataLabels' => [
-                    'enabled' => true,
-                    'formatter' => `'this.point.stackTotal +'@@'`
-                ]
             ], [
                 'name' => 'Female',
-                'stack' => 'female',
+                'stack' => 'gender',
                 'color' => "#83C341",
                 'data' =>  collect($data)->pluck('male_student')->map(function ($value) {
                     return round($value, 2);
                 }),
-                // 'dataLabels' => [
-                //     'enabled' => true,
-                // ]
             ]]
         ];
     }
