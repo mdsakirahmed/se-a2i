@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Chart1 extends Component
 {
+    public  $chart_id = "chart_1";
     public function render()
     {
         return view('widgets.chart1', [

@@ -48,7 +48,7 @@
         }
     </style>
     <figure class="highcharts-figure">
-        <div id="container"></div>
+        <div id="{{ $chart_id }}"></div>
         <p class="highcharts-description">
             Chart showing stacked columns with grouping, allowing specific series to
             be stacked on the same column. Stacking is often used to visualize
@@ -57,6 +57,6 @@
     </figure>
 
     <script>
-        Highcharts.chart('container', {!! collect($chart_data_set) !!});
+        Highcharts.chart("{{ $chart_id }}", {!! collect($chart_data_set) !!});
     </script>
 </div>
