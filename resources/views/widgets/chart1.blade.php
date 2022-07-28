@@ -56,10 +56,7 @@
     </figure>
 
     <script>
-        Highcharts.chart("{{ $chart_id }}", {
-            !!collect($chart_data_set) !!
-        });
-
+        Highcharts.chart("{{ $chart_id }}", {!! collect($chart_data_set) !!});
     </script>
 
     {{-- Modal Start--}}
