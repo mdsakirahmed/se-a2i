@@ -82,6 +82,14 @@ class Chart6 extends Component
         // dd($data);
 
         return [
+            'chart' => [
+                'type' => 'spline'
+            ],
+        
+            'legend' => [
+                'symbolWidth' => 80
+            ],
+
             'title' => [
                 'text' => ''
             ],
