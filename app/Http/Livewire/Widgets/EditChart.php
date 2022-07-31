@@ -10,6 +10,8 @@ class EditChart extends Component
     public $mes ='No one';
     public Chart $chart;
 
+    public $message;
+
     public function render()
     {
         return view('widgets.edit-chart');

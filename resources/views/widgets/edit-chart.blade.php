@@ -1,26 +1,24 @@
 <div>
     {{-- Modal Start--}}
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <div class="modal fade" id="chart_edit_modal" tabindex="-1" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="chart_edit_modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div id="summernote"></div>
                 @if($chart)
-
-
-                <div class="modal-header">
-                    <h5 class="modal-title">{{ $chart->bn_name }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
                 <div class="modal-body">
-                    
+                    <b>Bangla title</b>
+                    <p>{{ $chart->bn_name }}</p>
+                    <b>English title</b>
+                    <p>{{ $chart->en_name }}</p>
+                    <hr>
+                    <b>Bangla description</b>
+                    <p>{!! $chart->en_description !!}</p>
+                    <b>English description</b>
+                    <p>{!! $chart->en_description !!}</p>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Update</button>
                 </div>
                 @else
                 <p class="text-center">
@@ -38,5 +36,4 @@
         });
 
     </script>
-
 </div>
