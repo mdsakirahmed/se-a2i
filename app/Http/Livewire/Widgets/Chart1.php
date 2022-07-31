@@ -13,7 +13,7 @@ class Chart1 extends Component
 
     public function render()
     {
-        $this->chart = Chart::find($this->chart_id);
+        $this->chart =Chart::findOrFail($this->chart_id);
         if(app()->currentLocale() == 'bn'){
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
