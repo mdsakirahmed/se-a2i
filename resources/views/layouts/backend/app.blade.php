@@ -74,6 +74,7 @@
                             <li><a href="#">User Profile</a></li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Manage Profile</a></li>
+                            <li>@livewire('widgets.language-switcher')</li>
                             <li>@livewire('widgets.logout')</li>
                         </ul>
                     </li>

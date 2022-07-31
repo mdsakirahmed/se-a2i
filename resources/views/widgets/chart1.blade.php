@@ -49,13 +49,13 @@
 
     </style>
     <figure class="highcharts-figure">
-        <div id="{{ $chart_id }}"></div>
+        <div id="chart_id_{{ $chart->id }}"></div>
         <p class="text-center">
-            <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart_id }}')">Edit</button>
+            <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
         </p>
     </figure>
 
     <script>
-        Highcharts.chart("{{ $chart_id }}", {!! collect($chart_data_set) !!});
+        Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
     </script>
 </div>

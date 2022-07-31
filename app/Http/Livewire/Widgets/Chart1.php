@@ -2,14 +2,18 @@
 
 namespace App\Http\Livewire\Widgets;
 
+use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Chart1 extends Component
 {
-    public  $chart_id = 1;
+    public  Chart $chart;
+
     public function render()
     {
+        $this->chart = Chart::find(1);
+        
         return view('widgets.chart1', [
             'chart_data_set' => $this->get_data()
         ]);
