@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Chart1 extends Component
 {
-    public  $chart_id = "chart_1";
+    public  $chart_id = 1;
     public function render()
     {
         return view('widgets.chart1', [
@@ -86,9 +86,5 @@ class Chart1 extends Component
                 }),
             ]]
         ];
-    }
-
-    public function eventCall($number){
-        $this->dispatchBrowserEvent('event_name', ['number' => $number]);
     }
 }

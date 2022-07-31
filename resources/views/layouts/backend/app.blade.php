@@ -209,6 +209,8 @@
         @yield('content')
         @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
+    
+    @livewire('widgets.edit-chart')
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -235,7 +237,6 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
-
     @livewireScripts
     <script>
         window.addEventListener('swal:modal', event => {
@@ -245,7 +246,6 @@
                 , icon: event.detail.type
             , });
         });
-
     </script>
 </body>
 

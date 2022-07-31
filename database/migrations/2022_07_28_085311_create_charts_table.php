@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
+            $table->string('bn_name')->nullable();
+            $table->string('en_name')->nullable();
+            $table->longText('bn_datasource')->nullable();
+            $table->longText('en_datasource')->nullable();
+            $table->longText('bn_description')->nullable();
+            $table->longText('en_description')->nullable();
             $table->timestamps();
         });
     }
