@@ -6,10 +6,10 @@ use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart6 extends Component
+class Chart7 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 6;
+    public $name, $description, $chart_id = 7;
 
     public function render()
     {
@@ -22,7 +22,7 @@ class Chart6 extends Component
             $this->description = $this->chart->en_description;
         }
 
-        return view('widgets.chart6', [
+        return view('widgets.chart7', [
             'chart_data_set' => $this->get_data()
         ]);
     }
@@ -48,7 +48,7 @@ class Chart6 extends Component
         FROM
             corona_socio_info.education_statistics
         WHERE
-            electricity = 1 AND area != 'RURAL'
+        internet_connection = 1 AND area != 'RURAL'
         GROUP BY year) AS u_tci ON u_ti.year = u_tci.year) AS urban
             LEFT JOIN
         (SELECT 
@@ -67,8 +67,8 @@ class Chart6 extends Component
         FROM
             corona_socio_info.education_statistics
         WHERE
-            electricity = 1 AND area = 'RURAL'
-        GROUP BY year) AS r_tci ON r_ti.year = r_tci.year) AS rural ON rural.r_year = urban.u_year ORDER BY urban.u_year DESC");
+        internet_connection = 1 AND area = 'RURAL'
+        GROUP BY year) AS r_tci ON r_ti.year = r_tci.year) AS rural ON rural.r_year = urban.u_year");
 
 
         $data = collect($data)->map(function ($data) {
@@ -77,13 +77,11 @@ class Chart6 extends Component
             ];
         })->toArray();
 
-        $data = array_reverse($data);
-
         return [
             'chart' => [
                 'type' => 'spline'
             ],
-        
+
             'legend' => [
                 'symbolWidth' => 80
             ],
