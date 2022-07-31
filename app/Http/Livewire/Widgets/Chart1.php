@@ -55,7 +55,7 @@ class Chart1 extends Component
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of students'
+                    'text' => 'Percentage of Students'
                 ]
             ],
             'tooltip' => [

@@ -6,10 +6,10 @@ use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart2 extends Component
+class Chart3 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 2;
+    public $name, $description, $chart_id = 3;
 
     public function render()
     {
@@ -22,24 +22,32 @@ class Chart2 extends Component
             $this->description = $this->chart->en_description;
         }
 
-        return view('widgets.chart2', [
+        return view('widgets.chart3', [
             'chart_data_set' => $this->get_data()
         ]);
     }
 
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT 
-        year,
-        SUM(total_teacher) as total_teacher,
-        ((SUM(female_teacher) * 100) / SUM(total_teacher)) AS female_teacher,
-        (((SUM(total_teacher) - SUM(female_teacher)) * 100) / SUM(total_teacher)) AS male_teacher
-    FROM
-        corona_socio_info.education_statistics
-    WHERE
-        year IS NOT NULL
-    GROUP BY year");
-
+        $data = DB::connection('mysql2')->select("SELECT
+        students_participation_percentage AS students_participation_percentage,
+        AVG(rate_of_students_participation_percentage) AS raite_of_students_participation_percentage
+        FROM
+            (SELECT
+                students_participation_percentage,
+                (COUNT(*) * 100) / (SELECT
+                            COUNT(*)
+                        FROM
+                            education_covid19_impact) AS rate_of_students_participation_percentage
+            FROM
+                education_covid19_impact WHERE students_participation_percentage IS NOT NULL
+            GROUP BY students_participation_percentage) AS expr_qry
+        GROUP BY students_participation_percentage
+        ORDER BY students_participation_percentage ASC
+        LIMIT 1000");
+        
+        array_unshift($data, array_pop($data));
+        
         return [
             'chart' => [
                 'type' => 'column'
@@ -49,13 +57,13 @@ class Chart2 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year')
+                'categories' => collect($data)->pluck('students_participation_percentage')
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Teachers'
+                    'text' => 'Percentage of Upazila'
                 ]
             ],
             'tooltip' => [
@@ -82,18 +90,14 @@ class Chart2 extends Component
                     ]
                 ]
             ],
+            'legend' => [
+                'enabled' => false
+            ],
             'series' => [[
-                'name' => 'Male',
-                'stack' => 'gender',
-                'color' => "#7F3F98",
-                'data' => collect($data)->pluck('female_teacher')->map(function ($value) {
-                    return round($value, 2);
-                }),
-            ], [
-                'name' => 'Female',
-                'stack' => 'gender',
+                'name' => '',
+                'stack' => '',
                 'color' => "#83C341",
-                'data' =>  collect($data)->pluck('male_teacher')->map(function ($value) {
+                'data' =>  collect($data)->pluck('raite_of_students_participation_percentage')->map(function ($value) {
                     return round($value, 2);
                 }),
             ]]
