@@ -61,7 +61,7 @@ class Chart2 extends Component
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
-                'pointFormat' => '{series.name} : {point.y} %',
+                'pointFormat' => '{series.name} : {point.y:,.2f} %',
                 'style' => [
                     'color' => '#fff'
                 ],

@@ -14,10 +14,10 @@ class Chart4 extends Component
     public function render()
     {
         $this->chart = Chart::find($this->chart_id);
-        if(app()->currentLocale() == 'bn'){
+        if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
-        }else{
+        } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
         }
@@ -51,7 +51,7 @@ class Chart4 extends Component
                 SUM(tbl.student_hurdle_boredom_in_online_class = 1) AS boredom_in_online_class
         FROM
             education_covid19_impact AS tbl) AS man");
-        
+
         $data = collect($data)->map(function ($data) {
             return [
                 ["category" => "Proper electronic device access", "column-1" => number_format($data->device_access * (100 / $data->total), 2)],
@@ -65,7 +65,7 @@ class Chart4 extends Component
         })->toArray()[0];
 
         // dd($data);
-        
+
         return [
             'chart' => [
                 'type' => 'bar'
@@ -87,7 +87,7 @@ class Chart4 extends Component
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
-                'pointFormat' => '{series.name} : {point.y}',
+                'pointFormat' => '{series.name} : {point.y:,.2f}',
                 'style' => [
                     'color' => '#fff'
                 ],
@@ -99,12 +99,11 @@ class Chart4 extends Component
             ],
 
             'plotOptions' => [
-                'column' => [
+                'bar' => [
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
                         'format' => "{point.y:,.2f}"
-
                     ]
                 ]
             ],
