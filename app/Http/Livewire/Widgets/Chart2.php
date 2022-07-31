@@ -31,14 +31,14 @@ class Chart2 extends Component
     {
         $data = DB::connection('mysql2')->select("SELECT 
         year,
-        SUM(total_student) as total_student,
-        ((SUM(female_student) * 100) / SUM(total_student)) AS female_student,
-        (((SUM(total_student) - SUM(female_student)) * 100) / SUM(total_student)) AS male_student
-        FROM
-            corona_socio_info.education_statistics
-        WHERE
-            year IS NOT NULL
-        GROUP BY year");
+        SUM(total_teacher) as total_teacher,
+        ((SUM(female_teacher) * 100) / SUM(total_teacher)) AS female_teacher,
+        (((SUM(total_teacher) - SUM(female_teacher)) * 100) / SUM(total_teacher)) AS male_teacher
+    FROM
+        corona_socio_info.education_statistics
+    WHERE
+        year IS NOT NULL
+    GROUP BY year");
 
         return [
             'chart' => [
@@ -86,14 +86,14 @@ class Chart2 extends Component
                 'name' => 'Male',
                 'stack' => 'gender',
                 'color' => "#7F3F98",
-                'data' => collect($data)->pluck('female_student')->map(function ($value) {
+                'data' => collect($data)->pluck('female_teacher')->map(function ($value) {
                     return round($value, 2);
                 }),
             ], [
                 'name' => 'Female',
                 'stack' => 'gender',
                 'color' => "#83C341",
-                'data' =>  collect($data)->pluck('male_student')->map(function ($value) {
+                'data' =>  collect($data)->pluck('male_teacher')->map(function ($value) {
                     return round($value, 2);
                 }),
             ]]
