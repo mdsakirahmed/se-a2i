@@ -137,13 +137,13 @@ class Chart7 extends Component
             ],
 
             'series' => [[
-                'name' => '',
+                'name' => 'Urban',
                 'color' => "#7F3F98",
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),
             ], [
-                'name' => '',
+                'name' => 'Rural',
                 'color' => "#83C341",
                 'data' =>  collect($data)->pluck('column-2')->map(function ($value) {
                     return round($value, 2);
