@@ -6,10 +6,10 @@ use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart4 extends Component
+class Chart5 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 4;
+    public $name, $description, $chart_id = 5;
 
     public function render()
     {
@@ -22,7 +22,7 @@ class Chart4 extends Component
             $this->description = $this->chart->en_description;
         }
 
-        return view('widgets.chart4', [
+        return view('widgets.chart5', [
             'chart_data_set' => $this->get_data()
         ]);
     }
@@ -33,38 +33,35 @@ class Chart4 extends Component
         man.device_access,
         man.internet_access,
         man.no_internet_access,
-        man.affordable_internet,
+        man.extra_payment,
         man.low_internet,
-        man.loss_of_interactivity,
-        man.difficulty_to_understand,
-        man.boredom_in_online_class,
-        (man.device_access + man.internet_access + man.no_internet_access + man.affordable_internet + man.low_internet + man.loss_of_interactivity + difficulty_to_understand + man.boredom_in_online_class) AS total
+        man.inattentive_students,
+        man.discomfort_in_online_class,
+        (man.device_access + man.internet_access + man.no_internet_access + man.extra_payment + man.low_internet + man.inattentive_students + discomfort_in_online_class + man.other) AS total
     FROM
         (SELECT
-            SUM(tbl.student_hurdle_electronic_device_access = 1) AS device_access,
-                SUM(tbl.student_hurdle_internet_access = 1) AS internet_access,
-                SUM(tbl.student_hurdle_internet_access = 0) AS no_internet_access,
-                SUM(tbl.student_hurdle_affordable_internet = 1) AS affordable_internet,
-                SUM(tbl.student_hurdle_low_internet = 1) AS low_internet,
-                SUM(tbl.student_hurdle_loss_of_interactivity = 1) AS loss_of_interactivity,
-                SUM(tbl.student_hurdle_difficulty_to_understand = 1) AS difficulty_to_understand,
-                SUM(tbl.student_hurdle_boredom_in_online_class = 1) AS boredom_in_online_class
+            SUM(tbl.teacher_hurdle_electronic_device_access = 1) AS device_access,
+                SUM(tbl.teacher_hurdle_internet_access = 1) AS internet_access,
+                SUM(tbl.teacher_hurdle_internet_access = 0) AS no_internet_access,
+                SUM(tbl.teacher_hurdle_no_extra_payment = 1) AS extra_payment,
+                SUM(tbl.teacher_hurdle_low_internet = 1) AS low_internet,
+                SUM(tbl.teacher_hurdle_inattentive_students = 1) AS inattentive_students,
+                SUM(tbl.teacher_hurdle_discomfort_in_online_class = 1) AS discomfort_in_online_class,
+                SUM(tbl.teacher_hurdle_other = 1) AS other
         FROM
             education_covid19_impact AS tbl) AS man");
+
 
         $data = collect($data)->map(function ($data) {
             return [
                 ["category" => "Proper electronic device access", "column-1" => number_format($data->device_access * (100 / $data->total), 2)],
                 ["category" => "No access to internet", "column-1" => number_format($data->no_internet_access * (100 / $data->total), 2)],
                 ["category" => "Poor internet facility", "column-1" => number_format($data->low_internet * (100 / $data->total), 2)],
-                ["category" => "Affordable internet", "column-1" => number_format($data->affordable_internet * (100 / $data->total), 2)],
-                // ["category" => "Loss of interaction between teacher and student", "column-1" => $data->affordable_internet],
-                ["category" => "Difficulty to understand online class", "column-1" => number_format($data->difficulty_to_understand * (100 / $data->total), 2)],
-                ["category" => "Boredom in online class", "column-1" => number_format($data->boredom_in_online_class * (100 / $data->total), 2)]
+                ["category" => "No Extra payment", "column-1" => number_format($data->extra_payment * (100 / $data->total), 2)],
+                ["category" => "Loss of interaction between teacher and student", "column-1" => number_format($data->inattentive_students * (100 / $data->total), 2)],
+                ["category" => "Discomfort in online class", "column-1" => number_format($data->discomfort_in_online_class * (100 / $data->total), 2)]
             ];
-        })->toArray()[0];
-
-        // dd($data);
+        })->toArray()[0];;
 
         return [
             'chart' => [
