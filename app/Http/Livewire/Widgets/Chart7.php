@@ -114,11 +114,25 @@ class Chart7 extends Component
 
             'plotOptions' => [
                 'series' => [
-                    'label' => [
-                        'connectorAllowed' => false
+                    'dataLabels' => [
+                        'enabled' => true,
                     ],
                     'pointStart' => 2014
                 ]
+            ],
+
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '<b>{point.key}</b><br>',
+                'pointFormat' => '{series.name} : {point.y}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
             ],
 
             'series' => [[

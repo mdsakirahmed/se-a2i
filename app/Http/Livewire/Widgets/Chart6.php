@@ -83,7 +83,7 @@ class Chart6 extends Component
             'chart' => [
                 'type' => 'spline'
             ],
-        
+
             'legend' => [
                 'symbolWidth' => 80
             ],
@@ -116,11 +116,25 @@ class Chart6 extends Component
 
             'plotOptions' => [
                 'series' => [
-                    'label' => [
-                        'connectorAllowed' => false
+                    'dataLabels' => [
+                        'enabled' => true,
                     ],
                     'pointStart' => 2014
                 ]
+            ],
+
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '<b>{point.key}</b><br>',
+                'pointFormat' => '{series.name} : {point.y}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
             ],
 
             'series' => [[
