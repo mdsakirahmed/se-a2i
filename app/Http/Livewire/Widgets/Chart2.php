@@ -6,10 +6,10 @@ use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart1 extends Component
+class Chart2 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 1;
+    public $name, $description, $chart_id = 2;
 
     public function render()
     {
@@ -22,7 +22,7 @@ class Chart1 extends Component
             $this->description = $this->chart->en_description;
         }
 
-        return view('widgets.chart1', [
+        return view('widgets.chart2', [
             'chart_data_set' => $this->get_data()
         ]);
     }
@@ -77,7 +77,8 @@ class Chart1 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.y:,.2f}" . '%',
+                        'format' => "{point.y:,.2f}" . '%'
+
                     ]
                 ]
             ],

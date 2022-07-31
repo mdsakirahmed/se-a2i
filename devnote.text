@@ -1,0 +1,196 @@
+startutorial
+Home
+Latest
+Free eBooks
+Membership
+SnapShooter BackupsServer, Database, Application and Laravel Backups - Get fully protected with SnapShooter
+Share on  
+Facebook
+
+Share on  
+Twitter
+
+Email
+Using CKEditor with Laravel Livewire
+In this tutorial, we will demonstrate how to use CKEditor with Laravel Livewire. The tech stack included in this tutorial are TailwindCSS for CSS and CKEditor.
+
+Installation
+Install Livewire package via Composer:
+composer require livewire/livewire
+
+Create a Laravel layout file(resources/views/layouts/ckeditor.blade.php), we are pulling all the Javascript and CSS from their respective CDN network (The purpose is to keep the tutorial setup easy to follow. However in your project, we highly suggest that you set up the Javascript and CSS locally):
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Using CKEditor with Laravel Livewire</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+
+    @livewireStyles
+</head>
+
+<body class="bg-gray-200" style="font-family: Nunito;">
+
+
+<div class="max-w-7xl mx-auto px-4 py-4 sm:py-6 lg:py-8 sm:px-6 lg:px-8 ">
+    {{ $slot }}
+</div>
+
+@livewireScripts
+@stack('scripts')
+</body>
+</html>
+Working on Livewire Component
+Create a Livewire component to work with Ckeditor. Run the command below from CLI to generate the component files:
+
+php artisan make:livewire Ckeditor
+
+You should see two generated files at:
+
+app/Http/Livewire/Ckeditor.php
+resources/views/livewire/ckeditor.blade.php
+File app/Http/Livewire/Ckeditor.php is the component class file whereas resources/views/livewire/ckeditor.blade.php is the view file.
+
+Let's create content for the class file(app/Http/Livewire/Ckeditor.php):
+
+<?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class Ckeditor extends Component
+{
+    public $message;
+
+    public function render()
+    {
+        return view('livewire.ckeditor')
+            ->layout('layouts.ckeditor');;
+    }
+}
+The variable $message  is to store the message entered.
+In the function render(), we instruct Livewire to render a view file resources/views/livewire/ckeditor.blade.php using the layout file at resources/views/layouts/ckeditor.blade.php.
+
+This is the pretty standard way of using Livewire component.
+
+Next, we will move on to work on the CKEditor part of the system, which requires some custom tricks.
+
+Working on Livewire View
+Copy and paste the view file(resources/views/livewire/ckeditor.blade.php) content below and we will explain the key parts of the view file in the following step:
+
+<div>
+    <div class="max-w-3xl mx-auto mb-2">
+        <div class="bg-white rounded-lg">
+            <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                        Using CKEditor with Laravel Livewire
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto mb-2">
+        <div class="bg-white rounded-lg p-5">
+
+            <div class="flex flex-col space-y-10">
+                <div wire:ignore>
+                    <textarea wire:model="message"
+                              class="min-h-fit h-48 "
+                              name="message"
+                              id="message"></textarea>
+                </div>
+
+                <div>
+                    <span class="text-lg">You typed:</span>
+                    <div class="w-full min-h-fit h-48 border border-gray-200">{{ $message }}</div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+@push('scripts')
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#message'))
+            .then(editor => {
+                editor.model.document.on('change:data', () => {
+                @this.set('message', editor.getData());
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+
+
+@endpush
+
+The CKEditor manipulates the DOM as soon as they are initialized and continues to mutate the DOM as you interact with them. This makes it impossible for Livewire to keep track, in this case, we can make use of Livewire's wire:ignore tag. This tells Livewire to ignore this part of DOM. That is what the following part of the code has done:
+
+......
+<div wire:ignore>
+    <textarea wire:model="message"
+              class="min-h-fit h-48 "
+              name="message"
+              id="message"></textarea>
+</div>
+......
+Now Livewire has ignored the CKEditor part of the code, so it has no idea how to deal with $message variable in its component class.
+
+In fact, all we need Livewire to know is the text in the textarea. In a case like this, we can use the special $this blade directive to set the value fo $message:
+
+@push('scripts')
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#message'))
+            .then(editor => {
+                editor.model.document.on('change:data', () => {
+                @this.set('message', editor.getData());
+                })
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+
+
+@endpush
+That is what we have done in the code above. We listen to the CKEditor data changing event and set the value for Livewire's variable $message via the $this blade directive.
+
+Finalising the Demo
+The last piece of the demo is to render the Livewire component Ckeditor to the browser, this is done simply via the route file routes/web.php:
+
+Route::get('/ckeditor', Ckeditor::class);
+Now start a simple server via Laravel: php artisan serve and visit http://127.0.0.1:8000/ckeditor from your browser, and you should see a nice working CKEditor powered textarea.
+
+
+Twitter
+© 2022 Star Tutorial. All rights reserved.
+
+Free eBook: Modern PHP Developer
+Free eBook: Modern PHP Developer
+Download ebook Modern PHP Developer for free.
+Email Address
