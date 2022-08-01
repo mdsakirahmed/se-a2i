@@ -132,7 +132,7 @@
                                             </h6>
                                         </div>
                                     </a>
-                                    <a>
+                                    <a href="{{ route('backend.economy.overseas_employment_and_remittance') }}">
                                         <div class="nav-title-sub">
                                             <h6>
                                                 Overseas Employment and Remittance
