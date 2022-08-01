@@ -209,6 +209,7 @@ header h3 {
 }
 .main-nav .faq-list li .sub-collapse {
   position: absolute;
+  left: -90%;
   width: max-content;
   background: #ECEEF4;
   padding: 15px;
@@ -369,6 +370,28 @@ header h3 {
 .main-nav .faq-list a.collapsed .icon-close {
   display: none;
 }
+@media only screen and (max-width: 480px) {
+  .main-nav .faq-list ul {
+    display: block;
+  }
+  .main-nav .faq-list li {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  .main-nav .faq-list li .sub-collapse {
+    position: unset;
+    width: 100%;
+    background: #ECEEF4;
+    padding: 10px;
+  }
+  .main-nav .faq-list li .sub-collapse .sub-alignment {
+    display: block;
+  }
+  .main-nav .faq-list li .sub-collapse .sub-alignment a {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
 
 @media (max-width: 1200px) {
   .faq .faq-list {
@@ -428,13 +451,8 @@ header h3 {
   background-size: contain;
 }
 #loginPage .login-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(226, 226, 226, 0.95);
-  height: 100vh;
-  margin: 0 auto;
+  padding: 80px 0px;
 }
 #loginPage .login-wrapper .container .login-inner-wrapper {
   margin: 0 auto;
