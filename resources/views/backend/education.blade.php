@@ -3,7 +3,7 @@
         <div class="container">
             <header>
                 <h3>
-                    Education
+                    {{ __('Education') }}
                 </h3>
             </header>
             <div class="row">

@@ -3,6 +3,7 @@
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Backend\About;
 use App\Http\Livewire\Backend\Backup;
+use App\Http\Livewire\Backend\Economy\OverviewOfTheEconomy;
 use App\Http\Livewire\Backend\Education;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
     Route::get('about', About::class)->name('about');
     Route::get('education', Education::class)->name('education');
     Route::get('backup', Backup::class)->name('backup');
+
+    //economy
+    Route::group(['prefix' => 'economy', 'as' => 'economy.'], function () {
+        Route::get('overview-of-the-economy', OverviewOfTheEconomy::class)->name('overview_of_the_economy');
+    });
 });

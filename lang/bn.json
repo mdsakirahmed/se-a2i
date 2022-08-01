@@ -1,5 +1,7 @@
 {
-    "Dashboard": "সম্পর্কিত",
+    "About": "সম্পর্কিত",
+    "Education": "শিক্ষা",
+    "Economy": "অর্থনীতি",
     "Upload New File": "নতুন ফাইল আপলোড",
     "Uploaded Files": "আপলোড করা ফাইল সমূহ",
     "Logout": "লগ আউট",
@@ -9,7 +11,6 @@
     "Roles": "রোল",
     "Create new Role": "নতুন রোল তৈরি করুন",
     "Food Security": "খাদ্য নিরাপত্তা",
-    "Education": "শিক্ষা",
     "Employment": "অর্থনীতি",
     "Injustice & Crime": "অন্যায় ও অপরাধ",
     "Vulnerable population": "সামাজিক নিরাপত্তা",

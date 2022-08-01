@@ -3,7 +3,7 @@
         <div class="container">
             <header>
                 <h3>
-                    About Dashboard
+                    {{ __('About') }}
                 </h3>
             </header>
             <div class="card">

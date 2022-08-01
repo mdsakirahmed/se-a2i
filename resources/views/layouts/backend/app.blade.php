@@ -95,7 +95,7 @@
                                 <div class="nav-title">
                                     <h6>
                                         <i class="bx bx-info-circle"></i>
-                                        About
+                                        {{ __('About') }}
                                     </h6>
                                 </div>
                             </a>
@@ -105,7 +105,7 @@
                                 <div class="nav-title">
                                     <h6>
                                         <i class="bx bxs-graduation"></i>
-                                        Education
+                                        {{ __('Education') }}
                                     </h6>
                                 </div>
                             </a>
@@ -114,8 +114,8 @@
                             <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
                                 <div class="nav-title-collapse">
                                     <h6>
-                                        <i class="bx bxs-graduation"></i>
-                                        Sample
+                                        <i class="bx bx-stats"></i>
+                                        {{ __('Economy') }}
                                     </h6>
                                     <div class="arrow">
                                         <i class="bx bxs-down-arrow icon-show"></i>
@@ -125,7 +125,7 @@
                             </a>
                             <div id="faq-list-1" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                 <div class="sub-alignment">
-                                    <a>
+                                    <a href="{{ route('backend.economy.overview_of_the_economy') }}">
                                         <div class="nav-title-sub sub-active">
                                             <h6>
                                                 Overview of the Economy
