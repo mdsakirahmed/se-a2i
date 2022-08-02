@@ -8,7 +8,7 @@
             </header>
             <div class="row">
                 <div class="col-md-12">
-                    {{-- @livewire('widgets.chart16') --}}
+                    @livewire('widgets.chart16')
                 </div>
                 <div class="col-md-12">
                     @livewire('widgets.chart17')
