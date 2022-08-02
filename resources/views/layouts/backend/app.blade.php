@@ -139,7 +139,7 @@
                                             </h6>
                                         </div>
                                     </a>
-                                    <a>
+                                    <a href="{{ route('backend.economy.import_export') }}">
                                         <div class="nav-title-sub">
                                             <h6>
                                                 Import and Export

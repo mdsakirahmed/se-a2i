@@ -3,6 +3,7 @@
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Backend\About;
 use App\Http\Livewire\Backend\Backup;
+use App\Http\Livewire\Backend\Economy\ImportExport;
 use App\Http\Livewire\Backend\Economy\OverseasEmploymentAndRemittance;
 use App\Http\Livewire\Backend\Economy\OverviewOfTheEconomy;
 use App\Http\Livewire\Backend\Education;
@@ -38,5 +39,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
     Route::group(['prefix' => 'economy', 'as' => 'economy.'], function () {
         Route::get('overview-of-the-economy', OverviewOfTheEconomy::class)->name('overview_of_the_economy');
         Route::get('overseas-employment-and-remittance', OverseasEmploymentAndRemittance::class)->name('overseas_employment_and_remittance');
+        Route::get('import-export', ImportExport::class)->name('import_export');
     });
 });
