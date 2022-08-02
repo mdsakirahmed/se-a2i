@@ -250,7 +250,8 @@ class Chart16 extends Component
                     'stacking'=> 'normal'
                 ]
             ],
-            'series'=> $series
+            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            'series'=> $series,
         ];
     }
 
