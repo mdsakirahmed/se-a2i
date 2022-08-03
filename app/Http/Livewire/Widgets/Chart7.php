@@ -86,6 +86,10 @@ class Chart7 extends Component
                 'symbolWidth' => 80
             ],
 
+            'credits' => [
+                'enabled'=>false
+            ],
+
             'title' => [
                 'text' => ''
             ],

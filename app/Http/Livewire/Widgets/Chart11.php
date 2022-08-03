@@ -39,7 +39,7 @@ class Chart11 extends Component
         corona_socio_info.education_covid19_impact
     WHERE
         plan_for_future_crisis_situation IS NOT NULL
-    GROUP BY plan_for_future_crisis_situation ASC");
+    GROUP BY plan_for_future_crisis_situation");
 
         $data = collect($data)->map(function ($data) {
             return  ["category" => $data->plan_for_future_crisis_situation, "column-1" => number_format($data->percentage, 2)];
@@ -49,6 +49,11 @@ class Chart11 extends Component
             'chart' => [
                 'type' => 'bar'
             ],
+
+            'credits' => [
+                'enabled'=>false
+            ],
+            
             'title' => [
                 'text' => ''
             ],

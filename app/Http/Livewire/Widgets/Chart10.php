@@ -62,6 +62,11 @@ class Chart10 extends Component
             'chart' => [
                 'type' => 'column'
             ],
+
+            'credits' => [
+                'enabled'=>false
+            ],
+            
             'title' => [
                 'text' => ''
             ],

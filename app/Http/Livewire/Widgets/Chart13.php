@@ -77,6 +77,10 @@ class Chart13 extends Component
                 'zoomType' => 'xy'
             ],
 
+            'credits' => [
+                'enabled'=>false
+            ],
+
             'title' => [
                 'text' => ''
             ],
