@@ -3,8 +3,8 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Poppins", sans-serif;
-  color: #444444;
-}
+  background: #fdfdfd;
+} 
 
 a {
   color: #2487ce;
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar a i, .navbar a:focus i {
-  font-size: 12px;
+  font-size: 22px;
   line-height: 0;
   margin-left: 5px;
 }

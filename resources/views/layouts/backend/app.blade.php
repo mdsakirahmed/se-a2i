@@ -44,11 +44,58 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <style>
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        #container {
+            height: 400px;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+    </style>
     @livewireStyles
 </head>
 
 <body>
-
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
@@ -57,10 +104,17 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li class="mx-4">
+                    <!-- <li class="mx-4">
                         <div class="form-group has-search">
                             <span class="bx bx-search form-control-feedback"></span>
                             <input type="text" class="form-control" placeholder="Search" />
+                        </div>
+                    </li> -->
+                    <li class="mx-4">
+                        <div class="lang-icon">
+                            <div class="lang-text">@livewire('language-switcher')</div>
+                            <img src="{{ asset('assets/img/uk-flag.png') }}"/>
+                            <img src="{{ asset('assets/img/bd-flag.png') }}"/>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -68,14 +122,14 @@
                             <span>
                                 <p class="mb-0">Hi, <span class="fw-bold">{{ auth()->user()->name }}</span></p>
                             </span>
-                            <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" />
+                            <i class="bx bx-user"></i>
+                            <!-- <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" /> -->
                         </a>
                         <ul>
                             <li><a href="#">User Profile</a></li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Manage Profile</a></li>
-                            <li>@livewire('widgets.language-switcher')</li>
-                            <li>@livewire('widgets.logout')</li>
+                            <li>@livewire('logout')</li>
                         </ul>
                     </li>
                 </ul>
@@ -211,7 +265,7 @@
         @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
     
-    @livewire('widgets.edit-chart')
+    @livewire('edit-chart')
 
     <!-- ======= Footer ======= -->
     <footer id="footer">

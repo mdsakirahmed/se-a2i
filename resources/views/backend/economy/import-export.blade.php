@@ -1,3 +1,5 @@
+@extends('layouts.backend.app')
+@section('content')
 <section id="education">
     <div class="content-area">
         <div class="container">
@@ -8,25 +10,27 @@
             </header>
             <div class="row">
                 <div class="col-md-12">
-                    @livewire('widgets.chart22')
+                    @livewire('chart22')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart23')
+                    @livewire('chart23')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart24')
+                    @livewire('chart24')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart25')
+                    @livewire('chart25')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart26')
+                    @livewire('chart26')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart27')
+                    @livewire('chart27')
                 </div>
             </div>
         </div>
     </div>
     </div>
 </section>
+@endsection
+

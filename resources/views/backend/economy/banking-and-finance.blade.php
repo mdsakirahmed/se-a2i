@@ -10,22 +10,13 @@
             </header>
             <div class="row">
                 <div class="col-md-12">
-                    @livewire('chart16')
+                    @livewire('chart28')
                 </div>
                 <div class="col-md-12">
-                    @livewire('chart17')
+                    @livewire('chart29')
                 </div>
                 <div class="col-md-12">
-                    @livewire('chart18')
-                </div>
-                <div class="col-md-12">
-                    @livewire('chart19')
-                </div>
-                <div class="col-md-12">
-                    @livewire('chart20')
-                </div>
-                <div class="col-md-12">
-                    @livewire('chart21')
+                    @livewire('chart30')
                 </div>
             </div>
         </div>

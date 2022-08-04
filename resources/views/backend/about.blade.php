@@ -1,3 +1,5 @@
+@extends('layouts.backend.app')
+@section('content')
 <section id="about">
     <div class="content-area">
         <div class="container">
@@ -6,7 +8,7 @@
                     {{ __('About') }}
                 </h3>
             </header>
-            <div class="card">
+            <div class="card-lg">
                 <div class="block-group">
                     <div class="block-70">
                         <p class="mb-md-4">
@@ -55,3 +57,4 @@
         </div>
     </div>
 </section>
+@endsection

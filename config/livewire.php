@@ -1,16 +1,5 @@
 <?php
 
-try{
-    if (request()->is('backend/*')) {
-        $layout = 'layouts.backend.app';
-    }else {
-        $layout = 'layouts.auth.app';
-    }
-}catch(\Exception $e){
-    $layout = 'layouts.auth.app';
-}
-
-
 return [
 
     /*
@@ -38,7 +27,7 @@ return [
     |
     */
 
-    'view_path' => resource_path('views'),
+    'view_path' => resource_path('views/livewire'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +39,7 @@ return [
     |
     */
 
-    'layout' => $layout,
+    'layout' => 'layouts.app',
 
     /*
     |--------------------------------------------------------------------------

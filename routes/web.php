@@ -1,12 +1,7 @@
 <?php
 
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Backend\About;
-use App\Http\Livewire\Backend\Backup;
-use App\Http\Livewire\Backend\Economy\ImportExport;
-use App\Http\Livewire\Backend\Economy\OverseasEmploymentAndRemittance;
-use App\Http\Livewire\Backend\Economy\OverviewOfTheEconomy;
-use App\Http\Livewire\Backend\Education;
+use App\Http\Livewire\Backup;
+use App\Http\Livewire\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,14 +26,16 @@ Route::get('login', Login::class)->name('login')->middleware('guest');
 
 //Backend route
 Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.'], function () {
-    Route::get('about', About::class)->name('about');
-    Route::get('education', Education::class)->name('education');
-    Route::get('backup', Backup::class)->name('backup');
+    Route::view('about', 'backend.about')->name('about');
+    Route::view('education', 'backend.education')->name('education');
 
-    //economy
+    //Economy
     Route::group(['prefix' => 'economy', 'as' => 'economy.'], function () {
-        Route::get('overview-of-the-economy', OverviewOfTheEconomy::class)->name('overview_of_the_economy');
-        Route::get('overseas-employment-and-remittance', OverseasEmploymentAndRemittance::class)->name('overseas_employment_and_remittance');
-        Route::get('import-export', ImportExport::class)->name('import_export');
+        Route::view('overview-of-the-economy', 'backend.economy.overview-of-the-economy')->name('overview_of_the_economy');
+        Route::view('overseas-employment-and-remittance', 'backend.economy.overseas-employment-and-remittance')->name('overseas_employment_and_remittance');
+        Route::view('import-export', 'backend.economy.import-export')->name('import_export');
+        Route::view('banking-and-finance', 'backend.economy.banking-and-finance')->name('banking_and_finance');
     });
+
+    Route::get('backup', Backup::class)->name('backup');
 });
