@@ -54,6 +54,7 @@
 
     <main id="main">
         @yield('content')
+        @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

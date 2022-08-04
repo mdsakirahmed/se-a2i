@@ -92,6 +92,7 @@
             background: #f1f7ff;
         }
     </style>
+    @livewireStyles
 </head>
 
 <body>
@@ -252,7 +253,9 @@
 
             </div>
         </section>
+
         @yield('content')
+        @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
     
     @livewire('edit-chart')
