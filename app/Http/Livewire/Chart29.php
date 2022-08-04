@@ -59,7 +59,7 @@ class Chart29 extends Component
                 'categories' =>  collect($data)->pluck('date')
             ], 'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Volume of transactions (In thousand crore BDT)'
+                    'text' =>  'Number of transactions (In million)'
                 ], 'labels' =>  [
                     'format' =>  '{value}'
                 ]
