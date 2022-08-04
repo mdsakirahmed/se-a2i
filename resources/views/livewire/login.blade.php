@@ -1,5 +1,3 @@
-@extends('layouts.auth.app')
-@section('content')
 <div id="loginPage">
     <div class="login-wrapper">
         <div class="container">
@@ -57,4 +55,3 @@
         </div>
     </div>
 </div>
-@endsection

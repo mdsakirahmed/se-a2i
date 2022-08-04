@@ -91,14 +91,12 @@
         .highcharts-data-table tr:hover {
             background: #f1f7ff;
         }
-
     </style>
 
     @livewireStyles
 </head>
 
 <body>
-
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
