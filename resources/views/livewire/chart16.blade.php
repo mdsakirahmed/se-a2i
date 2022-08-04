@@ -2,6 +2,9 @@
    <div class="card">
     <div class="card-header">
         {{ $name }}
+        <div>
+                <button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>
+            </div>
     </div>
    <div class="card-body">
     <button type="butto" class="btn  @if($selected_division == 'All') btn-success @else btn-secondary @endif btn-sm m-2" wire:click="filterDivision('All')">All</button>
@@ -9,10 +12,7 @@
         <button type="butto" class="btn @if($selected_division == $division) btn-success @else btn-secondary @endif btn-sm m-2" wire:click="filterDivision('{{ $division }}')">{{ $division }}</button>
     @endforeach
     <figure class="highcharts-figure">
-        <div id="chart_id_{{ $chart->id }}"></div>
-        <p class="text-center">
-            <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
-        </p>
+        <div id="chart_id_{{ $chart->id }}"> </div>
     </figure>
    </div>
     <div class="card-footer">
