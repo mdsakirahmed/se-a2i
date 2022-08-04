@@ -12,7 +12,7 @@
                 <div class="col-md-6">
                     {{-- @livewire('chart22') --}}
                     Under develop
-                </div>>
+                </div>
             </div>
         </div>
     </div>
