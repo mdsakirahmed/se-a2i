@@ -54,6 +54,10 @@
                     </div>
                 </div>
             </div>
+            @livewire('chart19')
+            @livewire('chart1')
+            @livewire('chart13')
+            @livewire('chart18')
         </div>
     </div>
 </section>
