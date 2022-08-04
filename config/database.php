@@ -70,6 +70,7 @@ return [
             'database' => env('DB_DATABASE_CHART_DATA', 'corona_socio_info'),
             'username' => env('DB_USERNAME_CHART_DATA', 'socioinfo'),
             'password' => env('DB_PASSWORD_CHART_DATA', '$)c1Oinf0'),
+            'strict' => false,
         ],
 
         'pgsql' => [

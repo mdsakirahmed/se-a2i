@@ -8,22 +8,22 @@
             </header>
             <div class="row">
                 <div class="col-md-12">
-                    @livewire('widgets.chart16')
+                    @livewire('widgets.chart22')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart17')
+                    @livewire('widgets.chart23')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart18')
+                    @livewire('widgets.chart24')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart19')
+                    @livewire('widgets.chart25')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart20')
+                    @livewire('widgets.chart26')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart21')
+                    @livewire('widgets.chart27')
                 </div>
             </div>
         </div>
