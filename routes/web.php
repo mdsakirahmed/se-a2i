@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Backup;
 use App\Http\Livewire\Login;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
     Route::view('about', 'backend.about')->name('about');
     Route::view('education', 'backend.education')->name('education');
 
-    //economy
+    //Economy
     Route::group(['prefix' => 'economy', 'as' => 'economy.'], function () {
         Route::view('overview-of-the-economy', 'backend.economy.overview-of-the-economy')->name('overview_of_the_economy');
         Route::view('overseas-employment-and-remittance', 'backend.economy.overseas-employment-and-remittance')->name('overseas_employment_and_remittance');
@@ -36,5 +37,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
         Route::view('banking-and-finance', 'backend.economy.banking-and-finance')->name('banking_and_finance');
     });
 
-    Route::view('backup', 'backend.backup')->name('backup');
+    Route::get('backup', Backup::class)->name('backup');
 });

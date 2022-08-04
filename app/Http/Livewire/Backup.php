@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Backend;
+namespace App\Http\Livewire;
 
 use Exception;
 use Illuminate\Support\Facades\Artisan;
@@ -16,6 +16,6 @@ class Backup extends Component
 
         return view('backend.backup',[
             'backups' => $files,
-        ]);
+        ])->layout('layouts.backend.app');
     }
 }
