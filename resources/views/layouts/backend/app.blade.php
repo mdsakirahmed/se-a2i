@@ -112,7 +112,7 @@
                     </li> -->
                     <li class="mx-4">
                         <div class="lang-icon">
-                            <div class="lang-text">@livewire('widgets.language-switcher')</div>
+                            <div class="lang-text">@livewire('language-switcher')</div>
                             <img src="{{ asset('assets/img/uk-flag.png') }}"/>
                             <img src="{{ asset('assets/img/bd-flag.png') }}"/>
                         </div>
@@ -129,7 +129,7 @@
                             <li><a href="#">User Profile</a></li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Manage Profile</a></li>
-                            <li>@livewire('widgets.logout')</li>
+                            <li>@livewire('logout')</li>
                         </ul>
                     </li>
                 </ul>
