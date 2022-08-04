@@ -252,9 +252,7 @@
 
             </div>
         </section>
-
         @yield('content')
-        @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
     
     @livewire('edit-chart')
