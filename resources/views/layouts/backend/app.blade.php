@@ -212,22 +212,11 @@
                         </li>
 
                         <li data-aos="fade-up">
-                            <a>
-                                <div class="nav-title">
-                                    <h6>
-                                        <i class="bx bx-stats"></i>
-                                        Economy
-                                    </h6>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li data-aos="fade-up">
                             <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
                                 <div class="nav-title-collapse">
                                     <h6>
                                         <i class="bx bx-shield-alt-2"></i>
-                                        Social Protection
+                                        {{ __('Social Protection') }}
                                     </h6>
                                     <div class="arrow">
                                         <i class="bx bxs-down-arrow icon-show"></i>
@@ -237,24 +226,24 @@
                             </a>
                             <div id="faq-list-2" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                 <div class="sub-alignment">
-                                    <a>
+                                    <a href="{{ route('backend.social_protection.index') }}">
                                         <div class="nav-title-sub sub-active">
                                             <h6>
-                                                Overview of the Economy
+                                                {{ __('Social Protection') }}
                                             </h6>
                                         </div>
                                     </a>
-                                    <a>
-                                        <div class="nav-title-sub">
+                                    <a href="{{ route('backend.social_protection.food_security') }}">
+                                        <div class="nav-title-sub sub-active">
                                             <h6>
-                                                Overseas Employment and Remittance
+                                                {{ __('Food Security') }}
                                             </h6>
                                         </div>
                                     </a>
-                                    <a>
-                                        <div class="nav-title-sub">
+                                    <a href="{{ route('backend.social_protection.budget_and_coverage') }}">
+                                        <div class="nav-title-sub sub-active">
                                             <h6>
-                                                Import and Export
+                                                {{ __('Budget and Coverage') }}
                                             </h6>
                                         </div>
                                     </a>
