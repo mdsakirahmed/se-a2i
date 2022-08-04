@@ -19,7 +19,6 @@ p {
   .desktop {
     display: none;
   }
-
   .mobile {
     display: block;
   }
@@ -46,6 +45,16 @@ p {
 }
 .button-primary-full:hover {
   background: #430a58;
+}
+
+.btn-trans-icon {
+  background: transparent;
+  color: #430a58;
+  font-size: 14px;
+  font-weight: 600;
+}
+.btn-trans-icon i {
+  font-size: 16px;
 }
 
 .block-group {
@@ -137,14 +146,58 @@ header h3 {
 }
 
 .card {
+  padding: 25px 20px;
+  margin-bottom: 30px;
+  background: #ffffff;
+  border: 0;
+  border-radius: 15px;
+  box-shadow: 0px 10px 24px rgba(41, 72, 152, 0.09);
+}
+.card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+}
+.card .card-header-single {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  font-size: 16px;
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+}
+.card .card-footer {
+  font-size: 12px;
+  background-color: transparent;
+  border: 0;
+}
+@media only screen and (max-width: 480px) {
+  .card {
+    padding: 25px 20px !important;
+  }
+}
+
+.card-lg {
   padding: 40px 35px;
   background: #ffffff;
   border: 0;
   border-radius: 15px;
   box-shadow: 0px 10px 24px rgba(41, 72, 152, 0.09);
 }
+.card-lg .card-header {
+  font-size: 16px;
+  background: transparent;
+  border: 0;
+}
 @media only screen and (max-width: 480px) {
-  .card {
+  .card-lg {
     padding: 25px 20px !important;
   }
 }
@@ -160,6 +213,27 @@ header h3 {
   .card-primary {
     padding: 25px 20px !important;
   }
+}
+
+.lang-icon {
+  display: flex;
+  align-items: center;
+}
+.lang-icon .lang-text {
+  margin-right: 8px;
+  font-weight: 600;
+  padding-top: 1px;
+}
+.lang-icon img {
+  width: 25px;
+  height: 25px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+.lang-icon img:nth-child(3) {
+  margin-left: -12px;
 }
 
 /*inputs*/
@@ -210,6 +284,8 @@ header h3 {
 .main-nav .faq-list li .sub-collapse {
   position: absolute;
   left: -90%;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   background: #ECEEF4;
   padding: 15px;
@@ -402,20 +478,20 @@ header h3 {
   padding: 20px 0px;
 }
 
-#about .content-area .container .card .block-group {
+#about .content-area .container .card-lg .block-group {
   align-items: flex-start;
 }
-#about .content-area .container .card .block-group .block-70 {
+#about .content-area .container .card-lg .block-group .block-70 {
   width: calc(70% - 15px);
 }
-#about .content-area .container .card .block-group .block-70 p {
+#about .content-area .container .card-lg .block-group .block-70 p {
   font-weight: 500;
   line-height: 1.6;
 }
-#about .content-area .container .card .block-group .block-30 {
+#about .content-area .container .card-lg .block-group .block-30 {
   width: calc(30% - 15px);
 }
-#about .content-area .container .card .block-group .block-30 img {
+#about .content-area .container .card-lg .block-group .block-30 img {
   width: 70%;
 }
 #about .content-area .container .card-primary {
@@ -435,7 +511,7 @@ header h3 {
   width: 100%;
 }
 @media only screen and (max-width: 480px) {
-  #about .content-area .container .card .block-group .block-30 img {
+  #about .content-area .container .card-lg .block-group .block-30 img {
     width: 90%;
   }
   #about .content-area .container .card-primary p {
@@ -444,6 +520,28 @@ header h3 {
   #about .content-area .container #dataConcept .block-group .block-50 img {
     width: 100%;
   }
+}
+
+#education .content-area .container .card-lg {
+  margin-bottom: 30px;
+}
+#education .content-area .container .card-lg .block-group {
+  align-items: flex-start;
+}
+#education .content-area .container .card-lg .block-group .block-60 {
+  width: calc(60% - 15px);
+}
+#education .content-area .container .card-lg .block-group .block-60 p {
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+}
+#education .content-area .container .card-lg .block-group .block-40 {
+  width: calc(40% - 15px);
+  text-align: center;
+}
+#education .content-area .container .card-lg .block-group .block-40 img {
+  width: 71%;
 }
 
 #loginPage {
@@ -559,6 +657,4 @@ header h3 {
 :-moz-placeholder {
   /* Firefox 18- */
   color: #AC94BE !important;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

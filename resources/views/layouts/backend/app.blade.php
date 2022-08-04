@@ -57,10 +57,17 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li class="mx-4">
+                    <!-- <li class="mx-4">
                         <div class="form-group has-search">
                             <span class="bx bx-search form-control-feedback"></span>
                             <input type="text" class="form-control" placeholder="Search" />
+                        </div>
+                    </li> -->
+                    <li class="mx-4">
+                        <div class="lang-icon">
+                            <div class="lang-text">@livewire('widgets.language-switcher')</div>
+                            <img src="{{ asset('assets/img/uk-flag.png') }}"/>
+                            <img src="{{ asset('assets/img/bd-flag.png') }}"/>
                         </div>
                     </li>
                     <li class="dropdown">
@@ -68,13 +75,13 @@
                             <span>
                                 <p class="mb-0">Hi, <span class="fw-bold">{{ auth()->user()->name }}</span></p>
                             </span>
-                            <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" />
+                            <i class="bx bx-user"></i>
+                            <!-- <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" /> -->
                         </a>
                         <ul>
                             <li><a href="#">User Profile</a></li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Manage Profile</a></li>
-                            <li>@livewire('widgets.language-switcher')</li>
                             <li>@livewire('widgets.logout')</li>
                         </ul>
                     </li>

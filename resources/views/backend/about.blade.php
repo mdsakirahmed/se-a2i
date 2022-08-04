@@ -3,10 +3,10 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('About') }}
+                    {{ __('About Dashboard') }}
                 </h3>
             </header>
-            <div class="card">
+            <div class="card-lg">
                 <div class="block-group">
                     <div class="block-70">
                         <p class="mb-md-4">
