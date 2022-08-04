@@ -1,3 +1,5 @@
+@extends('layouts.backend.app')
+@section('content')
 <section id="education">
     <div class="content-area">
         <div class="container">
@@ -8,40 +10,41 @@
             </header>
             <div class="row">
                 <div class="col-md-6">
-                    @livewire('widgets.chart1')
+                    @livewire('chart1')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart2')
+                    @livewire('chart2')
                 </div>
                 <div class="col-md-12">
-                    @livewire('widgets.chart3')
+                    @livewire('chart3')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart4')
+                    @livewire('chart4')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart5')
+                    @livewire('chart5')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart6')
+                    @livewire('chart6')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart7')
+                    @livewire('chart7')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart8')
+                    @livewire('chart8')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart9')
+                    @livewire('chart9')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart10')
+                    @livewire('chart10')
                 </div>
                 <div class="col-md-6">
-                    @livewire('widgets.chart11')
+                    @livewire('chart11')
                 </div>
             </div>
         </div>
     </div>
     </div>
 </section>
+@endsection

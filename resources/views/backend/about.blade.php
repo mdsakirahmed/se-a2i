@@ -1,3 +1,5 @@
+@extends('layouts.backend.app')
+@section('content')
 <section id="about">
     <div class="content-area">
         <div class="container">
@@ -55,3 +57,4 @@
         </div>
     </div>
 </section>
+@endsection

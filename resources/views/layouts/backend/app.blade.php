@@ -124,8 +124,8 @@
                             <li><a href="#">User Profile</a></li>
                             <li><a href="#">Setting</a></li>
                             <li><a href="#">Manage Profile</a></li>
-                            <li>@livewire('widgets.language-switcher')</li>
-                            <li>@livewire('widgets.logout')</li>
+                            <li>@livewire('language-switcher')</li>
+                            <li>@livewire('logout')</li>
                         </ul>
                     </li>
                 </ul>
@@ -261,7 +261,7 @@
         @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
     
-    @livewire('widgets.edit-chart')
+    @livewire('edit-chart')
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
