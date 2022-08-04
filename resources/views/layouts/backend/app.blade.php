@@ -200,6 +200,13 @@
                                             </h6>
                                         </div>
                                     </a>
+                                    <a href="{{ route('backend.economy.banking_and_finance') }}">
+                                        <div class="nav-title-sub">
+                                            <h6>
+                                                Banking and Finance
+                                            </h6>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </li>
