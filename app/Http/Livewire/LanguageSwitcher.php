@@ -22,5 +22,6 @@ class LanguageSwitcher extends Component
             Session::put('locale', App::currentLocale());
         }
         toastr()->success(__('Language Changed'));
+        return redirect(request()->header('Referer'));
     }
 }

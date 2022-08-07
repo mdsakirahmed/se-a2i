@@ -27,8 +27,8 @@
         //First loaded data
         Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
 
-        //Data update by filter
-        window.addEventListener('division_filter_event', event => {
+        //chart update and re-render
+        window.addEventListener("chart_update_{{ $chart->id }}", event => {
             Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
         });
     });
