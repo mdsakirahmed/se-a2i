@@ -59,7 +59,6 @@ class Chart34 extends Component
     public function get_data()
     {
         if($this->selected_district){
-            $this->selected_district = mb_convert_case($this->selected_district, MB_CASE_TITLE, "UTF-8");
             $data = DB::connection('mysql2')->select("SELECT
             upazila_pro AS upazila_pro,
             early_marriage AS early_marriage,
@@ -100,6 +99,7 @@ class Chart34 extends Component
                 ORDER BY early_marriage, district ASC
                 LIMIT 1000");
                 $division_wise_change_in_early_marriage_data = collect($data)->groupBy('district');
+                $title = 'Percentage of District';
             }else{
                 $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
                 early_marriage AS early_marriage,
@@ -119,6 +119,7 @@ class Chart34 extends Component
                 ORDER BY early_marriage, division_pro ASC
                 LIMIT 1000");
                 $division_wise_change_in_early_marriage_data = collect($data)->groupBy('division_pro');
+                $title = 'Percentage of Upazial';
             }
         }
        
@@ -152,7 +153,7 @@ class Chart34 extends Component
             'yAxis' => [
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => $title
                 ]
             ],
             'tooltip' => [

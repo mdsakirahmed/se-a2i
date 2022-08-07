@@ -25,7 +25,7 @@
                    <select id="district_early_marriage" wire:model="selected_district" class="form-control select2 " wire:change="change_chart_filter_by_district">
                        <option value="">All</option>
                        @foreach($districts as $district)
-                       <option value="{!! $district->district !!}">{!! $district->district !!}</option>
+                       <option value="{!! $district->district ? `Cox'S Bazar` : `Cox\'s Bazar` !!}">{!! $district->district !!}</option>
                        @endforeach
                    </select>
                </div>
