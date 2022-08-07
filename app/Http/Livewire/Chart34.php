@@ -45,6 +45,11 @@ class Chart34 extends Component
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
     }
 
+    public function change_chart_filter()
+    {
+        $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
+    }
+
     public function get_data()
     {
         if($this->selected_division){
@@ -65,27 +70,28 @@ class Chart34 extends Component
                     early_marriage
             ORDER BY early_marriage, district ASC
             LIMIT 1000");
+            $division_wise_change_in_early_marriage_data = collect($data)->groupBy('district');
         }else{
             $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
-        early_marriage AS early_marriage,
-        max(event_percent) AS `event_percent`
-        FROM
-        (SELECT concat(upper(left(division, 1)), lower(right(division, length(division) - 1))) AS division_pro,
-                early_marriage,
-                count(early_marriage) as early_marriage_count,
-                count(early_marriage) * 100.0 /
-            (select count(*)
-            from education_covid19_impact) as event_percent
-            FROM education_covid19_impact
-            GROUP BY division,
-                    early_marriage) AS expr_qry
-        GROUP BY division_pro,
-                early_marriage
-        ORDER BY early_marriage, division_pro ASC
-        LIMIT 1000");
+            early_marriage AS early_marriage,
+            max(event_percent) AS `event_percent`
+            FROM
+            (SELECT concat(upper(left(division, 1)), lower(right(division, length(division) - 1))) AS division_pro,
+                    early_marriage,
+                    count(early_marriage) as early_marriage_count,
+                    count(early_marriage) * 100.0 /
+                (select count(*)
+                from education_covid19_impact) as event_percent
+                FROM education_covid19_impact
+                GROUP BY division,
+                        early_marriage) AS expr_qry
+            GROUP BY division_pro,
+                    early_marriage
+            ORDER BY early_marriage, division_pro ASC
+            LIMIT 1000");
+            $division_wise_change_in_early_marriage_data = collect($data)->groupBy('division_pro');
         }
 
-        $division_wise_change_in_early_marriage_data =  collect($data)->groupBy('division_pro');
         $division_wise_change_in_early_marriage = [];
         foreach ($division_wise_change_in_early_marriage_data as $key => $value) {
             foreach ($value as $k => $v) {
@@ -96,8 +102,6 @@ class Chart34 extends Component
         }
 
         $data = $division_wise_change_in_early_marriage;
-
-        // dd($data);
 
         return [
             'chart' => [

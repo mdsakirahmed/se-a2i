@@ -12,7 +12,7 @@
                <div class="form-group col-6">
                    <label for="division_early_marriage" class="col-form-label">Division</label>
                    <select id="division_early_marriage" wire:model="selected_division" class="form-control"
-                       required="required">
+                       required="required" wire:change="change_chart_filter">
                        <option value="">All</option>
                        @foreach($divisions as $division)
                        <option value="{!! $division->division !!}">{!! $division->division !!}</option>
@@ -22,7 +22,7 @@
                <!-- District Dropdown -->
                <div class="form-group col-6">
                    <label for="district_early_marriage" class="col-form-label">District</label>
-                   <select id="district_early_marriage" wire:model="selected_district" class="form-control select2 ">
+                   <select id="district_early_marriage" wire:model="selected_district" class="form-control select2 " wire:change="change_chart_filter">
                        <option value="">All</option>
                        @foreach($districts as $district)
                        <option value="{!! $district->district !!}">{!! $district->district !!}</option>
