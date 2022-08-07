@@ -1,3 +1,7 @@
+body {
+  color: #000000;
+}
+
 p {
   font-size: 14px;
 }
@@ -152,6 +156,7 @@ header h3 {
   border: 0;
   border-radius: 15px;
   box-shadow: 0px 10px 24px rgba(41, 72, 152, 0.09);
+  z-index: 0;
 }
 .card .card-header {
   display: flex;
@@ -256,13 +261,26 @@ header h3 {
 }
 
 /* theme custom */
-.main-nav {
-  margin-top: 110px;
+.navbar a, .navbar a:focus {
+  color: #000000;
 }
-.main-nav .faq-list {
+
+#main-nav {
+  position: fixed;
+  width: 100%;
+  background: #fdfdfd;
+  z-index: 1;
+}
+#main-nav .container .main-nav {
+  padding-top: 110px;
+}
+#main-nav .container .main-nav .container {
   padding: 0;
 }
-.main-nav .faq-list ul {
+#main-nav .container .main-nav .container .faq-list {
+  padding: 0;
+}
+#main-nav .container .main-nav .container .faq-list ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -270,37 +288,38 @@ header h3 {
   padding: 0;
   list-style: none;
 }
-.main-nav .faq-list li {
+#main-nav .container .main-nav .container .faq-list li {
   padding: 0;
   background: transparent;
   border-radius: 4px;
   position: relative;
   margin-right: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
-.main-nav .faq-list li + li {
+#main-nav .container .main-nav .container .faq-list li + li {
   margin-top: 0px;
 }
-.main-nav .faq-list li .sub-collapse {
+#main-nav .container .main-nav .container .faq-list li .sub-collapse {
   position: absolute;
   left: -90%;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   background: #ECEEF4;
-  padding: 15px;
   margin-top: 20px;
-  border-top: 3px solid #000000;
-  border-radius: 15px;
+  border-radius: 25px;
   box-shadow: 0px 5px 12px rgba(41, 72, 152, 0.22);
 }
-.main-nav .faq-list li .sub-collapse .sub-alignment {
+#main-nav .container .main-nav .container .faq-list li .sub-collapse .sub-alignment {
   display: flex;
+  border-top: 3px solid black;
+  border-radius: 25px;
 }
-.main-nav .faq-list li .sub-collapse .sub-alignment a {
+#main-nav .container .main-nav .container .faq-list li .sub-collapse .sub-alignment a {
+  margin: 10px;
   margin-right: 10px;
 }
-.main-nav .faq-list a {
+#main-nav .container .main-nav .container .faq-list a {
   display: block;
   position: relative;
   font-size: 14px;
@@ -310,7 +329,7 @@ header h3 {
   outline: none;
   cursor: pointer;
 }
-.main-nav .faq-list a .nav-title {
+#main-nav .container .main-nav .container .faq-list a .nav-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -321,13 +340,13 @@ header h3 {
   box-shadow: 0px 4px 10px rgba(41, 72, 152, 0.09);
   transition: 0.3s;
 }
-.main-nav .faq-list a .nav-title:hover {
+#main-nav .container .main-nav .container .faq-list a .nav-title:hover {
   background: #80CE0C;
 }
-.main-nav .faq-list a .nav-title:focus {
+#main-nav .container .main-nav .container .faq-list a .nav-title:focus {
   background: #80CE0C;
 }
-.main-nav .faq-list a .nav-title h6 {
+#main-nav .container .main-nav .container .faq-list a .nav-title h6 {
   font-size: 13px;
   font-weight: 700;
   color: black;
@@ -336,12 +355,12 @@ header h3 {
   margin-bottom: 0;
   margin-right: 15px;
 }
-.main-nav .faq-list a .nav-title h6 i {
+#main-nav .container .main-nav .container .faq-list a .nav-title h6 i {
   color: #662d91;
   font-size: 22px;
   margin-right: 10px;
 }
-.main-nav .faq-list a .nav-title-collapse {
+#main-nav .container .main-nav .container .faq-list a .nav-title-collapse {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -352,7 +371,7 @@ header h3 {
   box-shadow: 0px 4px 10px rgba(41, 72, 152, 0.09);
   transition: 0.3s;
 }
-.main-nav .faq-list a .nav-title-collapse h6 {
+#main-nav .container .main-nav .container .faq-list a .nav-title-collapse h6 {
   font-size: 13px;
   font-weight: 700;
   color: black;
@@ -361,19 +380,19 @@ header h3 {
   margin-bottom: 0;
   margin-right: 15px;
 }
-.main-nav .faq-list a .nav-title-collapse h6 i {
+#main-nav .container .main-nav .container .faq-list a .nav-title-collapse h6 i {
   color: #662d91;
   font-size: 22px;
   margin-right: 10px;
 }
-.main-nav .faq-list a .sub-active {
+#main-nav .container .main-nav .container .faq-list a .sub-active {
   background: #662D91 !important;
 }
-.main-nav .faq-list a .sub-active h6 {
+#main-nav .container .main-nav .container .faq-list a .sub-active h6 {
   font-weight: 600 !important;
   color: white !important;
 }
-.main-nav .faq-list a .nav-title-sub {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -384,25 +403,25 @@ header h3 {
   box-shadow: 0px 4px 12px rgba(41, 72, 152, 0.05);
   transition: 0.3s;
 }
-.main-nav .faq-list a .nav-title-sub:hover {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub:hover {
   background: #662D91;
 }
-.main-nav .faq-list a .nav-title-sub:hover h6 {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub:hover h6 {
   color: white;
 }
-.main-nav .faq-list a .nav-title-sub:active {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub:active {
   background: #662D91;
 }
-.main-nav .faq-list a .nav-title-sub:active h6 {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub:active h6 {
   color: white;
 }
-.main-nav .faq-list a .nav-title-sub .sub-active {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub .sub-active {
   background: #662D91;
 }
-.main-nav .faq-list a .nav-title-sub .sub-active h6 {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub .sub-active h6 {
   color: white;
 }
-.main-nav .faq-list a .nav-title-sub h6 {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub h6 {
   font-size: 12px;
   font-weight: 600;
   color: #000000;
@@ -410,79 +429,81 @@ header h3 {
   align-items: center;
   margin-bottom: 0;
 }
-.main-nav .faq-list a .nav-title-sub h6 i {
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub h6 i {
   color: #662d91;
   font-size: 22px;
   margin-right: 10px;
 }
-.main-nav .faq-list .icon-help {
+#main-nav .container .main-nav .container .faq-list .icon-help {
   font-size: 24px;
 }
-.main-nav .faq-list .icon-show {
+#main-nav .container .main-nav .container .faq-list .icon-show {
   font-size: 12px;
   display: flex;
   color: transparent;
 }
-.main-nav .faq-list .icon-close {
+#main-nav .container .main-nav .container .faq-list .icon-close {
   font-size: 14px;
   position: absolute;
   bottom: -10px;
   right: 14px;
   color: #000000;
 }
-.main-nav .faq-list a.collapsed {
+#main-nav .container .main-nav .container .faq-list a.collapsed {
   color: #343a40;
 }
-.main-nav .faq-list a.collapsed .nav-title-collapse {
+#main-nav .container .main-nav .container .faq-list a.collapsed .nav-title-collapse {
   background: white;
 }
-.main-nav .faq-list a.collapsed .nav-title-collapse:hover {
+#main-nav .container .main-nav .container .faq-list a.collapsed .nav-title-collapse:hover {
   background: #80CE0C;
 }
-.main-nav .faq-list a.collapsed .icon-show {
+#main-nav .container .main-nav .container .faq-list a.collapsed .icon-show {
   display: flex;
   color: #000000;
 }
-.main-nav .faq-list a.collapsed .icon-close {
+#main-nav .container .main-nav .container .faq-list a.collapsed .icon-close {
   display: none;
 }
+@media (max-width: 1200px) {
+  #main-nav .container .faq .faq-list {
+    padding: 0;
+  }
+}
 @media only screen and (max-width: 480px) {
-  .main-nav .faq-list ul {
+  #main-nav .container .main-nav .container .faq-list ul {
     display: block;
   }
-  .main-nav .faq-list li {
+  #main-nav .container .main-nav .container .faq-list li {
     margin-right: 0;
     margin-bottom: 12px;
   }
-  .main-nav .faq-list li .sub-collapse {
+  #main-nav .container .main-nav .container .faq-list li .sub-collapse {
     position: unset;
     width: 100%;
     background: #ECEEF4;
     padding: 10px;
   }
-  .main-nav .faq-list li .sub-collapse .sub-alignment {
+  #main-nav .container .main-nav .container .faq-list li .sub-collapse .sub-alignment {
     display: block;
   }
-  .main-nav .faq-list li .sub-collapse .sub-alignment a {
+  #main-nav .container .main-nav .container .faq-list li .sub-collapse .sub-alignment a {
     margin-right: 0;
     margin-bottom: 12px;
   }
 }
 
-@media (max-width: 1200px) {
-  .faq .faq-list {
-    padding: 0;
-  }
-}
 .content-area {
   padding: 20px 0px;
+  padding-top: 205px;
 }
 
 #about .content-area .container .card-lg .block-group {
   align-items: flex-start;
 }
 #about .content-area .container .card-lg .block-group .block-70 {
-  width: calc(70% - 15px);
+  width: calc(70% - 50px);
+  text-align: justify;
 }
 #about .content-area .container .card-lg .block-group .block-70 p {
   font-weight: 500;
@@ -492,7 +513,7 @@ header h3 {
   width: calc(30% - 15px);
 }
 #about .content-area .container .card-lg .block-group .block-30 img {
-  width: 70%;
+  width: 80%;
 }
 #about .content-area .container .card-primary {
   padding: 35px 40px;
@@ -542,6 +563,50 @@ header h3 {
 }
 #education .content-area .container .card-lg .block-group .block-40 img {
   width: 71%;
+}
+@media only screen and (max-width: 480px) {
+  #education .content-area .container .card-lg .block-group .block-40 img {
+    width: 90%;
+  }
+  #education .content-area .container .card-primary p {
+    font-size: 12px;
+  }
+  #education .content-area .container #dataConcept .block-group .block-50 img {
+    width: 100%;
+  }
+}
+
+#overviewOftheEconomy .content-area .container .card-lg {
+  margin-bottom: 30px;
+}
+#overviewOftheEconomy .content-area .container .card-lg .block-group {
+  align-items: flex-start;
+}
+#overviewOftheEconomy .content-area .container .card-lg .block-group .block-60 {
+  width: calc(60% - 15px);
+}
+#overviewOftheEconomy .content-area .container .card-lg .block-group .block-60 p {
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+}
+#overviewOftheEconomy .content-area .container .card-lg .block-group .block-40 {
+  width: calc(40% - 15px);
+  text-align: center;
+}
+#overviewOftheEconomy .content-area .container .card-lg .block-group .block-40 img {
+  width: 71%;
+}
+@media only screen and (max-width: 480px) {
+  #overviewOftheEconomy .content-area .container .card-lg .block-group .block-40 img {
+    width: 90%;
+  }
+  #overviewOftheEconomy .content-area .container .card-primary p {
+    font-size: 12px;
+  }
+  #overviewOftheEconomy .content-area .container #dataConcept .block-group .block-50 img {
+    width: 100%;
+  }
 }
 
 #loginPage {
