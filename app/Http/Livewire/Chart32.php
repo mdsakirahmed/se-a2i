@@ -39,12 +39,12 @@ class Chart32 extends Component
 
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT early_marriage AS early_marriage, count(*) AS count
+        $data = DB::connection('mysql2')->select("SELECT gender_based_violence AS gender_based_violence, count(*) AS count
         FROM
         (SELECT *
             from education_covid19_impact) AS expr_qry
-        GROUP BY early_marriage
-        ORDER BY early_marriage DESC
+        GROUP BY gender_based_violence
+        ORDER BY gender_based_violence DESC
         LIMIT 1000");
 
         return [
@@ -66,7 +66,7 @@ class Chart32 extends Component
                 [
                     'name' => '', // must use title or empty
                     'data' =>  collect($data)->map(function ($value) {
-                        return ['y' => round($value->count), 'name' => $value->early_marriage];
+                        return ['y' => round($value->count), 'name' => $value->gender_based_violence];
                     }),
                 ]
             ]
