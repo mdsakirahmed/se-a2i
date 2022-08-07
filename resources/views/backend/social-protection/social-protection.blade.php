@@ -18,6 +18,9 @@
                 <div class="col-md-6">
                     @livewire('chart33')
                 </div>
+                <div class="col-md-6">
+                    @livewire('chart34')
+                </div>
             </div>
         </div>
     </div>
