@@ -10,7 +10,7 @@
             </header>
             <div class="row">
                 <div class="col-md-6">
-                    {{-- @livewire('chart22') --}}
+                    @livewire('chart31')
                     Under develop
                 </div>
             </div>
