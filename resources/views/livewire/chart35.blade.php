@@ -7,29 +7,28 @@
            </div>
        </div>
        <div class="card-body">
-           <div class="row">
-               <!-- Division Dropdown -->
-               <div class="form-group col-6">
-                   <label for="" class="col-form-label">Division</label>
-                   <select id="" wire:model="selected_division" class="form-control form-select-sm"
-                       required="required" wire:change="change_chart_filter_by_division">
-                       <option value="">All</option>
-                       @foreach($divisions as $division)
-                       <option value="{!! $division->division !!}">{!! $division->division !!}</option>
-                       @endforeach
-                   </select>
-               </div>
-               <!-- District Dropdown -->
-               <div class="form-group col-6">
-                   <label for="" class="col-form-label">District</label>
-                   <select id="" wire:model="selected_district" class="form-control form-select-sm " wire:change="change_chart_filter_by_district">
-                       <option value="">All</option>
-                       @foreach($districts as $district)
-                       <option value="{!! $district->district ? `Cox'S Bazar` : `Cox\'s Bazar` !!}">{!! $district->district !!}</option>
-                       @endforeach
-                   </select>
-               </div>
-           </div>
+            <div class="row">
+                <!-- Division Dropdown -->
+                <div class="form-group col-6">
+                    <label for="" class="col-form-label">Division</label>
+                    <select id="" class="form-control form-select-sm" wire:model="selected_division" wire:change="change_chart_filter_by_division">
+                        <option value="">All</option>
+                        @foreach($divisions as $division)
+                        <option value="{!! $division->division !!}">{!! $division->division !!}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <!-- District Dropdown -->
+                <div class="form-group col-6">
+                    <label for="" class="col-form-label">District</label>
+                    <select id="" class="form-control form-select-sm" wire:model="selected_district" wire:change="change_chart_filter_by_district">
+                        <option value="">All</option>
+                        @foreach($districts as $district)
+                        <option value="{!! str_replace("'", "\'", "$district->district") !!}">{!! $district->district !!}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
            <figure class="highcharts-figure" wire:ignore>
                <div id="chart_id_{{ $chart->id }}"> </div>

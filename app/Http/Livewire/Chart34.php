@@ -79,6 +79,7 @@ class Chart34 extends Component
             ORDER BY early_marriage , upazila_pro ASC
             LIMIT 1000");
             $division_wise_change_in_early_marriage_data = collect($data)->groupBy('upazila_pro');
+            $title = 'Percentage of District';
         }else{
             if($this->selected_division){
                 $data = DB::connection('mysql2')->select("SELECT district AS district,

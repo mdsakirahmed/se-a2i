@@ -59,64 +59,67 @@ class Chart35 extends Component
     public function get_data()
     {
         if($this->selected_district){
-            $data = DB::connection('mysql2')->select("SELECT
+            $data = DB::connection('mysql2')->select('SELECT
             upazila_pro AS upazila_pro,
-            early_marriage AS early_marriage,
+            gender_based_violence AS gender_based_violence,
             MAX(event_percent) AS `event_percent`
             FROM
             (SELECT
                 CONCAT(UPPER(LEFT(upazila, 1)), LOWER(RIGHT(upazila, LENGTH(upazila) - 1))) AS upazila_pro,
-                    early_marriage,
-                    COUNT(early_marriage) AS early_marriage_count,
-                    COUNT(early_marriage) * 100.0 / (SELECT
+                    gender_based_violence,
+                    COUNT(gender_based_violence) AS gender_based_violence_count,
+                    COUNT(gender_based_violence) * 100.0 / (SELECT
                             COUNT(*)
                         FROM
                             education_covid19_impact) AS event_percent
             FROM
-                education_covid19_impact WHERE district='$this->selected_district'
-            GROUP BY upazila , early_marriage) AS expr_qry
-            GROUP BY upazila_pro , early_marriage
-            ORDER BY early_marriage , upazila_pro ASC
-            LIMIT 1000");
+                education_covid19_impact WHERE district = "'.$this->selected_district.'"
+            GROUP BY upazila , gender_based_violence) AS expr_qry
+            GROUP BY upazila_pro , gender_based_violence
+            ORDER BY gender_based_violence , upazila_pro ASC
+            LIMIT 1000');
             $division_wise_change_in_early_marriage_data = collect($data)->groupBy('upazila_pro');
+            $title = 'Percentage of District';
         }else{
             if($this->selected_division){
-                $data = DB::connection('mysql2')->select("SELECT district AS district,
-                early_marriage AS early_marriage,
-                max(event_percent) AS `event_percent`
+                $data = DB::connection('mysql2')->select("SELECT
+                district_pro AS district_pro,
+                gender_based_violence AS gender_based_violence,
+                MAX(event_percent) AS `event_percent`
                 FROM
-                (SELECT concat(upper(left(district, 1)), lower(right(district, length(district) - 1))) AS district,
-                        early_marriage,
-                        count(early_marriage) as early_marriage_count,
-                        count(early_marriage) * 100.0 /
-                    (select count(*)
-                    from education_covid19_impact) as event_percent
-                    FROM education_covid19_impact WHERE division='$this->selected_division'
-                    GROUP BY district,
-                            early_marriage) AS expr_qry
-                GROUP BY district,
-                        early_marriage
-                ORDER BY early_marriage, district ASC
+                (SELECT
+                    CONCAT(UPPER(LEFT(district, 1)), LOWER(RIGHT(district, LENGTH(district) - 1))) AS district_pro,
+                        gender_based_violence,
+                        COUNT(gender_based_violence) AS gender_based_violence_count,
+                        COUNT(gender_based_violence) * 100.0 / (SELECT
+                                COUNT(*)
+                            FROM
+                                education_covid19_impact) AS event_percent
+                FROM
+                    education_covid19_impact  WHERE division ='$this->selected_division'
+                    GROUP BY district , gender_based_violence) AS expr_qry
+                GROUP BY district_pro , gender_based_violence
+                ORDER BY gender_based_violence , district_pro ASC
                 LIMIT 1000");
-                $division_wise_change_in_early_marriage_data = collect($data)->groupBy('district');
+                $division_wise_change_in_early_marriage_data = collect($data)->groupBy('district_pro');
                 $title = 'Percentage of District';
             }else{
                 $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
-                early_marriage AS early_marriage,
+                gender_based_violence AS gender_based_violence,
                 max(event_percent) AS `event_percent`
                 FROM
                 (SELECT concat(upper(left(division, 1)), lower(right(division, length(division) - 1))) AS division_pro,
-                        early_marriage,
-                        count(early_marriage) as early_marriage_count,
-                        count(early_marriage) * 100.0 /
+                        gender_based_violence,
+                        count(gender_based_violence) as gender_based_violence_count,
+                        count(gender_based_violence) * 100.0 /
                     (select count(*)
                     from education_covid19_impact) as event_percent
                     FROM education_covid19_impact
                     GROUP BY division,
-                            early_marriage) AS expr_qry
+                            gender_based_violence) AS expr_qry
                 GROUP BY division_pro,
-                        early_marriage
-                ORDER BY early_marriage, division_pro ASC
+                        gender_based_violence
+                        ORDER BY gender_based_violence, division_pro ASC
                 LIMIT 1000");
                 $division_wise_change_in_early_marriage_data = collect($data)->groupBy('division_pro');
                 $title = 'Percentage of Upazial';
