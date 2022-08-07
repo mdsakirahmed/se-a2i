@@ -9,10 +9,10 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart31 extends Component
+class Chart32 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 31;
+    public $name, $description, $chart_id = 32;
     public $chart_type = 'pie';
 
     public function render()
@@ -26,7 +26,7 @@ class Chart31 extends Component
             $this->description = $this->chart->en_description;
         }
 
-        return view('livewire.chart31', [
+        return view('livewire.chart32', [
             'chart_data_set' => $this->get_data()
         ]);
     }

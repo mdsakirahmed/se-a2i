@@ -11,7 +11,9 @@
             <div class="row">
                 <div class="col-md-6">
                     @livewire('chart31')
-                    Under develop
+                </div>
+                <div class="col-md-6">
+                    @livewire('chart32')
                 </div>
             </div>
         </div>
