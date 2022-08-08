@@ -78,7 +78,7 @@ class Chart35 extends Component
             GROUP BY upazila_pro , gender_based_violence
             ORDER BY gender_based_violence , upazila_pro ASC
             LIMIT 1000');
-            $division_wise_change_in_early_marriage_data = collect($data)->groupBy('upazila_pro');
+            $data = collect($data)->groupBy('upazila_pro');
             $title = 'Percentage of District';
         }else{
             if($this->selected_division){
@@ -101,7 +101,7 @@ class Chart35 extends Component
                 GROUP BY district_pro , gender_based_violence
                 ORDER BY gender_based_violence , district_pro ASC
                 LIMIT 1000");
-                $division_wise_change_in_early_marriage_data = collect($data)->groupBy('district_pro');
+                $data = collect($data)->groupBy('district_pro');
                 $title = 'Percentage of District';
             }else{
                 $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
@@ -121,21 +121,20 @@ class Chart35 extends Component
                         gender_based_violence
                         ORDER BY gender_based_violence, division_pro ASC
                 LIMIT 1000");
-                $division_wise_change_in_early_marriage_data = collect($data)->groupBy('division_pro');
+                $data = collect($data)->groupBy('division_pro');
                 $title = 'Percentage of Upazial';
             }
         }
-       
-        $division_wise_change_in_early_marriage = [];
-        foreach ($division_wise_change_in_early_marriage_data as $key => $value) {
-            foreach ($value as $k => $v) {
-                $data_format['category'] =  $key;
-                $data_format['column-' . ($k + 1)] = (float) number_format($v->event_percent, 2);
-            }
-            $division_wise_change_in_early_marriage[] = $data_format;
-        }
 
-        $data = $division_wise_change_in_early_marriage;
+        $formated_data = array();
+        foreach($data as $key => $value){
+            array_push($formated_data, [
+                'location'  => $key,
+                'increased' => round($value->where('gender_based_violence', 'Increased')->sum('event_percent'), 2),
+                'decreased' => round($value->where('gender_based_violence', 'Decreased')->sum('event_percent'), 2),
+                'same'      => round($value->where('gender_based_violence', 'Same')->sum('event_percent'), 2),
+            ]); 
+        }
 
         return [
             'chart' => [
@@ -146,11 +145,11 @@ class Chart35 extends Component
             ],
             'subtitle' => [
                 'text' => ''
-            ],'credits' =>  [
+            ], 'credits' =>  [
                 'enabled' =>  false
             ],
             'xAxis' => [
-                'categories' =>  collect($data)->pluck('category'),
+                'categories' =>  collect($formated_data)->pluck('location'),
                 'crosshair' => true
             ],
             'yAxis' => [
@@ -176,21 +175,15 @@ class Chart35 extends Component
             'series' => [[
                 'name' => 'Decreased',
                 'color' => "#7F3F98",
-                'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
-                    return round($value, 2);
-                }),
+                'data' =>  collect($formated_data)->pluck('decreased'),
             ], [
                 'name' => 'Increased',
                 'color' => "#83C341",
-                'data' =>  collect($data)->pluck('column-2')->map(function ($value) {
-                    return round($value, 2);
-                }),
+                'data' => collect($formated_data)->pluck('increased'),
             ], [
                 'name' => 'Same',
                 'color' => "#833341",
-                'data' =>  collect($data)->pluck('column-3')->map(function ($value) {
-                    return round($value, 2);
-                }),
+                'data' =>  collect($formated_data)->pluck('same'),
             ]],
         ];
     }

@@ -9,10 +9,10 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart34 extends Component
+class Chart36 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 34;
+    public $name, $description, $chart_id = 36;
     public $chart_type = 'column';
     public $divisions, $selected_division, $districts, $selected_district;
 
@@ -28,13 +28,13 @@ class Chart34 extends Component
         }
 
         $this->divisions = DB::connection('mysql2')->select("SELECT distinct division FROM education_covid19_impact");
-        if($this->selected_division){
+        if ($this->selected_division) {
             $this->districts = DB::connection('mysql2')->select("SELECT distinct district FROM education_covid19_impact WHERE division = '$this->selected_division'");
-        }else{
+        } else {
             $this->districts = DB::connection('mysql2')->select("SELECT distinct district FROM education_covid19_impact");
         }
 
-        return view('livewire.chart34', [
+        return view('livewire.chart36', [
             'chart_data_set' => $this->get_data(),
         ]);
     }
@@ -58,79 +58,81 @@ class Chart34 extends Component
 
     public function get_data()
     {
-        if($this->selected_district){
-            $data = DB::connection('mysql2')->select("SELECT
+        if ($this->selected_district) {
+            $data = DB::connection('mysql2')->select('SELECT
             upazila_pro AS upazila_pro,
-            early_marriage AS early_marriage,
+            child_labor AS child_labor,
             MAX(event_percent) AS `event_percent`
             FROM
             (SELECT
                 CONCAT(UPPER(LEFT(upazila, 1)), LOWER(RIGHT(upazila, LENGTH(upazila) - 1))) AS upazila_pro,
-                    early_marriage,
-                    COUNT(early_marriage) AS early_marriage_count,
-                    COUNT(early_marriage) * 100.0 / (SELECT
+                    child_labor,
+                    COUNT(child_labor) AS child_labor_count,
+                    COUNT(child_labor) * 100.0 / (SELECT
                             COUNT(*)
                         FROM
                             education_covid19_impact) AS event_percent
             FROM
-                education_covid19_impact WHERE district='$this->selected_district'
-            GROUP BY upazila , early_marriage) AS expr_qry
-            GROUP BY upazila_pro , early_marriage
-            ORDER BY early_marriage , upazila_pro ASC
-            LIMIT 1000");
+                education_covid19_impact WHERE district = "' . $this->selected_district . '"
+            GROUP BY upazila , child_labor) AS expr_qry
+            GROUP BY upazila_pro , child_labor
+            ORDER BY child_labor , upazila_pro ASC
+            LIMIT 1000');
             $data = collect($data)->groupBy('upazila_pro');
             $title = 'Percentage of District';
-        }else{
-            if($this->selected_division){
-                $data = DB::connection('mysql2')->select("SELECT district AS district,
-                early_marriage AS early_marriage,
-                max(event_percent) AS `event_percent`
+        } else {
+            if ($this->selected_division) {
+                $data = DB::connection('mysql2')->select("SELECT
+                district_pro AS district_pro,
+                child_labor AS child_labor,
+                MAX(event_percent) AS `event_percent`
+            FROM
+                (SELECT
+                    CONCAT(UPPER(LEFT(district, 1)), LOWER(RIGHT(district, LENGTH(district) - 1))) AS district_pro,
+                        child_labor,
+                        COUNT(child_labor) AS child_labor_count,
+                        COUNT(child_labor) * 100.0 / (SELECT
+                                COUNT(*)
+                            FROM
+                                education_covid19_impact) AS event_percent
                 FROM
-                (SELECT concat(upper(left(district, 1)), lower(right(district, length(district) - 1))) AS district,
-                        early_marriage,
-                        count(early_marriage) as early_marriage_count,
-                        count(early_marriage) * 100.0 /
-                    (select count(*)
-                    from education_covid19_impact) as event_percent
-                    FROM education_covid19_impact WHERE division='$this->selected_division'
-                    GROUP BY district,
-                            early_marriage) AS expr_qry
-                GROUP BY district,
-                        early_marriage
-                ORDER BY early_marriage, district ASC
+                    education_covid19_impact WHERE division = '$this->selected_division'
+                GROUP BY district , child_labor) AS expr_qry
+                GROUP BY district_pro , child_labor
+                ORDER BY child_labor , district_pro ASC
                 LIMIT 1000");
-                $data = collect($data)->groupBy('district');
+                $data = collect($data)->groupBy('district_pro');
                 $title = 'Percentage of District';
-            }else{
+            } else {
                 $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
-                early_marriage AS early_marriage,
+                child_labor AS child_labor,
                 max(event_percent) AS `event_percent`
                 FROM
                 (SELECT concat(upper(left(division, 1)), lower(right(division, length(division) - 1))) AS division_pro,
-                        early_marriage,
-                        count(early_marriage) as early_marriage_count,
-                        count(early_marriage) * 100.0 /
+                        child_labor,
+                        count(child_labor) as child_labor_count,
+                        count(child_labor) * 100.0 /
                     (select count(*)
                     from education_covid19_impact) as event_percent
                     FROM education_covid19_impact
                     GROUP BY division,
-                            early_marriage) AS expr_qry
+                            child_labor) AS expr_qry
                 GROUP BY division_pro,
-                        early_marriage
-                ORDER BY early_marriage, division_pro ASC
+                        child_labor
+                        ORDER BY child_labor, division_pro ASC
                 LIMIT 1000");
                 $data = collect($data)->groupBy('division_pro');
                 $title = 'Percentage of Upazial';
             }
         }
-       
+
         $formated_data = array();
         foreach($data as $key => $value){
             array_push($formated_data, [
                 'location'  => $key,
-                'increased' => round($value->where('early_marriage', 'Increased')->sum('event_percent'), 2),
-                'decreased' => round($value->where('early_marriage', 'Decreased')->sum('event_percent'), 2),
-                'same'      => round($value->where('early_marriage', 'Same')->sum('event_percent'), 2),
+                'increased' => round($value->where('child_labor', 'Increased')->sum('event_percent'), 2),
+                'decreased' => round($value->where('child_labor', 'Decreased')->sum('event_percent'), 2),
+                'same'      => round($value->where('child_labor', 'Same')->sum('event_percent'), 2),
             ]); 
         }
 
