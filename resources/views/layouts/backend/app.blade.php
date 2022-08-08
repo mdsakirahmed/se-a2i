@@ -140,40 +140,68 @@
     </header><!-- End Header -->
 
     <main id="main">
-        <section id="main-nav" class="main-nav">
-            <div class="container" data-aos="fade-up">
-                <div class="faq-list">
-                    <ul>
-                        <li data-aos="fade-up">
-                            <a href="{{ route('backend.about') }}">
-                                <div class="nav-title">
-                                    <h6>
-                                        <i class="bx bx-info-circle"></i>
-                                        {{ __('About') }}
-                                    </h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li data-aos="fade-up">
-                            <a href="{{ route('backend.education') }}">
-                                <div class="nav-title">
-                                    <h6>
-                                        <i class="bx bxs-graduation"></i>
-                                        {{ __('Education') }}
-                                    </h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li data-aos="fade-up">
-                            <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
-                                <div class="nav-title-collapse">
-                                    <h6>
-                                        <i class="bx bx-stats"></i>
-                                        {{ __('Economy') }}
-                                    </h6>
-                                    <div class="arrow">
-                                        <i class="bx bxs-down-arrow icon-show"></i>
-                                        <i class="bx bxs-down-arrow icon-close" data-aos="fade-up"></i>
+        <section id="main-nav">
+        <div class="container">
+            <div class="main-nav">
+                <div class="container" data-aos="fade-up">
+                    <div class="faq-list">
+                        <ul>
+                            <li data-aos="fade-up">
+                                <a href="{{ route('backend.about') }}">
+                                    <div class="nav-title">
+                                        <h6>
+                                            <i class="bx bx-info-circle"></i>
+                                            {{ __('About') }}
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li data-aos="fade-up">
+                                <a href="{{ route('backend.education') }}">
+                                    <div class="nav-title">
+                                        <h6>
+                                            <i class="bx bxs-graduation"></i>
+                                            {{ __('Education') }}
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li data-aos="fade-up">
+                                <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
+                                    <div class="nav-title-collapse">
+                                        <h6>
+                                            <i class="bx bx-stats"></i>
+                                            {{ __('Economy') }}
+                                        </h6>
+                                        <div class="arrow">
+                                            <i class="bx bxs-down-arrow icon-show"></i>
+                                            <i class="bx bxs-down-arrow icon-close" data-aos="fade-up"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div id="faq-list-1" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                    <div class="sub-alignment">
+                                        <a href="{{ route('backend.economy.overview_of_the_economy') }}">
+                                            <div class="nav-title-sub sub-active">
+                                                <h6>
+                                                    Overview of the Economy
+                                                </h6>
+                                            </div>
+                                        </a>
+                                        <a href="{{ route('backend.economy.overseas_employment_and_remittance') }}">
+                                            <div class="nav-title-sub">
+                                                <h6>
+                                                    Overseas Employment and Remittance
+                                                </h6>
+                                            </div>
+                                        </a>
+                                        <a href="{{ route('backend.economy.import_export') }}">
+                                            <div class="nav-title-sub">
+                                                <h6>
+                                                    Import and Export
+                                                </h6>
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </a>
@@ -200,19 +228,15 @@
                                             </h6>
                                         </div>
                                     </a>
+                                    <a href="{{ route('backend.economy.banking_and_finance') }}">
+                                        <div class="nav-title-sub">
+                                            <h6>
+                                                Banking and Finance
+                                            </h6>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
-                        </li>
-
-                        <li data-aos="fade-up">
-                            <a>
-                                <div class="nav-title">
-                                    <h6>
-                                        <i class="bx bx-stats"></i>
-                                        Economy
-                                    </h6>
-                                </div>
-                            </a>
                         </li>
 
                         <li data-aos="fade-up">
@@ -220,7 +244,7 @@
                                 <div class="nav-title-collapse">
                                     <h6>
                                         <i class="bx bx-shield-alt-2"></i>
-                                        Social Protection
+                                        {{ __('Social Protection') }}
                                     </h6>
                                     <div class="arrow">
                                         <i class="bx bxs-down-arrow icon-show"></i>
@@ -230,24 +254,24 @@
                             </a>
                             <div id="faq-list-2" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                 <div class="sub-alignment">
-                                    <a>
+                                    <a href="{{ route('backend.social_protection.index') }}">
                                         <div class="nav-title-sub sub-active">
                                             <h6>
-                                                Overview of the Economy
+                                                {{ __('Social Protection') }}
                                             </h6>
                                         </div>
                                     </a>
-                                    <a>
-                                        <div class="nav-title-sub">
+                                    <a href="{{ route('backend.social_protection.food_security') }}">
+                                        <div class="nav-title-sub sub-active">
                                             <h6>
-                                                Overseas Employment and Remittance
+                                                {{ __('Food Security') }}
                                             </h6>
                                         </div>
                                     </a>
-                                    <a>
-                                        <div class="nav-title-sub">
+                                    <a href="{{ route('backend.social_protection.budget_and_coverage') }}">
+                                        <div class="nav-title-sub sub-active">
                                             <h6>
-                                                Import and Export
+                                                {{ __('Budget and Coverage') }}
                                             </h6>
                                         </div>
                                     </a>
@@ -257,8 +281,9 @@
 
                     </ul>
                 </div>
-
             </div>
+        </div>
+            
         </section>
 
         @yield('content')

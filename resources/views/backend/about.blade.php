@@ -11,16 +11,16 @@
             <div class="card-lg">
                 <div class="block-group">
                     <div class="block-70">
+                    <h5 class="c-primary fw-bold">The National Socioeconomic Dashboard</h4>
                         <p class="mb-md-4">
-                            <span class="c-primary fw-bold">The National Socioeconomic Dashboard</span>
                             is a policy-making critical tool that serves as a nexus between
                             policymakers and practitioners. It leverages government datasets to work as decision-making action items
                             that can be time-sensitive as well as demand driven through modular and intuitive visualizations.
                             The project is born of a goal to make official data on Bangladesh more accessible and easy-to-digest—to
                             make their insights seamlessly integrate into important policy conversations.
                         </p>
+                        <h5 class="c-secondary fw-bold">Bangladesh</h5>
                         <p>
-                            <span class="c-secondary fw-bold">Bangladesh</span>
                             is advancing in Sustainable Development Goals (SDGs). The aim of the Socioeconomic Dashboard is
                             to accelerate the growth of SDGs by assisting in policy implicating decision making. The dashboard will
                             serve the stakeholders in all sectors identified by experts that have a demand-driven approach to it.
@@ -54,6 +54,10 @@
                     </div>
                 </div>
             </div>
+            @livewire('chart37')
+            @livewire('chart1')
+            @livewire('chart13')
+            @livewire('chart18')
         </div>
     </div>
 </section>

@@ -41,6 +41,10 @@
   }
 }
 
+body {
+  color: #000000;
+}
+
 p {
   font-size: 14px;
   @include xs {
@@ -182,6 +186,7 @@ header {
   border: 0;
   border-radius: 15px;
   box-shadow: 0px 10px 24px rgb(41 72 152 / 9%);
+  z-index: 0;
   .card-header {
     display: flex;
     justify-content: space-between;
@@ -279,286 +284,308 @@ header {
 
 /* theme custom */
 
-.main-nav {
-  margin-top: 110px;
+.navbar a, .navbar a:focus {
+  color: #000000;
+}
 
-  .faq-list {
-    padding: 0;
-
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: 0;
-      list-style: none;
-    }
-
-    li {
-      + {
-        li {
-          margin-top: 0px;
-        }
-      }
-
-      padding: 0;
-      background: transparent;
-      border-radius: 4px;
-      position: relative;
-      margin-right: 20px;
-      margin-bottom: 15px;
-
-      .sub-collapse {
-        position: absolute;
-        left: -90%;
-        width: max-content;
-        background: #ECEEF4;
-        padding: 15px;
-        margin-top: 20px;
-        border-top: 3px solid #000000;
-        border-radius: 15px;
-        box-shadow: 0px 5px 12px rgb(41 72 152 / 22%);
-
-        .sub-alignment {
-          display: flex;
-
+#main-nav {
+  position: fixed;
+  width: 100%;
+  background: #fdfdfd;
+  z-index: 1;
+  .container {
+    .main-nav {
+      padding-top: 110px;
+      .container {
+        padding: 0;
+        .faq-list {
+          padding: 0;
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0;
+            list-style: none;
+          }
+          li {
+            + {
+              li {
+                margin-top: 0px;
+              }
+            }
+      
+            padding: 0;
+            background: transparent;
+            border-radius: 4px;
+            position: relative;
+            margin-right: 20px;
+            margin-bottom: 18px;
+      
+            .sub-collapse {
+              position: absolute;
+              left: -90%;
+              width: max-content;
+              background: #ECEEF4;
+              margin-top: 20px;
+              border-radius: 25px;
+              box-shadow: 0px 5px 12px rgb(41 72 152 / 22%);
+      
+              .sub-alignment {
+                display: flex;
+                border-top: 3px solid black;
+                border-radius: 25px;
+                a {
+                  margin: 10px;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+      
           a {
-            margin-right: 10px;
-          }
-        }
-      }
-    }
-
-    a {
-      display: block;
-      position: relative;
-      font-size: 14px;
-      line-height: 24px;
-      font-weight: 500;
-      padding: 0;
-      outline: none;
-      cursor: pointer;
-
-      .nav-title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: white;
-        border: 1px solid gainsboro;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0px 4px 10px rgb(41 72 152 / 9%);
-        transition: 0.3s;
-
-        &:hover {
-          background: #80CE0C;
-        }
-
-        &:focus {
-          background: #80CE0C;
-        }
-
-        h6 {
-          font-size: 13px;
-          font-weight: 700;
-          color: black;
-          display: flex;
-          align-items: center;
-          margin-bottom: 0;
-          margin-right: 15px;
-
-          i {
-            color: #662d91;
-            font-size: 22px;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      .nav-title-collapse {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #80CE0C;
-        border: 1px solid gainsboro;
-        border-radius: 10px;
-        padding: 10px;
-        box-shadow: 0px 4px 10px rgb(41 72 152 / 9%);
-        transition: 0.3s;
-
-        h6 {
-          font-size: 13px;
-          font-weight: 700;
-          color: black;
-          display: flex;
-          align-items: center;
-          margin-bottom: 0;
-          margin-right: 15px;
-
-          i {
-            color: #662d91;
-            font-size: 22px;
-            margin-right: 10px;
-          }
-        }
-      }
-
-      .sub-active {
-        background: #662D91 !important;
-
-        h6 {
-          font-weight: 600 !important;
-          color: white !important;
-        }
-      }
-
-      .nav-title-sub {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #ffffff;
-        border: 1px solid gainsboro;
-        border-radius: 18px;
-        padding: 8px 15px;
-        box-shadow: 0px 4px 12px rgb(41 72 152 / 5%);
-        transition: 0.3s;
-
-        &:hover {
-          background: #662D91;
-
-          h6 {
-            color: white;
-          }
-        }
-
-        &:active {
-          background: #662D91;
-
-          h6 {
-            color: white;
-          }
-        }
-
-        .sub-active {
-          background: #662D91;
-
-          h6 {
-            color: white;
-          }
-        }
-
-        h6 {
-          font-size: 12px;
-          font-weight: 600;
-          color: #000000;
-          display: flex;
-          align-items: center;
-          margin-bottom: 0;
-
-          i {
-            color: #662d91;
-            font-size: 22px;
-            margin-right: 10px;
-          }
-        }
-      }
-    }
-
-    .icon-help {
-      font-size: 24px;
-    }
-
-    .icon-show {
-      font-size: 12px;
-      display: flex;
-      color: transparent;
-    }
-
-    .icon-close {
-      font-size: 14px;
-      position: absolute;
-      bottom: -10px;
-      right: 14px;
-      color: #000000;
-    }
-
-    a.collapsed {
-      color: #343a40;
-
-      .nav-title-collapse {
-        background: white;
-
-        &:hover {
-          background: #80CE0C;
-        }
-      }
-
-      .icon-show {
-        display: flex;
-        color: #000000;
-      }
-
-      .icon-close {
-        display: none;
-      }
-    }
-  }
-
-  @include xs {
-    .faq-list {
-      ul {
-        display: block;
-      }
-      li {
-        margin-right: 0;
-        margin-bottom: 12px;
-
-        .sub-collapse {
-          position: unset;
-          width: 100%;
-          background: #ECEEF4;
-          padding: 10px;
-          .sub-alignment {
             display: block;
-            a {
-              margin-right: 0;
-              margin-bottom: 12px;
+            position: relative;
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 500;
+            padding: 0;
+            outline: none;
+            cursor: pointer;
+      
+            .nav-title {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background: white;
+              border: 1px solid gainsboro;
+              border-radius: 10px;
+              padding: 10px;
+              box-shadow: 0px 4px 10px rgb(41 72 152 / 9%);
+              transition: 0.3s;
+      
+              &:hover {
+                background: #80CE0C;
+              }
+      
+              &:focus {
+                background: #80CE0C;
+              }
+      
+              h6 {
+                font-size: 13px;
+                font-weight: 700;
+                color: black;
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+                margin-right: 15px;
+      
+                i {
+                  color: #662d91;
+                  font-size: 22px;
+                  margin-right: 10px;
+                }
+              }
+            }
+      
+            .nav-title-collapse {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background: #80CE0C;
+              border: 1px solid gainsboro;
+              border-radius: 10px;
+              padding: 10px;
+              box-shadow: 0px 4px 10px rgb(41 72 152 / 9%);
+              transition: 0.3s;
+      
+              h6 {
+                font-size: 13px;
+                font-weight: 700;
+                color: black;
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+                margin-right: 15px;
+      
+                i {
+                  color: #662d91;
+                  font-size: 22px;
+                  margin-right: 10px;
+                }
+              }
+            }
+      
+            .sub-active {
+              background: #662D91 !important;
+      
+              h6 {
+                font-weight: 600 !important;
+                color: white !important;
+              }
+            }
+      
+            .nav-title-sub {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              background: #ffffff;
+              border: 1px solid gainsboro;
+              border-radius: 18px;
+              padding: 8px 15px;
+              box-shadow: 0px 4px 12px rgb(41 72 152 / 5%);
+              transition: 0.3s;
+      
+              &:hover {
+                background: #662D91;
+      
+                h6 {
+                  color: white;
+                }
+              }
+      
+              &:active {
+                background: #662D91;
+      
+                h6 {
+                  color: white;
+                }
+              }
+      
+              .sub-active {
+                background: #662D91;
+      
+                h6 {
+                  color: white;
+                }
+              }
+      
+              h6 {
+                font-size: 12px;
+                font-weight: 600;
+                color: #000000;
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+      
+                i {
+                  color: #662d91;
+                  font-size: 22px;
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+      
+          .icon-help {
+            font-size: 24px;
+          }
+      
+          .icon-show {
+            font-size: 12px;
+            display: flex;
+            color: transparent;
+          }
+      
+          .icon-close {
+            font-size: 14px;
+            position: absolute;
+            bottom: -10px;
+            right: 14px;
+            color: #000000;
+          }
+      
+          a.collapsed {
+            color: #343a40;
+      
+            .nav-title-collapse {
+              background: white;
+      
+              &:hover {
+                background: #80CE0C;
+              }
+            }
+      
+            .icon-show {
+              display: flex;
+              color: #000000;
+            }
+      
+            .icon-close {
+              display: none;
             }
           }
         }
       }
+      
+    }
+    @media (max-width: 1200px) {
+      .faq {
+        .faq-list {
+          padding: 0;
+        }
+      }
     }
   }
-}
-@media (max-width: 1200px) {
-  .faq {
-    .faq-list {
-      padding: 0;
+  @include xs {
+    .container {
+        .main-nav {
+          .container {
+            .faq-list {
+              ul {
+                display: block;
+              }
+              li {
+                margin-right: 0;
+                margin-bottom: 12px;
+        
+                .sub-collapse {
+                  position: unset;
+                  width: 100%;
+                  background: #ECEEF4;
+                  padding: 10px;
+                  .sub-alignment {
+                    display: block;
+                    a {
+                      margin-right: 0;
+                      margin-bottom: 12px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
     }
   }
 }
 
+
+
 .content-area {
   padding: 20px 0px;
+  padding-top: 205px;
 }
 
 #about {
   .content-area {
-    .container {
+    .container { 
       .card-lg {
         .block-group {
           align-items: flex-start;
           .block-70 {
-            width: calc(70% - 15px);
+            width: calc(70% - 50px);
+            text-align: justify; 
             p {
               font-weight: 500;
-              line-height: 1.6;
+              line-height: 1.6; 
             }
           }
           .block-30 {
             width: calc(30% - 15px);
             img {
-              width: 70%;
+              width: 80%;
             }
           }
         }

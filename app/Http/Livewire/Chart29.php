@@ -32,27 +32,19 @@ class Chart29 extends Component
 
     public function get_data()
     {
-        $imports = ImportCountry::groupBy('fiscal_year')
-            ->selectRaw('sum(import_in_usd) as import_in_usd, fiscal_year')
-            ->get()->toArray();
+        $data = DB::connection('mysql2')->select("SELECT 
+        CONCAT(SUBSTRING(month, 1, 3), '-', SUBSTRING(year, 3,2)) AS date,
+        ROUND(number_of_transactions_internet_banking_in_crore, 1) AS banking,
+        ROUND(number_of_transactions_mobile_banking_in_crore, 1) AS mobile,
+        ROUND(number_of_transactions_agent_banking_in_crore, 1) AS agent
+        FROM
+        corona_socio_info.economy_banking");
 
-        $exports = ExportCountry::groupBy('fiscal_year')
-            ->selectRaw('sum(export_in_usd) as export_in_usd, fiscal_year')
-            ->get()->toArray();
-
-        $data = [];
-        foreach (collect(array_merge_recursive($imports, $exports))->groupBy('fiscal_year') as $fiscal_year => $item) {
-            $import_export_data = array_merge_recursive($item[0], $item[1]);
-            array_push($data, [
-                'fiscal_year' =>    substr($fiscal_year ?? '', 0, 5).substr($fiscal_year ?? '', 7, 10),
-                'import_in_usd' =>   round(((float)$import_export_data['import_in_usd'])/1000000000,2),
-                'export_in_usd' =>   round(((float)$import_export_data['export_in_usd'])/1000000000,2),
-            ]);
-        }
+        $data = array_reverse($data);
 
         return [
             'chart' =>  [
-                'type' =>  'area', 'zoomType' => 'xy'
+                'type' =>  'bar', 'zoomType' => 'xy'
             ], 'title' =>  [
                 'text' =>  ''
             ], 'credits' =>  [
@@ -64,32 +56,59 @@ class Chart29 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('fiscal_year')
+                'categories' =>  collect($data)->pluck('date')
             ], 'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Imports/Exports (Billion US$)'
+                    'text' =>  'Number of transactions (In million)'
                 ], 'labels' =>  [
                     'format' =>  '{value}'
                 ]
-            ], 'plotOptions' =>  [
-                'line' =>  [
+            ],
+            'legend' => [
+                'reversed' => true
+            ],
+            'plotOptions' =>  [
+                'series' => [
+                    'stacking' => 'normal'
+                ],
+                'bar' =>  [
                     'dataLabels' =>  [
                         'enabled' =>  false
                     ], 'enableMouseTracking' =>  true
                 ]
-            ], 'series' =>  [[
-                'name' =>  'Total imports', 'data' =>  collect($data)->pluck('import_in_usd'),
-                'color' =>  '#7F3F98',
-                'marker' =>  [
-                    'radius' =>  3
+            ], 'series' =>  [
+                [
+                    'name' =>  'Internet Banking',
+                    'data' =>  collect($data)->pluck('banking')->map(function ($value) {
+                        return round($value / 1000000, 2);
+                    }),
+                    'color' =>  '#83C341',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
                 ]
-            ], [
-                'name' =>  'Total exports', 'data' =>  collect($data)->pluck('export_in_usd'),
-                'color' =>  '#83C341',
-                'marker' =>  [
-                    'radius' =>  3
+                , [
+                    'name' =>  'Agent',
+                    'data' =>  collect($data)->pluck('agent')->map(function ($value) {
+                        return round($value / 1000000, 2);
+                    }),
+                    'color' =>  '#835420',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
+                ],
+                [
+                    'name' =>  'Mobile',
+                    'data' =>  collect($data)->pluck('mobile')->map(function ($value) {
+                        return round($value / 1000000, 2);
+                    }),
+                    'color' =>  '#7F3F98',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
                 ]
-            ]]
+                
+            ]
         ];
     }
 }

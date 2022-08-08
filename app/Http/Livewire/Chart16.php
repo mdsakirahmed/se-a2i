@@ -263,6 +263,6 @@ class Chart16 extends Component
     public function filterDivision($division)
     {
         $this->selected_division = $division;
-        $this->dispatchBrowserEvent('division_filter_event', ['data' => $this->get_data()]);
+        $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
     }
 }

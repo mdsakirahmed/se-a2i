@@ -90,6 +90,23 @@
     onscroll(document, headerScrolled)
   }
 
+
+    /**
+   * Toggle .main-navclass to #main-nav when page is scrolled
+   */
+     let selectMainNav = select('#main-nav')
+     if (selectMainNav) {
+       const mainNavScrolled = () => {
+         if (window.scrollY > 100) {
+          selectMainNav.classList.add('main-nav-scrolled')
+         } else {
+           selectHeader.classList.remove('main-nav-scrolled')
+         }
+       }
+       window.addEventListener('load', mainNavScrolled)
+       onscroll(document, mainNavScrolled)
+     }
+
   /**
    * Back to top button
    */
