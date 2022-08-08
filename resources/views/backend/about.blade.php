@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            @livewire('chart19')
+            @livewire('chart37')
             @livewire('chart1')
             @livewire('chart13')
             @livewire('chart18')

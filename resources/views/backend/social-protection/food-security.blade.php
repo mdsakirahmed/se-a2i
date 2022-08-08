@@ -9,9 +9,8 @@
                 </h3>
             </header>
             <div class="row">
-                <div class="col-md-6">
-                    {{-- @livewire('chart22') --}}
-                    Under develop
+                <div class="col-md-12">
+                    @livewire('chart37')
                 </div>
             </div>
         </div>
