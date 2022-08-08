@@ -12,7 +12,7 @@
                 <div class="form-group col-md-4">
                     <label for="" class="col-form-label">Fiscal Year</label>
                     <select class="form-control" wire:model="f_year" wire:change="chart_update">
-                        <option value="">Fiscal Year</option>
+                        <option value="">All</option>
                         @foreach($f_years as $f_year)
                             <option value="{{ $f_year }}">{{ $f_year }}</option>
                         @endforeach
@@ -22,7 +22,7 @@
                 <div class="form-group col-md-4">
                     <label for="" class="col-form-label">Implementing Ministry 1</label>
                     <select class="form-control"wire:model="imp_min" wire:change="chart_update">
-                        <option value="">Implementing Ministry 1</option>
+                        <option value="">All</option>
                         @foreach($imp_mins as $imp_min)
                             <option value="{{ $imp_min }}">{{ $imp_min }}</option>
                         @endforeach 
@@ -32,7 +32,7 @@
                 <div class=" form-group col-md-4">
                     <label for="" class="col-form-label">Implementing Ministry 2</label>
                     <select class="form-control"wire:model="imp_min" wire:change="chart_update">
-                        <option value="">Implementing Ministry 2</option>
+                        <option value="">All</option>
                         @foreach($imp_2_mins as $imp_2_min)
                             <option value="{{ $imp_min }}">{{ $imp_2_min }}</option>
                         @endforeach 
