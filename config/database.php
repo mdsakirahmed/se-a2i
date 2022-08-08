@@ -65,11 +65,12 @@ return [
 
         'mysql2' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_SECOND', '10.10.11.144'),
+            // 'host' => env('DB_HOST_SECOND', '10.10.11.144'),
+            'host' => '123.49.47.29',
             'port' => '3306',
-            'database' => env('DB_DATABASE_CHART_DATA', 'corona_socio_info'),
-            'username' => env('DB_USERNAME_CHART_DATA', 'socioinfo'),
-            'password' => env('DB_PASSWORD_CHART_DATA', '$)c1Oinf0'),
+            'database' => 'corona_socio_info',
+            'username' => 'socioinfo',
+            'password' => '$)c1Oinf0',
             'strict' => false,
         ],
 
