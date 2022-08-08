@@ -54,6 +54,11 @@ class Chart18 extends Component
                 'type' => 'column',
                 'zoomType' => 'xy'
             ],
+
+            'credits' => [
+                'enabled'=>false
+            ],
+            
             'title' => [
                 'text' => ''
             ],

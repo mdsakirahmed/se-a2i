@@ -53,11 +53,21 @@ class Chart22 extends Component
         return [
             'chart' =>  [
                 'type' =>  'area', 'zoomType' => 'xy'
-            ], 'title' =>  [
+            ],
+            
+            'credits' => [
+                'enabled'=>false
+            ],
+
+            'title' =>  [
                 'text' =>  ''
-            ], 'credits' =>  [
+            ],
+            
+            'credits' =>  [
                 'enabled' =>  false
-            ], 'subtitle' =>  [
+            ],
+            
+            'subtitle' =>  [
                 'text' =>  ''
             ]
             // ,'marker' =>  [
@@ -65,19 +75,25 @@ class Chart22 extends Component
             // ]
             , 'xAxis' =>  [
                 'categories' =>  collect($data)->pluck('fiscal_year')
-            ], 'yAxis' =>  [
+            ],
+            
+            'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Imports/Exports (Billion US$)'
                 ], 'labels' =>  [
                     'format' =>  '{value}'
                 ]
-            ], 'plotOptions' =>  [
+            ],
+            
+            'plotOptions' =>  [
                 'line' =>  [
                     'dataLabels' =>  [
                         'enabled' =>  false
                     ], 'enableMouseTracking' =>  true
                 ]
-            ], 'series' =>  [[
+            ],
+            
+            'series' =>  [[
                 'name' =>  'Total imports', 'data' =>  collect($data)->pluck('import_in_usd'),
                 'color' =>  '#7F3F98',
                 'marker' =>  [

@@ -59,6 +59,10 @@ class Chart12 extends Component
                 'zoomType' => 'xy'
             ],
 
+            'credits' => [
+                'enabled'=>false
+            ],
+
             'title' => [
                 'text' => ''
             ],

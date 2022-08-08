@@ -70,6 +70,11 @@ class Chart4 extends Component
             'chart' => [
                 'type' => 'bar'
             ],
+
+            'credits' => [
+                'enabled'=>false
+            ],
+            
             'title' => [
                 'text' => ''
             ],

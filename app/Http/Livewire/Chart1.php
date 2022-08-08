@@ -44,6 +44,11 @@ class Chart1 extends Component
             'chart' => [
                 'type' => 'column'
             ],
+
+            'credits' => [
+                'enabled'=>false
+            ],
+            
             'title' => [
                 'text' => ''
             ],

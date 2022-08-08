@@ -86,6 +86,10 @@ class Chart8 extends Component
                 'symbolWidth' => 80
             ],
 
+            'credits' => [
+                'enabled'=>false
+            ],
+
             'title' => [
                 'text' => ''
             ],
