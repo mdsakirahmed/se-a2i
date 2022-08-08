@@ -10,6 +10,9 @@
             </header>
             <div class="row">
                 <div class="col-md-12">
+                    @livewire('chart41')
+                </div>
+                <div class="col-md-12">
                     @livewire('chart38')
                 </div>
                 <div class="col-md-12">

@@ -14,7 +14,10 @@ class Chart41 extends Component
     public  Chart $chart;
     public $name, $description, $chart_id = 41;
     public $chart_type = 'column';
-    public $divisions, $selected_division, $districts, $selected_district;
+    public $f_year, $f_years, $complete_data_set;
+    public $imp_min, $imp_mins;
+    public $imp_2_min, $imp_2_mins;
+    public $p_type, $p_types;
 
     public function render()
     {
@@ -25,13 +28,6 @@ class Chart41 extends Component
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
-        }
-
-        $this->divisions = DB::connection('mysql2')->select("SELECT distinct division FROM education_covid19_impact");
-        if ($this->selected_division) {
-            $this->districts = DB::connection('mysql2')->select("SELECT distinct district FROM education_covid19_impact WHERE division = '$this->selected_division'");
-        } else {
-            $this->districts = DB::connection('mysql2')->select("SELECT distinct district FROM education_covid19_impact");
         }
 
         return view('livewire.chart41', [
@@ -45,146 +41,152 @@ class Chart41 extends Component
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
     }
 
-    public function change_chart_filter_by_division()
-    {
-        $this->selected_district = null;
-        $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
-    }
-
-    public function change_chart_filter_by_district()
+    public function chart_update()
     {
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
     }
 
     public function get_data()
     {
-        if ($this->selected_district) {
-            $data = DB::connection('mysql2')->select('SELECT
-            upazila_pro AS upazila_pro,
-            child_labor AS child_labor,
-            MAX(event_percent) AS `event_percent`
-            FROM
-            (SELECT
-                CONCAT(UPPER(LEFT(upazila, 1)), LOWER(RIGHT(upazila, LENGTH(upazila) - 1))) AS upazila_pro,
-                    child_labor,
-                    COUNT(child_labor) AS child_labor_count,
-                    COUNT(child_labor) * 100.0 / (SELECT
-                            COUNT(*)
-                        FROM
-                            education_covid19_impact) AS event_percent
-            FROM
-                education_covid19_impact WHERE district = "' . $this->selected_district . '"
-            GROUP BY upazila , child_labor) AS expr_qry
-            GROUP BY upazila_pro , child_labor
-            ORDER BY child_labor , upazila_pro ASC
-            LIMIT 1000');
-            $data = collect($data)->groupBy('upazila_pro');
-            $title = 'Percentage of District';
-        } else {
-            if ($this->selected_division) {
-                $data = DB::connection('mysql2')->select("SELECT
-                district_pro AS district_pro,
-                child_labor AS child_labor,
-                MAX(event_percent) AS `event_percent`
-            FROM
-                (SELECT
-                    CONCAT(UPPER(LEFT(district, 1)), LOWER(RIGHT(district, LENGTH(district) - 1))) AS district_pro,
-                        child_labor,
-                        COUNT(child_labor) AS child_labor_count,
-                        COUNT(child_labor) * 100.0 / (SELECT
-                                COUNT(*)
-                            FROM
-                                education_covid19_impact) AS event_percent
-                FROM
-                    education_covid19_impact WHERE division = '$this->selected_division'
-                GROUP BY district , child_labor) AS expr_qry
-                GROUP BY district_pro , child_labor
-                ORDER BY child_labor , district_pro ASC
-                LIMIT 1000");
-                $data = collect($data)->groupBy('district_pro');
-                $title = 'Percentage of District';
-            } else {
-                $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
-                child_labor AS child_labor,
-                max(event_percent) AS `event_percent`
-                FROM
-                (SELECT concat(upper(left(division, 1)), lower(right(division, length(division) - 1))) AS division_pro,
-                        child_labor,
-                        count(child_labor) as child_labor_count,
-                        count(child_labor) * 100.0 /
-                    (select count(*)
-                    from education_covid19_impact) as event_percent
-                    FROM education_covid19_impact
-                    GROUP BY division,
-                            child_labor) AS expr_qry
-                GROUP BY division_pro,
-                        child_labor
-                        ORDER BY child_labor, division_pro ASC
-                LIMIT 1000");
-                $data = collect($data)->groupBy('division_pro');
-                $title = 'Percentage of Upazial';
-            }
+        $data = DB::connection('mysql2')->select("SELECT 
+        fiscal_year,
+        programme_type,
+        programme_name,
+        implementing_ministry_1,
+        implementing_ministry_2,
+        budget_crore_bdt,
+        beneficiaries_lac_persons
+        FROM ssn_budget_coverage");
+
+
+    $this->f_years = collect($data)->unique('fiscal_year')->pluck('fiscal_year');
+    $this->imp_mins = collect($data)->unique('implementing_ministry_1')->pluck('implementing_ministry_1');
+    $this->imp_2_mins = collect($data)->unique('implementing_ministry_2')->pluck('implementing_ministry_2');
+    $this->p_types = collect($data)->unique('programme_type')->pluck('programme_type');
+
+
+
+    if ($this->f_year) {
+        $data = collect($data)->where('fiscal_year', $this->f_year);
+    }
+
+    if ($this->imp_min) {
+        $data = collect($data)->where('implementing_ministry_1', $this->imp_min);
+    }
+
+    if($this->imp_2_min){
+        $data = collect($data)->where('implementing_ministry_2',$this->imp_2_min);
+    }
+
+    if($this->p_type){
+        $data = collect($data)->where('programme_type',$this->p_type );
+    }
+
+
+    $data_collection = [];
+    foreach (collect($data)->groupBy('programme_type') as $programme_type => $data_set) {
+        $value_set = [];
+        foreach ($data_set as $pointed_value) {
+            array_push($value_set, [
+                'x' => $pointed_value->budget_crore_bdt,
+                'y' => $pointed_value->beneficiaries_lac_persons,
+                'programme_name' => $pointed_value->programme_name,
+                'implementing_ministry_1' => $pointed_value->implementing_ministry_1,
+                'implementing_ministry_2' => [
+                    'title' => $pointed_value->implementing_ministry_2 ? 'Implementing Ministry 2:' : "",
+                    'value' => $pointed_value->implementing_ministry_2
+                ]
+            ]);
         }
 
-        $formated_data = array();
-        foreach($data as $key => $value){
-            array_push($formated_data, [
-                'location'  => $key,
-                'increased' => round($value->where('child_labor', 'Increased')->sum('event_percent'), 2),
-                'decreased' => round($value->where('child_labor', 'Decreased')->sum('event_percent'), 2),
-                'same'      => round($value->where('child_labor', 'Same')->sum('event_percent'), 2),
-            ]); 
-        }
+        array_push($data_collection, [
+            'name' => $programme_type,
+            'data' => $value_set,
+        ]);
+    }
 
-        return [
-            'chart' => [
-                'type' =>  $this->chart_type
-            ],
+    return [
+        'chart' => [
+            'type' => 'scatter',
+            'zoomType' => 'xy'
+        ],
+        'title' => [
+            'text' => ''
+        ],
+        'subtitle' => [
+            'text' => ''
+        ], 'credits' => [
+            'enabled' => false
+        ],
+        'xAxis' => [
             'title' => [
-                'text' => ''
+                'enabled' => true,
+                'text' => 'Budget (Crore BDT)'
             ],
-            'subtitle' => [
-                'text' => ''
-            ], 'credits' =>  [
-                'enabled' =>  false
+            'labels' => [
+                'format' => '{value}'
             ],
-            'xAxis' => [
-                'categories' =>  collect($formated_data)->pluck('location'),
-                'crosshair' => true
-            ],
-            'yAxis' => [
-                'min' => 0,
-                'title' => [
-                    'text' => $title
+            'startOnTick' => true,
+            'endOnTick' => true,
+            'showLastLabel' => true
+        ],
+        'yAxis' => [
+            'title' => [  
+                'text' => 'Coverage (Lakh People)'
+            ]
+        ],
+
+        'plotOptions' => [
+            'series'=>[
+                'events'=> [
+                    'legendItemClick'=> 'function(){
+                        if (!this.visible)
+                        return true;
+                    
+                    var seriesIndex = this.index;
+                    var series = this.chart.series;
+                    
+                    for (var i = 0; i < series.length; i++)
+                    {
+                        if (series[i].index != seriesIndex)
+                        {
+                            
+                            series[i].visible ? series[i].hide() : series[i].show();
+                        } 
+                    }
+                    
+                    return false;
+                    }'
                 ]
             ],
-            'tooltip' => [
-                'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',
-                'pointFormat' => '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' .
-                    '<td style="padding:0"><b>{point.y:.5f}</b></td></tr>',
-                'footerFormat' => '</table>',
-                'shared' => true,
-                'useHTML' => true
-            ],
-            'plotOptions' => [
-                'column' => [
-                    'pointPadding' => 0.2,
-                    'borderWidth' => 0
+
+            'scatter' => [
+                'marker' => [
+                    'symbol' => 'circle',
+                    'radius' => 4,
+                    'states' => [
+                        'hover' => [
+                            'enabled' => true,
+                            'lineColor' => 'rgb(100,100,100)'
+                        ]
+                    ]
+                ],
+                'states' => [
+                    'hover' => [
+                        'marker' => [
+                            'enabled' => false
+                        ]
+                    ]
+                ],
+                'tooltip' => [
+                    'headerFormat' => '<b>Programme Type:</b> {series.name}<br>',
+                    'pointFormat' => '<b>Programme Name:</b> {point.programme_name}<br><b>Budget Crore BDT:</b> {point.x}<br><b>Beneficiaries Lac Person:</b> {point.y}<br><b>Implementing Ministry 1:</b> {point.implementing_ministry_1}<br><b>{point.implementing_ministry_2.title}</b> {point.implementing_ministry_2.value}',
                 ]
-            ],
-            'series' => [[
-                'name' => 'Decreased',
-                'color' => "#7F3F98",
-                'data' =>  collect($formated_data)->pluck('decreased'),
-            ], [
-                'name' => 'Increased',
-                'color' => "#83C341",
-                'data' => collect($formated_data)->pluck('increased'),
-            ], [
-                'name' => 'Same',
-                'color' => "#833341",
-                'data' =>  collect($formated_data)->pluck('same'),
-            ]],
-        ];
+            ]
+        ],
+        'series' => $data_collection,
+        'colors' => ['#630000', '#A12568', '#FF5403', '#38A3A5', '#1A5F7A', '#D22779', '#DA1212', '#3E7C17', '#FFBD35']
+    ];
+
     }
 }
