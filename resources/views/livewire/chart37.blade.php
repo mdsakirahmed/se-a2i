@@ -2,8 +2,8 @@
     <style>
         #chart_id_{{ $chart->id }} {
             height: 1500px;
-            min-width: 1310px;
-            max-width: 1800px;
+            min-width: 1000px;
+            max-width: 1000px;
             margin: 0 auto;
         }
     </style>
@@ -11,10 +11,15 @@
         <div class="card-header">
             {{ $name }}
             <div>
-                    <button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>
-                </div>
+                <button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>
+            </div>
         </div>
        <div class="card-body">
+        <select wire:model="selected_districts" multiple>
+            @foreach ($districts as $district)
+                <option value="{{ $district[0] }}">{{ $district[0] }}</option>
+            @endforeach
+        </select>
         <figure class="highcharts-figure">
             <div id="chart_id_{{ $chart->id }}"> </div>
         </figure>
