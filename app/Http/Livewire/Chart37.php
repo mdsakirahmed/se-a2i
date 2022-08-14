@@ -10,7 +10,7 @@ class Chart37 extends Component
 {
   public  Chart $chart;
   public $name, $description, $chart_id = 37;
-  public $selected_districts = [];
+  public $selected_districts = [],  $selected_divisions = [];
 
   public function render()
   {
@@ -28,26 +28,15 @@ class Chart37 extends Component
     ]);
   }
 
-  public function update_chart(){
+  public function update_chart()
+  {
     $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
   }
 
   public function get_data()
   {
-    $geojson = json_decode(file_get_contents(public_path('assets/json/mangladesh-districts.geojson.json')), true);
 
-    if($this->selected_districts){
-      $filter_geojson = $geojson;
-      $filter_geojson['features'] = [];
-      foreach($geojson['features'] as $feature){
-        if($feature['properties']['district'] == $this->selected_districts){
-          array_push($filter_geojson['features'], $feature);
-        }
-      }
-      $geojson = $filter_geojson;
-    }
-
-    $this->districts = [
+    $districts = [
       ['Bagerhat', 100],
       ['Bandarban', 100],
       ['Barguna', 100],
@@ -113,6 +102,37 @@ class Chart37 extends Component
       ['Tangail', 100],
       ['Thakurgaon', 100],
     ];
+
+    $this->districts = collect($districts)->pluck(0);
+
+    $geojson = json_decode(file_get_contents(public_path('assets/json/mangladesh-districts.geojson.json')), true);
+
+    $filter_geojson = $geojson;
+    $filter_geojson['features'] = [];
+    foreach ($geojson['features'] as $feature) {
+      if ($this->selected_districts && $this->selected_divisions) {
+        $this->districts = [];
+        if ($feature['properties']['district'] == $this->selected_districts && $feature['properties']['division'] == $this->selected_divisions) {
+          array_push($filter_geojson['features'], $feature);
+          array_push($this->districts, $feature['properties']['district']);
+        }
+      } else if ($this->selected_districts && !$this->selected_divisions) {
+        if ($feature['properties']['district'] == $this->selected_districts) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else if (!$this->selected_districts && $this->selected_divisions) {
+        $this->districts = [];
+        if ($feature['properties']['division'] == $this->selected_divisions) {
+          array_push($filter_geojson['features'], $feature);
+          array_push($this->districts, $feature['properties']['district']);
+        }
+      } else {
+        array_push($filter_geojson['features'], $feature);
+      }
+    }
+    $geojson = $filter_geojson;
+
+
     return [
       'chart' => [
         'map' => collect($geojson)
@@ -139,7 +159,7 @@ class Chart37 extends Component
 
       'series' => [
         [
-          'data' => $this->districts,
+          'data' => $districts,
           'keys' => ["district", "value"],
           'joinBy' => "district",
           'name' => "Random data",

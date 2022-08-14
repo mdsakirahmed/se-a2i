@@ -16,9 +16,22 @@
         </div>
        <div class="card-body">
         <select wire:model="selected_districts" wire:change="update_chart">
+            <option value="">All district</option>
             @foreach ($districts as $district)
                 <option value="{{ $district[0] }}">{{ $district[0] }}</option>
             @endforeach
+        </select>
+
+        <select wire:model="selected_divisions" wire:change="update_chart">
+                <option value="">All division</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Barisal">Barisal</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Rangpur">Rangpur</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Mymensingh">Mymensingh</option>
         </select>
         <figure class="highcharts-figure">
             <div id="chart_id_{{ $chart->id }}"> </div>
