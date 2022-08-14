@@ -1,0 +1,1 @@
+<a href="#" wire:click="logout">Log Out</a><?php /**PATH /var/www/html/design/resources/views/widgets/logout.blade.php ENDPATH**/ ?>
