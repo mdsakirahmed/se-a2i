@@ -68,4 +68,5 @@ unset($__errorArgs, $__bag); ?>" placeholder="Your Password" wire:model="passwor
             </div>
         </div>
     </div>
-</div><?php /**PATH /var/www/html/design/resources/views/auth/login.blade.php ENDPATH**/ ?>
+</div>
+<?php /**PATH /var/www/html/design/resources/views/auth/login.blade.php ENDPATH**/ ?>

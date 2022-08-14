@@ -11,7 +11,6 @@ use Illuminate\Broadcasting\Broadcasters\NullBroadcaster;
 use Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
 use Illuminate\Broadcasting\Broadcasters\RedisBroadcaster;
 use Illuminate\Contracts\Broadcasting\Factory as FactoryContract;
-use Illuminate\Contracts\Broadcasting\ShouldBeUnique;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Contracts\Bus\Dispatcher as BusDispatcherContract;
 use Illuminate\Contracts\Foundation\CachesRoutes;
@@ -167,10 +166,7 @@ class BroadcastManager implements FactoryContract
         }
 
         $this->app->make('queue')->connection($event->connection ?? null)->pushOn(
-            $queue,
-            $event instanceof ShouldBeUnique
-                    ? new UniqueBroadcastEvent(clone $event)
-                    : new BroadcastEvent(clone $event)
+            $queue, new BroadcastEvent(clone $event)
         );
     }
 
