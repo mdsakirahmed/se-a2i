@@ -1,4 +1,12 @@
 <div>
+    <style>
+        #chart_id_{{ $chart->id }} {
+            height: 1500px;
+            min-width: 1310px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+    </style>
     <div class="card">
         <div class="card-header">
             {{ $name }}

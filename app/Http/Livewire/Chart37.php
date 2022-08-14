@@ -41,7 +41,7 @@ class Chart37 extends Component
       ],
 
       'accessibility' => [
-        'typeDescription' => "Map of Germany."
+        'typeDescription' => "Map of Bangladesh."
       ],
 
       'mapNavigation' => [
@@ -68,7 +68,7 @@ class Chart37 extends Component
           ],
           'dataLabels' => [
             'enabled' => true,
-            'format' => "{point.properties.NAME_4}"
+            'format' => "{point.properties.district}"
           ]
         ]
       ]
