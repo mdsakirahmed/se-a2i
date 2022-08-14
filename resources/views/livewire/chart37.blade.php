@@ -1,7 +1,7 @@
 <div>
     <style>
         #chart_id_{{ $chart->id }} {
-            height: 1500px;
+            height: 1000px;
             min-width: 1000px;
             max-width: 1000px;
             margin: 0 auto;
@@ -15,7 +15,7 @@
             </div>
         </div>
        <div class="card-body">
-        <select wire:model="selected_districts" multiple>
+        <select wire:model="selected_districts" wire:change="update_chart">
             @foreach ($districts as $district)
                 <option value="{{ $district[0] }}">{{ $district[0] }}</option>
             @endforeach
@@ -29,7 +29,13 @@
         </div>
        </div>
         <script>
+            //First loaded data
             Highcharts.mapChart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+            
+            //chart update and re-render
+            window.addEventListener("chart_update_{{ $chart->id }}", event => {
+                Highcharts.mapChart("chart_id_{{ $chart->id }}", event.detail.data);
+            });
         </script>
 
 

@@ -28,29 +28,24 @@ class Chart37 extends Component
     ]);
   }
 
+  public function update_chart(){
+    $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
+  }
+
   public function get_data()
   {
     $geojson = json_decode(file_get_contents(public_path('assets/json/mangladesh-districts.geojson.json')), true);
 
-    // dd($geojson);
-
-    // $td = collect($geojson)->with(['features' => function ($feature) {
-    //   $feature->with(['properties' => function ($property) {
-    //     $property->where('district', '==', "Dhaka");
-    //   }]);
-    // }])->get();
-
-    //     $td = collect($geojson)->whereHas('features', function($feature){
-    // dd($feature);
-    //     });
-
-
-
-    // $td = collect($geojson)->map(function ($feature) {
-    //   dd($feature);
-    // });
-
-    // dd($td);
+    if($this->selected_districts){
+      $filter_geojson = $geojson;
+      $filter_geojson['features'] = [];
+      foreach($geojson['features'] as $feature){
+        if($feature['properties']['district'] == $this->selected_districts){
+          array_push($filter_geojson['features'], $feature);
+        }
+      }
+      $geojson = $filter_geojson;
+    }
 
     $this->districts = [
       ['Bagerhat', 100],
