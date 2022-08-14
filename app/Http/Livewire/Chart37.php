@@ -103,18 +103,18 @@ class Chart37 extends Component
       ['Thakurgaon', 100],
     ];
 
-    $this->districts = collect($districts)->pluck(0);
-
+    //Get data from json file
     $geojson = json_decode(file_get_contents(public_path('assets/json/mangladesh-districts.geojson.json')), true);
 
+    //Filter data
     $filter_geojson = $geojson;
     $filter_geojson['features'] = [];
+    $filter_districts = [];
     foreach ($geojson['features'] as $feature) {
       if ($this->selected_districts && $this->selected_divisions) {
-        $this->districts = [];
         if ($feature['properties']['district'] == $this->selected_districts && $feature['properties']['division'] == $this->selected_divisions) {
           array_push($filter_geojson['features'], $feature);
-          array_push($this->districts, $feature['properties']['district']);
+          array_push($filter_districts, $feature['properties']['district']);
         }
       } else if ($this->selected_districts && !$this->selected_divisions) {
         if ($feature['properties']['district'] == $this->selected_districts) {
@@ -124,26 +124,29 @@ class Chart37 extends Component
         $this->districts = [];
         if ($feature['properties']['division'] == $this->selected_divisions) {
           array_push($filter_geojson['features'], $feature);
-          array_push($this->districts, $feature['properties']['district']);
+          array_push($filter_districts, $feature['properties']['district']);
         }
       } else {
         array_push($filter_geojson['features'], $feature);
+        array_push($filter_districts, $feature['properties']['district']);
       }
     }
     $geojson = $filter_geojson;
+    $this->districts = $filter_districts;
 
 
+    //Make map data set
     return [
       'chart' => [
         'map' => collect($geojson)
       ],
 
       'title' => [
-        'text' => "GeoJSON in Highmaps"
+        'text' => ""
       ],
 
       'accessibility' => [
-        'typeDescription' => "Map of Bangladesh."
+        'typeDescription' => ""
       ],
 
       'mapNavigation' => [
@@ -162,7 +165,7 @@ class Chart37 extends Component
           'data' => $districts,
           'keys' => ["district", "value"],
           'joinBy' => "district",
-          'name' => "Random data",
+          'name' => "Moderate to Severe Food Insecurity",
           'states' => [
             'hover' => [
               'color' => "#a4edba"

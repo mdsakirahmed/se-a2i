@@ -18,7 +18,7 @@
         <select wire:model="selected_districts" wire:change="update_chart">
             <option value="">All district</option>
             @foreach ($districts as $district)
-                <option value="{{ $district[0] }}">{{ $district[0] }}</option>
+                <option value="{{ $district }}">{{ $district }}</option>
             @endforeach
         </select>
 
