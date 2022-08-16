@@ -42,12 +42,9 @@ class Chart15 extends Component
         $data = EconomyGdpCompositionSpecific::select('fiscal_year', 'broad_sector', 'specific_sector', 'share_gdp_constant')->get();
         $this->broad_sectors = $data->pluck('broad_sector')->unique();
 
-        if ($this->selected_broad_sector == 'All') {
-            // Query for all 
-
-        } else {
+        if ($this->selected_broad_sector != 'All') {
             //Query for selected 
-
+            $data = $data->where('broad_sector', $this->selected_broad_sector);
         }
         
         $series = [];
