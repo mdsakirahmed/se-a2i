@@ -10,7 +10,7 @@ class Chart37 extends Component
 {
   public  Chart $chart;
   public $name, $description, $chart_id = 37;
-  public $selected_districts = [],  $selected_divisions = [];
+  public $selected_district = [],  $sselected_division = [];
 
   public function render()
   {
@@ -28,6 +28,10 @@ class Chart37 extends Component
     ]);
   }
 
+  public function change_divition(){
+    $this->selected_district = null;
+    $this->update_chart();
+  }
   public function update_chart()
   {
     $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
@@ -111,18 +115,19 @@ class Chart37 extends Component
     $filter_geojson['features'] = [];
     $filter_districts = [];
     foreach ($geojson['features'] as $feature) {
-      if ($this->selected_districts && $this->selected_divisions) {
-        if ($feature['properties']['district'] == $this->selected_districts && $feature['properties']['division'] == $this->selected_divisions) {
+      if ($this->selected_district && $this->sselected_division) {
+        $this->districts = [];
+        if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->sselected_division) {
           array_push($filter_geojson['features'], $feature);
           array_push($filter_districts, $feature['properties']['district']);
         }
-      } else if ($this->selected_districts && !$this->selected_divisions) {
-        if ($feature['properties']['district'] == $this->selected_districts) {
+      } else if ($this->selected_district && !$this->sselected_division) {
+        if ($feature['properties']['district'] == $this->selected_district) {
           array_push($filter_geojson['features'], $feature);
         }
-      } else if (!$this->selected_districts && $this->selected_divisions) {
+      } else if (!$this->selected_district && $this->sselected_division) {
         $this->districts = [];
-        if ($feature['properties']['division'] == $this->selected_divisions) {
+        if ($feature['properties']['division'] == $this->sselected_division) {
           array_push($filter_geojson['features'], $feature);
           array_push($filter_districts, $feature['properties']['district']);
         }
