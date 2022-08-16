@@ -125,10 +125,10 @@ class Chart17 extends Component
                     }),
                     'keys' => ["district", "value"],
                     'joinBy' => "district",
-                    'name' => "Moderate to Severe Food Insecurity",
+                    'name' => "Remittance In Million USD",
                     'states' => [
                         'hover' => [
-                            'color' => "#a4edba"
+                            'color' => "#9cc13d"
                         ]
                     ],
                     'dataLabels' => [
