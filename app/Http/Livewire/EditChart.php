@@ -16,6 +16,19 @@ class EditChart extends Component
         return view('livewire.edit-chart');
     }
 
+    public function update(){
+        $this->chart->update([
+            'en_name' => $this->en_name,
+            'bn_name' => $this->bn_name,
+            'en_description' => $this->en_description,
+            'bn_description' => $this->bn_description,
+            'bn_datasource' => $this->bn_datasource,
+            'en_datasource' => $this->en_datasource,
+        ]);
+        toastr()->success(__('Updated'));
+        $this->dispatchBrowserEvent('refresh-page'); 
+    }
+
     protected $listeners = ['editChartInfo'];
  
     public function editChartInfo($chart_id)
@@ -28,5 +41,6 @@ class EditChart extends Component
         $this->bn_datasource = $this->chart->bn_datasource;
         $this->en_datasource = $this->chart->en_datasource;
         $this->dispatchBrowserEvent('open_modal');
+        $this->render();
     }
 }

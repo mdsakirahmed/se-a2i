@@ -316,13 +316,16 @@
     @livewireScripts
     @stack('scripts')
     <script>
-     window.addEventListener('swal:modal', event => {
+    window.addEventListener('swal:modal', event => {
          swal({
              title: event.detail.message,
              text: event.detail.text,
              icon: event.detail.type,
          });
-     });
+    });
+    window.addEventListener('refresh-page', event => {
+        window.location.reload(true); 
+    });
  </script>
 </body>
 
