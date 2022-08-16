@@ -15,6 +15,18 @@
             </div>
         </div>
        <div class="card-body">
+            <select wire:model="selected_division" wire:change="change_division">
+                <option value="">All division</option>
+                @foreach ($divisions as $division)
+                <option value="{{ $division }}">{{ $division }}</option>
+                @endforeach
+            </select>
+            <select wire:model="selected_district" wire:change="update_chart">
+                <option value="">All district</option>
+                @foreach ($districts as $district)
+                    <option value="{{ $district }}">{{ $district }}</option>
+                @endforeach
+            </select>
             <select wire:model="selected_year" wire:change="update_chart">
                 <option value="">All Year</option>
                 @foreach ($years as $year)
@@ -22,24 +34,9 @@
                 @endforeach
             </select>
            
-            <select wire:model="selected_districts" wire:change="update_chart">
-                <option value="">All district</option>
-                @foreach ($districts as $district)
-                    <option value="{{ $district }}">{{ $district }}</option>
-                @endforeach
-            </select>
+           
 
-            <select wire:model="selected_divisions" wire:change="update_chart">
-                    <option value="">All division</option>
-                    <option value="Khulna">Khulna</option>
-                    <option value="Barisal">Barisal</option>
-                    <option value="Rajshahi">Rajshahi</option>
-                    <option value="Chittagong">Chittagong</option>
-                    <option value="Dhaka">Dhaka</option>
-                    <option value="Rangpur">Rangpur</option>
-                    <option value="Sylhet">Sylhet</option>
-                    <option value="Mymensingh">Mymensingh</option>
-            </select>
+           
             <figure class="highcharts-figure">
                 <div id="chart_id_{{ $chart->id }}"> </div>
             </figure>
