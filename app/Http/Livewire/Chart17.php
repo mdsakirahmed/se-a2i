@@ -125,10 +125,10 @@ class Chart17 extends Component
                     }),
                     'keys' => ["district", "value"],
                     'joinBy' => "district",
-                    'name' => "Remittance In Million Usd",
+                    'name' => "Remittance In Million USD",
                     'states' => [
                         'hover' => [
-                            'color' => "#a4edba"
+                            'color' => "#9cc13d"
                         ]
                     ],
                     'dataLabels' => [
