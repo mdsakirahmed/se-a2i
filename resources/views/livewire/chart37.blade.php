@@ -1,9 +1,9 @@
 <div>
     <style>
         #chart_id_{{ $chart->id }} {
-            height: 1000px;
-            min-width: 1000px;
-            max-width: 1000px;
+            height: 800px;
+            min-width: 800px;
+            max-width: 800px;
             margin: 0 auto;
         }
     </style>
