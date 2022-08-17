@@ -15,7 +15,7 @@
             </div>
         </div>
        <div class="card-body">
-        <select wire:model="sselected_division" wire:change="change_divition">
+        <select wire:model="selected_division" wire:change="change_divition">
             <option value="">All division</option>
             <option value="Khulna">Khulna</option>
             <option value="Barisal">Barisal</option>

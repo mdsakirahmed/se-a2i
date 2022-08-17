@@ -10,7 +10,7 @@ class Chart37 extends Component
 {
   public  Chart $chart;
   public $name, $description, $chart_id = 37;
-  public $selected_district = [],  $sselected_division = [];
+  public $selected_district = [],  $selected_division = [];
 
   public function render()
   {
@@ -40,72 +40,91 @@ class Chart37 extends Component
   public function get_data()
   {
 
-    $districts = [
-      ['Bagerhat', 45.16],
-      ['Bandarban', 25.00],
-      ['Barguna', 34.48],
-      ['Barisal', 29.82],
-      ['Bhola', 46.15],
-      ['Bogra', 10.00],
-      ['Brahamanbaria', 36.67],
-      ['Chandpur', 62.75],
-      ['Chittagong', 24.64],
-      ['Chuadanga', 38.10],
-      ['Comilla', 30.88],
-      ["Cox's Bazar", 51.35],
-      ['Dhaka', 43.33],
-      ['Dinajpur', 40.00],
-      ['Faridpur', 55.77],
-      ['Feni', 53.33],
-      ['Gaibandha', 55.17],
-      ['Gazipur', 33.33],
-      ['Gopalganj', 31.03],
-      ['Habiganj', 57.50],
-      ['Jamalpur', 40.00],
-      ['Jessore', 30.95],
-      ['Jhalokati', 30.00],
-      ['Jhenaidah', 43.33],
-      ['Joypurhat', 50.00],
-      ['Khagrachhari', 40.00],
-      ['Khulna', 33.33],
-      ['Kishoreganj', 56.41],
-      ['Kurigram', 73.33],
-      ['Kushtia', 46.67],
-      ['Lakshmipur', 56.67],
-      ['Lalmonirhat', 70.00],
-      ['Madaripur', 53.33],
-      ['Magura', 47.62],
-      ['Manikganj', 40.00],
-      ['Maulvibazar', 65.52],
-      ['Meherpur', 50.00],
-      ['Munshiganj', 23.68],
-      ['Mymensingh', 42.34],
-      ['Naogaon', 17.50],
-      ['Narail', 45.00],
-      ['Narayanganj', 44.44],
-      ['Narsingdi', 45.16],
-      ['Natore', 5.88],
-      ['Nawabganj', 50.00],
-      ['Netrakona', 64.00],
-      ['Nilphamari', 53.33],
-      ['Noakhali', 51.72],
-      ['Pabna', 50.00],
-      ['Panchagarh', 70.00],
-      ['Patuakhali', 60.00],
-      ['Pirojpur', 53.33],
-      ['Rajbari', 57.89],
-      ['Rajshahi', 65.00],
-      ['Rangamati', 70.00],
-      ['Rangpur', 67.50],
-      ['Satkhira', 34.48],
-      ['Shariatpur', 52.17],
-      ['Sherpur', 69.39],
-      ['Sirajganj', 67.57],
-      ['Sunamganj', 52.17],
-      ['Sylhet', 52.58],
-      ['Tangail', 29.79],
-      ['Thakurgaon', 50.00],
+    $array_data_set = [
+      ['division' => 'Khulna', 'district' => 'Bagerhat', 'value' => 45.16],
+      ['division' => 'Chittagong', 'district' => 'Bandarban', 'value' => 25.00],
+      ['division' => 'Barisal', 'district' => 'Barguna', 'value' => 34.48],
+      ['division' => 'Barisal', 'district' => 'Barisal', 'value' => 29.82],
+      ['division' => 'Barisal', 'district' => 'Bhola', 'value' => 46.15],
+      ['division' => 'Rajshahi', 'district' => 'Bogra', 'value' => 10.00],
+      ['division' => 'Chittagong', 'district' => 'Brahamanbaria', 'value' => 36.67],
+      ['division' => 'Chittagong', 'district' => 'Chandpur', 'value' => 62.75],
+      ['division' => 'Chittagong', 'district' => 'Chittagong', 'value' => 24.64],
+      ['division' => 'Khulna', 'district' => 'Chuadanga', 'value' => 38.10],
+      ['division' => 'Chittagong', 'district' => 'Comilla', 'value' => 30.88],
+      ['division' => 'Chittagong', 'district' => "Cox's Bazar", 'value' => 51.35],
+      ['division' => 'Dhaka', 'district' => 'Dhaka', 'value' => 43.33],
+      ['division' => 'Rangpur', 'district' => 'Dinajpur', 'value' => 40.00],
+      ['division' => 'Dhaka', 'district' => 'Faridpur', 'value' => 55.77],
+      ['division' => 'Chittagong', 'district' => 'Feni', 'value' => 53.33],
+      ['division' => 'Rangpur', 'district' => 'Gaibandha', 'value' => 55.17],
+      ['division' => 'Dhaka', 'district' => 'Gazipur', 'value' => 33.33],
+      ['division' => 'Dhaka', 'district' => 'Gopalganj', 'value' => 31.03],
+      ['division' => 'Sylhet', 'district' => 'Habiganj', 'value' => 57.50],
+      ['division' => 'Mymensingh', 'district' => 'Jamalpur', 'value' => 40.00],
+      ['division' => 'Khulna', 'district' => 'Jessore', 'value' => 30.95],
+      ['division' => 'Barisal', 'district' => 'Jhalokati', 'value' => 30.00],
+      ['division' => 'Khulna', 'district' => 'Jhenaidah', 'value' => 43.33],
+      ['division' => 'Rajshahi', 'district' => 'Joypurhat', 'value' => 50.00],
+      ['division' => 'Chittagong', 'district' => 'Khagrachhari', 'value' => 40.00],
+      ['division' => 'Khulna', 'district' => 'Khulna', 'value' => 33.33],
+      ['division' => 'Dhaka', 'district' => 'Kishoreganj', 'value' => 56.41],
+      ['division' => 'Rangpur', 'district' => 'Kurigram', 'value' => 73.33],
+      ['division' => 'Khulna', 'district' => 'Kushtia', 'value' => 46.67],
+      ['division' => 'Chittagong', 'district' => 'Lakshmipur', 'value' => 56.67],
+      ['division' => 'Rangpur', 'district' => 'Lalmonirhat', 'value' => 70.00],
+      ['division' => 'Dhaka', 'district' => 'Madaripur', 'value' => 53.33],
+      ['division' => 'Khulna', 'district' => 'Magura', 'value' => 47.62],
+      ['division' => 'Dhaka', 'district' => 'Manikganj', 'value' => 40.00],
+      ['division' => 'Sylhet', 'district' => 'Maulvibazar', 'value' => 65.52],
+      ['division' => 'Khulna', 'district' => 'Meherpur', 'value' => 50.00],
+      ['division' => 'Dhaka', 'district' => 'Munshiganj', 'value' => 23.68],
+      ['division' => 'Mymensingh', 'district' => 'Mymensingh', 'value' => 42.34],
+      ['division' => 'Rajshahi', 'district' => 'Naogaon', 'value' => 17.50],
+      ['division' => 'Khulna', 'district' => 'Narail', 'value' => 45.00],
+      ['division' => 'Dhaka', 'district' => 'Narayanganj', 'value' => 44.44],
+      ['division' => 'Dhaka', 'district' => 'Narsingdi', 'value' => 45.16],
+      ['division' => 'Rajshahi', 'district' => 'Natore', 'value' => 5.88],
+      ['division' => 'Rajshahi', 'district' => 'Nawabganj', 'value' => 50.00],
+      ['division' => 'Mymensingh', 'district' => 'Netrakona', 'value' => 64.00],
+      ['division' => 'Rangpur', 'district' => 'Nilphamari', 'value' => 53.33],
+      ['division' => 'Chittagong', 'district' => 'Noakhali', 'value' => 51.72],
+      ['division' => 'Rajshahi', 'district' => 'Pabna', 'value' => 50.00],
+      ['division' => 'Rangpur', 'district' => 'Panchagarh', 'value' => 70.00],
+      ['division' => 'Barisal', 'district' => 'Patuakhali', 'value' => 60.00],
+      ['division' => 'Barisal', 'district' => 'Pirojpur', 'value' => 53.33],
+      ['division' => 'Dhaka', 'district' => 'Rajbari', 'value' => 57.89],
+      ['division' => 'Rajshahi', 'district' => 'Rajshahi', 'value' => 65.00],
+      ['division' => 'Chittagong', 'district' => 'Rangamati', 'value' => 70.00],
+      ['division' => 'Rangpur', 'district' => 'Rangpur', 'value' => 67.50],
+      ['division' => 'Khulna', 'district' => 'Satkhira', 'value' => 34.48],
+      ['division' => 'Dhaka', 'district' => 'Shariatpur', 'value' => 52.17],
+      ['division' => 'Mymensingh', 'district' => 'Sherpur', 'value' => 69.39],
+      ['division' => 'Rajshahi', 'district' => 'Sirajganj', 'value' => 67.57],
+      ['division' => 'Sylhet', 'district' => 'Sunamganj', 'value' => 52.17],
+      ['division' => 'Sylhet', 'district' => 'Sylhet', 'value' => 52.58],
+      ['division' => 'Dhaka', 'district' => 'Tangail', 'value' => 29.79],
+      ['division' => 'Rangpur', 'district' => 'Thakurgaon', 'value' => 50.00],
     ];
+
+    //Get data from json file
+    $geojson = json_decode(file_get_contents(public_path('assets/json/mangladesh-districts.geojson.json')), true);
+
+    $formated_data = [];
+    foreach (collect($array_data_set)->groupBy('district') as $district => $district_wise_data) {
+        // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
+        array_push($formated_data, [
+            'district' => ucfirst(strtolower(trans($district))), 'value' => round(collect($district_wise_data)->sum('total_remitance_usd')), 'division' => ucfirst(strtolower(trans(collect($district_wise_data)->first()['division'])))
+        ]);
+    }
+    
+    $this->divisions = collect($formated_data)->pluck('division')->unique();
+
+    if($this->selected_division){
+        $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
+    }else{
+        $this->districts = collect($formated_data)->pluck('district');
+    }
 
     //Get data from json file
     $geojson = json_decode(file_get_contents(public_path('assets/json/mangladesh-districts.geojson.json')), true);
@@ -113,31 +132,24 @@ class Chart37 extends Component
     //Filter data
     $filter_geojson = $geojson;
     $filter_geojson['features'] = [];
-    $filter_districts = [];
     foreach ($geojson['features'] as $feature) {
-      if ($this->selected_district && $this->sselected_division) {
-        $this->districts = [];
-        if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->sselected_division) {
-          array_push($filter_geojson['features'], $feature);
-          array_push($filter_districts, $feature['properties']['district']);
+        if ($this->selected_district && $this->selected_division) {
+            if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
+                array_push($filter_geojson['features'], $feature);
+            }
+        } else if ($this->selected_district && !$this->selected_division) {
+            if ($feature['properties']['district'] == $this->selected_district) {
+                array_push($filter_geojson['features'], $feature);
+            }
+        } else if (!$this->selected_district && $this->selected_division) {
+            if ($feature['properties']['division'] == $this->selected_division) {
+                array_push($filter_geojson['features'], $feature);
+            }
+        } else {
+            array_push($filter_geojson['features'], $feature);
         }
-      } else if ($this->selected_district && !$this->sselected_division) {
-        if ($feature['properties']['district'] == $this->selected_district) {
-          array_push($filter_geojson['features'], $feature);
-        }
-      } else if (!$this->selected_district && $this->sselected_division) {
-        $this->districts = [];
-        if ($feature['properties']['division'] == $this->sselected_division) {
-          array_push($filter_geojson['features'], $feature);
-          array_push($filter_districts, $feature['properties']['district']);
-        }
-      } else {
-        array_push($filter_geojson['features'], $feature);
-        array_push($filter_districts, $feature['properties']['district']);
-      }
     }
     $geojson = $filter_geojson;
-    $this->districts = $filter_districts;
 
 
     //Make map data set
@@ -167,7 +179,9 @@ class Chart37 extends Component
 
       'series' => [
         [
-          'data' => $districts,
+          'data' => collect($formated_data)->map(function($data){
+            return [$data['district'], $data['value']];
+        }),
           'keys' => ["district", "value"],
           'joinBy' => "district",
           'name' => "Moderate to Severe Food Insecurity",
