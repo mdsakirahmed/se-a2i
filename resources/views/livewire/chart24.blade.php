@@ -16,12 +16,12 @@
                 </div>
             </div>
            <div class="card-body">
-            <select wire:model="selected_country" wire:change="update_chart">
+            {{-- <select wire:model="selected_country" wire:change="update_chart">
                 <option value="">All country</option>
                 @foreach ($countries as $country)
                     <option value="{{ $country }}">{{ $country }}</option>
                 @endforeach
-            </select>
+            </select> --}}
             <select wire:model="selected_year" wire:change="update_chart">
                 <option value="">All Year</option>
                 @foreach ($years as $year)
