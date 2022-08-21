@@ -94,18 +94,18 @@ class Chart22 extends Component
             ],
             
             'series' =>  [[
-                'name' =>  'Total imports', 'data' =>  collect($data)->pluck('import_in_usd'),
-                'color' =>  '#7F3F98',
-                'marker' =>  [
-                    'radius' =>  3
-                ]
-            ], [
                 'name' =>  'Total exports', 'data' =>  collect($data)->pluck('export_in_usd'),
                 'color' =>  '#83C341',
                 'marker' =>  [
                     'radius' =>  3
                 ]
-            ]]
+                ],[
+                    'name' =>  'Total imports', 'data' =>  collect($data)->pluck('import_in_usd'),
+                    'color' =>  '#7F3F98',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
+                ]]
         ];
     }
 }
