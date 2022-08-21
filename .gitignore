@@ -25,7 +25,5 @@ vendor
 vendor
 storage
 composer.log
-bootstap
-bootstrap
 composer.lock
 .idea
