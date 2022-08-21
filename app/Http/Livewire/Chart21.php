@@ -48,7 +48,7 @@ class Chart21 extends Component
         $formated_data = [];
         foreach (collect($db_data)->groupBy('country') as $country => $country_wise_data) {
             if ($this->selected_year) {
-                $value = collect($country_wise_data)->where('year', $this->selected_year)->sum('remittance_in_crore_bdt');
+                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('remittance_in_crore_bdt');
             } else {
                 $value = collect($country_wise_data)->sum('remittance_in_crore_bdt');
             }
