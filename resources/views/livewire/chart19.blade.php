@@ -56,11 +56,9 @@
         </script>
     </div>
 
-    
+</div>
 
-
-    
-    <div class="card">
+    {{-- <div class="card">
         <div class="card-header">
             {{ $name }}
         </div>
@@ -74,5 +72,5 @@
         <div class="card-footer">
             {!! $description !!}
         </div>
-    </div>
-</div>
+    </div> --}}
+
