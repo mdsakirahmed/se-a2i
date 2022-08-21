@@ -41,7 +41,7 @@ class Chart21 extends Component
     public function get_data()
     {
 
-        $db_data = DB::connection('mysql2')->select("SELECT fiscal_year, country, remittance_in_crore_bdt FROM corona_socio_info.economy_remittance_countrywise");
+        $db_data = DB::connection('mysql2')->select("SELECT fiscal_year, country, remittance_in_crore_bdt FROM corona_socio_info.economy_remittance_countrywise WHERE country != 'Total'");
 
         $this->years = collect($db_data)->pluck('fiscal_year')->unique();
 
@@ -61,6 +61,7 @@ class Chart21 extends Component
         //Get data from json file
         $geojson = json_decode(file_get_contents(public_path('assets/json/world.topo.json')), true);
 
+        
         //Make map data set
         return [
 
