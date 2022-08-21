@@ -50,7 +50,7 @@ class Chart24 extends Component
         $formated_data = [];
         foreach (collect($db_data)->groupBy('country') as $country => $country_wise_data) {
             if ($this->selected_year) {
-                $value = collect($country_wise_data)->where('year', $this->selected_year)->sum('import_in_usd');
+                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_in_usd');
             } else {
                 $value = collect($country_wise_data)->sum('import_in_usd');
             }

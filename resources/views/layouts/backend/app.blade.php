@@ -36,6 +36,7 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     {{-- <script src="https://code.highcharts.com/maps/highmaps.js"></script> --}}
     <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/modules/marker-clusters.js"></script>
     {{-- highcharts end --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
