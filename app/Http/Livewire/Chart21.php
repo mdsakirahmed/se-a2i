@@ -61,7 +61,6 @@ class Chart21 extends Component
         //Get data from json file
         $geojson = json_decode(file_get_contents(public_path('assets/json/world.topo.json')), true);
 
-        
         //Make map data set
         return [
 
