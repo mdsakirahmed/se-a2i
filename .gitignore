@@ -4,6 +4,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/vendor/*
 .env
 .env.backup
 .phpunit.result.cache
@@ -14,3 +15,15 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+storage
+vendor
+node_module
+node_module/
+storage/
+vendor/
+vendor
+vendor
+storage
+composer.log
+bootstap
+bootstrap
