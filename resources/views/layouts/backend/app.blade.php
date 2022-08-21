@@ -28,18 +28,14 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
-    {{-- amcharts start --}}
-    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-    {{-- amcharts end --}}
-
     {{-- highcharts end --}}
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    {{-- <script src="https://code.highcharts.com/maps/highmaps.js"></script> --}}
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
     {{-- highcharts end --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -320,13 +316,16 @@
     @livewireScripts
     @stack('scripts')
     <script>
-     window.addEventListener('swal:modal', event => {
+    window.addEventListener('swal:modal', event => {
          swal({
              title: event.detail.message,
              text: event.detail.text,
              icon: event.detail.type,
          });
-     });
+    });
+    window.addEventListener('refresh-page', event => {
+        window.location.reload(true); 
+    });
  </script>
 </body>
 
