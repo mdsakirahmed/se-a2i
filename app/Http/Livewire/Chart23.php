@@ -167,8 +167,9 @@ class Chart23 extends Component
             ]);
         }
 
+        //Set chart's categories
         $this->categories = collect($db_data_set)->pluck('country')->unique();
-
+        //Default render by first one or key 0
         $this->chart_data_set = $this->get_data();
     }
 
@@ -222,7 +223,6 @@ class Chart23 extends Component
     }
 
     public function change_selected_key_and_chart_update($key){
-
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data($key)]);
     }
 }
