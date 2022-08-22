@@ -54,9 +54,8 @@ class Chart17 extends Component
             } else {
                 $value = collect($district_wise_data)->sum('total_remitance_usd');
             }
-            // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
             array_push($formated_data, [
-                'district' => ucfirst(strtolower(trans($district))), 'value' => round($value), 'division' => ucfirst(strtolower(trans(collect($district_wise_data)->first()->division)))
+                'district' => $district, 'value' => round($value), 'division' => collect($district_wise_data)->first()->division
             ]);
         }
         

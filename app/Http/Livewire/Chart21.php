@@ -52,9 +52,9 @@ class Chart21 extends Component
             } else {
                 $value = collect($country_wise_data)->sum('remittance_in_crore_bdt');
             }
-            // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
+
             array_push($formated_data, [
-                'country' => ucfirst(strtolower(trans($country))), 'z' => round($value)
+                'country' => $country, 'z' => round($value)
             ]);
         }
 
