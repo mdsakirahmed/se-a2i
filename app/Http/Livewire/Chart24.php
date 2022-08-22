@@ -54,12 +54,10 @@ class Chart24 extends Component
             } else {
                 $value = collect($country_wise_data)->sum('import_in_usd');
             }
-            // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
             array_push($formated_data, [
-                'country' => ucfirst(strtolower(trans($country))), 'value' => round($value)
+                'country' => $country, 'value' => round($value)
             ]);
         }
-
 
         //Get data from json file
         $geojson = json_decode(file_get_contents(public_path('assets/json/world.topo.json')), true);
