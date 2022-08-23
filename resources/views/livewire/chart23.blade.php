@@ -9,9 +9,12 @@
          <figure class="highcharts-figure">
              <div id="chart_id_{{ $chart->id }}"> </div>
          </figure>
-         @foreach ($fotmated_data_set as $key => $value)
-            <button class="btn btn-danger" wire:click="change_selected_key_and_chart_update({{ $key }})">{{ $key }}</button>
-         @endforeach
+        <div class="key_filter">
+            <button class="btn btn-success play_pause_btn">Play/Pause </button>
+            @foreach ($fotmated_data_set as $key => $value)
+            <button class="btn btn-danger key_btn" wire:click="change_selected_key_and_chart_update({{ $key }})">{{ $key }}</button>
+            @endforeach
+        </div>
         </div>
          <div class="card-footer">
              {!! $description !!}
@@ -26,6 +29,38 @@
                 window.addEventListener("chart_update_{{ $chart->id }}", event => {
                     Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
                 });
+
+                $(".play_pause_btn" ).click(function(index) {
+
+
+                    // $(this).parent().find(".key_btn").each(function(i){
+                    //     // let key_btn = $(this);
+                    //     // setTimeout(function() { 
+                    //     //     console.log(key_btn.click());
+                    //     // }, 2000);
+
+                    // $(this).delay(5000*index).click();
+
+                       
+                    // });
+
+                    var time = 1000;
+                    $(this).parent().find(".key_btn").each(function() {
+                        let key_btn = $(this);
+                        setTimeout( function(){ 
+                            // $(this).click(); 
+                            click_key_btn(key_btn);
+                            console.log(time);
+                        }, time)
+                        time += 5000;
+                    });
+
+                    
+                });
+
+                function click_key_btn(key_btn){
+                    key_btn.click();
+                }
             });
         </script>
      </div>
