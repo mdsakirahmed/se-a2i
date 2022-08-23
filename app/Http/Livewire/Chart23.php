@@ -162,67 +162,42 @@ class Chart23 extends Component
         foreach (collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data) {
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
-                'data' =>  $fiscal_year_wise_data->pluck('import_in_usd')->map(function($import_in_usd, $key){
-                    if($key < 10){
-                        return $import_in_usd/1000000;
-                    }
+                'data' =>  $fiscal_year_wise_data->map(function($data){
+                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="20">', $data->import_in_usd/1000000];
                 }),
                 'color' =>  '#83C341',
             ]);
         }
 
-        //Set chart's categories
-        $this->categories = [];
-        collect($db_data_set)->pluck('country')->unique()->map(function($country){
-            array_push($this->categories, $country.'&nbsp; <img src="'.("/assets/flags/$country.png").'" width="20" height="20">');
-        });
         //Default render by first one or key 0
         $this->chart_data_set = $this->get_data();
     }
 
     public function get_data($selected_key_for_data_view = 0) 
     {
-        return  [
-            'chart' =>  [
-                'type' =>  'bar', 'zoomType' => 'xy'
+        return [
+            'chart'=> [
+                'renderTo'=> 'container',
+                'type'=> 'bar'
             ],
-            'credits' => [
-                'enabled' => false
+            'plotOptions'=> [
+                'column'=> [
+                    'stacking'=> 'normal',
+                    'dataLabels'=> [
+                        'enabled'=> false
+                    ]
+                ]
             ],
-            'title' =>  [
-                'text' =>  ''
-            ],
-            'credits' =>  [
-                'enabled' =>  false
-            ],
-            'subtitle' =>  [
-                'text' =>  ''
-            ], 
-            'xAxis' =>  [
-                'categories' =>  $this->categories,
+            'xAxis'=> [
+                'type'=> "category",
                 'labels'=> [
                     'useHTML'=> true,
                 ],
             ],
-            'yAxis' =>  [
-                'title' =>  [
-                    'text' =>  'Imports/Exports (Billion US$)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
-                ]
-            ],
-            'plotOptions' =>  [
-                'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
-                ]
-            ],
-
-            'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
+            'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }
-    
+
     protected $listeners = ['change_selected_key_and_chart_update'];
     public function change_selected_key_and_chart_update($key)
     {
