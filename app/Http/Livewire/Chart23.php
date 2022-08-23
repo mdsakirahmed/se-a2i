@@ -162,7 +162,11 @@ class Chart23 extends Component
         foreach(collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data){
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
-                'data' =>  $fiscal_year_wise_data->pluck('import_in_usd'),
+                'data' =>  $fiscal_year_wise_data->pluck('import_in_usd')->map(function($import_in_usd, $key){
+                    if($key < 10){
+                        return $import_in_usd/1000000;
+                    }
+                }),
                 'color' =>  '#83C341',
             ]);
         }
@@ -173,7 +177,7 @@ class Chart23 extends Component
         $this->chart_data_set = $this->get_data();
     }
 
-    public function get_data($selected_key_for_data_view = 0)
+    public function get_data($selected_key_for_data_view = 0) 
     {
         return  [
             'chart' =>  [
