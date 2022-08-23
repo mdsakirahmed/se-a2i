@@ -216,6 +216,9 @@ class Chart23 extends Component
                     'dataLabels' =>  [
                         'enabled' =>  false
                     ], 'enableMouseTracking' =>  true
+                ],
+                'series'=> [
+                    'animation'=> false
                 ]
             ],
 
