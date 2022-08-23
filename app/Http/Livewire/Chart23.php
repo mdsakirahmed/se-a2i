@@ -159,7 +159,7 @@ class Chart23 extends Component
             LIMIT 11)");
 
         $this->fotmated_data_set = array();
-        foreach(collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data){
+        foreach (collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data) {
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->pluck('import_in_usd')->map(function($import_in_usd, $key){
@@ -172,7 +172,10 @@ class Chart23 extends Component
         }
 
         //Set chart's categories
-        $this->categories = collect($db_data_set)->pluck('country')->unique();
+        $this->categories = [];
+        collect($db_data_set)->pluck('country')->unique()->map(function($country){
+            array_push($this->categories, $country.'&nbsp; <img src="'.("/assets/flags/$country.png").'" width="20" height="20">');
+        });
         //Default render by first one or key 0
         $this->chart_data_set = $this->get_data();
     }
@@ -183,29 +186,24 @@ class Chart23 extends Component
             'chart' =>  [
                 'type' =>  'bar', 'zoomType' => 'xy'
             ],
-
             'credits' => [
                 'enabled' => false
             ],
-
             'title' =>  [
                 'text' =>  ''
             ],
-
             'credits' =>  [
                 'enabled' =>  false
             ],
-
             'subtitle' =>  [
                 'text' =>  ''
-            ]
-            // ,'marker' =>  [
-            //     'radius' =>  5
-            // ]
-            , 'xAxis' =>  [
+            ], 
+            'xAxis' =>  [
                 'categories' =>  $this->categories,
+                'labels'=> [
+                    'useHTML'=> true,
+                ],
             ],
-
             'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Imports/Exports (Billion US$)'
@@ -213,7 +211,6 @@ class Chart23 extends Component
                     'format' =>  '{value}'
                 ]
             ],
-
             'plotOptions' =>  [
                 'bar' =>  [
                     'dataLabels' =>  [
@@ -226,7 +223,8 @@ class Chart23 extends Component
         ];
     }
 
-    public function change_selected_key_and_chart_update($key){
+    public function change_selected_key_and_chart_update($key)
+    {
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data($key)]);
     }
 }
