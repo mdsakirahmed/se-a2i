@@ -31,36 +31,15 @@
                 });
 
                 $(".play_pause_btn" ).click(function(index) {
-
-
-                    // $(this).parent().find(".key_btn").each(function(i){
-                    //     // let key_btn = $(this);
-                    //     // setTimeout(function() { 
-                    //     //     console.log(key_btn.click());
-                    //     // }, 2000);
-
-                    // $(this).delay(5000*index).click();
-
-                       
-                    // });
-
-                    var time = 1000;
+                    var time = 0;
                     $(this).parent().find(".key_btn").each(function() {
                         let key_btn = $(this);
                         setTimeout( function(){ 
-                            // $(this).click(); 
-                            click_key_btn(key_btn);
-                            console.log(time);
+                            key_btn.click();
                         }, time)
                         time += 5000;
                     });
-
-                    
                 });
-
-                function click_key_btn(key_btn){
-                    key_btn.click();
-                }
             });
         </script>
      </div>
