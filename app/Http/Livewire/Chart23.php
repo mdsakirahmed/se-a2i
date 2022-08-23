@@ -222,7 +222,8 @@ class Chart23 extends Component
             'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }
-
+    
+    protected $listeners = ['change_selected_key_and_chart_update'];
     public function change_selected_key_and_chart_update($key)
     {
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data($key)]);
