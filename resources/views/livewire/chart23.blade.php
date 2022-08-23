@@ -66,7 +66,7 @@
             <iframe width="100%" height="660px" frameborder="0" allowfullscreen="true" src="https://public.tableau.com/views/CountrywiseImportBarChart/Dashboard2?%3Aembed=y&%3AshowVizHome=no&:device=desktop">
             </iframe>
             <p class="text-center">
-                <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
+                <button type="button" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
             </p>
         </div>
         <div class="card-footer">
