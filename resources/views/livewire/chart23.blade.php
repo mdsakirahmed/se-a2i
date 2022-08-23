@@ -9,17 +9,18 @@
          <figure class="highcharts-figure">
              <div id="chart_id_{{ $chart->id }}"> </div>
          </figure>
-        <div class="key_filter">
-            <button class="btn btn-success play_pause_btn">Play/Pause </button>
-            @foreach ($fotmated_data_set as $key => $value)
-            <button class="btn btn-danger key_btn" wire:click="change_selected_key_and_chart_update({{ $key }})">{{ $key }}</button>
-            @endforeach
+        <div id="slider">
+            <input type='range' min='0' max='4' step='1' value='0' id='rangeSlider' /> 
+            <button type="button" class="btn btn-sm btn-success" id="start">start</button>
+            <button type="button" class="btn btn-sm btn-warning" id="stop">stop</button>
         </div>
         </div>
          <div class="card-footer">
              {!! $description !!}
          </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+
         <script>
             $(document).ready(function() {
                 //First loaded data
@@ -30,15 +31,27 @@
                     Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
                 });
 
-                $(".play_pause_btn" ).click(function(index) {
-                    var time = 0;
-                    $(this).parent().find(".key_btn").each(function() {
-                        let key_btn = $(this);
-                        setTimeout( function(){ 
-                            key_btn.click();
-                        }, time)
-                        time += 5000;
-                    });
+
+                //Run the update function when the slider is changed
+                d3.select('#rangeSlider').on('input', function() {
+                    window.livewire.emit('change_selected_key_and_chart_update', this.value);
+                });
+
+                var myTimer;
+                d3.select("#start").on("click", function() {
+                clearInterval (myTimer);
+                    myTimer = setInterval (function() {
+                    var b= d3.select("#rangeSlider");
+                    var t = (+b.property("value") + 1) % (+b.property("max") + 1);
+                    if (t == 0) { t = +b.property("min"); }
+                    b.property("value", t);
+                    window.livewire.emit('change_selected_key_and_chart_update', t);
+                    console.log(t);
+                    }, 5000);
+                });
+
+                d3.select("#stop").on("click", function() {
+                    clearInterval (myTimer);
                 });
             });
         </script>
