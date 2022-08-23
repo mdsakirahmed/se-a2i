@@ -9,8 +9,8 @@
          <figure class="highcharts-figure">
              <div id="chart_id_{{ $chart->id }}"> </div>
          </figure>
-        <div id="slider">
-            <input type='range' min='0' max='4' step='1' value='0' id='rangeSlider' /> 
+        <div id="slidecontainer">
+            <input type='range' class="slider" min='0' max='{{ count(collect($fotmated_data_set)->pluck('name')) - 1 }}' step='1' value='0' id='rangeSlider' /> 
             <button type="button" class="btn btn-sm btn-success" id="start">start</button>
             <button type="button" class="btn btn-sm btn-warning" id="stop">stop</button>
         </div>
@@ -47,7 +47,7 @@
                     b.property("value", t);
                     window.livewire.emit('change_selected_key_and_chart_update', t);
                     console.log(t);
-                    }, 5000);
+                    }, 3000);
                 });
 
                 d3.select("#stop").on("click", function() {
