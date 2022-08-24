@@ -102,7 +102,7 @@ class Chart18 extends Component
                     'dataLabels' => [
                         'enabled' => false,
                     ]
-                ]
+                ],
             ],
             'legend' => [
                 'enabled' => false

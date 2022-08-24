@@ -112,8 +112,8 @@ class Chart37 extends Component
 
     $formated_data = [];
     foreach (collect($array_data_set)->groupBy('district') as $district => $district_wise_data) {
-        // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
-        array_push($formated_data, [
+
+      array_push($formated_data, [
             'district' => $district, 'value' => round(collect($district_wise_data)->sum('value')), 'division' => collect($district_wise_data)->first()['division']
         ]);
     }
