@@ -40,12 +40,12 @@
                 window.livewire.emit('change_selected_key_and_chart_update', this.value);
             });
 
-            var myTimer;
+            let myTimer;
             d3.select("#start_btn_chart_id_{{ $chart->id }}").on("click", function() {
             clearInterval (myTimer);
                 myTimer = setInterval (function() {
-                var b= d3.select("#range_chart_id_{{ $chart->id }}");
-                var t = (+b.property("value") + 1) % (+b.property("max") + 1);
+                let b= d3.select("#range_chart_id_{{ $chart->id }}");
+                let t = (+b.property("value") + 1) % (+b.property("max") + 1);
                 if (t == 0) { t = +b.property("min"); }
                 b.property("value", t);
                 window.livewire.emit('change_selected_key_and_chart_update', t);
