@@ -37,7 +37,7 @@
 
             //Run the update function when the slider is changed
             d3.select("#range_chart_id_{{ $chart->id }}").on('input', function() {
-                window.livewire.emit('change_selected_key_and_chart_update', this.value);
+                window.livewire.emit('change_selected_key_and_chart_update_23', this.value);
             });
 
             let myTimer;
@@ -48,7 +48,7 @@
                 let t = (+b.property("value") + 1) % (+b.property("max") + 1);
                 if (t == 0) { t = +b.property("min"); }
                 b.property("value", t);
-                window.livewire.emit('change_selected_key_and_chart_update', t);
+                window.livewire.emit('change_selected_key_and_chart_update_23', t);
                 console.log(t);
                 }, 3000);
             });

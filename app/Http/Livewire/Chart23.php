@@ -198,7 +198,8 @@ class Chart23 extends Component
         ];
     }
 
-    public function change_selected_key_and_chart_update($key)
+    protected $listeners = ['change_selected_key_and_chart_update_23'];
+    public function change_selected_key_and_chart_update_23($key)
     {
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data($key)]);
     }
