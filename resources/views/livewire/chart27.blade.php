@@ -59,11 +59,13 @@
                        data: collection1,
                        dataLabels: {
                            enabled: true,
-                           format: '{point.commodity}:<br>{point.country}'
+                        //    format: '{point.commodity}:<br>{point.country}'
+                           format: ''
                        },
                        tooltip: {
                            useHTML: true,
-                           pointFormat: "Commodity <b>{point.commodity}</b>"
+                        //    pointFormat: "Commodity <b>{point.commodity}</b>"
+                           pointFormat: ""
                        }
                    }],
                    plotOptions: {
@@ -97,11 +99,13 @@
                        data: collection2,
                        dataLabels: {
                            enabled: true,
-                           format: '{point.country}:<br>{point.commodity}'
+                        //    format: '{point.country}:<br>{point.commodity}'
+                           format: ''
                        },
                        tooltip: {
                            useHTML: true,
-                           pointFormat: "Country <b>{point.country}</b>"
+                        //    pointFormat: "Country <b>{point.country}</b>"
+                           pointFormat: ""
                        }
                    }],
                    plotOptions: {
