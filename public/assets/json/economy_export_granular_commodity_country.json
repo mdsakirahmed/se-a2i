@@ -1,0 +1,420 @@
+[
+ 
+  {
+    "year": "2020-21",
+    "country": "Slovenia",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 4824
+  },
+  {
+    "year": "2019-20",
+    "country": "Slovenia",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 5558
+  },
+  {
+    "year": "2020-21",
+    "country": "Solomon Islands",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Oceania",
+    "value": 0
+  },
+  {
+    "year": "2019-20",
+    "country": "Solomon Islands",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Oceania",
+    "value": 0
+  },
+  {
+    "year": "2020-21",
+    "country": "South Africa",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 19635
+  },
+  {
+    "year": "2019-20",
+    "country": "South Africa",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 14978
+  },
+  {
+    "year": "2020-21",
+    "country": "Spain",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 288744
+  },
+  {
+    "year": "2019-20",
+    "country": "Spain",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 263265
+  },
+  {
+    "year": "2020-21",
+    "country": "Sri Lanka",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 6
+  },
+  {
+    "year": "2019-20",
+    "country": "Sri Lanka",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 59
+  },
+  {
+    "year": "2020-21",
+    "country": "Sweden",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 89292
+  },
+  {
+    "year": "2019-20",
+    "country": "Sweden",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 72661
+  },
+  {
+    "year": "2020-21",
+    "country": "Switzerland",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 12455
+  },
+  {
+    "year": "2019-20",
+    "country": "Switzerland",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 12566
+  },
+  {
+    "year": "2020-21",
+    "country": "Taiwan: Province of China",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 1799
+  },
+  {
+    "year": "2019-20",
+    "country": "Taiwan: Province of China",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 2240
+  },
+  {
+    "year": "2020-21",
+    "country": "Thailand",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 1915
+  },
+  {
+    "year": "2019-20",
+    "country": "Thailand",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 1876
+  },
+  {
+    "year": "2020-21",
+    "country": "Tonga",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Oceania",
+    "value": 3
+  },
+  {
+    "year": "2019-20",
+    "country": "Tonga",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Oceania",
+    "value": 0
+  },
+  {
+    "year": "2020-21",
+    "country": "Trinidad And Tobago",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 49
+  },
+  {
+    "year": "2019-20",
+    "country": "Trinidad And Tobago",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 3
+  },
+  {
+    "year": "2020-21",
+    "country": "Tunisia",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 277
+  },
+  {
+    "year": "2019-20",
+    "country": "Tunisia",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 22
+  },
+  {
+    "year": "2020-21",
+    "country": "Turkey",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 11248
+  },
+  {
+    "year": "2019-20",
+    "country": "Turkey",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 9284
+  },
+  {
+    "year": "2020-21",
+    "country": "Ukraine",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 799
+  },
+  {
+    "year": "2019-20",
+    "country": "Ukraine",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 877
+  },
+  {
+    "year": "2020-21",
+    "country": "United Arab Emirates (UAE)",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 13625
+  },
+  {
+    "year": "2019-20",
+    "country": "United Arab Emirates (UAE)",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 10630
+  },
+  {
+    "year": "2020-21",
+    "country": "United Kingdom (UK)",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 388946
+  },
+  {
+    "year": "2019-20",
+    "country": "United Kingdom (UK)",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Europe",
+    "value": 357119
+  },
+  {
+    "year": "2020-21",
+    "country": "United States of America (USA)",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "North America",
+    "value": 354927
+  },
+  {
+    "year": "2019-20",
+    "country": "United States of America (USA)",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "North America",
+    "value": 271426
+  },
+  {
+    "year": "2020-21",
+    "country": "Uruguay",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "South America",
+    "value": 4177
+  },
+  {
+    "year": "2019-20",
+    "country": "Uruguay",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "South America",
+    "value": 4232
+  },
+  {
+    "year": "2020-21",
+    "country": "Venezuela, Bolivarian Republic of",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "South America",
+    "value": 0
+  },
+  {
+    "year": "2019-20",
+    "country": "Venezuela, Bolivarian Republic of",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "South America",
+    "value": 2
+  },
+  {
+    "year": "2020-21",
+    "country": "Viet Nam",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 683
+  },
+  {
+    "year": "2019-20",
+    "country": "Viet Nam",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Asia",
+    "value": 642
+  },
+  {
+    "year": "2020-21",
+    "country": "Zambia",
+    "commodity": "�Jerseys, pullovers,cardigans etc.",
+    "sector": "��Textiles & Textile Articles",
+    "continent": "Africa",
+    "value": 3
+  },
+ 
+  {
+    "year": "2019-20",
+    "country": "Suriname",
+    "commodity": "�Sanitary towels , napkins etc.",
+    "sector": "��Miscellaneous Manufactured Articles",
+    "continent": "South America",
+    "value": 0
+  },
+  {
+    "year": "2020-21",
+    "country": "United Arab Emirates (UAE)",
+    "commodity": "�Sanitary towels , napkins etc.",
+    "sector": "��Miscellaneous Manufactured Articles",
+    "continent": "Asia",
+    "value": 52342
+  },
+  {
+    "year": "2019-20",
+    "country": "United Arab Emirates (UAE)",
+    "commodity": "�Sanitary towels , napkins etc.",
+    "sector": "��Miscellaneous Manufactured Articles",
+    "continent": "Asia",
+    "value": 20420
+  },
+  {
+    "year": "2020-21",
+    "country": "United States of America (USA)",
+    "commodity": "�Sanitary towels , napkins etc.",
+    "sector": "��Miscellaneous Manufactured Articles",
+    "continent": "North America",
+    "value": 0
+  },
+  {
+    "year": "2019-20",
+    "country": "United States of America (USA)",
+    "commodity": "�Sanitary towels , napkins etc.",
+    "sector": "��Miscellaneous Manufactured Articles",
+    "continent": "North America",
+    "value": 1
+  },
+  {
+    "year": "2020-21",
+    "country": "Oman",
+    "commodity": "�Paintings, drawings etc.",
+    "sector": "��Works of Art, Collectors Pieces and Antiques",
+    "continent": "Asia",
+    "value": 0
+  },
+  {
+    "year": "2019-20",
+    "country": "Oman",
+    "commodity": "�Paintings, drawings etc.",
+    "sector": "��Works of Art, Collectors Pieces and Antiques",
+    "continent": "Asia",
+    "value": 11
+  },
+  {
+    "year": "2020-21",
+    "country": "United Arab Emirates (UAE)",
+    "commodity": "�Paintings, drawings etc.",
+    "sector": "��Works of Art, Collectors Pieces and Antiques",
+    "continent": "Asia",
+    "value": 15
+  },
+  {
+    "year": "2019-20",
+    "country": "United Arab Emirates (UAE)",
+    "commodity": "�Paintings, drawings etc.",
+    "sector": "��Works of Art, Collectors Pieces and Antiques",
+    "continent": "Asia",
+    "value": 0
+  },
+  {
+    "year": "2020-21",
+    "country": "India",
+    "commodity": "�Goods treated as baggage\" in accordance with Chapter XV of the Act and/or under the provisions of rules framed under section 219 of the Act",
+    "sector": "��Works of Art, Collectors Pieces and Antiques",
+    "continent": "Asia",
+    "value": 0
+  },
+  {
+    "year": "2019-20",
+    "country": "India",
+    "commodity": "�Goods treated as baggage\" in accordance with Chapter XV of the Act and/or under the provisions of rules framed under section 219 of the Act",
+    "sector": "��Works of Art, Collectors Pieces and Antiques",
+    "continent": "Asia",
+    "value": 1
+  }
+]

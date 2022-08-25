@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Backup;
 use App\Http\Livewire\Login;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
