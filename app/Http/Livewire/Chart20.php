@@ -46,7 +46,7 @@ class Chart20 extends Component
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function($data){
-                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="20">', $data->remittance_in_crore_bdt];
+                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="15">', $data->remittance_in_crore_bdt];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -63,6 +63,9 @@ class Chart20 extends Component
                 'renderTo'=> 'container',
                 'type'=> 'bar'
             ],
+            'credits'=>[
+                'enabled'=>false
+              ],
             'plotOptions'=> [
                 'column'=> [
                     'stacking'=> 'normal',
@@ -76,6 +79,13 @@ class Chart20 extends Component
                 'labels'=> [
                     'useHTML'=> true,
                 ],
+            ],
+            'yAxis' =>  [
+                'title' =>  [
+                    'text' =>  'Remittance (Crore BDT)'
+                ], 'labels' =>  [
+                    'format' =>  '{value}'
+                ]
             ],
             'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
