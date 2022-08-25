@@ -102,13 +102,13 @@ class Chart18 extends Component
                     'dataLabels' => [
                         'enabled' => false,
                     ]
-                ],
+                ]
             ],
             'legend' => [
-                'enabled' => false
+                'enabled' => true
             ],
             'series' => [[
-                'name' => '',
+                'name' => 'Total Employment (In Thousand)',
                 'stack' => '',
                 'color' => "#83C341",
                 'yAxis' => 1,
@@ -117,13 +117,14 @@ class Chart18 extends Component
                 }),
             ], [
                 'color' => "#7F3F98",
-                'name' => '',
+                'name' => 'Remittance (In thousand million US$)',
                 'type' => 'spline',
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),
 
-            ]]
+            ],
+]
         ];
     }
 }

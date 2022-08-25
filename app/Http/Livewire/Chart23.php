@@ -180,21 +180,31 @@ class Chart23 extends Component
                 'renderTo'=> 'container',
                 'type'=> 'bar'
             ],
-            'plotOptions'=> [
-                'column'=> [
-                    'stacking'=> 'normal',
-                    'dataLabels'=> [
-                        'enabled'=> false
-                    ]
-                ]
-            ],
             'xAxis'=> [
                 'type'=> "category",
                 'labels'=> [
                     'useHTML'=> true,
                 ],
             ],
-            'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
+            'yAxis' =>  [
+                'title' =>  [
+                    'text' =>  'Imports (Million US$)'
+                ], 'labels' =>  [
+                    'format' =>  '{value}'
+                ]
+            ],
+            'plotOptions' =>  [
+                'bar' =>  [
+                    'dataLabels' =>  [
+                        'enabled' =>  false
+                    ], 'enableMouseTracking' =>  true
+                ],
+                'series'=> [
+                    'animation'=> false
+                ]
+            ],
+
+            'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }
 
