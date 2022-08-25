@@ -138,6 +138,23 @@
             transform: rotate(-90deg);
         }
 
+        #chart_id_22 .highcharts-series-label{
+            display: none;
+        }
+
+        #chart_id_18 .highcharts-series-label{
+            display: none;
+        }
+        #chart_id_6 .highcharts-series-label{
+            display: none;
+        }
+        #chart_id_7 .highcharts-series-label{
+            display: none;
+        }
+        #chart_id_8 .highcharts-series-label{
+            display: none;
+        }
+
     </style>
     @livewireStyles
 </head>
