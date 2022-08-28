@@ -36,7 +36,7 @@ class Chart12 extends Component
         SUM(IF(country_code = 'PAK', gdp_per_capita, 0)) AS pakistan
         FROM
             corona_socio_info.economy_real_capita
-        WHERE year >= 1990
+        WHERE year >= '2005-06'
         GROUP BY year");
 
         // dd(collect($data));

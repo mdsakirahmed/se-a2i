@@ -163,7 +163,7 @@ class Chart23 extends Component
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function($data){
-                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="20">', $data->import_in_usd/1000000];
+                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="15">', $data->import_in_usd/1000000];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -180,21 +180,36 @@ class Chart23 extends Component
                 'renderTo'=> 'container',
                 'type'=> 'bar'
             ],
-            'plotOptions'=> [
-                'column'=> [
-                    'stacking'=> 'normal',
-                    'dataLabels'=> [
-                        'enabled'=> false
-                    ]
-                ]
+
+            'credits'=>[
+                'enabled'=>false
             ],
+
             'xAxis'=> [
                 'type'=> "category",
                 'labels'=> [
                     'useHTML'=> true,
                 ],
             ],
-            'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
+            'yAxis' =>  [
+                'title' =>  [
+                    'text' =>  'Imports (Million US$)'
+                ], 'labels' =>  [
+                    'format' =>  '{value}'
+                ]
+            ],
+            'plotOptions' =>  [
+                'bar' =>  [
+                    'dataLabels' =>  [
+                        'enabled' =>  false
+                    ], 'enableMouseTracking' =>  true
+                ],
+                'series'=> [
+                    'animation'=> false
+                ]
+            ],
+
+            'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }
 

@@ -165,7 +165,7 @@ class Chart25 extends Component
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function($data){
-                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="20">', $data->export_in_usd/1000000];
+                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="15">', $data->export_in_usd/1000000];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -182,6 +182,11 @@ class Chart25 extends Component
                 'renderTo'=> 'container',
                 'type'=> 'bar'
             ],
+
+            'credits'=>[
+                'enabled'=>false
+            ],
+
             'plotOptions'=> [
                 'column'=> [
                     'stacking'=> 'normal',
