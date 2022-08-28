@@ -232,16 +232,6 @@
                                     </a>
                                 </li>
                                 <li data-aos="fade-up">
-                                    <a href="{{ route('backend.education') }}">
-                                        <div class="nav-title">
-                                            <h6>
-                                                <i class="bx bxs-graduation"></i>
-                                                {{ __('Education') }}
-                                            </h6>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
                                         <div class="nav-title-collapse">
                                             <h6>
