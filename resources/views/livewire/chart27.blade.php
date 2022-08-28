@@ -20,30 +20,10 @@
    
 
     <script>
-       var collection = [{
-           country: 'Jordan',
-           sector: 'sector-1',
-           value: 100,
-       }, {
-           country: 'Jordan',
-           sector: 'sector-2',
-           value: 110,
-       }, {
-           country: 'Maldives',
-           sector: 'sector-1',
-           value: 120,
-       }, {
-           country: 'Kuwait',
-           sector: 'sector-1',
-           value: 130,
-       }];
-      
-       
-
-       Highcharts.getJSON('/assets/json/economy_export_granular_commodity_country.json', function(data) {
-        console.log(data);
-            var collection1 = data;
-            var collection2 = data;
+       Highcharts.getJSON('/assets/json/economy_export_granular_commodity_country.json', function(collection) {
+        console.log(collection);
+            var collection1 = collection;
+            var collection2 = collection;
             render_chart_1();
             render_chart_2();
 
@@ -74,10 +54,16 @@
                            point: {
                                events: {
                                    click: function() {
-                                       let commodity = this.commodity;
-                                       collection2 = jQuery.grep(collection, function(item, index) {
-                                           return (item.commodity == commodity);
-                                       });
+                                       if($(this).attr('data-click') != 1){
+                                            $(this).attr('data-click', 1);
+                                            let commodity = this.commodity;
+                                            collection2 = jQuery.grep(collection, function(item, index) {
+                                                return (item.commodity == commodity);
+                                            });
+                                       }else{
+                                        $(this).attr('data-click', 0)
+                                        collection2 = collection;
+                                       }
                                        render_chart_2();
                                    }
                                }
@@ -86,6 +72,7 @@
                    },
                });
            }
+           
 
            function render_chart_2() {
                Highcharts.chart('container2', {
@@ -104,7 +91,7 @@
                        },
                        tooltip: {
                            useHTML: true,
-                        //    pointFormat: "Country <b>{point.country}</b>"
+                        //    pointFormat: "Country <b>{point.commodity}</b>"
                            pointFormat: ""
                        }
                    }],
@@ -114,10 +101,16 @@
                            point: {
                                events: {
                                    click: function() {
-                                       let country = this.country;
-                                       collection1 = jQuery.grep(collection, function(item, index) {
-                                           return (item.country == country);
-                                       });
+                                        if($(this).attr('data-click') != 1){
+                                            $(this).attr('data-click', 1);
+                                            let country = this.country;
+                                            collection2 = jQuery.grep(collection, function(item, index) {
+                                                return (item.country == country);
+                                            });
+                                       }else{
+                                        $(this).attr('data-click', 0)
+                                        collection1 = collection;
+                                       }
                                        render_chart_1();
                                    }
                                }
