@@ -37,6 +37,7 @@
     {{-- <script src="https://code.highcharts.com/maps/highmaps.js"></script> --}}
     <script src="https://code.highcharts.com/maps/modules/map.js"></script>
     <script src="https://code.highcharts.com/modules/marker-clusters.js"></script>
+    <script src="https://code.highcharts.com/modules/treemap.js"></script>
     {{-- highcharts end --}}
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -216,16 +217,6 @@
                                             <h6>
                                                 <i class="bx bx-info-circle"></i>
                                                 {{ __('About') }}
-                                            </h6>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li data-aos="fade-up">
-                                    <a href="{{ route('backend.education') }}">
-                                        <div class="nav-title">
-                                            <h6>
-                                                <i class="bx bxs-graduation"></i>
-                                                {{ __('Education') }}
                                             </h6>
                                         </div>
                                     </a>
