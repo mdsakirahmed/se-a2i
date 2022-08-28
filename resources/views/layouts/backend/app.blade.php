@@ -144,7 +144,7 @@
 
 <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
+    <header id="header">
         <div class="container d-flex align-items-center justify-content-between">
 
             <h1 class="logo"><a href="{{ route('backend.about') }}"><img src="{{ asset('assets/img/logo.png') }}" /></a></h1>
@@ -187,19 +187,42 @@
     </header><!-- End Header -->
 
     <main id="main">
-        <section id="main-nav">
-            <div class="container">
-                <div class="main-nav">
-                    <div class="container" data-aos="fade-up">
-                        <div class="faq-list">
-                            <ul>
-                                <li data-aos="fade-up">
-                                    <a href="{{ route('backend.about') }}">
-                                        <div class="nav-title">
-                                            <h6>
-                                                <i class="bx bx-info-circle"></i>
-                                                {{ __('About') }}
-                                            </h6>
+        <section id="main-nav" class="fixed-top">
+        <div class="container">
+            <div class="main-nav">
+                <div class="container" data-aos="fade-up">
+                    <div class="faq-list">
+                        <ul>
+                            <li data-aos="fade-up">
+                                <a href="{{ route('backend.about') }}">
+                                    <div class="nav-title">
+                                        <h6>
+                                            <i class="bx bx-info-circle"></i>
+                                            {{ __('About') }}
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li data-aos="fade-up">
+                                <a href="{{ route('backend.education') }}">
+                                    <div class="nav-title">
+                                        <h6>
+                                            <i class="bx bxs-graduation"></i>
+                                            {{ __('Education') }}
+                                        </h6>
+                                    </div>
+                                </a>
+                            </li>
+                            <li data-aos="fade-up">
+                                <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
+                                    <div class="nav-title-collapse">
+                                        <h6>
+                                            <i class="bx bx-stats"></i>
+                                            {{ __('Economy') }}
+                                        </h6>
+                                        <div class="arrow">
+                                            <i class="bx bxs-down-arrow icon-show"></i>
+                                            <i class="bx bxs-down-arrow icon-close" data-aos="fade-up"></i>
                                         </div>
                                     </a>
                                 </li>
@@ -367,18 +390,17 @@
     @livewireScripts
     @stack('scripts')
     <script>
-        window.addEventListener('swal:modal', event => {
-            swal({
-                title: event.detail.message
-                , text: event.detail.text
-                , icon: event.detail.type
-            , });
-        });
-        window.addEventListener('refresh-page', event => {
-            window.location.reload(true);
-        });
-
-    </script>
+     window.addEventListener('swal:modal', event => {
+         swal({
+             title: event.detail.message,
+             text: event.detail.text,
+             icon: event.detail.type,
+         });
+     });
+     window.addEventListener('refresh-page', event => {
+         window.location.reload(true);
+     });
+ </script>
 </body>
 
 </html>

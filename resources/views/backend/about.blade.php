@@ -27,7 +27,7 @@
                         </p>
                     </div>
                     <div class="block-30">
-                        <img src="{{ asset('assets/img/about.png') }}" />
+                        <img src="{{ asset('assets/img/about2.png') }}" />
                     </div>
                 </div>
             </div>

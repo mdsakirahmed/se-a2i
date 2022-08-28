@@ -31,7 +31,7 @@
                         </p>
                     </div>
                     <div class="block-40">
-                        <img src="{{ asset('assets/img/economy.png') }}" />
+                        <img src="{{ asset('assets/img/economy2.png') }}" />
                     </div>
                 </div>
             </div>
