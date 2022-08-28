@@ -97,7 +97,7 @@
 
 <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top">
+    <header id="header">
         <div class="container d-flex align-items-center justify-content-between">
 
             <h1 class="logo"><a href="{{ route('backend.about') }}"><img src="{{ asset('assets/img/logo.png') }}" /></a></h1>
@@ -140,7 +140,7 @@
     </header><!-- End Header -->
 
     <main id="main">
-        <section id="main-nav">
+        <section id="main-nav" class="fixed-top">
         <div class="container">
             <div class="main-nav">
                 <div class="container" data-aos="fade-up">

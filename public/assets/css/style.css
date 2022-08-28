@@ -122,7 +122,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #header.header-scrolled {
   border-color: #fff;
-  box-shadow: 0px 2px 15px rgba(18, 66, 101, 0.08);
+  box-shadow: 0px 2px 15px rgba(18, 66, 101, 0);
+  background-color: #ffffff;
 }
 
 #header .logo {
@@ -140,6 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo img {
+  transition: all 0.5s;
   max-height: 43px;
 }
 

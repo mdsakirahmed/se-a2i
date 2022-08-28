@@ -2,13 +2,14 @@
     <div class="card">
         <div class="card-header">
             {{ $name }}
+            <div>
+                <button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>
+            </div>
         </div>
         <div class="card-body">
             <iframe width="100%" height="660px" frameborder="0" allowfullscreen="true" src="https://public.tableau.com/views/TopExportCountriesBarChart/Dashboard2?%3Aembed=y&%3AshowVizHome=no&:device=desktop">
             </iframe>
-            <p class="text-center">
-                <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
-            </p>
+           
         </div>
         <div class="card-footer">
             {!! $description !!}

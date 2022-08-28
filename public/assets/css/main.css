@@ -265,13 +265,8 @@ header h3 {
   color: #000000;
 }
 
-#main-nav {
-  position: fixed;
-  width: 100%;
-  background: #fdfdfd;
-  z-index: 1;
-}
 #main-nav .container .main-nav {
+  transition: all 0.5s;
   padding-top: 110px;
 }
 #main-nav .container .main-nav .container {
@@ -294,7 +289,6 @@ header h3 {
   border-radius: 4px;
   position: relative;
   margin-right: 20px;
-  margin-bottom: 18px;
 }
 #main-nav .container .main-nav .container .faq-list li + li {
   margin-top: 0px;
@@ -306,14 +300,14 @@ header h3 {
   width: -moz-max-content;
   width: max-content;
   background: #ECEEF4;
-  margin-top: 20px;
-  border-radius: 25px;
-  box-shadow: 0px 5px 12px rgba(41, 72, 152, 0.22);
+  margin-top: 16px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 12px rgba(41, 72, 152, 0.08);
 }
 #main-nav .container .main-nav .container .faq-list li .sub-collapse .sub-alignment {
   display: flex;
   border-top: 3px solid black;
-  border-radius: 25px;
+  border-radius: 12px;
 }
 #main-nav .container .main-nav .container .faq-list li .sub-collapse .sub-alignment a {
   margin: 10px;
@@ -339,6 +333,8 @@ header h3 {
   padding: 10px;
   box-shadow: 0px 4px 10px rgba(41, 72, 152, 0.09);
   transition: 0.3s;
+  cursor: pointer;
+  caret-color: transparent;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title:hover {
   background: #80CE0C;
@@ -370,6 +366,8 @@ header h3 {
   padding: 10px;
   box-shadow: 0px 4px 10px rgba(41, 72, 152, 0.09);
   transition: 0.3s;
+  cursor: pointer;
+  caret-color: transparent;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-collapse h6 {
   font-size: 13px;
@@ -471,6 +469,9 @@ header h3 {
   }
 }
 @media only screen and (max-width: 480px) {
+  #main-nav .container .main-nav {
+    padding-top: 90px;
+  }
   #main-nav .container .main-nav .container .faq-list ul {
     display: block;
   }
@@ -493,9 +494,54 @@ header h3 {
   }
 }
 
+#header.header-scrolled .logo img {
+  transition: all 0.2s;
+  max-height: 33px;
+}
+
+#main-nav.main-nav-scrolled {
+  transition: all 0.2s;
+  border-color: #fff;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ece5ef;
+  box-shadow: 0px 2px 15px rgba(18, 66, 101, 0.05);
+  z-index: 1;
+}
+#main-nav.main-nav-scrolled .container .main-nav {
+  padding-top: 10px;
+}
+#main-nav.main-nav-scrolled .container .main-nav .container .faq-list ul {
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 480px) {
+  #main-nav.main-nav-scrolled .container .main-nav .container .faq-list ul {
+    margin-bottom: 8px;
+  }
+  #main-nav.main-nav-scrolled .container .main-nav .container .faq-list li {
+    margin-bottom: 6px;
+  }
+  #main-nav.main-nav-scrolled .container .main-nav .container .faq-list a .nav-title {
+    padding: 4px 10px;
+  }
+  #main-nav.main-nav-scrolled .container .main-nav .container .faq-list a .nav-title h6 {
+    font-size: 11px;
+  }
+  #main-nav.main-nav-scrolled .container .main-nav .container .faq-list a .nav-title-collapse {
+    padding: 4px 10px;
+  }
+  #main-nav.main-nav-scrolled .container .main-nav .container .faq-list a .nav-title-collapse h6 {
+    font-size: 11px;
+  }
+}
+
 .content-area {
   padding: 20px 0px;
-  padding-top: 205px;
+  padding-top: 110px;
+}
+@media only screen and (max-width: 480px) {
+  .content-area {
+    padding-top: 272px;
+  }
 }
 
 #about .content-area .container .card-lg .block-group {
@@ -513,7 +559,7 @@ header h3 {
   width: calc(30% - 15px);
 }
 #about .content-area .container .card-lg .block-group .block-30 img {
-  width: 80%;
+  width: 90%;
 }
 #about .content-area .container .card-primary {
   padding: 35px 40px;
@@ -532,6 +578,12 @@ header h3 {
   width: 100%;
 }
 @media only screen and (max-width: 480px) {
+  #about .content-area .container .card-lg .block-group .block-70 {
+    text-align: left;
+  }
+  #about .content-area .container .card-lg .block-group .block-70 h5 {
+    font-size: 18px;
+  }
   #about .content-area .container .card-lg .block-group .block-30 img {
     width: 90%;
   }

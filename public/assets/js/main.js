@@ -1,9 +1,3 @@
-/**
-* Template Name: OnePage - v4.3.0
-* Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
@@ -97,10 +91,10 @@
      let selectMainNav = select('#main-nav')
      if (selectMainNav) {
        const mainNavScrolled = () => {
-         if (window.scrollY > 100) {
+         if (window.scrollY > 50) {
           selectMainNav.classList.add('main-nav-scrolled')
          } else {
-           selectHeader.classList.remove('main-nav-scrolled')
+           selectMainNav.classList.remove('main-nav-scrolled')
          }
        }
        window.addEventListener('load', mainNavScrolled)
