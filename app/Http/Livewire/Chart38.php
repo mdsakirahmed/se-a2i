@@ -55,17 +55,17 @@ class Chart38 extends Component
         if($this->program_type){
             $data = collect($data)->where('programme_type',$this->program_type);
         }
-    
+
         $formated_data = [];
-        foreach ($data as $data_set) {
+        foreach (collect($data)->groupBy('programme_name') as $programme_name => $data_set) {
             array_push($formated_data, [
-                'fiscal_year' => $data_set->fiscal_year,
-                'programme_name' => $data_set->programme_name,
-                'programme_type' => $data_set->programme_type,
-                'implementing_ministry_1' => $data_set->implementing_ministry_1,
-                'implementing_ministry_2' => $data_set->implementing_ministry_2,
-                'beneficiaries_lac_persons' => $data_set->beneficiaries_lac_persons,
-                'value' => $data_set->value,
+                'fiscal_year' => collect($data_set)->pluck('fiscal_year'),
+                'programme_name' => $programme_name,
+                'programme_type' => collect($data_set)->pluck('programme_type'),
+                'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1'),
+                'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2'),
+                'budget_crore_bdt' => collect($data_set)->sum('budget_crore_bdt'),
+                'value' => collect($data_set)->sum('value'),
             ]);
         }
 
