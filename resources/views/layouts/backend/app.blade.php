@@ -188,41 +188,28 @@
 
     <main id="main">
         <section id="main-nav" class="fixed-top">
-        <div class="container">
-            <div class="main-nav">
-                <div class="container" data-aos="fade-up">
-                    <div class="faq-list">
-                        <ul>
-                            <li data-aos="fade-up">
-                                <a href="{{ route('backend.about') }}">
-                                    <div class="nav-title">
-                                        <h6>
-                                            <i class="bx bx-info-circle"></i>
-                                            {{ __('About') }}
-                                        </h6>
-                                    </div>
-                                </a>
-                            </li>
-                            <li data-aos="fade-up">
-                                <a href="{{ route('backend.education') }}">
-                                    <div class="nav-title">
-                                        <h6>
-                                            <i class="bx bxs-graduation"></i>
-                                            {{ __('Education') }}
-                                        </h6>
-                                    </div>
-                                </a>
-                            </li>
-                            <li data-aos="fade-up">
-                                <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
-                                    <div class="nav-title-collapse">
-                                        <h6>
-                                            <i class="bx bx-stats"></i>
-                                            {{ __('Economy') }}
-                                        </h6>
-                                        <div class="arrow">
-                                            <i class="bx bxs-down-arrow icon-show"></i>
-                                            <i class="bx bxs-down-arrow icon-close" data-aos="fade-up"></i>
+            <div class="container">
+                <div class="main-nav">
+                    <div class="container" data-aos="fade-up">
+                        <div class="faq-list">
+                            <ul>
+                                <li data-aos="fade-up">
+                                    <a href="{{ route('backend.about') }}">
+                                        <div class="nav-title">
+                                            <h6>
+                                                <i class="bx bx-info-circle"></i>
+                                                {{ __('About') }}
+                                            </h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li data-aos="fade-up">
+                                    <a href="{{ route('backend.education') }}">
+                                        <div class="nav-title">
+                                            <h6>
+                                                <i class="bx bxs-graduation"></i>
+                                                {{ __('Education') }}
+                                            </h6>
                                         </div>
                                     </a>
                                 </li>
@@ -390,17 +377,18 @@
     @livewireScripts
     @stack('scripts')
     <script>
-     window.addEventListener('swal:modal', event => {
-         swal({
-             title: event.detail.message,
-             text: event.detail.text,
-             icon: event.detail.type,
-         });
-     });
-     window.addEventListener('refresh-page', event => {
-         window.location.reload(true);
-     });
- </script>
+        window.addEventListener('swal:modal', event => {
+            swal({
+                title: event.detail.message
+                , text: event.detail.text
+                , icon: event.detail.type
+            , });
+        });
+        window.addEventListener('refresh-page', event => {
+            window.location.reload(true);
+        });
+
+    </script>
 </body>
 
 </html>
