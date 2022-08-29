@@ -183,6 +183,10 @@ class Chart25 extends Component
                 'type'=> 'bar'
             ],
 
+            'title' => [
+                'text' => ''
+            ],
+
             'credits'=>[
                 'enabled'=>false
             ],

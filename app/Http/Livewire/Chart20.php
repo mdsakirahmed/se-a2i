@@ -175,6 +175,11 @@ class Chart20 extends Component
                 'renderTo'=> 'container',
                 'type'=> 'bar'
             ],
+
+            'title' => [
+                'text' => ''
+            ],
+            
             'credits'=>[
                 'enabled'=>false
               ],

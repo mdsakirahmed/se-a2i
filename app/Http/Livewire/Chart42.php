@@ -235,6 +235,10 @@ class Chart42 extends Component
                 'type'=> 'bar'
             ],
 
+            'title' => [
+                'text' => ''
+            ],
+
             'credits'=>[
                 'enabled'=>false
             ],
@@ -247,7 +251,7 @@ class Chart42 extends Component
             ],
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Imports (Million US$)'
+                    'text' =>  'Budget in Crore bdt'
                 ], 'labels' =>  [
                     'format' =>  '{value}'
                 ]

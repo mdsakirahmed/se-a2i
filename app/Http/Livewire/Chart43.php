@@ -235,6 +235,10 @@ class Chart43 extends Component
                 'type'=> 'bar'
             ],
 
+            'title' => [
+                'text' => ''
+            ],
+
             'credits'=>[
                 'enabled'=>false
             ],
@@ -247,7 +251,7 @@ class Chart43 extends Component
             ],
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Imports (Million US$)'
+                    'text' =>  'Coverage in Lac person'
                 ], 'labels' =>  [
                     'format' =>  '{value}'
                 ]

@@ -91,8 +91,13 @@ class Chart40 extends Component
 
         return [
             'title' => [
-                'text' => 'Commodity'
+                'text' => ''
             ],
+
+            'credits'=>[
+                'enabled'=>false
+            ],
+
             'series' => [[
                 'type' => 'treemap',
                 'layoutAlgorithm' => 'squarified',
