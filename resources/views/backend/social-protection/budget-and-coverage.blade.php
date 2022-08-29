@@ -21,6 +21,12 @@
                 <div class="col-md-12">
                     @livewire('chart40')
                 </div>
+                <div class="col-md-12">
+                    @livewire('chart42')
+                </div>
+                <div class="col-md-12">
+                    @livewire('chart43')
+                </div>
             </div>
         </div>
     </div>
