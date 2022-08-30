@@ -84,7 +84,13 @@ class Chart1 extends Component
                         'enabled' => true,
                         'format' => "{point.y:,.2f}" . '%',
                     ]
+                ],
+                'series' => [
+                    'borderRadius' => '20px',
                 ]
+            ],
+            'legend' => [
+                'align' =>'right',
             ],
             'series' => [[
                 'name' => 'Male',
