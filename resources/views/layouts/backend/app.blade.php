@@ -281,7 +281,6 @@
                                         </div>
                                     </div>
                                 </li>
-
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
                                         <div class="nav-title-collapse" @if(request()->is('backend/social-protection/*')) nav-title-active @endif>
@@ -321,6 +320,30 @@
                                         </div>
                                     </div>
                                 </li>
+                                @can('role permission management')
+                                <li data-aos="fade-up">
+                                    <a href="{{ route('backend.role_permission') }}">
+                                        <div class="nav-title @if(request()->routeIs('backend.role_permission')) nav-title-active @endif">
+                                            <h6>
+                                                <i class="bx bx-info-circle"></i>
+                                                {{ __('Role Permission') }}
+                                            </h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endcan
+                                @can('user management')
+                                <li data-aos="fade-up">
+                                    <a href="{{ route('backend.user_management') }}">
+                                        <div class="nav-title @if(request()->routeIs('backend.user_management')) nav-title-active @endif">
+                                            <h6>
+                                                <i class="bx bx-info-circle"></i>
+                                                {{ __('User Management') }}
+                                            </h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endcan
                             </ul>
                         </div>
                     </div>
