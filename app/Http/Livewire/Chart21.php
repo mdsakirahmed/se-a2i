@@ -69,6 +69,10 @@ class Chart21 extends Component
                 'map' => collect($geojson)
             ],
 
+            'credits'=>[
+                'enabled'=>false
+            ],
+
             'title' => [
                 'text' => ""
             ],

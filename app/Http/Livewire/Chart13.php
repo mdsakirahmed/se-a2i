@@ -63,11 +63,11 @@ class Chart13 extends Component
         foreach(collect($data) as $data_of_a_year){
             if((int)$data_of_a_year->year >= 1990){
             array_push($economy_employment_overseas_category_wise['year'], (int)$data_of_a_year->year);
-            array_push($economy_employment_overseas_category_wise['Professional'], (float) $data_of_a_year->Professional);
-            array_push($economy_employment_overseas_category_wise['Less'], (float) $data_of_a_year->Less);
-            array_push($economy_employment_overseas_category_wise['Semi'], (float) $data_of_a_year->Semi);
-            array_push($economy_employment_overseas_category_wise['Skilled'], (float)$data_of_a_year->Skilled);
-            array_push($economy_employment_overseas_category_wise['Others'], (float)$data_of_a_year->Others);
+            array_push($economy_employment_overseas_category_wise['Professional'], round((float) $data_of_a_year->Professional)/1000);
+            array_push($economy_employment_overseas_category_wise['Less'], round((float) $data_of_a_year->Less)/1000);
+            array_push($economy_employment_overseas_category_wise['Semi'], round((float) $data_of_a_year->Semi)/1000);
+            array_push($economy_employment_overseas_category_wise['Skilled'], round((float)$data_of_a_year->Skilled)/1000);
+            array_push($economy_employment_overseas_category_wise['Others'], round((float)$data_of_a_year->Others)/1000);
             }
         }
 
@@ -103,6 +103,9 @@ class Chart13 extends Component
             'yAxis' => [
                 'title' => [
                     'text' => 'Number of overseas employment (in thousand)'
+                ],
+                'labels'=>[
+                    'format'=>'{value}'
                 ]
             ],
             'legend' => [

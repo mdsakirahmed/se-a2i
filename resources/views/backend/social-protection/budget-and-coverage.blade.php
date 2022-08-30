@@ -5,7 +5,7 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('Food Security') }}
+                    {{ __('Budget and Coverage') }}
                 </h3>
             </header>
             <div class="row">
@@ -13,14 +13,20 @@
                     @livewire('chart41')
                 </div>
                 <div class="col-md-12">
+                    @livewire('chart42')
+                </div>
+                <div class="col-md-12">
                     @livewire('chart38')
+                </div>
+                <div class="col-md-12">
+                    @livewire('chart43')
                 </div>
                 <div class="col-md-12">
                     @livewire('chart39')
                 </div>
                 <div class="col-md-12">
                     @livewire('chart40')
-                </div>
+                </div>               
             </div>
         </div>
     </div>

@@ -1,1 +1,1 @@
-<a href="#" wire:click="change_language">{{ __('Language Switcher') }}</a>
+<a href="#" wire:click="change_language">{{ __('Change Language') }}</a>

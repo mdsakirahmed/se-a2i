@@ -32,11 +32,7 @@
                 @foreach ($years as $year)
                     <option value="{{ $year }}">{{ $year }}</option>
                 @endforeach
-            </select>
-           
-           
-
-           
+            </select>           
             <figure class="highcharts-figure">
                 <div id="chart_id_{{ $chart->id }}"> </div>
             </figure>

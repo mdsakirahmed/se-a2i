@@ -162,6 +162,10 @@ class Chart37 extends Component
         'text' => ""
       ],
 
+      'credits'=>[
+        'enabled'=>false
+      ],
+
       'accessibility' => [
         'typeDescription' => ""
       ],

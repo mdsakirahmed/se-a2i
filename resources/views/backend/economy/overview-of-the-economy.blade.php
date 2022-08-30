@@ -5,7 +5,7 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('Economy') }}
+                    {{ __('Overview of the Economy') }}
                 </h3>
             </header>
             <div class="card-lg">
@@ -31,7 +31,7 @@
                         </p>
                     </div>
                     <div class="block-40">
-                        <img src="{{ asset('assets/img/economy.png') }}" />
+                        <img src="{{ asset('assets/img/economy2.png') }}" />
                     </div>
                 </div>
             </div>

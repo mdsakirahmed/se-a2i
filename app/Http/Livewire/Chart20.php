@@ -30,23 +30,135 @@ class Chart20 extends Component
 
     public function mount()
     {
-        $db_data_set = DB::connection('mysql2')->select("SELECT
-        fiscal_year,
-        country,
-        SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
-    FROM
-        corona_socio_info.economy_remittance_countrywise
-    WHERE
-        country != 'Total'
-    GROUP BY fiscal_year , country
-    ORDER BY fiscal_year , country DESC");
+        $db_data_set = DB::connection('mysql2')->select("(SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2009-2010'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2010-2011'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2011-2012'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 11) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2012-2013'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2013-2014'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2014-2015'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2015-2016'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2016-2017'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2017-2018'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2018-2019'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10) UNION ALL (SELECT
+            fiscal_year,
+            country,
+            SUM(remittance_in_crore_bdt) AS remittance_in_crore_bdt
+        FROM
+            corona_socio_info.economy_remittance_countrywise
+        WHERE
+            fiscal_year = '2020-2021'
+            AND country NOT IN ('Other Countries' , 'Total')
+        GROUP BY fiscal_year , country
+        ORDER BY remittance_in_crore_bdt DESC
+        Limit 10)");
 
         $this->fotmated_data_set = array();
         foreach (collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data) {
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function($data){
-                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="20">', $data->remittance_in_crore_bdt];
+                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="15">', $data->remittance_in_crore_bdt];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -63,12 +175,23 @@ class Chart20 extends Component
                 'renderTo'=> 'container',
                 'type'=> 'bar'
             ],
+
+            'title' => [
+                'text' => ''
+            ],
+            
+            'credits'=>[
+                'enabled'=>false
+              ],
             'plotOptions'=> [
                 'column'=> [
                     'stacking'=> 'normal',
                     'dataLabels'=> [
                         'enabled'=> false
                     ]
+                ],
+                'series'=> [
+                    'animation'=> false
                 ]
             ],
             'xAxis'=> [
@@ -76,6 +199,13 @@ class Chart20 extends Component
                 'labels'=> [
                     'useHTML'=> true,
                 ],
+            ],
+            'yAxis' =>  [
+                'title' =>  [
+                    'text' =>  'Remittance (Crore BDT)'
+                ], 'labels' =>  [
+                    'format' =>  '{value}'
+                ]
             ],
             'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];

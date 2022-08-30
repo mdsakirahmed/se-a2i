@@ -1,17 +1,123 @@
 <div>
+    <style type="text/css">
+        .dropdown-trigger:hover {
+            background-color: #0dcaf0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+        }
+
+        .dropdown-content ul {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+        }
+
+        .dropdown-content ul li {
+            list-style: none;
+            display: block;
+            position: relative;
+            transition: 0.2s;
+            padding: 10px 20px;
+            background-color: #f55454;
+            color: #F5F5F5;
+        }
+
+        .dropdown-content ul li ul {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            visibility: hidden;
+        }
+
+        .dropdown-content ul li ul.active {
+            visibility: visible;
+        }
+
+    </style>
     <div class="card">
         <div class="card-header">
             {{ $name }}
+            <div><button type="button" class="btn btn-trans-icon"
+                    wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>
+            </div>
         </div>
         <div class="card-body">
-            <iframe width="100%" height="660px" frameborder="0" allowfullscreen="true" src="https://public.tableau.com/views/ImplementingMinistry/Dashboard1?%3Aembed=y&%3AshowVizHome=no&:device=desktop">
-            </iframe>
-            <p class="text-center">
-                <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
-            </p>
+             <div class="row">
+                 <div class="form-group col-md-4">
+                     <div class="dropdown-container">
+                         <button class="dropdown-trigger btn btn-success btn-sm">DropDown</button>
+                         <div class="dropdown-content">
+                             <ul>
+                                 <li> 
+                                    Implementing Ministry 1
+                                     <ul>
+                                        @foreach($implementing_ministry_1s as $implementing_ministry_1)
+                                            <li><a href="javascript:void(0)" wire:click="filter_by_implementing_ministry_1('{{ $implementing_ministry_1 }}')">{{ $implementing_ministry_1 }}</a></li>
+                                        @endforeach
+                                     </ul>
+                                 </li>
+                                 <li> 
+                                    Implementing Ministry  2
+                                    <ul>
+                                        @foreach($implementing_ministry_2s as $implementing_ministry_2)
+                                            <li><a href="javascript:void(0)" wire:click="filter_by_implementing_ministry_2('{{ $implementing_ministry_2 }}')">{{ $implementing_ministry_2 }}</a></li>
+                                        @endforeach
+                                     </ul>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="form-group col-md-4">
+                     <label for="" class="col-form-label">Fiscal Year</label>
+                     <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
+                         <option value="">All</option>
+                         @foreach($fiscal_yeas as $fiscal_year)
+                             <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
+                         @endforeach
+                     </select>
+                 </div>
+                 
+                 <div class="form-group col-md-4">
+                     <label for="" class="col-form-label">Programme Type</label>
+                     <select class="form-control"wire:model="program_type" wire:change="chart_update">
+                         <option value="">All</option>
+                         @foreach($program_types as $program_type)
+                             <option value="{{ $program_type }}">{{ $program_type }}</option>
+                         @endforeach 
+                     </select>
+                 </div>
+             </div>
+ 
+            <figure class="highcharts-figure" wire:ignore>
+                <div id="chart_id_{{ $chart->id }}"> </div>
+            </figure>
         </div>
         <div class="card-footer">
             {!! $description !!}
         </div>
     </div>
-</div>
+     <script>
+          $(document).ready(function () {
+             //First loaded data
+             Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+ 
+             //chart update and re-render
+             window.addEventListener("chart_update_{{ $chart->id }}", event => {
+                 Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+             });
+         });
+
+         $(".dropdown-trigger").click(function() {
+            $(this).siblings().toggle();
+        });
+        $(".dropdown-content > ul > li").click(function(e) {
+            $(this).children().addClass("active");
+            $(this).siblings().children().removeClass("active");
+        });
+     </script>
+ </div>
+ 
