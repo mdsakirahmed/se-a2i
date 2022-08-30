@@ -36,7 +36,7 @@ class Chart23 extends Component
                 fiscal_year = '2005-2006'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -44,7 +44,7 @@ class Chart23 extends Component
                 fiscal_year = '2006-2007'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -52,7 +52,7 @@ class Chart23 extends Component
                 fiscal_year = '2007-2008'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -60,7 +60,7 @@ class Chart23 extends Component
                 fiscal_year = '2008-2009'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -68,7 +68,7 @@ class Chart23 extends Component
                 fiscal_year = '2009-2010'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -76,7 +76,7 @@ class Chart23 extends Component
                 fiscal_year = '2010-2011'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -84,7 +84,7 @@ class Chart23 extends Component
                 fiscal_year = '2011-2012'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -92,7 +92,7 @@ class Chart23 extends Component
                 fiscal_year = '2012-2013'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -100,7 +100,7 @@ class Chart23 extends Component
                 fiscal_year = '2013-2014'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -108,7 +108,7 @@ class Chart23 extends Component
                 fiscal_year = '2014-2015'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -116,7 +116,7 @@ class Chart23 extends Component
                 fiscal_year = '2015-2016'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -124,7 +124,7 @@ class Chart23 extends Component
                 fiscal_year = '2016-2017'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -132,7 +132,7 @@ class Chart23 extends Component
                 fiscal_year = '2017-2018'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -140,7 +140,7 @@ class Chart23 extends Component
                 fiscal_year = '2018-2019'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -148,7 +148,7 @@ class Chart23 extends Component
                 fiscal_year = '2019-2020'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11) UNION ALL (SELECT 
+            LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
@@ -156,7 +156,7 @@ class Chart23 extends Component
                 fiscal_year = '2020-2021'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
             ORDER BY import_in_usd DESC
-            LIMIT 11)");
+            LIMIT 10)");
 
         $this->fotmated_data_set = array();
         foreach (collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data) {
