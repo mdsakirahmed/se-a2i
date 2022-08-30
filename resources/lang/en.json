@@ -10,5 +10,12 @@
     "Social Protection" : "Social Protection",
     "Food Security" : "Food Security",
     "Budget and Coverage" : "Budget and Coverage",
-    "Logout": "Logout"
+    "Logout": "Logout",
+
+    "about title 1" : "The National Socioeconomic Dashboard",
+    "about description 1" : "is a policy-making critical tool that serves as a nexus between policymakers and practitioners. It leverages government datasets to work as decision-making action items that can be time-sensitive as well as demand driven through modular and intuitive visualizations. The project is born of a goal to make official data on Bangladesh more accessible and easy-to-digest—to make their insights seamlessly integrate into important policy conversations.",
+    "about title 2" : "Bangladesh",
+    "about description 2" : "is advancing in Sustainable Development Goals (SDGs). The aim of the Socioeconomic Dashboard is to accelerate the growth of SDGs by assisting in policy implicating decision making. The dashboard will serve the stakeholders in all sectors identified by experts that have a demand-driven approach to it.",
+    "about title 3" : "The poverty rate of Bangladesh fell by 1.3% points to 20.5% in FY-2019 which was estimated in FY-2018 as 21.8% (Source: Bangladesh Bureau of Statistics, 2019).",
+    "about title 4" : "Data and Policy Making Concept"
 }
