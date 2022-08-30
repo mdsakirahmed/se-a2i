@@ -220,7 +220,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a href="{{ route('backend.about') }}">
-                                        <div class="nav-title nav-title-active">
+                                        <div class="nav-title @if(request()->routeIs('backend.about')) nav-title-active @endif">
                                             <h6>
                                                 <i class="bx bx-info-circle"></i>
                                                 {{ __('About') }}
@@ -230,7 +230,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a href="{{ route('backend.education') }}">
-                                        <div class="nav-title">
+                                        <div class="nav-title @if(request()->routeIs('backend.education')) nav-title-active @endif">
                                             <h6>
                                                 <i class="bx bxs-graduation"></i>
                                                 {{ __('Education') }}
@@ -240,7 +240,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
-                                        <div class="nav-title-collapse">
+                                        <div class="nav-title-collapse nav-title-active @if(request()->is('backend/economy/*')) nav-title-active @endif">
                                             <h6>
                                                 <i class="bx bx-stats"></i>
                                                 {{ __('Economy') }}
@@ -287,7 +287,7 @@
 
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
-                                        <div class="nav-title-collapse">
+                                        <div class="nav-title-collapse" @if(request()->is('backend/social-protection/*')) nav-title-active @endif>
                                             <h6>
                                                 <i class="bx bx-shield-alt-2"></i>
                                                 {{ __('Social Protection') }}
@@ -324,7 +324,6 @@
                                         </div>
                                     </div>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
