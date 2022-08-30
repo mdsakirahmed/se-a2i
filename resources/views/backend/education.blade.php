@@ -12,11 +12,11 @@
                 <div class="block-group">
                     <div class="block-60">
                         <p class="mb-md-4">
-                            <span class="c-secondary fw-bold">{{ __('education title 1') }}</span>,
+                            <span class="c-secondary fw-bold">{{ __('education green text') }}</span>,
                             {{ __('education description 1') }}
                         </p>
                         <p>
-                            <span class="c-primary fw-bold">{{ __('education title 2') }}</span>
+                            <span class="c-primary fw-bold">{{ __('education purple text') }}</span>
                             {{ __('education description 2') }}
                         </p>
                     </div>
