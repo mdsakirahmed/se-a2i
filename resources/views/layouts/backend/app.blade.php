@@ -301,21 +301,21 @@
                                     <div id="faq-list-2" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.social_protection.index') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.index')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Social Protection') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.social_protection.food_security') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.food_security')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Food Security') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.social_protection.budget_and_coverage') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.budget_and_coverage')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Budget and Coverage') }}
                                                     </h6>
