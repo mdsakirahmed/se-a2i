@@ -1,4 +1,18 @@
 {
+    "Change Language" : "English Language",
+    "About" : "About",
+    "Education" : "Education",
+    "Economy" : "Economy",
+    "Overview of the Economy" : "Overview of the Economy",
+    "Overseas Employment and Remittance" : "Overseas Employment and Remittance",
+    "Import and Export" : "Import and Export",
+    "Banking and Finance" : "Banking and Finance",
+    "Social Protection" : "Social Protection",
+    "Food Security" : "Food Security",
+    "Budget and Coverage" : "Budget and Coverage",
+
+
+
     "Dashboard": "About",
     "Upload New File": "Upload New File",
     "Uploaded Files": "Uploaded Files",
@@ -8,8 +22,6 @@
     "Role Management": "Role Management",
     "Roles": "Roles",
     "Create new Role": "Create new Role",
-    "Food Security": "Food Security",
-    "Education": "Education",
     "Employment": "Economy",
     "Injustice & Crime": "Injustice & Crime",
     "Vulnerable population": "Social Protection",
