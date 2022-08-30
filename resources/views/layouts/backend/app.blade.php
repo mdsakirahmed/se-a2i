@@ -200,7 +200,6 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-
         </div>
     </header><!-- End Header -->
 
@@ -211,6 +210,9 @@
                     <div class="container" data-aos="fade-up">
                         <div class="faq-list">
                             <ul>
+                                <li data-aos="fade-up">
+                                    @livewire('language-switcher')
+                                </li>
                                 <li data-aos="fade-up">
                                     <a href="{{ route('backend.about') }}">
                                         <div class="nav-title">
