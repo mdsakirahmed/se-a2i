@@ -216,9 +216,6 @@
                         <div class="faq-list">
                             <ul>
                                 <li data-aos="fade-up">
-                                    @livewire('language-switcher')
-                                </li>
-                                <li data-aos="fade-up">
                                     <a href="{{ route('backend.about') }}">
                                         <div class="nav-title @if(request()->routeIs('backend.about')) nav-title-active @endif">
                                             <h6>
