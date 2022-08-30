@@ -189,6 +189,9 @@ class Chart20 extends Component
                     'dataLabels'=> [
                         'enabled'=> false
                     ]
+                ],
+                'series'=> [
+                    'animation'=> false
                 ]
             ],
             'xAxis'=> [

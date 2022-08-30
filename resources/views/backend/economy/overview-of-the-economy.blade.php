@@ -5,7 +5,7 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('Economy') }}
+                    {{ __('Overview of the Economy') }}
                 </h3>
             </header>
             <div class="card-lg">

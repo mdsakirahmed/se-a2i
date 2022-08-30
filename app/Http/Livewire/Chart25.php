@@ -197,6 +197,9 @@ class Chart25 extends Component
                     'dataLabels'=> [
                         'enabled'=> false
                     ]
+                ],
+                'series'=> [
+                    'animation'=> false
                 ]
             ],
             'xAxis'=> [

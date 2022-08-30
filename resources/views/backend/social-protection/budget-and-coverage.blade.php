@@ -5,7 +5,7 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('Food Security') }}
+                    {{ __('Budget and Coverage') }}
                 </h3>
             </header>
             <div class="row">
