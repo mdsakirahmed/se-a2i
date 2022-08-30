@@ -14,7 +14,9 @@
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
@@ -42,7 +44,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
-
 
     <style>
         .highcharts-figure,
@@ -139,23 +140,25 @@
             transform: rotate(-90deg);
         }
 
-        #chart_id_22 .highcharts-series-label{
+        #chart_id_22 .highcharts-series-label {
             display: none;
         }
 
-        #chart_id_18 .highcharts-series-label{
-            display: none;
-        }
-        #chart_id_6 .highcharts-series-label{
-            display: none;
-        }
-        #chart_id_7 .highcharts-series-label{
-            display: none;
-        }
-        #chart_id_8 .highcharts-series-label{
+        #chart_id_18 .highcharts-series-label {
             display: none;
         }
 
+        #chart_id_6 .highcharts-series-label {
+            display: none;
+        }
+
+        #chart_id_7 .highcharts-series-label {
+            display: none;
+        }
+
+        #chart_id_8 .highcharts-series-label {
+            display: none;
+        }
     </style>
     @livewireStyles
 </head>
@@ -165,7 +168,8 @@
     <header id="header">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <h1 class="logo"><a href="{{ route('backend.about') }}"><img src="{{ asset('assets/img/logo.png') }}" /></a></h1>
+            <h1 class="logo"><a href="{{ route('backend.about') }}"><img src="{{ asset('assets/img/logo.png') }}" /></a>
+            </h1>
 
             <nav id="navbar" class="navbar">
                 <ul>
@@ -183,7 +187,8 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>
                                 <p class="mb-0">Hi, <span class="fw-bold">{{ auth()->user()->name }}</span></p>
                             </span>
@@ -200,7 +205,6 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-
         </div>
     </header><!-- End Header -->
 
@@ -213,7 +217,7 @@
                             <ul>
                                 <li data-aos="fade-up">
                                     <a href="{{ route('backend.about') }}">
-                                        <div class="nav-title">
+                                        <div class="nav-title @if(request()->routeIs('backend.about')) nav-title-active @endif">
                                             <h6>
                                                 <i class="bx bx-info-circle"></i>
                                                 {{ __('About') }}
@@ -223,7 +227,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a href="{{ route('backend.education') }}">
-                                        <div class="nav-title">
+                                        <div class="nav-title @if(request()->routeIs('backend.education')) nav-title-active @endif">
                                             <h6>
                                                 <i class="bx bxs-graduation"></i>
                                                 {{ __('Education') }}
@@ -233,7 +237,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
-                                        <div class="nav-title-collapse">
+                                        <div class="nav-title-collapse nav-title-active @if(request()->is('backend/economy/*')) nav-title-active @endif">
                                             <h6>
                                                 <i class="bx bx-stats"></i>
                                                 {{ __('Economy') }}
@@ -247,56 +251,30 @@
                                     <div id="faq-list-1" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.economy.overview_of_the_economy') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.economy.overview_of_the_economy')) sub-active @endif">
                                                     <h6>
-                                                        Overview of the Economy
+                                                        {{ __('Overview of the Economy') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.economy.overseas_employment_and_remittance') }}">
-                                                <div class="nav-title-sub">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.economy.overseas_employment_and_remittance')) sub-active @endif">
                                                     <h6>
-                                                        Overseas Employment and Remittance
+                                                        {{ __('Overseas Employment and Remittance') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.economy.import_export') }}">
-                                                <div class="nav-title-sub">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.economy.import_export')) sub-active @endif">
                                                     <h6>
-                                                        Import and Export
-                                                    </h6>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    </a>
-                                    <div id="faq-list-1" class="collapse sub-collapse" data-bs-parent=".faq-list">
-                                        <div class="sub-alignment">
-                                            <a href="{{ route('backend.economy.overview_of_the_economy') }}">
-                                                <div class="nav-title-sub sub-active">
-                                                    <h6>
-                                                        Overview of the Economy
-                                                    </h6>
-                                                </div>
-                                            </a>
-                                            <a href="{{ route('backend.economy.overseas_employment_and_remittance') }}">
-                                                <div class="nav-title-sub">
-                                                    <h6>
-                                                        Overseas Employment and Remittance
-                                                    </h6>
-                                                </div>
-                                            </a>
-                                            <a href="{{ route('backend.economy.import_export') }}">
-                                                <div class="nav-title-sub">
-                                                    <h6>
-                                                        Import and Export
+                                                        {{ __('Import and Export') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.economy.banking_and_finance') }}">
-                                                <div class="nav-title-sub">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.economy.banking_and_finance')) sub-active @endif">
                                                     <h6>
-                                                        Banking and Finance
+                                                        {{ __('Banking and Finance') }}
                                                     </h6>
                                                 </div>
                                             </a>
@@ -306,7 +284,7 @@
 
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
-                                        <div class="nav-title-collapse">
+                                        <div class="nav-title-collapse" @if(request()->is('backend/social-protection/*')) nav-title-active @endif>
                                             <h6>
                                                 <i class="bx bx-shield-alt-2"></i>
                                                 {{ __('Social Protection') }}
@@ -320,21 +298,21 @@
                                     <div id="faq-list-2" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.social_protection.index') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.index')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Social Protection') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.social_protection.food_security') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.food_security')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Food Security') }}
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="{{ route('backend.social_protection.budget_and_coverage') }}">
-                                                <div class="nav-title-sub sub-active">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.budget_and_coverage')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Budget and Coverage') }}
                                                     </h6>
@@ -343,20 +321,15 @@
                                         </div>
                                     </div>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
                 </div>
-
         </section>
-
         @yield('content')
         @isset($slot) {{ $slot }} @endisset
     </main><!-- End #main -->
-
     @livewire('edit-chart')
-
     <!-- ======= Footer ======= -->
     <footer id="footer">
         <div class="container py-4">
@@ -370,7 +343,6 @@
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -387,15 +359,14 @@
     <script>
         window.addEventListener('swal:modal', event => {
             swal({
-                title: event.detail.message
-                , text: event.detail.text
-                , icon: event.detail.type
-            , });
+                title: event.detail.message,
+                text: event.detail.text,
+                icon: event.detail.type,
+            });
         });
         window.addEventListener('refresh-page', event => {
             window.location.reload(true);
         });
-
     </script>
 </body>
 

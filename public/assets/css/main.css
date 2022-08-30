@@ -356,6 +356,12 @@ header h3 {
   font-size: 22px;
   margin-right: 10px;
 }
+#main-nav .container .main-nav .container .faq-list a .nav-title-active {
+  background: #80CE0C;
+}
+#main-nav .container .main-nav .container .faq-list a .nav-title-active h6 i {
+  color: #000000;
+}
 #main-nav .container .main-nav .container .faq-list a .nav-title-collapse {
   display: flex;
   justify-content: space-between;
@@ -384,11 +390,14 @@ header h3 {
   margin-right: 10px;
 }
 #main-nav .container .main-nav .container .faq-list a .sub-active {
-  background: #662D91 !important;
+  background: #80ce0c !important;
 }
 #main-nav .container .main-nav .container .faq-list a .sub-active h6 {
   font-weight: 600 !important;
-  color: white !important;
+  color: #000000;
+}
+#main-nav .container .main-nav .container .faq-list a .sub-active a {
+  color: #000000;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-sub {
   display: flex;
@@ -402,22 +411,19 @@ header h3 {
   transition: 0.3s;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-sub:hover {
-  background: #662D91;
+  background: #80ce0c;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-sub:hover h6 {
-  color: white;
-}
-#main-nav .container .main-nav .container .faq-list a .nav-title-sub:active {
-  background: #662D91;
-}
-#main-nav .container .main-nav .container .faq-list a .nav-title-sub:active h6 {
-  color: white;
+  color: #000000;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-sub .sub-active {
-  background: #662D91;
+  background: #80ce0c;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-sub .sub-active h6 {
-  color: white;
+  color: #000000;
+}
+#main-nav .container .main-nav .container .faq-list a .nav-title-sub .sub-active a {
+  color: #000000;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-sub h6 {
   font-size: 12px;
