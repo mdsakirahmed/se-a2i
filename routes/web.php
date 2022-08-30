@@ -3,6 +3,7 @@
 use App\Http\Livewire\Backup;
 use App\Http\Livewire\Login;
 use App\Http\Livewire\RolePermission;
+use App\Http\Livewire\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,5 +48,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
 
     Route::get('backup', Backup::class)->name('backup');
     Route::get('role-permission', RolePermission::class)->name('role_permission');
-    Route::get('user-management', RolePermission::class)->name('user_management');
+    Route::get('user-management', User::class)->name('user_management');
 });
