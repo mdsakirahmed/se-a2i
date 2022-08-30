@@ -220,7 +220,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a href="{{ route('backend.about') }}">
-                                        <div class="nav-title">
+                                        <div class="nav-title nav-title-active">
                                             <h6>
                                                 <i class="bx bx-info-circle"></i>
                                                 {{ __('About') }}

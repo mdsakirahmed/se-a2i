@@ -356,6 +356,12 @@ header h3 {
   font-size: 22px;
   margin-right: 10px;
 }
+#main-nav .container .main-nav .container .faq-list a .nav-title-active {
+  background: #80CE0C;
+}
+#main-nav .container .main-nav .container .faq-list a .nav-title-active h6 i {
+  color: #000000;
+}
 #main-nav .container .main-nav .container .faq-list a .nav-title-collapse {
   display: flex;
   justify-content: space-between;

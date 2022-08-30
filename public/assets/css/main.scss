@@ -384,7 +384,23 @@ header {
                 }
               }
             }
-      
+
+            .nav-title-active {
+
+              background: #80CE0C;
+
+              h6 {
+
+                i {
+
+                  color: #000000;
+
+                }
+
+              }
+
+            }
+
             .nav-title-collapse {
               display: flex;
               justify-content: space-between;
@@ -957,3 +973,4 @@ header {
   /* Firefox 18- */
   color: #AC94BE !important;
 }
+
