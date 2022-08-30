@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
 
     //Social Protection
     Route::group(['prefix' => 'social-protection', 'as' => 'social_protection.'], function () {
-        Route::view('/', 'backend.social-protection.social-protection')->name('index');
+        Route::view('index', 'backend.social-protection.social-protection')->name('index');
         Route::view('food-security', 'backend.social-protection.food-security')->name('food_security');
         Route::view('budget-and-coverage', 'backend.social-protection.budget-and-coverage')->name('budget_and_coverage');
     });

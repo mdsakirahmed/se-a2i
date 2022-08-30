@@ -237,7 +237,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
-                                        <div class="nav-title-collapse nav-title-active @if(request()->is('backend/economy/*')) nav-title-active @endif">
+                                        <div class="nav-title-collapse @if(request()->is('backend/economy/*')) nav-title-collapse-active @endif">
                                             <h6>
                                                 <i class="bx bx-stats"></i>
                                                 {{ __('Economy') }}
@@ -248,7 +248,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div id="faq-list-1" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                    <div id="faq-list-1" class="collapse sub-collapse @if(request()->is('backend/economy/*')) show @endif" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.economy.overview_of_the_economy') }}">
                                                 <div class="nav-title-sub @if(request()->routeIs('backend.economy.overview_of_the_economy')) sub-active @endif">
@@ -283,7 +283,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
-                                        <div class="nav-title-collapse" @if(request()->is('backend/social-protection/*')) nav-title-active @endif>
+                                        <div class="nav-title-collapse @if(request()->is('backend/social-protection/*')) nav-title-collapse-active @endif">
                                             <h6>
                                                 <i class="bx bx-shield-alt-2"></i>
                                                 {{ __('Social Protection') }}
@@ -294,7 +294,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div id="faq-list-2" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                    <div id="faq-list-2" class="collapse sub-collapse @if(request()->is('backend/social-protection/*')) show @endif" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.social_protection.index') }}">
                                                 <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.index')) sub-active @endif">
@@ -325,7 +325,7 @@
                                     <a href="{{ route('backend.role_permission') }}">
                                         <div class="nav-title @if(request()->routeIs('backend.role_permission')) nav-title-active @endif">
                                             <h6>
-                                                <i class="bx bx-info-circle"></i>
+                                                <i class="bx bx-key"></i>
                                                 {{ __('Role Permission') }}
                                             </h6>
                                         </div>
@@ -337,7 +337,7 @@
                                     <a href="{{ route('backend.user_management') }}">
                                         <div class="nav-title @if(request()->routeIs('backend.user_management')) nav-title-active @endif">
                                             <h6>
-                                                <i class="bx bx-info-circle"></i>
+                                                <i class="bx bx-user"></i>
                                                 {{ __('User Management') }}
                                             </h6>
                                         </div>

@@ -430,7 +430,7 @@ header {
                 }
               }
             }
-      
+
             .sub-active {
               background: #80ce0c !important;
       
@@ -526,6 +526,21 @@ header {
       
             .icon-close {
               display: none;
+            }
+            .nav-title-collapse-active {
+
+              background: #80CE0C;
+
+              h6 {
+
+                i {
+
+                  color: #000000;
+
+                }
+
+              }
+
             }
           }
         }
