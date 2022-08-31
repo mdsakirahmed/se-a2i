@@ -218,9 +218,7 @@
                             <!-- <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" /> -->
                         </a>
                         <ul>
-                            <li><a href="#">User Profile</a></li>
-                            <li><a href="#">Setting</a></li>
-                            <li><a href="#">Manage Profile</a></li>
+                            <li><a href="{{ route('backend.profile') }}">User Profile</a></li>
                             <li>@livewire('logout')</li>
                         </ul>
                     </li>
