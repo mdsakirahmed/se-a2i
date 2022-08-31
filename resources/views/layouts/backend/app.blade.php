@@ -14,9 +14,7 @@
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
@@ -159,6 +157,28 @@
         #chart_id_8 .highcharts-series-label {
             display: none;
         }
+
+        .card-body select {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            width: 200px;
+            padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+            -moz-padding-start: calc(0.75rem - 3px);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
     </style>
     @livewireStyles
 </head>
@@ -182,13 +202,15 @@
                     <li class="mx-4">
                         <div class="lang-icon">
                             <div class="lang-text">@livewire('language-switcher')</div>
+                            @if(App::isLocale('en'))
                             <img src="{{ asset('assets/img/uk-flag.png') }}" />
+                            @else
                             <img src="{{ asset('assets/img/bd-flag.png') }}" />
+                            @endif
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>
                                 <p class="mb-0">Hi, <span class="fw-bold">{{ auth()->user()->name }}</span></p>
                             </span>
@@ -382,14 +404,15 @@
     <script>
         window.addEventListener('swal:modal', event => {
             swal({
-                title: event.detail.message,
-                text: event.detail.text,
-                icon: event.detail.type,
-            });
+                title: event.detail.message
+                , text: event.detail.text
+                , icon: event.detail.type
+            , });
         });
         window.addEventListener('refresh-page', event => {
             window.location.reload(true);
         });
+
     </script>
 </body>
 
