@@ -19,6 +19,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">Role</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -28,6 +29,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->roles()->first()->name ?? 'N/A' }}</td>
                                         <td>
                                             <button type="button" class="btn waves-waves-light btn-info" data-bs-toggle="modal" data-bs-target="#user-modal" wire:click="selectUser({{ $user->id }})">Edit</button>
                                             <button type="button" class="btn waves-waves-light btn-danger text-white" wire:click="deleteUser({{ $user->id }})" onclick="confirm('Are you sure you want to remove ?') || event.stopImmediatePropagation()">Delete</button>
@@ -72,6 +74,19 @@
                             <input type="password" class="form-control" placeholder="Enter user password here" wire:model="password">
                         </div>
                         @error('password')
+                        <div class="alert alert-danger" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        <div class="input-group mb-3">
+                            <select class="form-control" wire:model="role">
+                                <option value="">Select a role</option>
+                                @foreach ($roles as $role)
+                                    <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('role')
                         <div class="alert alert-danger" role="alert">
                             {{ $message }}
                         </div>
