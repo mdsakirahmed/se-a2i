@@ -1,6 +1,7 @@
 <div>
     <div class="card">
      <div class="card-header">
+         Hello I am 25
          <div>{{ $name }}</div>
          <div> @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>@endcan </div>
      </div>
@@ -9,12 +10,20 @@
          <div id="chart_id_{{ $chart->id }}"> </div>
      </figure>
     <div class="slidecontainer">
-        <input type='range' class="slider" min='0' max='{{ count(collect($fotmated_data_set)->pluck('name')) - 1 }}' step='1' value='0' id="range_chart_id_{{ $chart->id }}" /> 
-        <div class="range-label-container">
+        <input type='range' class="slider" min='0' max='{{ count(collect($fotmated_data_set)->pluck('name')) - 1 }}' step='1' value='0' id="range_chart_id_{{ $chart->id }}" />
+        <datalist class="range-label-container" id="tickmarks">
+            @foreach (collect($fotmated_data_set)->pluck('name') as $key => $year)
+            <option class="range-label" value="{{ str_replace("-20", "-", $year) }}">{{ str_replace("-20", "-", $year) }}</option>
+            @endforeach
+        </datalist>
+
+        {{-- <div class="range-label-container">
             @foreach (collect($fotmated_data_set)->pluck('name') as $key => $year)
             <div class="range-label">{{ str_replace("-20", "-", $year) }}</div>
             @endforeach
-        </div>
+        </div>  --}}
+    </div>
+    <div>
         <button type="button" class="btn btn-sm btn-success" id="start_btn_chart_id_{{ $chart->id }}">start</button>
         <button type="button" class="btn btn-sm btn-warning" id="stop_btn_chart_id_{{ $chart->id }}">stop</button>
     </div>
@@ -28,7 +37,7 @@
         $(document).ready(function() {
             //First loaded data
             Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
-            
+
             //chart update and re-render
             window.addEventListener("chart_update_{{ $chart->id }}", event => {
                 Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);

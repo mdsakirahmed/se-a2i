@@ -93,49 +93,22 @@
 
         .slidecontainer {
             width: 100%;
+            position: relative;
+            height: 12px;
+            margin: 15px 0;
         }
 
         .slider {
             -webkit-appearance: none;
             width: 100%;
-            height: 25px;
-            background: #d3d3d3;
+            height: 12px;
             outline: none;
-            opacity: 0.7;
+            opacity: 0.2;
             -webkit-transition: .2s;
             transition: opacity .2s;
-        }
-
-        .slider:hover {
-            opacity: 1;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            background: #04AA6D;
-            cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            background: #04AA6D;
-            cursor: pointer;
-        }
-
-        .range-label-container {
-            display: flex;
-            justify-content: space-between;
-
-        }
-
-        .range-label {
-            text-align: center;
-            flex: 0 0 25px;
-            transform: rotate(-90deg);
+            position: absolute;
+            top: 0;
+            z-index: 2;
         }
 
         #chart_id_22 .highcharts-series-label {
@@ -170,7 +143,7 @@
             line-height: 1.5;
             color: #212529;
             background-color: #fff;
-            background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);
+            background-image: url(data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' viewBox= '0 0 16 16' %3e%3cpath fill= 'none' stroke= '%23343a40' stroke-linecap= 'round' stroke-linejoin= 'round' stroke-width= '2' d= 'M2 5l6 6 6-6' /%3e%3c/svg%3e);
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
             background-size: 16px 12px;
@@ -194,11 +167,11 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <!-- <li class="mx-4">
-                        <div class="form-group has-search">
-                            <span class="bx bx-search form-control-feedback"></span>
-                            <input type="text" class="form-control" placeholder="Search" />
-                        </div>
-                    </li> -->
+                    <div class="form-group has-search">
+                        <span class="bx bx-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search" />
+                    </div>
+                </li> -->
                     <li class="mx-4">
                         <div class="lang-icon">
                             <div class="lang-text">@livewire('language-switcher')</div>
