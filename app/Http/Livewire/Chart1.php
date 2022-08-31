@@ -42,7 +42,8 @@ class Chart1 extends Component
 
         return [
             'chart' => [
-                'type' => 'column'
+                'type' => 'column',
+                'className' => 'bar-chart'
             ],
 
             'credits' => [
@@ -84,7 +85,17 @@ class Chart1 extends Component
                         'enabled' => true,
                         'format' => "{point.y:,.2f}" . '%',
                     ]
+                ],
+                'series' => [
+                    'borderRadius' => '20px',
                 ]
+            ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
             'series' => [[
                 'name' => 'Male',
