@@ -90,6 +90,9 @@ class Chart11 extends Component
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
+                ],
+                'series' => [
+                    'borderRadius' => '20px',
                 ]
             ],
             'legend' => [

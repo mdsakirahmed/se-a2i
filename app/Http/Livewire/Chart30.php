@@ -66,9 +66,17 @@ class Chart30 extends Component
             'legend' => [
                 'reversed' => true
             ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
+            ],
             'plotOptions' =>  [
                 'series' => [
-                    'stacking' => 'normal'
+                    'stacking' => 'normal',
+                    'borderRadius' => '5px',
                 ],
                 'bar' =>  [
                     'dataLabels' =>  [

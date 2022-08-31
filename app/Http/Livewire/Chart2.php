@@ -63,6 +63,14 @@ class Chart2 extends Component
                     'text' => 'Percentage of Teachers'
                 ]
             ],
+
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
+            ],
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
@@ -85,6 +93,10 @@ class Chart2 extends Component
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
+                ],
+                'series' => [
+                    'pointWidth'=> 20,
+                    'borderRadius' => '8px',
                 ]
             ],
             'series' => [[

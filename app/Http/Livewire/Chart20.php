@@ -190,9 +190,11 @@ class Chart20 extends Component
                         'enabled'=> false
                     ]
                 ],
-                'series'=> [
-                    'animation'=> false
+                'series' => [
+                    'animation'=> false,
+                    'borderRadius' => '20px',
                 ]
+               
             ],
             'xAxis'=> [
                 'type'=> "category",
