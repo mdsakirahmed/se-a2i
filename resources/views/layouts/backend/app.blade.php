@@ -111,6 +111,48 @@
             z-index: 2;
         }
 
+        /*.slider:hover {*/
+        /*    opacity: 1;*/
+        /*} */
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 6.25%;
+            height: 12px;
+            background: #80CE0C;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 6.25%;
+            height: 12px;
+            background: #80CE0C;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .range-label-container {
+            display: flex;
+            justify-content: space-between;
+            background: #d3d3d3;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .range-label {
+            text-align: center;
+            flex: 0 0 6.25%;
+            white-space: nowrap;
+            font-size: 10px;
+            height: 12px;
+            line-height: 14px;
+            color: #000 !important;
+            font-weight: bold;
+        }
+
         #chart_id_22 .highcharts-series-label {
             display: none;
         }
