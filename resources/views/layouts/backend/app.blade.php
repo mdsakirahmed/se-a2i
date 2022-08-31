@@ -93,49 +93,59 @@
 
         .slidecontainer {
             width: 100%;
+            position: relative;
+            height: 12px;
         }
 
         .slider {
             -webkit-appearance: none;
             width: 100%;
-            height: 25px;
-            background: #d3d3d3;
+            height: 12px;
             outline: none;
             opacity: 0.7;
             -webkit-transition: .2s;
             transition: opacity .2s;
+            position: absolute;
+            top: 0;
+            z-index: 2;
         }
 
-        .slider:hover {
+        /* .slider:hover {
             opacity: 1;
-        }
+        } */
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 25px;
-            height: 25px;
+            /* width: calc(100% / 16); */
+            width: 6.25%;
+            height: 12px;
             background: #04AA6D;
             cursor: pointer;
         }
 
         .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
+            width: 6.25%;
+            height: 12px;
             background: #04AA6D;
+            border-radius: 3px;
             cursor: pointer;
         }
 
         .range-label-container {
             display: flex;
             justify-content: space-between;
-
+            background: #d3d3d3;
+            position: absolute;
+            top: 0;
+            
         }
 
         .range-label {
             text-align: center;
-            flex: 0 0 25px;
-            transform: rotate(-90deg);
+            flex: 0 0  6.25%;
+            white-space: nowrap;
+            font-size: 10px;
         }
 
         #chart_id_22 .highcharts-series-label {

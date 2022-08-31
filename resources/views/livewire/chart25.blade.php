@@ -10,11 +10,19 @@
      </figure>
     <div class="slidecontainer">
         <input type='range' class="slider" min='0' max='{{ count(collect($fotmated_data_set)->pluck('name')) - 1 }}' step='1' value='0' id="range_chart_id_{{ $chart->id }}" /> 
-        <div class="range-label-container">
+        <datalist id="tickmarks">
+            @foreach (collect($fotmated_data_set)->pluck('name') as $key => $year)
+            <option value="{{ str_replace("-20", "-", $year) }}">{{ str_replace("-20", "-", $year) }}</option>
+            @endforeach
+        </datalist>
+
+        {{-- <div class="range-label-container">
             @foreach (collect($fotmated_data_set)->pluck('name') as $key => $year)
             <div class="range-label">{{ str_replace("-20", "-", $year) }}</div>
             @endforeach
-        </div>
+        </div>  --}}
+    </div>
+    <div>
         <button type="button" class="btn btn-sm btn-success" id="start_btn_chart_id_{{ $chart->id }}">start</button>
         <button type="button" class="btn btn-sm btn-warning" id="stop_btn_chart_id_{{ $chart->id }}">stop</button>
     </div>
