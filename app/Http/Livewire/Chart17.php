@@ -118,7 +118,12 @@ class Chart17 extends Component
             ],
 
             'colorAxis' => [
-                'tickPixelInterval' => 100
+                'tickPixelInterval' => 100,
+                'min' => collect($formated_data)->min('value'),
+                'max' => collect($formated_data)->max('value'),
+                'type' => 'logarithmic',
+                'minColor' => '#cfc5d4',
+                'maxColor' => '#7F3F98'
             ],
 
             'series' => [
