@@ -63,7 +63,6 @@ class Chart2 extends Component
                     'text' => 'Percentage of Teachers'
                 ]
             ],
-
             'legend' => [
                 'align' =>'left',
                 'verticalAlign'=> 'top',

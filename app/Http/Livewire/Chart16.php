@@ -263,7 +263,9 @@ class Chart16 extends Component
             ],
             'plotOptions'=> [
                 'series'=> [
-                    'stacking'=> 'normal'
+                    'stacking'=> 'normal',
+                    'borderRadius'=>'10px',
+                    'pointWidth'=>30
                 ]
             ],
             'colors'=> ['#7F3F98', '#83C341', '#16507B'],

@@ -118,6 +118,13 @@ class Chart41 extends Component
         ], 'credits' => [
             'enabled' => false
         ],
+        'legend' => [
+            'align' =>'left',
+            'verticalAlign'=> 'top',
+            'layout'=> 'horizontal',
+            'x'=> 0,
+            'y'=> 0
+        ],
         'xAxis' => [
             'title' => [
                 'enabled' => true,

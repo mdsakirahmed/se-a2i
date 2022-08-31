@@ -64,6 +64,8 @@ class Chart1 extends Component
                     'text' => 'Percentage of Students'
                 ]
             ],
+            
+            
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
@@ -87,7 +89,19 @@ class Chart1 extends Component
                     ]
                 ],
                 'series' => [
-                    'borderRadius' => '20px',
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'x'=>'',
+                        'y'=>'',
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'pointWidth'=> 20,
+                    'borderRadius' => '8px',
                 ]
             ],
             'legend' => [
