@@ -68,15 +68,17 @@ class Chart29 extends Component
                 'reversed' => true
             ],
             'plotOptions' =>  [
-                'series' => [
-                    'stacking' => 'normal'
-                ],
-                'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
+                'bar'=> [
+                    'stacking'=> 'normal',
+                    'pointPadding'=> 0,
+                    'groupPadding'=> 0,
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'color'=> '#FFFFFF'
+                    ]
                 ]
-            ], 'series' =>  [
+            ], 
+            'series' =>  [
                 [
                     'name' =>  'Internet Banking',
                     'data' =>  collect($data)->pluck('banking')->map(function ($value) {
