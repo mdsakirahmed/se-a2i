@@ -42,7 +42,8 @@ class Chart1 extends Component
 
         return [
             'chart' => [
-                'type' => 'column'
+                'type' => 'column',
+                'className' => 'bar-chart'
             ],
 
             'credits' => [
@@ -90,7 +91,11 @@ class Chart1 extends Component
                 ]
             ],
             'legend' => [
-                'align' =>'right',
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
             'series' => [[
                 'name' => 'Male',
