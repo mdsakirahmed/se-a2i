@@ -88,10 +88,23 @@ class Chart21 extends Component
                 ]
             ],
             'colorAxis' => [
-                'minColor' => '#f6c6d0',
-                'maxColor' => '#A31A37',
+                'minColor' => '#cfc5d4',
+                'maxColor' => '#7F3F98',
                 'min' => collect($formated_data)->min('z'),
                 'max' => collect($formated_data)->max('z')
+            ],
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Country: {point.name}<br>Remittance In Crore Bdt:	{point.z:,.2f}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
             ],
             'series' => [[
                 'colorKey' => 'clusterPointsAmount',
@@ -99,15 +112,10 @@ class Chart21 extends Component
                 'enableMouseTracking' => false
             ], [
                 'type' => 'mapbubble',
-                'name' => '',
                 'joinBy' => ['name', 'country'],
                 'data' => collect($formated_data)->map(function ($data) {
                     return $data;
-                }),
-    
-                'tooltip' => [
-                    'pointFormat' => 'Country: {point.properties.name} <br> Emittance In Crore Bdt: {point.z}'
-                ]
+                })
             ]]
         ];
     }
