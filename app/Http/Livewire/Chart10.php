@@ -103,6 +103,10 @@ class Chart10 extends Component
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
+                ],
+                'series' => [
+                    'pointWidth'=> 30,
+                    'borderRadius' => '15px',
                 ]
             ],
             'legend' => [

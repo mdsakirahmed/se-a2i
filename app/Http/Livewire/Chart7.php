@@ -109,11 +109,12 @@ class Chart7 extends Component
                     'rangeDescription' => ''
                 ]
             ],
-
             'legend' => [
-                'layout' => 'vertical',
-                'align' => 'right',
-                'verticalAlign' => 'middle'
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
 
             'plotOptions' => [

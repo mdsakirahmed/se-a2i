@@ -63,6 +63,8 @@ class Chart1 extends Component
                     'text' => 'Percentage of Students'
                 ]
             ],
+            
+            
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
@@ -84,6 +86,21 @@ class Chart1 extends Component
                         'enabled' => true,
                         'format' => "{point.y:,.2f}" . '%',
                     ]
+                ],
+                'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'x'=>'',
+                        'y'=>'',
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'pointWidth'=> 20,
+                    'borderRadius' => '8px',
                 ]
             ],
             'series' => [[

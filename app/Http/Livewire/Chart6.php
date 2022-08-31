@@ -113,9 +113,11 @@ class Chart6 extends Component
             ],
 
             'legend' => [
-                'layout' => 'vertical',
-                'align' => 'right',
-                'verticalAlign' => 'middle'
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
 
             'plotOptions' => [
