@@ -262,8 +262,9 @@ class Chart42 extends Component
                         'enabled' =>  false
                     ], 'enableMouseTracking' =>  true
                 ],
-                'series'=> [
-                    'animation'=> false
+                'series' => [
+                    'animation'=> false,
+                    'borderRadius' => '20px',
                 ]
             ],
 

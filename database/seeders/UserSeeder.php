@@ -17,15 +17,20 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'permission_manager@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
         ])->assignRole('admin');
+        
+        User::create([
+            'name' => 'Editor',
+            'email' => 'editor@gmail.com',
+            'password' => bcrypt('password'),
+        ])->assignRole('editor');
 
-        User::insert([
-            ['name' => 'Language Manager', 'email' => 'language_manager@gmail.com', 'password' => bcrypt('password')],
-            ['name' => 'Dashboard Viewer', 'email' => 'dashboard_viewer@gmail.com', 'password' => bcrypt('password')],
-            ['name' => 'File Uploader', 'email' => 'file_uploader@gmail.com', 'password' => bcrypt('password')],
-            ['name' => 'File Viewer', 'email' => 'file_viewer@gmail.com', 'password' => bcrypt('password')],
-        ]);
+        User::create([
+            'name' => 'Viewer',
+            'email' => 'viewer@gmail.com',
+            'password' => bcrypt('password'),
+        ])->assignRole('viewer');
     }
 }

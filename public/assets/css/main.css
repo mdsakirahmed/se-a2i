@@ -469,6 +469,12 @@ header h3 {
 #main-nav .container .main-nav .container .faq-list a.collapsed .icon-close {
   display: none;
 }
+#main-nav .container .main-nav .container .faq-list a.collapsed .nav-title-collapse-active {
+  background: #80CE0C;
+}
+#main-nav .container .main-nav .container .faq-list a.collapsed .nav-title-collapse-active h6 i {
+  color: #000000;
+}
 @media (max-width: 1200px) {
   #main-nav .container .faq .faq-list {
     padding: 0;

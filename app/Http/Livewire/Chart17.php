@@ -117,16 +117,35 @@ class Chart17 extends Component
                 ]
             ],
 
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Division: {point.division}<br>District: {point.district}<br>Remittance In Million Usd:	{point.value:,.2f}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
+
             'colorAxis' => [
-                'tickPixelInterval' => 100
+                'tickPixelInterval' => 100,
+                'min' => collect($formated_data)->min('value'),
+                'max' => collect($formated_data)->max('value'),
+                'type' => 'logarithmic',
+                'minColor' => '#cfc5d4',
+                'maxColor' => '#7F3F98'
             ],
 
             'series' => [
                 [
                     'data' => collect($formated_data)->map(function($data){
-                        return [$data['district'], $data['value']];
+                        return [$data['division'], $data['district'], $data['value']];
                     }),
-                    'keys' => ["district", "value"],
+                    'keys' => ["division", "district", "value"],
                     'joinBy' => "district",
                     'name' => "Remittance In Million USD",
                     'states' => [

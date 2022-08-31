@@ -57,26 +57,34 @@ class Chart28 extends Component
             // ]
             , 'xAxis' =>  [
                 'categories' =>  collect($data)->pluck('date')
-            ], 'yAxis' =>  [
+            ], 
+            'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Volume of transactions (In thousand crore BDT)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
                 ]
             ],
             'legend' => [
                 'reversed' => true
             ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
+            ],
             'plotOptions' =>  [
-                'series' => [
-                    'stacking' => 'normal'
-                ],
-                'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
+                'bar'=> [
+                    'stacking'=> 'normal',
+                    'pointPadding'=> 0,
+                    'groupPadding'=> 0,
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'color'=> '#FFFFFF'
+                    ]
                 ]
-            ], 'series' =>  [
+            ], 
+            'series' =>  [
                 [
                     'name' =>  'Internet Banking',
                     'data' =>  collect($data)->pluck('banking')->map(function ($value) {

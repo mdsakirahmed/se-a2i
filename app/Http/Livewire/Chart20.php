@@ -190,9 +190,11 @@ class Chart20 extends Component
                         'enabled'=> false
                     ]
                 ],
-                'series'=> [
-                    'animation'=> false
+                'series' => [
+                    'animation'=> false,
+                    'borderRadius' => '20px',
                 ]
+               
             ],
             'xAxis'=> [
                 'type'=> "category",
@@ -207,6 +209,19 @@ class Chart20 extends Component
                     'format' =>  '{value}'
                 ]
             ],
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Country: {point.name}<br>Remittance In Crore Bdt:	{point.y:,.2f}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+              ],
             'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }

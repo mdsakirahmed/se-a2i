@@ -17,16 +17,20 @@ class EditChart extends Component
     }
 
     public function update(){
-        $this->chart->update([
-            'en_name' => $this->en_name,
-            'bn_name' => $this->bn_name,
-            'en_description' => $this->en_description,
-            'bn_description' => $this->bn_description,
-            'bn_datasource' => $this->bn_datasource,
-            'en_datasource' => $this->en_datasource,
-        ]);
-        toastr()->success(__('Updated'));
-        $this->dispatchBrowserEvent('refresh-page'); 
+        if(auth()->user()->can('chart info edit')){
+            $this->chart->update([
+                'en_name' => $this->en_name,
+                'bn_name' => $this->bn_name,
+                'en_description' => $this->en_description,
+                'bn_description' => $this->bn_description,
+                'bn_datasource' => $this->bn_datasource,
+                'en_datasource' => $this->en_datasource,
+            ]);
+            toastr()->success(__('Updated'));
+            $this->dispatchBrowserEvent('refresh-page'); 
+        }else{
+            toastr()->error(__('You have not permission'));
+        }
     }
 
     protected $listeners = ['editChartInfo'];

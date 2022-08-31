@@ -109,9 +109,11 @@ class Chart13 extends Component
                 ]
             ],
             'legend' => [
-                'layout' => 'vertical',
-                'align' => 'right',
-                'verticalAlign' => 'middle'
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
 
             'plotOptions' => [
@@ -137,29 +139,33 @@ class Chart13 extends Component
                 'borderWidth' => 3,
             ],
 
-            'series' => [[
-                'name' => 'Professional',
-                'color' => "#7F3F98",
-                'data' =>   $economy_employment_overseas_category_wise['Professional'],
-            ], [
-                'name' => 'Less',
-                'color' => "#83C341",
-                'data' =>  $economy_employment_overseas_category_wise['Less'],
-            ],[
-            ],[
-                'name' => 'Semi',
-                'color' => "#16507B",
-                'data' =>  $economy_employment_overseas_category_wise['Semi'],
-            ],[
-            ], [
-                'name' => 'Skilled',
-                'color' => "#FF6361",
-                'data' =>  $economy_employment_overseas_category_wise['Skilled'],
-            ],[
-                'name' => 'Others',
-                'color' => "#FFA600",
-                'data' =>  $economy_employment_overseas_category_wise['Others'],
-            ]],
+            'series' => [
+                [
+                    'name' => 'Professional',
+                    'color' => "#7F3F98",
+                    'data' =>   $economy_employment_overseas_category_wise['Professional'],
+                ], 
+                [
+                    'name' => 'Less',
+                    'color' => "#83C341",
+                    'data' =>  $economy_employment_overseas_category_wise['Less'],
+                ],
+                [
+                    'name' => 'Semi',
+                    'color' => "#16507B",
+                    'data' =>  $economy_employment_overseas_category_wise['Semi'],
+                ], 
+                [
+                    'name' => 'Skilled',
+                    'color' => "#FF6361",
+                    'data' =>  $economy_employment_overseas_category_wise['Skilled'],
+                ],
+                [
+                    'name' => 'Others',
+                    'color' => "#FFA600",
+                    'data' =>  $economy_employment_overseas_category_wise['Others'],
+                ]
+            ],
 
             'responsive' => [
                 'rules' => [[

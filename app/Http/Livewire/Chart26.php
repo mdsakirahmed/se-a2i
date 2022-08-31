@@ -88,7 +88,24 @@ class Chart26 extends Component
             ],
 
             'colorAxis' => [
-                'tickPixelInterval' => 100
+                'tickPixelInterval' => 100,
+                'min' => collect($formated_data)->min('value'),
+                'max' => collect($formated_data)->max('value'),
+                'minColor' => '#cfc5d4',
+                'maxColor' => '#7F3F98'
+            ],
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Country: {point.country}<br>Export In Usd: {point.value:,.2f}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
             ],
 
             'series' => [
@@ -98,10 +115,9 @@ class Chart26 extends Component
                     }),
                     'keys' => ["country", "value"],
                     'joinBy' => ['name', 'country'],
-                    'name' => "Export in USD",
                     'states' => [
                         'hover' => [
-                            'color' => "#a4edba"
+                            'color' => "#9cc13d"
                         ]
                     ],
                     'dataLabels' => [

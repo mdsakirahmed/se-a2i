@@ -178,20 +178,35 @@ class Chart19 extends Component
       ],
 
       'colorAxis' => [
-        'tickPixelInterval' => 100
+        'tickPixelInterval' => 100,
+        'min' => collect($formated_data)->min('value'),
+        'max' => collect($formated_data)->max('value'),
+        'minColor' => '#cfc5d4',
+        'maxColor' => '#7F3F98'
       ],
-
+      'tooltip' => [
+        'useHTML' => true,
+        'headerFormat' => '',
+        'pointFormat' => 'District: {point.district}<br>Percent Change In Overseas Employment 19-20:	{point.value:,.2f}',
+        'style' => [
+            'color' => '#fff'
+        ],
+        'valueDecimals' => 0,
+        'backgroundColor' => '#444444',
+        'borderColor' => '#eeee',
+        'borderRadius' => 10,
+        'borderWidth' => 3,
+      ],
       'series' => [
         [
           'data' => collect($formated_data)->map(function($data){
-            return [$data['district'], $data['value']];
+            return [$data['division'], $data['district'], $data['value']];
         }),
-          'keys' => ["district", "value"],
+          'keys' => ["division", "district", "value"],
           'joinBy' => "district",
-          'name' => "Moderate to Severe Food Insecurity",
           'states' => [
             'hover' => [
-              'color' => "#a4edba"
+              'color' => "#9cc13d"
             ]
           ],
           'dataLabels' => [

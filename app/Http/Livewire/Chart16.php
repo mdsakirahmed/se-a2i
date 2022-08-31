@@ -254,9 +254,18 @@ class Chart16 extends Component
             'legend'=> [
                 'reversed'=> true
             ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
+            ],
             'plotOptions'=> [
                 'series'=> [
-                    'stacking'=> 'normal'
+                    'stacking'=> 'normal',
+                    'borderRadius'=>'10px',
+                    'pointWidth'=>30
                 ]
             ],
             'colors'=> ['#7F3F98', '#83C341', '#16507B'],

@@ -14,9 +14,7 @@
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
@@ -95,49 +93,64 @@
 
         .slidecontainer {
             width: 100%;
+            position: relative;
+            height: 12px;
+            margin: 15px 0;
         }
 
         .slider {
             -webkit-appearance: none;
             width: 100%;
-            height: 25px;
-            background: #d3d3d3;
+            height: 12px;
             outline: none;
-            opacity: 0.7;
+            opacity: 0.2;
             -webkit-transition: .2s;
             transition: opacity .2s;
+            position: absolute;
+            top: 0;
+            z-index: 2;
         }
 
-        .slider:hover {
-            opacity: 1;
-        }
+        /*.slider:hover {*/
+        /*    opacity: 1;*/
+        /*} */
 
         .slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 25px;
-            height: 25px;
-            background: #04AA6D;
+            width: 6.25%;
+            height: 12px;
+            background: #80CE0C;
             cursor: pointer;
+            z-index: 2;
         }
 
         .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            background: #04AA6D;
+            width: 6.25%;
+            height: 12px;
+            background: #80CE0C;
+            border-radius: 3px;
             cursor: pointer;
         }
 
         .range-label-container {
             display: flex;
             justify-content: space-between;
-
+            background: #d3d3d3;
+            position: absolute;
+            top: 0;
+            width: 100%;
         }
 
         .range-label {
             text-align: center;
-            flex: 0 0 25px;
-            transform: rotate(-90deg);
+            flex: 0 0 6.25%;
+            white-space: nowrap;
+            font-size: 10px;
+            height: 12px;
+            line-height: 14px;
+            color: #000 !important;
+            font-weight: bold;
         }
 
         #chart_id_22 .highcharts-series-label {
@@ -159,6 +172,28 @@
         #chart_id_8 .highcharts-series-label {
             display: none;
         }
+
+        .card-body select {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            width: 200px;
+            padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+            -moz-padding-start: calc(0.75rem - 3px);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            background-image: url(data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' viewBox= '0 0 16 16' %3e%3cpath fill= 'none' stroke= '%23343a40' stroke-linecap= 'round' stroke-linejoin= 'round' stroke-width= '2' d= 'M2 5l6 6 6-6' /%3e%3c/svg%3e);
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
     </style>
     @livewireStyles
 </head>
@@ -174,21 +209,23 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <!-- <li class="mx-4">
-                        <div class="form-group has-search">
-                            <span class="bx bx-search form-control-feedback"></span>
-                            <input type="text" class="form-control" placeholder="Search" />
-                        </div>
-                    </li> -->
+                    <div class="form-group has-search">
+                        <span class="bx bx-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search" />
+                    </div>
+                </li> -->
                     <li class="mx-4">
                         <div class="lang-icon">
                             <div class="lang-text">@livewire('language-switcher')</div>
+                            @if(App::isLocale('en'))
                             <img src="{{ asset('assets/img/uk-flag.png') }}" />
+                            @else
                             <img src="{{ asset('assets/img/bd-flag.png') }}" />
+                            @endif
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle p-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>
                                 <p class="mb-0">Hi, <span class="fw-bold">{{ auth()->user()->name }}</span></p>
                             </span>
@@ -196,9 +233,7 @@
                             <!-- <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" /> -->
                         </a>
                         <ul>
-                            <li><a href="#">User Profile</a></li>
-                            <li><a href="#">Setting</a></li>
-                            <li><a href="#">Manage Profile</a></li>
+                            <li><a href="{{ route('backend.profile') }}">User Profile</a></li>
                             <li>@livewire('logout')</li>
                         </ul>
                     </li>
@@ -237,7 +272,7 @@
                                 </li>
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-1">
-                                        <div class="nav-title-collapse nav-title-active @if(request()->is('backend/economy/*')) nav-title-active @endif">
+                                        <div class="nav-title-collapse @if(request()->is('backend/economy/*')) nav-title-collapse-active @endif">
                                             <h6>
                                                 <i class="bx bx-stats"></i>
                                                 {{ __('Economy') }}
@@ -248,7 +283,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div id="faq-list-1" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                    <div id="faq-list-1" class="collapse sub-collapse @if(request()->is('backend/economy/*')) show @endif" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.economy.overview_of_the_economy') }}">
                                                 <div class="nav-title-sub @if(request()->routeIs('backend.economy.overview_of_the_economy')) sub-active @endif">
@@ -281,10 +316,9 @@
                                         </div>
                                     </div>
                                 </li>
-
                                 <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
-                                        <div class="nav-title-collapse" @if(request()->is('backend/social-protection/*')) nav-title-active @endif>
+                                        <div class="nav-title-collapse @if(request()->is('backend/social-protection/*')) nav-title-collapse-active @endif">
                                             <h6>
                                                 <i class="bx bx-shield-alt-2"></i>
                                                 {{ __('Social Protection') }}
@@ -295,7 +329,7 @@
                                             </div>
                                         </div>
                                     </a>
-                                    <div id="faq-list-2" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                    <div id="faq-list-2" class="collapse sub-collapse @if(request()->is('backend/social-protection/*')) show @endif" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
                                             <a href="{{ route('backend.social_protection.index') }}">
                                                 <div class="nav-title-sub @if(request()->routeIs('backend.social_protection.index')) sub-active @endif">
@@ -321,6 +355,30 @@
                                         </div>
                                     </div>
                                 </li>
+                                @can('role permission management')
+                                <li data-aos="fade-up">
+                                    <a href="{{ route('backend.role_permission') }}">
+                                        <div class="nav-title @if(request()->routeIs('backend.role_permission')) nav-title-active @endif">
+                                            <h6>
+                                                <i class="bx bx-key"></i>
+                                                {{ __('Role Permission') }}
+                                            </h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endcan
+                                @can('user management')
+                                <li data-aos="fade-up">
+                                    <a href="{{ route('backend.user_management') }}">
+                                        <div class="nav-title @if(request()->routeIs('backend.user_management')) nav-title-active @endif">
+                                            <h6>
+                                                <i class="bx bx-user"></i>
+                                                {{ __('User Management') }}
+                                            </h6>
+                                        </div>
+                                    </a>
+                                </li>
+                                @endcan
                             </ul>
                         </div>
                     </div>
@@ -359,14 +417,15 @@
     <script>
         window.addEventListener('swal:modal', event => {
             swal({
-                title: event.detail.message,
-                text: event.detail.text,
-                icon: event.detail.type,
-            });
+                title: event.detail.message
+                , text: event.detail.text
+                , icon: event.detail.type
+            , });
         });
         window.addEventListener('refresh-page', event => {
             window.location.reload(true);
         });
+
     </script>
 </body>
 
