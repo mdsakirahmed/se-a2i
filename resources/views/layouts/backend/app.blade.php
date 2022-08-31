@@ -182,8 +182,11 @@
                     <li class="mx-4">
                         <div class="lang-icon">
                             <div class="lang-text">@livewire('language-switcher')</div>
+                            @if(App::isLocale('en'))
                             <img src="{{ asset('assets/img/uk-flag.png') }}" />
+                            @else
                             <img src="{{ asset('assets/img/bd-flag.png') }}" />
+                            @endif
                         </div>
                     </li>
                     <li class="dropdown">
