@@ -67,15 +67,17 @@ class Chart30 extends Component
                 'reversed' => true
             ],
             'plotOptions' =>  [
-                'series' => [
-                    'stacking' => 'normal'
-                ],
-                'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
+                'bar'=> [
+                    'stacking'=> 'normal',
+                    'pointPadding'=> 0,
+                    'groupPadding'=> 0,
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'color'=> '#FFFFFF'
+                    ]
                 ]
-            ], 'series' =>  [
+            ], 
+            'series' =>  [
                 [
                     'name' =>  'Rural',
                     'data' =>  collect($data)->pluck('rural')->map(function ($value) {
