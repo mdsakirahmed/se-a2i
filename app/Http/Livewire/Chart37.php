@@ -39,7 +39,6 @@ class Chart37 extends Component
 
   public function get_data()
   {
-
     $array_data_set = [
       ['division' => 'Khulna', 'district' => 'Bagerhat', 'value' => 45.16],
       ['division' => 'Chittagong', 'district' => 'Bandarban', 'value' => 25.00],
@@ -112,9 +111,10 @@ class Chart37 extends Component
 
     $formated_data = [];
     foreach (collect($array_data_set)->groupBy('district') as $district => $district_wise_data) {
-
       array_push($formated_data, [
-            'district' => $district, 'value' => round(collect($district_wise_data)->sum('value')), 'division' => collect($district_wise_data)->first()['division']
+            'district' => $district, 
+            'value' => round(collect($district_wise_data)->sum('value'), 2), 
+            'division' => collect($district_wise_data)->first()['division']
         ]);
     }
     
@@ -178,20 +178,36 @@ class Chart37 extends Component
       ],
 
       'colorAxis' => [
-        'tickPixelInterval' => 100
+        'tickPixelInterval' => 100,
+        'min' => collect($formated_data)->min('value'),
+        'max' => collect($formated_data)->max('value'),
+        'type' => 'logarithmic',
+        'minColor' => '#cfc5d4',
+        'maxColor' => '#7F3F98'
       ],
-
+      'tooltip' => [
+        'useHTML' => true,
+        'headerFormat' => '',
+        'pointFormat' => 'District: {point.district}<br> Moderate to Severe Food Insecurity : {point.value:,.2f}',
+        'style' => [
+            'color' => '#fff'
+        ],
+        'valueDecimals' => 0,
+        'backgroundColor' => '#444444',
+        'borderColor' => '#eeee',
+        'borderRadius' => 10,
+        'borderWidth' => 3,
+      ],
       'series' => [
         [
           'data' => collect($formated_data)->map(function($data){
             return [$data['district'], $data['value']];
-        }),
+          }),
           'keys' => ["district", "value"],
           'joinBy' => "district",
-          'name' => "Moderate to Severe Food Insecurity",
           'states' => [
             'hover' => [
-              'color' => "#a4edba"
+              'color' => "#80CE0C"
             ]
           ],
           'dataLabels' => [
