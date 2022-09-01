@@ -345,7 +345,7 @@ class ChartSeeder extends Seeder
                 'en_description' => '',
             ],
             [ // chart id 42
-                'bn_name' => 'সামাজিক সুরক্ষা খাতে বার্ষিক শীর্ষ ৫ বাজেট', 
+                'bn_name' => 'সামাজিক সুরক্ষা খাতে বার্ষিক বরাদ্দ বাজেটঃ শীর্ষ ৫ খাত', 
                 'en_name' => 'SSN top 5 program Budget across years',
                 'bn_datasource' => '',
                 'en_datasource' => '',
@@ -353,7 +353,7 @@ class ChartSeeder extends Seeder
                 'en_description' => '',
             ],
             [ // chart id 43
-                'bn_name' => 'সামাজিক সুরক্ষা খাতে বার্ষিক শীর্ষ ৫ সুবিধাভোগীর সংখ্যা', 
+                'bn_name' => 'সামাজিক সুরক্ষা খাতে বার্ষিক সুবিধাভোগীর সংখ্যাঃ শীর্ষ ৫ খাত', 
                 'en_name' => 'SSN top 5 program Coverage across years',
                 'bn_datasource' => '',
                 'en_datasource' => '',
