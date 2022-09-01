@@ -46,8 +46,7 @@
     <style>
         .highcharts-figure,
         .highcharts-data-table table {
-            min-width: 310px;
-            max-width: 800px;
+            width: 100%;
             margin: 1em auto;
         }
 
