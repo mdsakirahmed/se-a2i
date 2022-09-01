@@ -72,18 +72,19 @@ class Chart29 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
             'plotOptions' =>  [
                 'bar'=> [
                     'stacking'=> 'normal',
-                    'pointPadding'=> 0,
+                    'pointMargin'=> 2,
                     'groupPadding'=> 0,
                     'dataLabels'=> [
-                        'enabled'=> true,
-                        'color'=> '#FFFFFF'
-                    ]
-                ]
+                        'enabled'=> false,
+                    ],
+                    'pointWidth'=>10,
+                    ],
             ], 
             'series' =>  [
                 [
@@ -91,7 +92,7 @@ class Chart29 extends Component
                     'data' =>  collect($data)->pluck('banking')->map(function ($value) {
                         return round($value / 1000000, 2);
                     }),
-                    'color' =>  '#83C341',
+                    'color' =>  '#FFB207',
                     'marker' =>  [
                         'radius' =>  3
                     ]
@@ -101,7 +102,7 @@ class Chart29 extends Component
                     'data' =>  collect($data)->pluck('agent')->map(function ($value) {
                         return round($value / 1000000, 2);
                     }),
-                    'color' =>  '#FFB207',
+                    'color' =>  '#EE47B5',
                     'marker' =>  [
                         'radius' =>  3
                     ]

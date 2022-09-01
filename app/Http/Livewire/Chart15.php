@@ -100,7 +100,8 @@ class Chart15 extends Component
                 'align' => 'right',
                 'verticalAlign' => 'middle',
                 'itemMarginTop' => 10,
-                'itemMarginBottom' => 10
+                'itemMarginBottom' => 10,
+                'margin'=> 45
             ],
             'series'=> $series,
         ];

@@ -13,16 +13,16 @@
                     @livewire('chart31')
                 </div>
                 <div class="col-md-6">
-                    @livewire('chart32')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart33')
-                </div>
-                <div class="col-md-6">
                     @livewire('chart34')
                 </div>
                 <div class="col-md-6">
+                    @livewire('chart32')
+                </div>
+                <div class="col-md-6">
                     @livewire('chart35')
+                </div>
+                <div class="col-md-6">
+                    @livewire('chart33')
                 </div>
                 <div class="col-md-6">
                     @livewire('chart36')
