@@ -158,6 +158,13 @@ class Chart35 extends Component
                     'text' => $title
                 ]
             ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
+            ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',
                 'pointFormat' => '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' .
@@ -170,6 +177,9 @@ class Chart35 extends Component
                 'column' => [
                     'pointPadding' => 0.2,
                     'borderWidth' => 0
+                ],
+                'series' => [
+                    'borderRadius' => '5px',
                 ]
             ],
             'series' => [[

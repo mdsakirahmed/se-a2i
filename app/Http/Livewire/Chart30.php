@@ -66,17 +66,28 @@ class Chart30 extends Component
             'legend' => [
                 'reversed' => true
             ],
+            'legend' => [
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0
+            ],
             'plotOptions' =>  [
-                'bar'=> [
-                    'stacking'=> 'normal',
-                    'pointPadding'=> 0,
-                    'groupPadding'=> 0,
-                    'dataLabels'=> [
-                        'enabled'=> true,
-                        'color'=> '#FFFFFF'
+                'bar' => [
+                    'stacking' => 'normal',
+                    'pointPadding' => 0,
+                    'groupPadding' => 0,
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'color' => '#FFFFFF'
                     ]
-                ]
-            ], 
+                ],
+                'series' => [
+                    'stacking' => 'normal',
+                    'borderRadius' => '5px',
+                ],
+            ],
             'series' =>  [
                 [
                     'name' =>  'Rural',

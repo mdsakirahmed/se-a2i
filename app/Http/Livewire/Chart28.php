@@ -66,6 +66,13 @@ class Chart28 extends Component
             'legend' => [
                 'reversed' => true
             ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
+            ],
             'plotOptions' =>  [
                 'bar'=> [
                     'stacking'=> 'normal',

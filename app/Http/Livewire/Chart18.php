@@ -102,10 +102,17 @@ class Chart18 extends Component
                     'dataLabels' => [
                         'enabled' => false,
                     ]
+                ],
+                'series' => [
+                    'borderRadius' => '20px',
                 ]
             ],
             'legend' => [
-                'enabled' => true
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
             'series' => [[
                 'name' => 'Total Employment (In Thousand)',
