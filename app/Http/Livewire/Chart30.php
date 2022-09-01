@@ -74,20 +74,21 @@ class Chart30 extends Component
                 'y' => 0
             ],
             'plotOptions' =>  [
-                'bar' => [
-                    'stacking' => 'normal',
-                    'pointPadding' => 0,
-                    'groupPadding' => 0,
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'color' => '#FFFFFF'
-                    ]
-                ],
-                'series' => [
-                    'stacking' => 'normal',
-                    'borderRadius' => '5px',
-                ],
-            ],
+                'bar'=> [
+                    'stacking'=> 'normal',
+                    'pointPadding'=> 0,
+                    'groupPadding'=> 0,
+                    'enableMouseTracking' =>  true,
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'color'=> '#FFFFFF'
+                    ],
+                    'series' => [
+                        'stacking' => 'normal',
+                        'borderRadius' => '5px',
+                    ],
+                ]
+            ], 
             'series' =>  [
                 [
                     'name' =>  'Rural',
