@@ -71,23 +71,21 @@ class Chart30 extends Component
                 'verticalAlign' => 'top',
                 'layout' => 'horizontal',
                 'x' => 0,
-                'y' => 0
+                'y' => 0,
+                'margin'=> 45
             ],
             'plotOptions' =>  [
                 'bar'=> [
                     'stacking'=> 'normal',
-                    'pointPadding'=> 0,
-                    'groupPadding'=> 0,
+                    'pointMargin'=> 10,
+                    'groupMargin'=> 0,
                     'enableMouseTracking' =>  true,
                     'dataLabels'=> [
-                        'enabled'=> true,
-                        'color'=> '#FFFFFF'
+                        'enabled'=> false,
+                        
                     ],
-                    'series' => [
-                        'stacking' => 'normal',
-                        'borderRadius' => '5px',
-                    ],
-                ]
+                    'pointWidth'=>10
+                ],
             ], 
             'series' =>  [
                 [

@@ -55,7 +55,7 @@ class Chart17 extends Component
                 $value = collect($district_wise_data)->sum('total_remitance_usd');
             }
             array_push($formated_data, [
-                'district' => $district, 'value' => round($value), 'division' => collect($district_wise_data)->first()->division
+                'district' => ucfirst(strtolower(trans($district))), 'value' => round($value), 'division' => ucfirst(strtolower(trans(collect($district_wise_data)->first()->division)))
             ]);
         }
         

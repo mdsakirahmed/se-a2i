@@ -92,7 +92,8 @@ class Chart12 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
 
             'plotOptions' => [
@@ -128,7 +129,7 @@ class Chart12 extends Component
                 'data' =>  $real_gdp_per_capita_years_data_set['india'],
             ],[
                 'name' => 'Pakistan',
-                'color' => "#16507B",
+                'color' => "#FFB207",
                 'data' =>  $real_gdp_per_capita_years_data_set['pakistan'],
             ]],
 

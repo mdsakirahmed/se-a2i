@@ -163,7 +163,8 @@ class Chart36 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',
@@ -184,7 +185,7 @@ class Chart36 extends Component
             ],
             'series' => [[
                 'name' => 'Decreased',
-                'color' => "#7F3F98",
+                'color' => "#FFB207",
                 'data' =>  collect($formated_data)->pluck('decreased'),
             ], [
                 'name' => 'Increased',
@@ -192,7 +193,7 @@ class Chart36 extends Component
                 'data' => collect($formated_data)->pluck('increased'),
             ], [
                 'name' => 'Same',
-                'color' => "#833341",
+                'color' => "#7F3F98",
                 'data' =>  collect($formated_data)->pluck('same'),
             ]],
         ];
