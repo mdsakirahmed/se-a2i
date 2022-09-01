@@ -114,6 +114,8 @@ class Chart4 extends Component
                 'series' => [
                     'dataLabels'=> [
                         'enabled'=> true,
+                        'inside'=> false,
+                        'color'=> '#000000',
                         'style'=>[
                             'textShadow'=>false,
                             'strokeWidth'=>0,
@@ -124,12 +126,12 @@ class Chart4 extends Component
                 ]
             ],
             'legend' => [
-                'enabled' => false
+                'enabled' => false,
             ],
             'series' => [
                 [
                     'name' => '',
-                    'color' => "#83C341",
+                    'color' => "#722A8D",
                     'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                         return round($value, 2);
                     }),

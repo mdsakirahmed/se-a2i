@@ -100,6 +100,7 @@ class Chart1 extends Component
                     ],
                     'pointWidth'=> 20,
                     'borderRadius' => '8px',
+                    'innerRadius' => '50%',
                 ]
             ],
             'legend' => [

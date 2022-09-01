@@ -100,6 +100,7 @@ class Chart10 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
+                        'inside' => false,
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
@@ -118,7 +119,7 @@ class Chart10 extends Component
                 ]
             ],
             'legend' => [
-                'enabled' => false
+                'enabled' => false,
             ],
             'series' => [[
                 'name' => '',
