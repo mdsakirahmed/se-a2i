@@ -27,7 +27,7 @@ class RengeComponent extends Component
             $array_count = count($data_array);
         }
         $this->min = $min ?? 0;
-        $this->max = $max ?? $array_count;
+        $this->max = $max ?? ($array_count - 1);
         $this->step = $step ?? 1;
         $this->value = $value ?? 0;
         $this->chart_id = $chart_id;
