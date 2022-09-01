@@ -11,7 +11,7 @@
             <div class="card-lg">
                 <div class="block-group">
                     <div class="block-70">
-                    <h5 class="c-primary fw-bold">{{ __('about title 1') }}</h4>
+                    <h5 class="c-primary fw-bold">{{ __('about title 1') }}</h5>
                         <p class="mb-md-4">{{ __('about description 1') }}</p>
                         <h5 class="c-secondary fw-bold">{{ __('about title 2') }}</h5>
                         <p>{{ __('about description 1') }}</p>

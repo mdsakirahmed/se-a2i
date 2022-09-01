@@ -107,6 +107,14 @@ class Chart2 extends Component
                     'borderRadius' => '8px',
                 ]
             ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0,
+                'margin'=> 45
+            ],
             'series' => [[
                 'name' => 'Male',
                 'stack' => 'gender',
