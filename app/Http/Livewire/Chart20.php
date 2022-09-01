@@ -192,7 +192,8 @@ class Chart20 extends Component
                 ],
                 'series' => [
                     'animation'=> false,
-                    'borderRadius' => '20px',
+                    'pointWidth'=>20,
+                    'borderRadius' => '8px',
                 ]
                
             ],

@@ -92,7 +92,15 @@ class Chart11 extends Component
                     ]
                 ],
                 'series' => [
-                    'borderRadius' => '20px',
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [
