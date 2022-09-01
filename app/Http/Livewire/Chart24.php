@@ -50,9 +50,9 @@ class Chart24 extends Component
         $formated_data = [];
         foreach (collect($db_data)->groupBy('country') as $country => $country_wise_data) {
             if ($this->selected_year) {
-                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_in_usd');
+                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_in_usd')/1000000;
             } else {
-                $value = collect($country_wise_data)->sum('import_in_usd');
+                $value = collect($country_wise_data)->sum('import_in_usd')/1000000;
             }
             array_push($formated_data, [
                 'country' => $country, 'value' => round($value)
@@ -89,9 +89,25 @@ class Chart24 extends Component
             ],
 
             'colorAxis' => [
-                'tickPixelInterval' => 100
+                'tickPixelInterval' => 100,
+                'min' => collect($formated_data)->min('value'),
+                'max' => collect($formated_data)->max('value'),
+                'minColor' => '#cfc5d4',
+                'maxColor' => '#7F3F98'
             ],
-
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Country: {point.country}<br>Import In Usd: {point.value:,.2f}  (Million US$)',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
             'series' => [
                 [
                     'data' => collect($formated_data)->map(function ($data) {
@@ -99,10 +115,9 @@ class Chart24 extends Component
                     }),
                     'keys' => ["country", "value"],
                     'joinBy' => ['name', 'country'],
-                    'name' => "Moderate to Severe Food Insecurity",
                     'states' => [
                         'hover' => [
-                            'color' => "#a4edba"
+                            'color' => "#9cc13d"
                         ]
                     ],
                     'dataLabels' => [

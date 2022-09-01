@@ -67,23 +67,29 @@ class Chart30 extends Component
                 'reversed' => true
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0
             ],
             'plotOptions' =>  [
-                'series' => [
-                    'stacking' => 'normal',
-                    'borderRadius' => '5px',
-                ],
-                'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
+                'bar'=> [
+                    'stacking'=> 'normal',
+                    'pointPadding'=> 0,
+                    'groupPadding'=> 0,
+                    'enableMouseTracking' =>  true,
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'color'=> '#FFFFFF'
+                    ],
+                    'series' => [
+                        'stacking' => 'normal',
+                        'borderRadius' => '5px',
+                    ],
                 ]
-            ], 'series' =>  [
+            ], 
+            'series' =>  [
                 [
                     'name' =>  'Rural',
                     'data' =>  collect($data)->pluck('rural')->map(function ($value) {
