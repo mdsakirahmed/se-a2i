@@ -180,7 +180,7 @@ header {
 }
 
 .card {
-  padding: 25px 20px;
+  padding: 32px 22px 15px;
   margin-bottom: 30px;
   background: #ffffff;
   border: 0;
@@ -193,9 +193,17 @@ header {
     align-items: center;
     padding: 0 1rem;
     font-size: 16px;
-    font-weight: 600;
     background: transparent;
     border: 0;
+    margin-bottom: 15px;
+    h5 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    button {
+      padding: 0;
+    }
   } 
   .card-header-single {
     display: flex;
@@ -206,6 +214,14 @@ header {
     font-weight: 600;
     background: transparent;
     border: 0;
+  }
+  .card-body {
+    .card-header-desc {
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+      }
+    }
   }
   .card-footer {
     font-size: 12px;
@@ -227,6 +243,9 @@ header {
     font-size: 16px;
     background: transparent;
     border: 0;
+    h5 {
+      font-weight: 600;
+    }
   } 
   @include xs {
     padding: 25px 20px !important;

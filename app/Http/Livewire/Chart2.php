@@ -94,9 +94,28 @@ class Chart2 extends Component
                     ]
                 ],
                 'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'x'=>'',
+                        'y'=>'',
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
                     'pointWidth'=> 20,
                     'borderRadius' => '8px',
                 ]
+            ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0,
+                'margin'=> 45
             ],
             'series' => [[
                 'name' => 'Male',
