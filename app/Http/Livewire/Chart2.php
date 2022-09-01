@@ -94,6 +94,15 @@ class Chart2 extends Component
                     ]
                 ],
                 'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
                     'pointWidth'=> 20,
                     'borderRadius' => '8px',
                 ]

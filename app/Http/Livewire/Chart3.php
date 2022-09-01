@@ -95,7 +95,15 @@ class Chart3 extends Component
                     ]
                 ],
                 'series' => [
-                    'pointWidth'=> 30,
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'pointWidth'=> 40,
                     'borderRadius' => '15px',
                 ]
             ],
