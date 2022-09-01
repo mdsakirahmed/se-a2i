@@ -7,15 +7,18 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="card-header-desc">
-                <p>
-                {!! $description !!}
-                </p>
-            </div>
             <figure class="highcharts-figure">
                 <div id="chart_id_{{ $chart_id }}"></div>
             </figure>
         </div>
+
+        <div class="card-footer">
+            <div class="card-desc">
+                <p>
+                {!! $description !!}
+                </p>
+            </div>
+        </div> 
     
     </div>
     

@@ -100,7 +100,7 @@ class Chart28 extends Component
                     'data' =>  collect($data)->pluck('agent')->map(function ($value) {
                         return round($value / 1000, 2);
                     }),
-                    'color' =>  '#835420',
+                    'color' =>  '#FFB207',
                     'marker' =>  [
                         'radius' =>  3
                     ]

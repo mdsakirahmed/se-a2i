@@ -61,7 +61,7 @@ class Chart32 extends Component
                     'depth'=> 45
                 ]
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
             'series' =>  [
                 [
                     'name' => '', // must use title or empty
