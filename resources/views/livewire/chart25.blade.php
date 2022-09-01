@@ -1,7 +1,6 @@
 <div>
     <div class="card">
      <div class="card-header">
-         Hello I am 25
          <div>{{ $name }}</div>
          <div> @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>@endcan </div>
      </div>
