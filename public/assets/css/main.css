@@ -51,6 +51,42 @@ p {
   background: #430a58;
 }
 
+.button-primary-sm {
+  min-width: 65px;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 25px;
+  background: #722A8D;
+  border: 2px solid #722A8D;
+  transition: 0.3s;
+}
+.button-primary-sm:hover {
+  border: 2px solid #722A8D;
+  background: transparent;
+  color: #722A8D;
+}
+
+.button-primary-sm-outline {
+  min-width: 65px;
+  padding: 5px 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7f3f98;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid #722A8D;
+  transition: 0.3s;
+}
+.button-primary-sm-outline:hover {
+  border: 2px solid #722A8D;
+  background: #722A8D;
+  color: #ffffff;
+}
+
 .btn-trans-icon {
   background: transparent;
   color: #430a58;
@@ -151,7 +187,7 @@ header h3 {
 
 .card {
   padding: 32px 22px 15px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   background: #ffffff;
   border: 0;
   border-radius: 15px;
@@ -791,6 +827,10 @@ header h3 {
   #loginPage .login-wrapper .container .login-inner-wrapper {
     width: 100%;
   }
+}
+
+.chart-area .col {
+  margin-bottom: 30px;
 }
 
 .bar-chart {
