@@ -128,7 +128,7 @@ class Chart12 extends Component
                 'data' =>  $real_gdp_per_capita_years_data_set['india'],
             ],[
                 'name' => 'Pakistan',
-                'color' => "#16507B",
+                'color' => "#FFB207",
                 'data' =>  $real_gdp_per_capita_years_data_set['pakistan'],
             ]],
 

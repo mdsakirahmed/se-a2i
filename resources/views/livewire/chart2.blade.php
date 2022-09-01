@@ -7,15 +7,17 @@
         </div>
     </div>
    <div class="card-body">
-        <div class="card-header-desc">
+        <figure class="highcharts-figure">
+            <div id="chart_id_{{ $chart->id }}"> </div>
+        </figure>
+   </div>
+   <div class="card-footer">
+        <div class="card-desc">
             <p>
             {!! $description !!}
-        </p>
-    </div>
-    <figure class="highcharts-figure">
-        <div id="chart_id_{{ $chart->id }}"> </div>
-    </figure>
-   </div>
+            </p>
+        </div>
+    </div> 
    </div>
     <script>
         Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});

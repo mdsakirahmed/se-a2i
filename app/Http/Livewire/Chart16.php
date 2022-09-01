@@ -268,7 +268,7 @@ class Chart16 extends Component
                     'pointWidth'=>30
                 ]
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
             'series'=> $series,
         ];
     }

@@ -152,7 +152,7 @@ class Chart13 extends Component
                 ],
                 [
                     'name' => 'Semi',
-                    'color' => "#16507B",
+                    'color' => "#FFB207",
                     'data' =>  $economy_employment_overseas_category_wise['Semi'],
                 ], 
                 [

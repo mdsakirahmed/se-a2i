@@ -87,9 +87,14 @@ class Chart15 extends Component
             'plotOptions'=> [
                 'column'=> [
                     'stacking'=> 'normal'
-                ]
+                ],
+            //     'series' => [
+            //     'pointWidth'=> 20,
+            //     'borderRadius' => '8px',
+            // ]
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            
+            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
             'legend' => [
                 'layout' => 'vertical',
                 'align' => 'right',
