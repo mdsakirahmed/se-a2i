@@ -104,7 +104,8 @@ class Chart18 extends Component
                     ]
                 ],
                 'series' => [
-                    'borderRadius' => '20px',
+                    'pointWidth'=>20,
+                    'borderRadius' => '8px',
                 ]
             ],
             'legend' => [

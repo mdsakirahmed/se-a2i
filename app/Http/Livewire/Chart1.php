@@ -92,8 +92,6 @@ class Chart1 extends Component
                     'dataLabels'=> [
                         'enabled'=> true,
                         'rotation'=> 270,
-                        'x'=>'',
-                        'y'=>'',
                         'style'=>[
                             'textShadow'=>false,
                             'strokeWidth'=>0,

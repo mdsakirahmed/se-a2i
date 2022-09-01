@@ -8,25 +8,8 @@
     <div class="card-body">
      <figure class="highcharts-figure">
          <div id="chart_id_{{ $chart->id }}"> </div>
-     </figure>
-    <div class="slidecontainer">
-        <input type='range' class="slider" min='0' max='{{ count(collect($fotmated_data_set)->pluck('name')) - 1 }}' step='1' value='0' id="range_chart_id_{{ $chart->id }}" />
-        <datalist class="range-label-container" id="tickmarks">
-            @foreach (collect($fotmated_data_set)->pluck('name') as $key => $year)
-            <option class="range-label" value="{{ str_replace("-20", "-", $year) }}">{{ str_replace("-20", "-", $year) }}</option>
-            @endforeach
-        </datalist>
-
-        {{-- <div class="range-label-container">
-            @foreach (collect($fotmated_data_set)->pluck('name') as $key => $year)
-            <div class="range-label">{{ str_replace("-20", "-", $year) }}</div>
-            @endforeach
-        </div>  --}}
-    </div>
-    <div>
-        <button type="button" class="btn btn-sm btn-success" id="start_btn_chart_id_{{ $chart->id }}">start</button>
-        <button type="button" class="btn btn-sm btn-warning" id="stop_btn_chart_id_{{ $chart->id }}">stop</button>
-    </div>
+    </figure>
+    @livewire('component.renge-component', ['min' => null, 'max' => null, 'step' => null, 'value' => null, 'chart_id' => $chart->id, 'data_array' => collect($fotmated_data_set)->pluck('name')])
     </div>
      <div class="card-footer">
          {!! $description !!}
@@ -41,29 +24,6 @@
             //chart update and re-render
             window.addEventListener("chart_update_{{ $chart->id }}", event => {
                 Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
-            });
-
-
-            //Run the update function when the slider is changed
-            d3.select("#range_chart_id_{{ $chart->id }}").on('input', function() {
-                window.livewire.emit('change_selected_key_and_chart_update_25', this.value);
-            });
-
-            let myTimer;
-            d3.select("#start_btn_chart_id_{{ $chart->id }}").on("click", function() {
-            clearInterval (myTimer);
-                myTimer = setInterval (function() {
-                let b= d3.select("#range_chart_id_{{ $chart->id }}");
-                let t = (+b.property("value") + 1) % (+b.property("max") + 1);
-                if (t == 0) { t = +b.property("min"); }
-                b.property("value", t);
-                this.Livewire.emit('change_selected_key_and_chart_update_25', t);
-                console.log(t);
-                }, 3000);
-            });
-
-            d3.select("#stop_btn_chart_id_{{ $chart->id }}").on("click", function() {
-                clearInterval (myTimer);
             });
         });
     </script>

@@ -105,8 +105,16 @@ class Chart10 extends Component
                     ]
                 ],
                 'series' => [
-                    'pointWidth'=> 30,
-                    'borderRadius' => '15px',
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'pointWidth'=> 40,
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [
