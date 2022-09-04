@@ -224,7 +224,22 @@ class Chart23 extends Component
                     'borderRadius' => '8px',
                 ]
             ],
-
+            'tooltip' => [
+                'shared'=> true,
+                'outside'=> true,
+                'crosshairs'=> true,
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Country: {point.name}<br>Imports In Million US$: {point.y:,.2f}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
             'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }
