@@ -122,7 +122,7 @@ class Chart35 extends Component
                         ORDER BY gender_based_violence, division_pro ASC
                 LIMIT 1000");
                 $data = collect($data)->groupBy('division_pro');
-                $title = 'Percentage of Upazial';
+                $title = 'Percentage of Upazila';
             }
         }
 
@@ -150,12 +150,25 @@ class Chart35 extends Component
             ],
             'xAxis' => [
                 'categories' =>  collect($formated_data)->pluck('location'),
-                'crosshair' => true
+                'crosshair' => true,
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'min' => 0,
                 'title' => [
-                    'text' => $title
+                    'text' => $title,
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
@@ -163,7 +176,8 @@ class Chart35 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',
@@ -183,18 +197,18 @@ class Chart35 extends Component
                 ]
             ],
             'series' => [[
-                'name' => 'Decreased',
+                'name' => 'Same',
                 'color' => "#7F3F98",
-                'data' =>  collect($formated_data)->pluck('decreased'),
+                'data' =>  collect($formated_data)->pluck('same'),
             ], [
                 'name' => 'Increased',
                 'color' => "#83C341",
                 'data' => collect($formated_data)->pluck('increased'),
-            ], [
-                'name' => 'Same',
-                'color' => "#833341",
-                'data' =>  collect($formated_data)->pluck('same'),
-            ]],
+            ],[
+                'name' => 'Decreased',
+                'color' => "#FFB207",
+                'data' =>  collect($formated_data)->pluck('decreased'),
+            ] ],
         ];
     }
 }

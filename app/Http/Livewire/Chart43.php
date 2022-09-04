@@ -245,15 +245,26 @@ class Chart43 extends Component
 
             'xAxis'=> [
                 'type'=> "category",
-                'labels'=> [
+                'labels'=>[
                     'useHTML'=> true,
-                ],
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Coverage in Lac person'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Coverage in Lac person',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'rotation'=>-45,
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'plotOptions' =>  [
@@ -264,10 +275,26 @@ class Chart43 extends Component
                 ],
                 'series' => [
                     'animation'=> false,
-                    'borderRadius' => '20px',
+                    'pointWidth'=>20,
+                    'borderRadius' => '8px',
                 ]
             ],
-
+            'tooltip' => [
+                'shared'=> true,
+                'outside'=> true,
+                'crosshairs'=> true,
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => '{point.name}<br>Coverage in Lac person: {point.y:,.2f}<br>Year: {series.name}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
             'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }

@@ -114,44 +114,6 @@
         /*    opacity: 1;*/
         /*} */
 
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 6.25%;
-            height: 12px;
-            background: #80CE0C;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 6.25%;
-            height: 12px;
-            background: #80CE0C;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .range-label-container {
-            display: flex;
-            justify-content: space-between;
-            background: #d3d3d3;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-
-        .range-label {
-            text-align: center;
-            flex: 0 0 6.25%;
-            white-space: nowrap;
-            font-size: 10px;
-            height: 12px;
-            line-height: 14px;
-            color: #000 !important;
-            font-weight: bold;
-        }
-
         #chart_id_22 .highcharts-series-label {
             display: none;
         }
@@ -176,21 +138,25 @@
             display: inline-block;
             margin-right: 20px;
             margin-bottom: 20px;
-            width: 200px;
             padding: 0.375rem 2.25rem 0.375rem 0.75rem;
             -moz-padding-start: calc(0.75rem - 3px);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #212529;
-            background-color: #fff;
+            color: #646e78;
+            background-color: #f8f9fa;`
             background-image: url(data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' viewBox= '0 0 16 16' %3e%3cpath fill= 'none' stroke= '%23343a40' stroke-linecap= 'round' stroke-linejoin= 'round' stroke-width= '2' d= 'M2 5l6 6 6-6' /%3e%3c/svg%3e);
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
             background-size: 16px 12px;
             border: 1px solid #ced4da;
-            border-radius: 0.25rem;
+            border-radius: 1rem;
             transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+        .col-form-label {
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-bottom: 5px;
         }
 
     </style>
@@ -232,7 +198,9 @@
                             <!-- <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" /> -->
                         </a>
                         <ul>
-                            <li><a href="{{ route('backend.profile') }}">User Profile</a></li>
+                            @can('role permission management')<li><a href="{{ route('backend.role_permission') }}">Permission Module</a></li>@endcan
+                            @can('user management')<li><a href="{{ route('backend.user_management') }}">User Module</a></li> @endcan
+                            <li><a href="{{ route('backend.profile') }}">My Profile</a></li>
                             <li>@livewire('logout')</li>
                         </ul>
                     </li>
@@ -316,6 +284,52 @@
                                     </div>
                                 </li>
                                 <li data-aos="fade-up">
+                                    <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-3">
+                                        <div class="nav-title-collapse">
+                                            <h6>
+                                                <i class="bx bx-heart"></i>
+                                                Health
+                                            </h6>
+                                            <div class="arrow">
+                                                <i class="bx bxs-down-arrow icon-show"></i>
+                                                <i class="bx bxs-down-arrow icon-close" data-aos="fade-up"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="faq-list-3" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                        <div class="sub-alignment">
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    Child Mortality
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    Causes of Death
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    Maternal/Child Health Services
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    SDG analytic hub
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-aos="fade-up">
                                     <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-2">
                                         <div class="nav-title-collapse @if(request()->is('backend/social-protection/*')) nav-title-collapse-active @endif">
                                             <h6>
@@ -354,30 +368,6 @@
                                         </div>
                                     </div>
                                 </li>
-                                @can('role permission management')
-                                <li data-aos="fade-up">
-                                    <a href="{{ route('backend.role_permission') }}">
-                                        <div class="nav-title @if(request()->routeIs('backend.role_permission')) nav-title-active @endif">
-                                            <h6>
-                                                <i class="bx bx-key"></i>
-                                                {{ __('Role Permission') }}
-                                            </h6>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endcan
-                                @can('user management')
-                                <li data-aos="fade-up">
-                                    <a href="{{ route('backend.user_management') }}">
-                                        <div class="nav-title @if(request()->routeIs('backend.user_management')) nav-title-active @endif">
-                                            <h6>
-                                                <i class="bx bx-user"></i>
-                                                {{ __('User Management') }}
-                                            </h6>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endcan
                             </ul>
                         </div>
                     </div>

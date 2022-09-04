@@ -192,21 +192,32 @@ class Chart20 extends Component
                 ],
                 'series' => [
                     'animation'=> false,
-                    'borderRadius' => '20px',
+                    'pointWidth'=>20,
+                    'borderRadius' => '8px',
                 ]
                
             ],
             'xAxis'=> [
                 'type'=> "category",
-                'labels'=> [
+                'labels'=>[
                     'useHTML'=> true,
-                ],
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Remittance (Crore BDT)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Remittance (Crore BDT)',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'tooltip' => [

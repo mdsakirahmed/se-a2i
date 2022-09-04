@@ -72,13 +72,26 @@ class Chart9 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'tooltip' => [
@@ -105,8 +118,18 @@ class Chart9 extends Component
                     ]
                 ],
                 'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'inside'=> false,
+                        
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
                     'pointWidth'=> 30,
-                    'borderRadius' => '20px',
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [

@@ -1,15 +1,19 @@
-<div>
-    <div class="card">
+<div class="h-100">
+    <div class="card h-100">
         <div class="card-header">
-            <div>{{ $name }}</div>
+            <h5>{{ $name }}</h5>
             <div>
                 @can('chart info edit') <button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button> @endcan
             </div>
         </div>
         <div class="card-body">
-             <div class="row">
-                
-                 <div class="form-group col-md-4">
+            <div class="card-desc">
+                <p class="mb-2">
+                {!! $description !!}
+                </p>
+            </div>
+             <div class="row">              
+                 <div class="form-group col-md-2">
                      <label for="" class="col-form-label">Fiscal Year</label>
                      <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
                          <option value="">All</option>
@@ -18,8 +22,7 @@
                          @endforeach
                      </select>
                  </div>
-                 
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-2">
                      <label for="" class="col-form-label">Programme Type</label>
                      <select class="form-control"wire:model="program_type" wire:change="chart_update">
                          <option value="">All</option>

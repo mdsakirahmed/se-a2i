@@ -55,13 +55,26 @@ class Chart1 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year')
+                'categories' => collect($data)->pluck('year'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Students'
+                    'text' => 'Percentage of Students',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             
@@ -92,8 +105,6 @@ class Chart1 extends Component
                     'dataLabels'=> [
                         'enabled'=> true,
                         'rotation'=> 270,
-                        'x'=>'',
-                        'y'=>'',
                         'style'=>[
                             'textShadow'=>false,
                             'strokeWidth'=>0,
@@ -102,6 +113,7 @@ class Chart1 extends Component
                     ],
                     'pointWidth'=> 20,
                     'borderRadius' => '8px',
+                    'innerRadius' => '50%',
                 ]
             ],
             'legend' => [
@@ -109,7 +121,8 @@ class Chart1 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
             'series' => [[
                 'name' => 'Male',

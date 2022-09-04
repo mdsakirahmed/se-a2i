@@ -54,13 +54,26 @@ class Chart2 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year')
+                'categories' => collect($data)->pluck('year'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Teachers'
+                    'text' => 'Percentage of Teachers',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
@@ -94,9 +107,26 @@ class Chart2 extends Component
                     ]
                 ],
                 'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
                     'pointWidth'=> 20,
                     'borderRadius' => '8px',
                 ]
+            ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0,
+                'margin'=> 45
             ],
             'series' => [[
                 'name' => 'Male',

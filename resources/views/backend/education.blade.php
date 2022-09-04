@@ -11,12 +11,12 @@
             <div class="card-lg">
                 <div class="block-group">
                     <div class="block-60">
+                    <h5 class="c-secondary fw-bold">{{ __('education green text') }}</h5>
                         <p class="mb-md-4">
-                            <span class="c-secondary fw-bold">{{ __('education green text') }}</span>,
                             {{ __('education description 1') }}
                         </p>
+                        <h5 class="c-primary fw-bold">{{ __('education purple text') }}</h5>
                         <p>
-                            <span class="c-primary fw-bold">{{ __('education purple text') }}</span>
                             {{ __('education description 2') }}
                         </p>
                     </div>
@@ -25,40 +25,49 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    @livewire('chart1')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart2')
-                </div>
-                <div class="col-md-12">
-                    @livewire('chart3')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart4')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart5')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart6')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart7')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart8')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart9')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart10')
-                </div>
-                <div class="col-md-6">
-                    @livewire('chart11')
-                </div>
+            <div class="chart-area">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        @livewire('chart1')
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        @livewire('chart2')
+                    </div>
+               
+                        <div class="col-md-12 mb-4">
+                            @livewire('chart3')
+                        </div>
+                  
+                        <div class="col-md-6 mb-4">
+                            @livewire('chart4')
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            @livewire('chart5')
+                        </div>
+              
+                
+                        <div class="col-md-6 mb-4">
+                            @livewire('chart6')
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            @livewire('chart7')
+                        </div>
+                    
+                        <div class="col-md-6 mb-4">
+                            @livewire('chart8')
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            @livewire('chart9')
+                        </div>
+                
+                
+                        <div class="col-md-6">
+                            @livewire('chart10')
+                        </div>
+                        <div class="col-md-6">
+                            @livewire('chart11')
+                        </div>
+</div>
             </div>
         </div>
     </div>

@@ -65,7 +65,6 @@ class Chart21 extends Component
         return [
 
             'chart' => [
-                'borderWidth' => 1,
                 'map' => collect($geojson)
             ],
 

@@ -100,13 +100,26 @@ class Chart8 extends Component
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Percentage of School'
+                    'text' => 'Percentage of School',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
             'xAxis' => [
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
@@ -115,7 +128,8 @@ class Chart8 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
 
             'plotOptions' => [

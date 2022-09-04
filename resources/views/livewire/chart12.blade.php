@@ -1,7 +1,7 @@
-<div>
-   <div class="card">
+<div class="h-100">
+   <div class="card h-100">
     <div class="card-header">
-        <div>{{ $name }}</div>
+        <h5>{{ $name }}</h5>
         <div>
                 @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>@endcan
             </div>

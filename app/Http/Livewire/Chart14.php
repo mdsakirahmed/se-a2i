@@ -108,12 +108,25 @@ class Chart14 extends Component
                 'categories' => $categories,
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Inflation Rate (%)'
+                    'text' => 'Inflation Rate (%)',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
@@ -121,7 +134,8 @@ class Chart14 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
 
             'plotOptions' => [
@@ -146,7 +160,7 @@ class Chart14 extends Component
                 'borderRadius' => 10,
                 'borderWidth' => 3,
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
             'series' => $series,
 
             'responsive' => [

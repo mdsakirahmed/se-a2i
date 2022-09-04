@@ -64,18 +64,32 @@ class Chart18 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [[
-                'labels' => [
-                    'format' => '{value}'
-                ],
+                'labels'=>[
+                    'format' => '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                    ],
                 'title' => [
-                    'text' => 'Remittance (In thousand million US$)'
+                    'text' => 'Remittance (In thousand million US$)',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
                 ]
             ], [
                 'title' => [
-                    'text' => 'Total Employment (In Thousand)'
+                    'text' => 'Total Employment (In Thousand)',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
                 ],
                 'labels' => [
                     'format' => '{value}'
@@ -104,7 +118,8 @@ class Chart18 extends Component
                     ]
                 ],
                 'series' => [
-                    'borderRadius' => '20px',
+                    'pointWidth'=>20,
+                    'borderRadius' => '8px',
                 ]
             ],
             'legend' => [
@@ -112,7 +127,8 @@ class Chart18 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
             'series' => [[
                 'name' => 'Total Employment (In Thousand)',

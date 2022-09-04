@@ -26,22 +26,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart22')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart23')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart24')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart25')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart26')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart27')
                 </div>
             </div>

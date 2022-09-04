@@ -79,12 +79,25 @@ class Chart12 extends Component
                 'categories' => $real_gdp_per_capita_years_data_set['year'],
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'GDP per Capita at Current Market Prices (US$)'
+                    'text' => 'GDP per Capita at Current Market Prices (US$)',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
@@ -92,7 +105,8 @@ class Chart12 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
 
             'plotOptions' => [
@@ -128,7 +142,7 @@ class Chart12 extends Component
                 'data' =>  $real_gdp_per_capita_years_data_set['india'],
             ],[
                 'name' => 'Pakistan',
-                'color' => "#16507B",
+                'color' => "#FFB207",
                 'data' =>  $real_gdp_per_capita_years_data_set['pakistan'],
             ]],
 

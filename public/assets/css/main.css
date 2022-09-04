@@ -51,6 +51,76 @@ p {
   background: #430a58;
 }
 
+.btn-success {
+  min-width: 60px;
+  padding: 3px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  background: #722A8D;
+  border: 2px solid #722A8D;
+  transition: 0.3s;
+}
+.btn-success:hover {
+  border: 2px solid #722A8D;
+  background: transparent;
+  color: #722A8D;
+}
+
+.btn-green {
+  min-width: 60px;
+  padding: 3px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #83c341;
+  text-align: center;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid #83c341;
+  transition: 0.3s;
+}
+.btn-green:hover {
+  border: 2px solid;
+  background: #83c341;
+  color: #ffffff;
+}
+
+.btn-danger {
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 2px solid;
+  font-size: 13px;
+  font-weight: 500;
+  min-width: 60px;
+  color: #bb2d3b;
+  background: transparent;
+}
+.btn-danger:hover {
+  border: 2px solid;
+  background: #bb2d3b;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  min-width: 60px;
+  padding: 3px 8px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: #7f3f98;
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid #722A8D;
+  transition: 0.3s;
+}
+.btn-secondary:hover {
+  border: 2px solid #722A8D;
+  background: #722A8D;
+  color: #ffffff;
+}
+
 .btn-trans-icon {
   background: transparent;
   color: #430a58;
@@ -150,8 +220,8 @@ header h3 {
 }
 
 .card {
-  padding: 25px 20px;
-  margin-bottom: 30px;
+  padding: 32px 22px 15px;
+  margin-bottom: 0;
   background: #ffffff;
   border: 0;
   border-radius: 15px;
@@ -161,12 +231,24 @@ header h3 {
 .card .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0 1rem;
   font-size: 16px;
-  font-weight: 600;
   background: transparent;
   border: 0;
+  margin-bottom: 15px;
+}
+.card .card-header h5 {
+  font-size: 1.17rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+.card .card-header button {
+  margin-left: 20px;
+  margin-top: 4px;
+  min-width: 50px;
+  padding: 0;
 }
 .card .card-header-single {
   display: flex;
@@ -177,6 +259,13 @@ header h3 {
   font-weight: 600;
   background: transparent;
   border: 0;
+}
+.card .card-body {
+  padding-top: 0px;
+}
+.card .card-body .card-desc p {
+  font-size: 0.9rem;
+  margin-bottom: 40px;
 }
 .card .card-footer {
   font-size: 12px;
@@ -200,6 +289,9 @@ header h3 {
   font-size: 16px;
   background: transparent;
   border: 0;
+}
+.card-lg .card-header h5 {
+  font-weight: 600;
 }
 @media only screen and (max-width: 480px) {
   .card-lg {
@@ -289,6 +381,7 @@ header h3 {
   border-radius: 4px;
   position: relative;
   margin-right: 20px;
+  margin-bottom: 15px;
 }
 #main-nav .container .main-nav .container .faq-list li + li {
   margin-top: 0px;
@@ -550,6 +643,11 @@ header h3 {
   padding: 20px 0px;
   padding-top: 110px;
 }
+@media only screen and (max-width: 1400px) {
+  .content-area {
+    padding-top: 160px;
+  }
+}
 @media only screen and (max-width: 480px) {
   .content-area {
     padding-top: 272px;
@@ -776,6 +874,10 @@ header h3 {
   #loginPage .login-wrapper .container .login-inner-wrapper {
     width: 100%;
   }
+}
+
+.chart-area .col {
+  margin-bottom: 30px;
 }
 
 .bar-chart {

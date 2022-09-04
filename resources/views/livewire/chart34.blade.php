@@ -1,13 +1,14 @@
-<div>
-   <div class="card">
+<div class="h-100">
+   <div class="card h-100">
        <div class="card-header">
-           <div>{{ $name }}</div>
+           <h5>{{ $name }}</h5>
            <div>
             @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button> @endcan
            </div>
        </div>
        <div class="card-body">
             <div class="row">
+                
                 <!-- Division Dropdown -->
                 <div class="form-group col-6">
                     <label for="" class="col-form-label">Division</label>
@@ -30,9 +31,7 @@
                 </div>
             </div>
 
-           <figure class="highcharts-figure" wire:ignore>
-               <div id="chart_id_{{ $chart->id }}"> </div>
-           </figure>
+           
            <button type="butto"
                class="btn  @if($chart_type == 'column') btn-success @else btn-secondary @endif btn-sm m-2"
                wire:click="change_chart_type('column')">Column</button>
@@ -44,10 +43,17 @@
            <button type="butto"
                class="btn  @if($chart_type == 'area') btn-success @else btn-secondary @endif btn-sm m-2"
                wire:click="change_chart_type('area')">Area</button>
-       </div>
+            <figure class="highcharts-figure" wire:ignore>
+               <div id="chart_id_{{ $chart->id }}"> </div>
+           </figure>
+            </div>
        <div class="card-footer">
-           {!! $description !!}
-       </div>
+        <div class="card-desc">
+            <p>
+            {!! $description !!}
+            </p>
+        </div>
+    </div>
    </div>
     <script>
          $(document).ready(function () {

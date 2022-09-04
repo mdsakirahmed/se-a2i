@@ -1,5 +1,4 @@
-
-<div>
+<div class="h-100">
     <style>
         #chart_id_{{ $chart->id }} {
             height: 800px;
@@ -8,14 +7,19 @@
             margin: 0 auto;
         }
     </style>
-    <div class="card">
+    <div class="card h-100">
         <div class="card-header">
-            <div>{{ $name }}</div>
+            <h5>{{ $name }}</h5>
             <div>
                 @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>@endcan
             </div>
         </div>
         <div class="card-body">
+            <div class="card-desc">
+                <p>
+                {!! $description !!}
+                </p>
+            </div>
         {{-- <select wire:model="selected_country" wire:change="update_chart">
             <option value="">All country</option>
             @foreach ($countries as $country)
@@ -32,9 +36,9 @@
             <div id="chart_id_{{ $chart->id }}"> </div>
         </figure>
         </div>
-        <div class="card-footer">
+        {{-- <div class="card-footer">
             {!! $description !!}
-        </div>
+        </div> --}}
     </div>
     <script>
         //First loaded data
