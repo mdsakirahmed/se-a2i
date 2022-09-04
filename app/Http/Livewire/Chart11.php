@@ -111,7 +111,8 @@ class Chart11 extends Component
                         'style'=>[
                             'textShadow'=>false,
                             'strokeWidth'=>0,
-                            'textOutline'=>false
+                            'textOutline'=>false,
+                            'color'=>'#000'
                         ]
                     ],
                     'borderRadius' => '10px',
