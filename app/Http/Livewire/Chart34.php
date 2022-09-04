@@ -160,7 +160,7 @@ class Chart34 extends Component
                 'title' => [
                     'text' => $title,
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

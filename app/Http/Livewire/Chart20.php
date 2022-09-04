@@ -210,7 +210,7 @@ class Chart20 extends Component
                 'title' =>  [
                     'text' =>  'Remittance (Crore BDT)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

@@ -96,7 +96,7 @@ class Chart22 extends Component
                 'title' =>  [
                     'text' =>  'Imports/Exports (Billion US$)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

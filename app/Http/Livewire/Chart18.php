@@ -81,14 +81,14 @@ class Chart18 extends Component
                 'title' => [
                     'text' => 'Remittance (In thousand million US$)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ]
             ], [
                 'title' => [
                     'text' => 'Total Employment (In Thousand)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels' => [

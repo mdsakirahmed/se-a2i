@@ -256,7 +256,7 @@ class Chart43 extends Component
                 'title' =>  [
                     'text' =>  'Coverage in Lac person',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

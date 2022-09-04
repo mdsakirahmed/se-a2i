@@ -118,7 +118,7 @@ class Chart3 extends Component
                         ]
                     ],
                     'pointWidth'=> 40,
-                    'borderRadius' => '15px',
+                    'borderRadius' => '14px',
                 ]
             ],
             'legend' => [

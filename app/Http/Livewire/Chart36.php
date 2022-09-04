@@ -162,7 +162,7 @@ class Chart36 extends Component
                 'title' => [
                     'text' => $title,
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

@@ -90,7 +90,7 @@ class Chart5 extends Component
                 'title' => [
                     'text' => 'Percentage of Upazila',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

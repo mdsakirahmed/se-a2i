@@ -91,7 +91,7 @@ class Chart12 extends Component
                 'title' => [
                     'text' => 'GDP per Capita at Current Market Prices (US$)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[
