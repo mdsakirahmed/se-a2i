@@ -1,5 +1,5 @@
-<div>
-   <div class="card">
+<div class="h-100">
+   <div class="card h-100">
     <div class="card-header">
         <h5>{{ $name }}</h5>
         <div>

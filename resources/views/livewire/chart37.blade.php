@@ -1,4 +1,4 @@
-<div>
+<div class="h-100">
     <style>
         #chart_id_{{ $chart->id }} {
             height: 800px;
@@ -7,7 +7,7 @@
             margin: 0 auto;
         }
     </style>
-    <div class="card">
+    <div class="card h-100">
         <div class="card-header">
             <h5>{{ $name }}</h5>
             <div>

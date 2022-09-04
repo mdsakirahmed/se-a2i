@@ -197,18 +197,18 @@ class Chart35 extends Component
                 ]
             ],
             'series' => [[
-                'name' => 'Decreased',
-                'color' => "#FFB207",
-                'data' =>  collect($formated_data)->pluck('decreased'),
+                'name' => 'Same',
+                'color' => "#7F3F98",
+                'data' =>  collect($formated_data)->pluck('same'),
             ], [
                 'name' => 'Increased',
                 'color' => "#83C341",
                 'data' => collect($formated_data)->pluck('increased'),
-            ], [
-                'name' => 'Same',
-                'color' => "#7F3F98",
-                'data' =>  collect($formated_data)->pluck('same'),
-            ]],
+            ],[
+                'name' => 'Decreased',
+                'color' => "#FFB207",
+                'data' =>  collect($formated_data)->pluck('decreased'),
+            ] ],
         ];
     }
 }

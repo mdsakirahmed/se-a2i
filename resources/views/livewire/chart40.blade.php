@@ -1,4 +1,4 @@
-<div>
+<div class="h-100">
     <style type="text/css">
         .dropdown-trigger:hover {
             background-color: #0dcaf0;
@@ -37,7 +37,7 @@
         }
 
     </style>
-    <div class="card">
+    <div class="card h-100">
         <div class="card-header">
             <h5>{{ $name }}</h5>
             <div>
