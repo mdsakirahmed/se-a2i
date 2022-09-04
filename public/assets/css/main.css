@@ -51,6 +51,42 @@ p {
   background: #430a58;
 }
 
+.btn-success {
+  min-width: 60px;
+  padding: 3px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  background: #722A8D;
+  border: 2px solid #722A8D;
+  transition: 0.3s;
+}
+.btn-success:hover {
+  border: 2px solid #722A8D;
+  background: transparent;
+  color: #722A8D;
+}
+
+.btn-secondary {
+  min-width: 60px;
+  padding: 3px 8px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7f3f98;
+  text-align: center;
+  border-radius: 20px;
+  border: 2px solid #722A8D;
+  transition: 0.3s;
+}
+.btn-secondary:hover {
+  border: 2px solid #722A8D;
+  background: #722A8D;
+  color: #ffffff;
+}
+
 .btn-trans-icon {
   background: transparent;
   color: #430a58;
@@ -151,7 +187,7 @@ header h3 {
 
 .card {
   padding: 32px 22px 15px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   background: #ffffff;
   border: 0;
   border-radius: 15px;
@@ -161,7 +197,7 @@ header h3 {
 .card .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0 1rem;
   font-size: 16px;
   background: transparent;
@@ -169,11 +205,15 @@ header h3 {
   margin-bottom: 15px;
 }
 .card .card-header h5 {
-  font-size: 1.2rem;
+  font-size: 1.17rem;
   font-weight: 600;
   margin-bottom: 0;
+  line-height: 1.7;
 }
 .card .card-header button {
+  margin-left: 20px;
+  margin-top: 4px;
+  min-width: 50px;
   padding: 0;
 }
 .card .card-header-single {
@@ -186,9 +226,12 @@ header h3 {
   background: transparent;
   border: 0;
 }
+.card .card-body {
+  padding-top: 0px;
+}
 .card .card-body .card-desc p {
   font-size: 0.9rem;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
 }
 .card .card-footer {
   font-size: 12px;
@@ -791,6 +834,10 @@ header h3 {
   #loginPage .login-wrapper .container .login-inner-wrapper {
     width: 100%;
   }
+}
+
+.chart-area .col {
+  margin-bottom: 30px;
 }
 
 .bar-chart {

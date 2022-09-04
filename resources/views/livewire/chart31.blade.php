@@ -14,11 +14,7 @@
             <button type="butto" class="btn  @if($chart_type == 'area') btn-success @else btn-secondary @endif btn-sm m-2" wire:click="change_chart_type('area')">Area</button>
         </div>
         <div class="card-footer">
-            <div class="card-desc">
-                <p>
-                {!! $description !!}
-                </p>
-            </div>
+            {!! $description !!}
         </div>
    </div>
     <script>

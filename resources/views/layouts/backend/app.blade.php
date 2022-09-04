@@ -141,18 +141,22 @@
             width: 200px;
             padding: 0.375rem 2.25rem 0.375rem 0.75rem;
             -moz-padding-start: calc(0.75rem - 3px);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #212529;
-            background-color: #fff;
+            color: #646e78;
+            background-color: #f8f9fa;`
             background-image: url(data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' viewBox= '0 0 16 16' %3e%3cpath fill= 'none' stroke= '%23343a40' stroke-linecap= 'round' stroke-linejoin= 'round' stroke-width= '2' d= 'M2 5l6 6 6-6' /%3e%3c/svg%3e);
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
             background-size: 16px 12px;
             border: 1px solid #ced4da;
-            border-radius: 0.25rem;
+            border-radius: 1rem;
             transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+        .col-form-label {
+            font-size: 0.9em;
+            font-weight: 600;
         }
 
     </style>

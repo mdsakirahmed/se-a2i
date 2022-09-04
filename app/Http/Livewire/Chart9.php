@@ -120,6 +120,8 @@ class Chart9 extends Component
                 'series' => [
                     'dataLabels'=> [
                         'enabled'=> true,
+                        'inside'=> false,
+                        
                         'style'=>[
                             'textShadow'=>false,
                             'strokeWidth'=>0,
