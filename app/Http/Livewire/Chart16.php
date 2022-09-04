@@ -239,7 +239,7 @@ class Chart16 extends Component
                 'text'=> ''
             ],
             'xAxis'=> [
-                'categories'=> ["2020-21", "2019-20", "2028-19"],
+                'categories'=> ["2020-21", "2019-20", "2018-19"],
                 
             ],
             'yAxis'=> [
