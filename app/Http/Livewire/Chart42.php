@@ -285,7 +285,7 @@ class Chart42 extends Component
                 'crosshairs'=> true,
                 'useHTML' => true,
                 'headerFormat' => '',
-                'pointFormat' => '{point.name}<br>Budget In Crore Bdt: {point.y:,.2f}',
+                'pointFormat' => '{point.name}<br>Budget In Crore Bdt: {point.y:,.2f}<br>Year: {series.name}',
                 'style' => [
                     'color' => '#fff'
                 ],

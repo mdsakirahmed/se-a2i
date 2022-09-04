@@ -285,7 +285,7 @@ class Chart43 extends Component
                 'crosshairs'=> true,
                 'useHTML' => true,
                 'headerFormat' => '',
-                'pointFormat' => '{point.name}<br>Coverage in Lac person: {point.y:,.2f}',
+                'pointFormat' => '{point.name}<br>Coverage in Lac person: {point.y:,.2f}<br>Year: {series.name}',
                 'style' => [
                     'color' => '#fff'
                 ],

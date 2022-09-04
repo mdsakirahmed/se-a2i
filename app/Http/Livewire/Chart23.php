@@ -230,7 +230,7 @@ class Chart23 extends Component
                 'crosshairs'=> true,
                 'useHTML' => true,
                 'headerFormat' => '',
-                'pointFormat' => 'Country: {point.name}<br>Imports In Million US$: {point.y:,.2f}',
+                'pointFormat' => 'Country: {point.name}<br>Imports In Million US$: {point.y:,.2f}<br>Year: {series.name}',
                 'style' => [
                     'color' => '#fff'
                 ],
