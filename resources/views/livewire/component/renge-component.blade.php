@@ -2,20 +2,26 @@
     {{-- <h1>Livewire component</h1> --}}
     <div>
         <style>
+            .slider {
+                height: 29px;
+                padding: 10px 2px;
+                margin-top: 3px;
+            }
             .slidecontainer_{{ $chart_id }} .slider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 appearance: none;
                 width: {{ $width_percentage }}%;
-                height: 12px;
-                background: #80CE0C;
+                height: 29px;
+                background: #83c341;
                 cursor: pointer;
                 z-index: 2;
+                border-radius: 15px;
             }
     
             .slidecontainer_{{ $chart_id }} .slider::-moz-range-thumb {
                 width: {{ $width_percentage }}%;
-                height: 12px;
-                background: #80CE0C;
+                height: 29px;
+                background: #83c341;
                 border-radius: 3px;
                 cursor: pointer;
             }
@@ -23,10 +29,12 @@
             .slidecontainer_{{ $chart_id }} .range-label-container {
                 display: flex;
                 justify-content: space-between;
-                background: #d3d3d3;
+                background: #e2e9db;
                 position: absolute;
                 top: 0;
+                padding: 12px;
                 width: 100%;
+                border-radius: 20px;
             }
     
             .slidecontainer_{{ $chart_id }} .range-label {
@@ -36,16 +44,22 @@
                 font-size: 10px;
                 height: 12px;
                 line-height: 14px;
-                color: #000 !important;
+                color: #1b3400a !important;
                 font-weight: bold;
             }
            
             .slidecontainer_{{ $chart_id }} {
                 background:red;
                 position: relative;
+                bottom: 15px;
             }
     
         </style>
+        <div class="w-100 text-center">
+            <button type="button" class="btn btn-sm btn-green mb-5" id="start_btn_chart_id_{{ $chart_id }}">Start</button>
+            &nbsp;
+            <button type="button" class="btn btn-sm btn-danger mb-5" id="stop_btn_chart_id_{{ $chart_id }}">Stop</button>
+        </div>
         <div class="slidecontainer_{{ $chart_id }}">
             <input type='range' class="slider" min='{{ $min }}' max='{{ $max }}' step='{{ $step }}' value='{{ $value }}' id="range_chart_id_{{ $chart_id }}" />
             <datalist class="range-label-container" id="tickmarks_{{ $chart_id }}">
@@ -54,10 +68,7 @@
                 @endforeach
             </datalist>
         </div>
-        <div>
-            <button type="button" class="btn btn-sm btn-success" id="start_btn_chart_id_{{ $chart_id }}">start</button>
-            <button type="button" class="btn btn-sm btn-warning" id="stop_btn_chart_id_{{ $chart_id }}">stop</button>
-        </div>
+        
         <script>
             $(document).ready(function() {
                 d3.select("#range_chart_id_{{ $chart_id }}").on('input', function() {

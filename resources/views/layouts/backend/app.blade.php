@@ -138,7 +138,6 @@
             display: inline-block;
             margin-right: 20px;
             margin-bottom: 20px;
-            width: 200px;
             padding: 0.375rem 2.25rem 0.375rem 0.75rem;
             -moz-padding-start: calc(0.75rem - 3px);
             font-size: 0.9rem;
@@ -155,8 +154,9 @@
             transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         }
         .col-form-label {
-            font-size: 0.9em;
-            font-weight: 600;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-bottom: 5px;
         }
 
     </style>
@@ -275,6 +275,52 @@
                                                 <div class="nav-title-sub @if(request()->routeIs('backend.economy.banking_and_finance')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Banking and Finance') }}
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li data-aos="fade-up">
+                                    <a data-bs-toggle="collapse" class="collapsed" data-bs-target="#faq-list-3">
+                                        <div class="nav-title-collapse">
+                                            <h6>
+                                                <i class="bx bx-heart"></i>
+                                                Health
+                                            </h6>
+                                            <div class="arrow">
+                                                <i class="bx bxs-down-arrow icon-show"></i>
+                                                <i class="bx bxs-down-arrow icon-close" data-aos="fade-up"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div id="faq-list-3" class="collapse sub-collapse" data-bs-parent=".faq-list">
+                                        <div class="sub-alignment">
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    Child Mortality
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    Causes of Death
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    Maternal/Child Health Services
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                            <a href="#">
+                                                <div class="nav-title-sub">
+                                                    <h6>
+                                                    SDG analytic hub
                                                     </h6>
                                                 </div>
                                             </a>

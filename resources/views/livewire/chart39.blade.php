@@ -13,7 +13,7 @@
                 </p>
             </div>
              <div class="row">              
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-2">
                      <label for="" class="col-form-label">Fiscal Year</label>
                      <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
                          <option value="">All</option>
@@ -23,7 +23,7 @@
                      </select>
                  </div>
                  
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-2">
                      <label for="" class="col-form-label">Programme Type</label>
                      <select class="form-control"wire:model="program_type" wire:change="chart_update">
                          <option value="">All</option>

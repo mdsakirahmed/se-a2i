@@ -92,7 +92,7 @@ p {
 .btn-success {
   min-width: 60px;
   padding: 3px 8px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #ffffff;
   text-align: center;
@@ -106,11 +106,43 @@ p {
     color: #722A8D
   }
 }
+.btn-green {
+  min-width: 60px;
+  padding: 3px 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #83c341;
+  text-align: center;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid #83c341;
+  transition: 0.3s;
+  &:hover {
+    border: 2px solid;
+    background: #83c341;
+    color: #ffffff;
+  }
+}
+.btn-danger {
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 2px solid;
+  font-size: 13px;
+  font-weight: 500;
+  min-width: 60px;
+  color: #bb2d3b;
+  background: transparent;
+  &:hover {
+    border: 2px solid;
+    background: #bb2d3b;
+    color: #ffffff;
+  }
+}
 .btn-secondary {
   min-width: 60px;
   padding: 3px 8px;
   background: transparent;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #7f3f98;
   text-align: center;
@@ -374,6 +406,7 @@ header {
             border-radius: 4px;
             position: relative;
             margin-right: 20px;
+            margin-bottom: 15px;;
             .sub-collapse {
               position: absolute;
               left: -90%;
@@ -715,6 +748,9 @@ header {
 .content-area {
   padding: 20px 0px;
   padding-top: 110px;
+  @include xxl {
+    padding-top: 160px; 
+  }
   @include xs {
     padding-top: 272px;
   }
