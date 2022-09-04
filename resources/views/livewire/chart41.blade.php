@@ -48,7 +48,7 @@
            <figure class="highcharts-figure" wire:ignore>
                <div id="chart_id_{{ $chart->id }}"> </div>
            </figure>
-           <button type="butto"
+           {{-- <button type="butto"
                class="btn  @if($chart_type == 'column') btn-success @else btn-secondary @endif btn-sm m-2"
                wire:click="change_chart_type('column')">Column</button>
            <button type="butto" class="btn  @if($chart_type == 'bar') btn-success @else btn-secondary @endif btn-sm m-2"
@@ -58,7 +58,7 @@
                wire:click="change_chart_type('line')">Line</button>
            <button type="butto"
                class="btn  @if($chart_type == 'area') btn-success @else btn-secondary @endif btn-sm m-2"
-               wire:click="change_chart_type('area')">Area</button>
+               wire:click="change_chart_type('area')">Area</button> --}}
        </div>
        <div class="card-footer">
            {!! $description !!}
