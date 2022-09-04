@@ -9,22 +9,22 @@
                 </h3>
             </header>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart41')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart42')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart38')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart43')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart39')
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart40')
                 </div>               
             </div>

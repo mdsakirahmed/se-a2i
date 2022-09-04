@@ -38,25 +38,25 @@
                             @livewire('chart3')
                         </div>
                   
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             @livewire('chart4')
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             @livewire('chart5')
                         </div>
               
                 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             @livewire('chart6')
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             @livewire('chart7')
                         </div>
                     
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             @livewire('chart8')
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             @livewire('chart9')
                         </div>
                 

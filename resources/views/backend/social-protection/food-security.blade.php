@@ -9,7 +9,7 @@
                 </h3>
             </header>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mb-4">
                     @livewire('chart37')
                 </div>
             </div>
