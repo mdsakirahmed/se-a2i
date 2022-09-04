@@ -186,7 +186,7 @@ header h3 {
   background: transparent;
   border: 0;
 }
-.card .card-body .card-header-desc p {
+.card .card-body .card-desc p {
   font-size: 0.9rem;
   margin-bottom: 25px;
 }

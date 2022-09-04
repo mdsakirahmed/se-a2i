@@ -150,12 +150,25 @@ class Chart35 extends Component
             ],
             'xAxis' => [
                 'categories' =>  collect($formated_data)->pluck('location'),
-                'crosshair' => true
+                'crosshair' => true,
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'min' => 0,
                 'title' => [
-                    'text' => $title
+                    'text' => $title,
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
@@ -163,7 +176,8 @@ class Chart35 extends Component
                 'verticalAlign'=> 'top',
                 'layout'=> 'horizontal',
                 'x'=> 0,
-                'y'=> 0
+                'y'=> 0,
+                'margin'=> 45
             ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',

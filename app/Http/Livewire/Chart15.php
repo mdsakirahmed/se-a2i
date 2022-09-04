@@ -73,12 +73,25 @@ class Chart15 extends Component
                 'text'=> ''
             ],
             'xAxis'=> [
-                'categories'=> $categories
+                'categories'=> $categories,
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis'=> [
                 'min'=> 0,
                 'title'=> [
-                    'text'=> 'Percentage of Economy (%)'
+                    'text'=> 'Percentage of Economy (%)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend'=> [
@@ -100,7 +113,8 @@ class Chart15 extends Component
                 'align' => 'right',
                 'verticalAlign' => 'middle',
                 'itemMarginTop' => 10,
-                'itemMarginBottom' => 10
+                'itemMarginBottom' => 10,
+                'margin'=> 45
             ],
             'series'=> $series,
         ];

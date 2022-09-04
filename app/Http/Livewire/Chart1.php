@@ -55,13 +55,26 @@ class Chart1 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year')
+                'categories' => collect($data)->pluck('year'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Students'
+                    'text' => 'Percentage of Students',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             

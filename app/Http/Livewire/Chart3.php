@@ -62,13 +62,26 @@ class Chart3 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('students_participation_percentage')
+                'categories' => collect($data)->pluck('students_participation_percentage'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'tooltip' => [

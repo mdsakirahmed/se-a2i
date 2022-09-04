@@ -55,12 +55,24 @@ class Chart30 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('date')
+                'categories' =>  collect($data)->pluck('date'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ], 'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Volume of transactions (In thousand crore BDT)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Volume of transactions (In thousand crore BDT)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]  
+                ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
@@ -71,23 +83,21 @@ class Chart30 extends Component
                 'verticalAlign' => 'top',
                 'layout' => 'horizontal',
                 'x' => 0,
-                'y' => 0
+                'y' => 0,
+                'margin'=> 45
             ],
             'plotOptions' =>  [
                 'bar'=> [
                     'stacking'=> 'normal',
-                    'pointPadding'=> 0,
-                    'groupPadding'=> 0,
+                    'pointMargin'=> 10,
+                    'groupMargin'=> 0,
                     'enableMouseTracking' =>  true,
                     'dataLabels'=> [
-                        'enabled'=> true,
-                        'color'=> '#FFFFFF'
+                        'enabled'=> false,
+                        
                     ],
-                    'series' => [
-                        'stacking' => 'normal',
-                        'borderRadius' => '5px',
-                    ],
-                ]
+                    'pointWidth'=>10
+                ],
             ], 
             'series' =>  [
                 [
