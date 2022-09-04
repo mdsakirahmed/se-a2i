@@ -39,10 +39,21 @@
                     </div>
                 </div>
             </div>
-            @livewire('chart37')
-            @livewire('chart1')
-            @livewire('chart13')
-            @livewire('chart18')
+            <div class="col-md-12 mb-4">
+                @livewire('chart37')
+            </div>
+            <div class="col-md-12 mb-4">
+                 @livewire('chart1')
+            </div>
+
+            <div class="col-md-12 mb-4">
+                @livewire('chart13')
+            </div>
+
+            <div class="col-md-12 mb-4">
+                 @livewire('chart18')
+            </div>    
+           
         </div>
     </div>
 </section>
