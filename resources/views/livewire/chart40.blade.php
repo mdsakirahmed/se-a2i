@@ -12,7 +12,8 @@
         .dropdown-content ul {
             margin: 0;
             padding: 0;
-            width: 200px;
+            width: auto;
+            margin-top: 10px;
         }
 
         .dropdown-content ul li {
@@ -20,9 +21,12 @@
             display: block;
             position: relative;
             transition: 0.2s;
-            padding: 10px 20px;
-            background-color: #f55454;
-            color: #F5F5F5;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 500;
+            background-color: #ede7ef;
+            color: #3a3a3a;
+            z-index: 2;
         }
 
         .dropdown-content ul li ul {
@@ -50,10 +54,30 @@
                 {!! $description !!}
                 </p>
             </div>
-             <div class="row">
-                 <div class="form-group col-md-4">
-                     <div class="dropdown-container">
-                         <button class="dropdown-trigger btn btn-success btn-sm">DropDown</button>
+             <div class="row align-items-center">
+                
+                 <div class="form-group col-md-2">
+                     <label for="" class="col-form-label">Fiscal Year</label>
+                     <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
+                         <option value="">All</option>
+                         @foreach($fiscal_yeas as $fiscal_year)
+                             <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
+                         @endforeach
+                     </select>
+                 </div>
+                 
+                 <div class="form-group col-md-2">
+                     <label for="" class="col-form-label">Programme Type</label>
+                     <select class="form-control"wire:model="program_type" wire:change="chart_update">
+                         <option value="">All</option>
+                         @foreach($program_types as $program_type)
+                             <option value="{{ $program_type }}">{{ $program_type }}</option>
+                         @endforeach 
+                     </select>
+                 </div>
+                 <div class="form-group col-md-8">
+                     <div class="dropdown-container float-right">
+                         <button class="dropdown-trigger btn btn-success btn-sm float-right">DropDown</button>
                          <div class="dropdown-content">
                              <ul>
                                  <li> 
@@ -75,25 +99,6 @@
                              </ul>
                          </div>
                      </div>
-                 </div>
-                 <div class="form-group col-md-4">
-                     <label for="" class="col-form-label">Fiscal Year</label>
-                     <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
-                         <option value="">All</option>
-                         @foreach($fiscal_yeas as $fiscal_year)
-                             <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
-                         @endforeach
-                     </select>
-                 </div>
-                 
-                 <div class="form-group col-md-4">
-                     <label for="" class="col-form-label">Programme Type</label>
-                     <select class="form-control"wire:model="program_type" wire:change="chart_update">
-                         <option value="">All</option>
-                         @foreach($program_types as $program_type)
-                             <option value="{{ $program_type }}">{{ $program_type }}</option>
-                         @endforeach 
-                     </select>
                  </div>
              </div>
  
