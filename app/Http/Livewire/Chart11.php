@@ -100,6 +100,7 @@ class Chart11 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
+                        'inside' => false,
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
