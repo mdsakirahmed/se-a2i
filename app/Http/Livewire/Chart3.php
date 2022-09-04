@@ -117,8 +117,8 @@ class Chart3 extends Component
                             'textOutline'=>false
                         ]
                     ],
-                    'pointWidth'=> 40,
-                    'borderRadius' => '14px',
+                    'pointWidth'=> 30,
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [

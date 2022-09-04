@@ -127,7 +127,7 @@ class Chart10 extends Component
                             'textOutline'=>false
                         ]
                     ],
-                    'pointWidth'=> 40,
+                    'pointWidth'=> 30,
                     'borderRadius' => '10px',
                 ]
             ],
