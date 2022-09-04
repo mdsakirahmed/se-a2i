@@ -129,18 +129,32 @@ class Chart41 extends Component
         'xAxis' => [
             'title' => [
                 'enabled' => true,
-                'text' => 'Budget (Crore BDT)'
+                'text' => 'Budget (Crore BDT)',
+                'style'=>[
+                    'fontSize'=>'15px'
+                ]
             ],
-            'labels' => [
-                'format' => '{value}'
-            ],
+            'labels'=>[ 
+                'format' => '{value}',
+                'style'=>[
+                    'fontSize'=>'13px'
+                ]
+                ],
             'startOnTick' => true,
             'endOnTick' => true,
             'showLastLabel' => true
         ],
         'yAxis' => [
             'title' => [  
-                'text' => 'Coverage (Lakh People)'
+                'text' => 'Coverage (Lakh People)',
+                'style'=>[
+                    'fontSize'=>'15px'
+                ]
+            ],
+            'labels'=>[
+                'style'=>[
+                    'fontSize'=>'13px'
+                ]
             ]
         ],
 

@@ -191,15 +191,25 @@ class Chart23 extends Component
 
             'xAxis'=> [
                 'type'=> "category",
-                'labels'=> [
+                'labels'=>[
                     'useHTML'=> true,
-                ],
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Imports (Million US$)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Imports (Million US$)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'plotOptions' =>  [

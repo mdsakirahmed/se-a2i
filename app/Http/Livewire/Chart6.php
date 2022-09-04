@@ -102,13 +102,26 @@ class Chart6 extends Component
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Percentage of School'
+                    'text' => 'Percentage of School',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
             'xAxis' => [
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 

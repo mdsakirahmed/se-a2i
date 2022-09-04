@@ -55,12 +55,24 @@ class Chart30 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('date')
+                'categories' =>  collect($data)->pluck('date'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ], 'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Volume of transactions (In thousand crore BDT)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Volume of transactions (In thousand crore BDT)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]  
+                ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [

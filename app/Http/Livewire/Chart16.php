@@ -240,15 +240,27 @@ class Chart16 extends Component
             ],
             'xAxis'=> [
                 'categories'=> ["2020-21", "2019-20", "2028-19"],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
                 
             ],
             'yAxis'=> [
                 'min'=> 0,
                 'title'=> [
-                    'text'=> 'In Million US$'
+                    'text'=> 'In Million US$',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
                 ],
                 'labels'=>[
-                    'format'=>'{value}'
+                    'rotation'=>-45,
+                    'format'=>'{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend'=> [
@@ -269,7 +281,7 @@ class Chart16 extends Component
                     'pointWidth'=>30
                 ]
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
+            'colors'=> ['#EE47B5','#FFB207','#7F3F98', '#83C341',],
             'series'=> $series,
         ];
     }

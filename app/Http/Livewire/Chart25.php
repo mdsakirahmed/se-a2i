@@ -206,9 +206,26 @@ class Chart25 extends Component
             ],
             'xAxis'=> [
                 'type'=> "category",
-                'labels'=> [
+                'labels'=>[
                     'useHTML'=> true,
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
+            ],
+            'yAxis' =>  [
+                'title' =>  [
+                    'text' =>  'Exports (Million US$)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
                 ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];

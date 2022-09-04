@@ -97,15 +97,26 @@ class Chart13 extends Component
                 'categories' => $economy_employment_overseas_category_wise['year'],
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Number of overseas employment (in thousand)'
+                    'text' => 'Number of overseas employment (in thousand)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
                 ],
                 'labels'=>[
-                    'format'=>'{value}'
+                    'format'=>'{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [

@@ -56,11 +56,24 @@ class Chart28 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('date')
+                'categories' =>  collect($data)->pluck('date'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ], 
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Volume of transactions (In thousand crore BDT)'
+                    'text' =>  'Volume of transactions (In thousand crore BDT)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [

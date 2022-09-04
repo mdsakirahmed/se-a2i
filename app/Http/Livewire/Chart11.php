@@ -59,13 +59,26 @@ class Chart11 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'tooltip' => [

@@ -108,12 +108,25 @@ class Chart14 extends Component
                 'categories' => $categories,
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Inflation Rate (%)'
+                    'text' => 'Inflation Rate (%)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [

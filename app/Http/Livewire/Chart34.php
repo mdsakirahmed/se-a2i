@@ -148,12 +148,25 @@ class Chart34 extends Component
             ],
             'xAxis' => [
                 'categories' =>  collect($formated_data)->pluck('location'),
-                'crosshair' => true
+                'crosshair' => true,
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'min' => 0,
                 'title' => [
-                    'text' => $title
+                    'text' => $title,
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [

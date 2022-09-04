@@ -64,14 +64,25 @@ class Chart18 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [[
-                'labels' => [
-                    'format' => '{value}'
-                ],
+                'labels'=>[
+                    'format' => '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                    ],
                 'title' => [
-                    'text' => 'Remittance (In thousand million US$)'
+                    'text' => 'Remittance (In thousand million US$)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
                 ]
             ], [
                 'title' => [

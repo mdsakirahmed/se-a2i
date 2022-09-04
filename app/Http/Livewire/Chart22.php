@@ -83,14 +83,27 @@ class Chart22 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('fiscal_year')
+                'categories' =>  collect($data)->pluck('fiscal_year'),
+                'labels'=>[
+                    'rotation'=>-45,
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Imports/Exports (Billion US$)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Imports/Exports (Billion US$)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             

@@ -116,7 +116,6 @@ class Chart17 extends Component
                     'verticalAlign' => "bottom"
                 ]
             ],
-
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '',

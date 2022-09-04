@@ -245,15 +245,26 @@ class Chart43 extends Component
 
             'xAxis'=> [
                 'type'=> "category",
-                'labels'=> [
+                'labels'=>[
                     'useHTML'=> true,
-                ],
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Coverage in Lac person'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Coverage in Lac person',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'rotation'=>-45,
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'plotOptions' =>  [

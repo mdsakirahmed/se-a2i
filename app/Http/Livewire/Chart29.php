@@ -56,12 +56,24 @@ class Chart29 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('date')
+                'categories' =>  collect($data)->pluck('date'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ], 'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Number of transactions (In million)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Number of transactions (In million)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
+                ],
+                'labels'=>[
+                    'format' =>  '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend' => [
