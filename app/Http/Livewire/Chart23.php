@@ -202,7 +202,7 @@ class Chart23 extends Component
                 'title' =>  [
                     'text' =>  'Imports (Million US$)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

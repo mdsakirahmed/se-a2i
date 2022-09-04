@@ -85,7 +85,7 @@ class Chart15 extends Component
                 'title'=> [
                     'text'=> 'Percentage of Economy (%)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

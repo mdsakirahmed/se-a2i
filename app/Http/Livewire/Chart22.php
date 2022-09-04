@@ -95,8 +95,8 @@ class Chart22 extends Component
             'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Imports/Exports (Billion US$)',
-                    'style' => [
-                        'fontSize' => '15px'
+                    'style'=>[
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels' => [

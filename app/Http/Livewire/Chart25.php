@@ -217,7 +217,7 @@ class Chart25 extends Component
                 'title' =>  [
                     'text' =>  'Exports (Million US$)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

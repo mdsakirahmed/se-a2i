@@ -31,10 +31,10 @@
                 <div class="block-group mt-5">
                     <div class="block">
                         <div class="desktop">
-                            <img src="{{ asset('assets/img/demo.png') }}" />
+                            <img src="{{ asset('assets/img/demo1.png') }}" />
                         </div>
                         <div class="mobile">
-                            <img src="{{ asset('assets/img/demo-moblie.png') }}" />
+                            <img src="{{ asset('assets/img/demo1-moblie.png') }}" />
                         </div>
                     </div>
                 </div>

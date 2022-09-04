@@ -104,7 +104,7 @@ class Chart6 extends Component
                 'title' => [
                     'text' => 'Percentage of School',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

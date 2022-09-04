@@ -252,7 +252,7 @@ class Chart16 extends Component
                 'title'=> [
                     'text'=> 'In Million US$',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

@@ -120,7 +120,7 @@ class Chart34 extends Component
                 ORDER BY early_marriage, division_pro ASC
                 LIMIT 1000");
                 $data = collect($data)->groupBy('division_pro');
-                $title = 'Percentage of Upazial';
+                $title = 'Percentage of Upazila';
             }
         }
        
@@ -160,7 +160,7 @@ class Chart34 extends Component
                 'title' => [
                     'text' => $title,
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

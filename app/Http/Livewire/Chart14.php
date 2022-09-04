@@ -120,7 +120,7 @@ class Chart14 extends Component
                 'title' => [
                     'text' => 'Inflation Rate (%)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

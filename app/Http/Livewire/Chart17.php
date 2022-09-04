@@ -154,7 +154,13 @@ class Chart17 extends Component
                     ],
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.properties.district}"
+                        'format' => "{point.properties.district}",
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false,
+                            'color'=> '#000'
+                        ]
                     ]
                 ]
             ]

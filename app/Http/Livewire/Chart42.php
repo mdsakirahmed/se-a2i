@@ -256,7 +256,7 @@ class Chart42 extends Component
                 'title' =>  [
                     'text' =>  'Budget in Crore bdt',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[
