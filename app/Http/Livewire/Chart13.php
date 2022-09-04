@@ -109,7 +109,7 @@ class Chart13 extends Component
                 'title' => [
                     'text' => 'Number of overseas employment (in thousand)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

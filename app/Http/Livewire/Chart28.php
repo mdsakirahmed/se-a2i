@@ -67,7 +67,7 @@ class Chart28 extends Component
                 'title' =>  [
                     'text' =>  'Volume of transactions (In thousand crore BDT)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

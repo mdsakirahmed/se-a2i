@@ -72,7 +72,7 @@ class Chart11 extends Component
                 'title' => [
                     'text' => 'Percentage of Upazila',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[
@@ -111,7 +111,8 @@ class Chart11 extends Component
                         'style'=>[
                             'textShadow'=>false,
                             'strokeWidth'=>0,
-                            'textOutline'=>false
+                            'textOutline'=>false,
+                            'color'=>'#000'
                         ]
                     ],
                     'borderRadius' => '10px',
@@ -123,7 +124,7 @@ class Chart11 extends Component
             'series' => [[
                 'name' => '',
                 'stack' => '',
-                'color' => "#83C341",
+                'color' => "#722A8D",
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),

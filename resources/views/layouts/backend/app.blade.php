@@ -200,7 +200,9 @@
                             <!-- <img src="{{ asset('assets/img/avatar2.png') }}" width="40" height="40" class="rounded-circle mx-2" /> -->
                         </a>
                         <ul>
-                            <li><a href="{{ route('backend.profile') }}">User Profile</a></li>
+                            @can('role permission management')<li><a href="{{ route('backend.role_permission') }}">Permission Module</a></li>@endcan
+                            @can('user management')<li><a href="{{ route('backend.user_management') }}">User Module</a></li> @endcan
+                            <li><a href="{{ route('backend.profile') }}">My Profile</a></li>
                             <li>@livewire('logout')</li>
                         </ul>
                     </li>
@@ -368,30 +370,6 @@
                                         </div>
                                     </div>
                                 </li>
-                                @can('role permission management')
-                                <li data-aos="fade-up">
-                                    <a href="{{ route('backend.role_permission') }}">
-                                        <div class="nav-title @if(request()->routeIs('backend.role_permission')) nav-title-active @endif">
-                                            <h6>
-                                                <i class="bx bx-key"></i>
-                                                {{ __('Role Permission') }}
-                                            </h6>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endcan
-                                @can('user management')
-                                <li data-aos="fade-up">
-                                    <a href="{{ route('backend.user_management') }}">
-                                        <div class="nav-title @if(request()->routeIs('backend.user_management')) nav-title-active @endif">
-                                            <h6>
-                                                <i class="bx bx-user"></i>
-                                                {{ __('User Management') }}
-                                            </h6>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endcan
                             </ul>
                         </div>
                     </div>

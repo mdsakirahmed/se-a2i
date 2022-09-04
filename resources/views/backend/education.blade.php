@@ -27,44 +27,45 @@
             </div>
             <div class="chart-area">
                 <div class="row">
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-5">
                         @livewire('chart1')
                     </div>
-                    <div class="col-md-6 mb-4">
+                    <div class="col-md-6 mb-5">
                         @livewire('chart2')
                     </div>
                
-                        <div class="col-md-12 mb-4">
+                        <div class="col-md-12 mb-5">
                             @livewire('chart3')
                         </div>
                   
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-5">
                             @livewire('chart4')
                         </div>
-                        <div class="col-md-6 mb-4">
+                        
+                        <div class="col-md-6 mb-5">
                             @livewire('chart5')
-                        </div>
-              
+                        </div>             
                 
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-5">
                             @livewire('chart6')
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-5">
                             @livewire('chart7')
                         </div>
                     
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-5">
                             @livewire('chart8')
                         </div>
-                        <div class="col-md-6 mb-4">
+
+                        <div class="col-md-6 mb-5">
                             @livewire('chart9')
                         </div>
-                
-                
-                        <div class="col-md-6">
+
+                        <div class="col-md-6 mb-5">
                             @livewire('chart10')
                         </div>
-                        <div class="col-md-6">
+
+                        <div class="col-md-6 mb-5">
                             @livewire('chart11')
                         </div>
 </div>

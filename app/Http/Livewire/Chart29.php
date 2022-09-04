@@ -66,7 +66,7 @@ class Chart29 extends Component
                 'title' =>  [
                     'text' =>  'Number of transactions (In million)',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

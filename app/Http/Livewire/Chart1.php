@@ -68,7 +68,7 @@ class Chart1 extends Component
                 'title' => [
                     'text' => 'Percentage of Students',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[

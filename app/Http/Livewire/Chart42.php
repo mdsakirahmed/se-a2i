@@ -256,7 +256,7 @@ class Chart42 extends Component
                 'title' =>  [
                     'text' =>  'Budget in Crore bdt',
                     'style'=>[
-                        'fontSize'=>'15px'
+                        'fontSize'=>'14px'
                     ]
                 ],
                 'labels'=>[
@@ -279,7 +279,22 @@ class Chart42 extends Component
                     'borderRadius' => '8px',
                 ]
             ],
-
+            'tooltip' => [
+                'shared'=> true,
+                'outside'=> true,
+                'crosshairs'=> true,
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => '{point.name}<br>Budget In Crore Bdt: {point.y:,.2f}<br>Year: {series.name}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
             'series' =>  [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }

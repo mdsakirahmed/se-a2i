@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
     });
 
     Route::get('backup', Backup::class)->name('backup');
-    Route::get('role-permission', RolePermission::class)->name('role_permission');
-    Route::get('user-management', User::class)->name('user_management');
+    Route::get('role-permission', RolePermission::class)->name('role_permission')->middleware(['can:role permission management']);
+    Route::get('user-management', User::class)->name('user_management')->middleware(['can:user management']);
     Route::get('profile', Profile::class)->name('profile');
 });

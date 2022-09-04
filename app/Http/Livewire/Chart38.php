@@ -86,6 +86,11 @@ class Chart38 extends Component
                 'dataLabels' => [
                     'enabled' => true,
                     'format' => '{point.programme_name}<br>{point.value}',
+                    'style'=>[
+                        'textShadow'=>false,
+                        'strokeWidth'=>0,
+                        'textOutline'=>false
+                    ]
                 ],
                 'tooltip' => [
                     'useHTML' => true,

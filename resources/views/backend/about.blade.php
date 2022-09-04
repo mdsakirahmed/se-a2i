@@ -31,26 +31,26 @@
                 <div class="block-group mt-5">
                     <div class="block">
                         <div class="desktop">
-                            <img src="{{ asset('assets/img/demo.png') }}" />
+                            <img src="{{ asset('assets/img/demo1.png') }}" />
                         </div>
                         <div class="mobile">
-                            <img src="{{ asset('assets/img/demo-moblie.png') }}" />
+                            <img src="{{ asset('assets/img/demo1-moblie.png') }}" />
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 mb-4">
+            <div class="col-md-12 mb-5">
                 @livewire('chart37')
             </div>
-            <div class="col-md-12 mb-4">
+            <div class="col-md-12 mb-5">
                  @livewire('chart1')
             </div>
 
-            <div class="col-md-12 mb-4">
+            <div class="col-md-12 mb-5">
                 @livewire('chart13')
             </div>
 
-            <div class="col-md-12 mb-4">
+            <div class="col-md-12 mb-5">
                  @livewire('chart18')
             </div>    
            
