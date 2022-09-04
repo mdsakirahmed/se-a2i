@@ -86,7 +86,10 @@ class Chart18 extends Component
                 ]
             ], [
                 'title' => [
-                    'text' => 'Total Employment (In Thousand)'
+                    'text' => 'Total Employment (In Thousand)',
+                    'style'=>[
+                        'fontSize'=>'15px'
+                    ]
                 ],
                 'labels' => [
                     'format' => '{value}'
