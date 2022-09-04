@@ -6,31 +6,22 @@
             @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button> @endcan
            </div>
        </div>
-       <div class="card-body">
-            <div class="row">
-                
-                <!-- Division Dropdown -->
-                <div class="form-group col-6">
-                    <label for="" class="col-form-label">Division</label>
-                    <select id="" class="form-control form-select-sm" wire:model="selected_division" wire:change="change_chart_filter_by_division">
-                        <option value="">All</option>
+       <div class="card-body"> 
+                <div>
+                    <select id="" wire:model="selected_division" wire:change="change_chart_filter_by_division">
+                        <option value="">All Division</option>
                         @foreach($divisions as $division)
                         <option value="{!! $division->division !!}">{!! $division->division !!}</option>
                         @endforeach
-                    </select>
-                </div>
-                <!-- District Dropdown -->
-                <div class="form-group col-6">
-                    <label for="" class="col-form-label">District</label>
-                    <select id="" class="form-control form-select-sm" wire:model="selected_district" wire:change="change_chart_filter_by_district">
-                        <option value="">All</option>
+                    </select>   
+                       
+                    <select id="" wire:model="selected_district" wire:change="change_chart_filter_by_district">
+                        <option value="">All District</option>
                         @foreach($districts as $district)
                         <option value="{!! str_replace("'", "\'", "$district->district") !!}">{!! $district->district !!}</option>
                         @endforeach
                     </select>
                 </div>
-            </div>
-
            
            <button type="butto"
                class="btn  @if($chart_type == 'column') btn-success @else btn-secondary @endif btn-sm m-2"

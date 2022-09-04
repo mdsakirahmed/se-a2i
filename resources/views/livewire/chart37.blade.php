@@ -21,7 +21,7 @@
             </p>
         </div>
         <select wire:model="selected_division" wire:change="change_divition">
-            <option value="">All division</option>
+            <option value="">All Division</option>
             <option value="Khulna">Khulna</option>
             <option value="Barisal">Barisal</option>
             <option value="Rajshahi">Rajshahi</option>
@@ -32,7 +32,7 @@
             <option value="Mymensingh">Mymensingh</option>
         </select>
         <select wire:model="selected_district" wire:change="update_chart">
-            <option value="">All district</option>
+            <option value="">All District</option>
             @foreach ($districts as $district)
                 <option value="{{ $district }}">{{ $district }}</option>
             @endforeach

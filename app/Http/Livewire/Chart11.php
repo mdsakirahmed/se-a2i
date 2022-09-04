@@ -123,7 +123,7 @@ class Chart11 extends Component
             'series' => [[
                 'name' => '',
                 'stack' => '',
-                'color' => "#83C341",
+                'color' => "#722A8D",
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),
