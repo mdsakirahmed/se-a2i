@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart36 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 36;
+    public $name, $description, $datasource, $chart_id = 36;
     public $chart_type = 'column';
     public $divisions, $selected_division, $districts, $selected_district;
 

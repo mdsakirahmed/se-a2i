@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class Chart16 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 16;
+    public $name, $description, $datasource, $chart_id = 16;
     public $selected_division = 'All';
 
     public function render()

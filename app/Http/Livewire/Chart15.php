@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class Chart15 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 15;
+    public $name, $description, $datasource, $chart_id = 15;
     public $chart_type = 'column';
 
     public $chart_data_set = [];

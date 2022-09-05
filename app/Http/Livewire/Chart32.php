@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart32 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 32;
+    public $name, $description, $datasource, $chart_id = 32;
     public $chart_type = 'pie';
 
     public function render()

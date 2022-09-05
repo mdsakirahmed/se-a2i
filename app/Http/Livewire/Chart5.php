@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart5 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 5;
+    public $name, $description, $datasource, $chart_id = 5;
 
     public function render()
     {

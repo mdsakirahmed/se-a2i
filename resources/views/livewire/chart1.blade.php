@@ -18,6 +18,17 @@
                 {!! $description !!}
                 </p>
             </div>
+            
+            @if ($datasource && $datasource != "<p><br></p>")
+                <div class="tooltip">
+                    <i class="bx bx-info-circle"></i> 
+                    Source
+                    <span class="tooltiptext">
+                        {!! $datasource !!}
+                    </span>
+                </div>
+            @endif
+              
         </div> 
     
     </div>

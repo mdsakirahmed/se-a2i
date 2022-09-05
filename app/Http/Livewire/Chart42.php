@@ -10,7 +10,7 @@ use Livewire\Component;
 class Chart42 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 42;
+    public $name, $description, $datasource, $chart_id = 42;
 
     public function render()
     {
@@ -271,9 +271,12 @@ class Chart42 extends Component
             ],
             'plotOptions' =>  [
                 'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+                        'format' => "{point.y:,.2f}"
+                    ], 
+                    'enableMouseTracking' =>  true
                 ],
                 'series' => [
                     'animation' => false,
