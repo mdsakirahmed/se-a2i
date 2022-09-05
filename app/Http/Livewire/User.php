@@ -31,15 +31,15 @@ class User extends Component
                 'email' => 'required|email|unique:users,email,' . $this->selected_user->id,
                 'password' => 'nullable|string|min:4'
             ]);
-            if(!$this->password){
+            if (!$this->password) {
                 unset($data['password']);
-            }else{
+            } else {
                 $data['password'] = bcrypt($data['password']);
             }
             $this->selected_user->update($data);
             $user = $this->selected_user;
             toastr()->success(__('User Updated'));
-        }else{
+        } else {
             $data = $this->validate([
                 'name' => 'required|string',
                 'email' => 'required|email|unique:users,email',
@@ -53,17 +53,19 @@ class User extends Component
         $this->createUser();
     }
 
-    public function selectUser(ModelsUser $user){
+    public function selectUser(ModelsUser $user)
+    {
         $this->selected_user = $user;
         $this->name = $user->name;
         $this->email = $user->email;
         $this->role = $user->roles()->first()->id ?? null;
     }
 
-    public function deleteUser(ModelsUser $user){
-        if($user->id == auth()->user()->id){
+    public function deleteUser(ModelsUser $user)
+    {
+        if ($user->id == auth()->user()->id) {
             toastr()->error(__('You can not delete your self'));
-        }else{
+        } else {
             $user->delete();
             toastr()->success(__('Successfully Deleted'));
         }

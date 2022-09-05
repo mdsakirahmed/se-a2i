@@ -13,15 +13,16 @@ class LanguageSwitcher extends Component
         return view('livewire.language-switcher');
     }
 
-    public function change_language(){
-        if(App::isLocale('en')){
+    public function change_language()
+    {
+        if (App::isLocale('en')) {
             App::setLocale('bn');
             Session::put('locale', App::currentLocale());
-        }else{
+        } else {
             App::setLocale('en');
             Session::put('locale', App::currentLocale());
         }
         toastr()->success(__('Language Changed'));
-        $this->dispatchBrowserEvent('refresh-page'); 
+        $this->dispatchBrowserEvent('refresh-page');
     }
 }

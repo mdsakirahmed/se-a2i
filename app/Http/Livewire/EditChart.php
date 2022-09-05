@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class EditChart extends Component
 {
-    public $mes ='No one';
+    public $mes = 'No one';
     public Chart $chart;
     public $en_name, $bn_name, $en_description, $bn_description, $bn_datasource, $en_datasource;
 
@@ -16,8 +16,9 @@ class EditChart extends Component
         return view('livewire.edit-chart');
     }
 
-    public function update(){
-        if(auth()->user()->can('chart info edit')){
+    public function update()
+    {
+        if (auth()->user()->can('chart info edit')) {
             $this->chart->update([
                 'en_name' => $this->en_name,
                 'bn_name' => $this->bn_name,
@@ -27,14 +28,14 @@ class EditChart extends Component
                 'en_datasource' => $this->en_datasource,
             ]);
             toastr()->success(__('Updated'));
-            $this->dispatchBrowserEvent('refresh-page'); 
-        }else{
+            $this->dispatchBrowserEvent('refresh-page');
+        } else {
             toastr()->error(__('You have not permission'));
         }
     }
 
     protected $listeners = ['editChartInfo'];
- 
+
     public function editChartInfo($chart_id)
     {
         $this->chart = Chart::find($chart_id);

@@ -22,9 +22,11 @@ class Chart16 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart16');
@@ -206,7 +208,7 @@ class Chart16 extends Component
                 GROUP BY year , month , district) AS a
             GROUP BY district ");
         }
-        
+
 
         $district_wise_remittance_in_last_three_fiscal_year = collect($data)->map(function ($data) {
             return [
@@ -219,70 +221,70 @@ class Chart16 extends Component
 
         $series = [];
 
-        foreach($district_wise_remittance_in_last_three_fiscal_year as $data){
+        foreach ($district_wise_remittance_in_last_three_fiscal_year as $data) {
             array_push($series, [
-                'name'=> $data['category'],
-                'data'=> [$data['column-1'], $data['column-2'], $data['column-3']]
+                'name' => $data['category'],
+                'data' => [$data['column-1'], $data['column-2'], $data['column-3']]
             ]);
         }
 
         return [
-            'chart'=> [
-                'type'=> 'bar'
+            'chart' => [
+                'type' => 'bar'
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
-            'title'=> [
-                'text'=> ''
+
+            'title' => [
+                'text' => ''
             ],
-            'xAxis'=> [
-                'categories'=> ["2020-21", "2019-20", "2018-19"],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+            'xAxis' => [
+                'categories' => ["2020-21", "2019-20", "2018-19"],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
-                
+
             ],
-            'yAxis'=> [
-                'min'=> 0,
-                'title'=> [
-                    'text'=> 'In Million US$',
-                    'style'=>[
-                        'fontSize'=>'14px'
+            'yAxis' => [
+                'min' => 0,
+                'title' => [
+                    'text' => 'In Million US$',
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'rotation'=>-45,
-                    'format'=>'{value}',
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'rotation' => -45,
+                    'format' => '{value}',
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
-            'legend'=> [
-                'reversed'=> true
+            'legend' => [
+                'reversed' => true
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
-            'plotOptions'=> [
-                'series'=> [
-                    'stacking'=> 'normal',
-                    'borderRadius'=>'10px',
-                    'pointWidth'=>30
+            'plotOptions' => [
+                'series' => [
+                    'stacking' => 'normal',
+                    'borderRadius' => '10px',
+                    'pointWidth' => 30
                 ]
             ],
-            'colors'=> ['#EE47B5','#FFB207','#7F3F98', '#83C341',],
-            'series'=> $series,
+            'colors' => ['#EE47B5', '#FFB207', '#7F3F98', '#83C341',],
+            'series' => $series,
         ];
     }
 

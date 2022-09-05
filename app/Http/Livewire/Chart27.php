@@ -13,13 +13,15 @@ class Chart27 extends Component
 
     public function render()
     {
-        $this->chart =Chart::findOrFail($this->chart_id);
-        if(app()->currentLocale() == 'bn'){
+        $this->chart = Chart::findOrFail($this->chart_id);
+        if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
-        }else{
+            $this->datasource = $this->chart->bn_datasource;
+        } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart27');

@@ -18,9 +18,11 @@ class Chart17 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart17', [
@@ -58,12 +60,12 @@ class Chart17 extends Component
                 'district' => ucfirst(strtolower(trans($district))), 'value' => round($value), 'division' => ucfirst(strtolower(trans(collect($district_wise_data)->first()->division)))
             ]);
         }
-        
+
         $this->divisions = collect($formated_data)->pluck('division')->unique();
 
-        if($this->selected_division){
+        if ($this->selected_division) {
             $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
-        }else{
+        } else {
             $this->districts = collect($formated_data)->pluck('district');
         }
 
@@ -98,8 +100,8 @@ class Chart17 extends Component
                 'map' => collect($geojson)
             ],
 
-            'credits'=>[
-                'enabled'=>false
+            'credits' => [
+                'enabled' => false
             ],
 
             'title' => [
@@ -141,7 +143,7 @@ class Chart17 extends Component
 
             'series' => [
                 [
-                    'data' => collect($formated_data)->map(function($data){
+                    'data' => collect($formated_data)->map(function ($data) {
                         return [$data['division'], $data['district'], $data['value']];
                     }),
                     'keys' => ["division", "district", "value"],
@@ -155,11 +157,11 @@ class Chart17 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'format' => "{point.properties.district}",
-                        'style'=>[
-                            'textShadow'=>false,
-                            'strokeWidth'=>0,
-                            'textOutline'=>false,
-                            'color'=> '#000'
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false,
+                            'color' => '#000'
                         ]
                     ]
                 ]

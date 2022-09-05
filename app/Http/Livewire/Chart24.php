@@ -18,9 +18,11 @@ class Chart24 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart24', [
@@ -50,9 +52,9 @@ class Chart24 extends Component
         $formated_data = [];
         foreach (collect($db_data)->groupBy('country') as $country => $country_wise_data) {
             if ($this->selected_year) {
-                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_in_usd')/1000000;
+                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_in_usd') / 1000000;
             } else {
-                $value = collect($country_wise_data)->sum('import_in_usd')/1000000;
+                $value = collect($country_wise_data)->sum('import_in_usd') / 1000000;
             }
             array_push($formated_data, [
                 'country' => $country, 'value' => round($value)
@@ -69,8 +71,8 @@ class Chart24 extends Component
                 'map' => collect($geojson)
             ],
 
-            'credits'=>[
-                'enabled'=>false
+            'credits' => [
+                'enabled' => false
             ],
 
             'title' => [

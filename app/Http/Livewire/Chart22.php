@@ -20,9 +20,11 @@ class Chart22 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart22', [
@@ -61,11 +63,11 @@ class Chart22 extends Component
         // @dd($data_set);
 
         $import_export_over_the_year = [];
-        foreach($data_set as $data){
+        foreach ($data_set as $data) {
             array_push($import_export_over_the_year, [
-                'fiscal_year' => substr($data->fiscal_year, 0, 5).substr($data->fiscal_year, 7, 10),
-                'import_in_usd' => round(((float)$data->import_in_usd)/1000000000,2),
-                'export_in_usd' => round(((float)$data->export_in_usd)/1000000000,2),
+                'fiscal_year' => substr($data->fiscal_year, 0, 5) . substr($data->fiscal_year, 7, 10),
+                'import_in_usd' => round(((float)$data->import_in_usd) / 1000000000, 2),
+                'export_in_usd' => round(((float)$data->export_in_usd) / 1000000000, 2),
             ]);
         }
 
@@ -114,8 +116,8 @@ class Chart22 extends Component
             'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Imports/Exports (Billion US$)',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
                 'labels' => [
@@ -152,9 +154,9 @@ class Chart22 extends Component
                 ]
             ],
 
-            'tooltip'=> [
+            'tooltip' => [
                 'headerFormat' => '<b>{point.x}</b><br>',
-                'pointFormat'=>'{series.name} : {point.y:,.2f} (Billion US$)',
+                'pointFormat' => '{series.name} : {point.y:,.2f} (Billion US$)',
             ]
         ];
     }

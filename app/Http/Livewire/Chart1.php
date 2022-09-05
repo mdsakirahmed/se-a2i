@@ -13,13 +13,15 @@ class Chart1 extends Component
 
     public function render()
     {
-        $this->chart =Chart::findOrFail($this->chart_id);
-        if(app()->currentLocale() == 'bn'){
+        $this->chart = Chart::findOrFail($this->chart_id);
+        if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
-        }else{
+            $this->datasource = $this->chart->bn_datasource;
+        } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart1', [
@@ -47,18 +49,18 @@ class Chart1 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
+
             'title' => [
                 'text' => ''
             ],
 
             'xAxis' => [
                 'categories' => collect($data)->pluck('year'),
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -67,18 +69,18 @@ class Chart1 extends Component
                 'min' => 0,
                 'title' => [
                     'text' => 'Percentage of Students',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
-            
-            
+
+
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
@@ -102,27 +104,27 @@ class Chart1 extends Component
                     ]
                 ],
                 'series' => [
-                    'dataLabels'=> [
-                        'enabled'=> true,
-                        'rotation'=> 270,
-                        'style'=>[
-                            'textShadow'=>false,
-                            'strokeWidth'=>0,
-                            'textOutline'=>false
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'rotation' => 270,
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false
                         ]
                     ],
-                    'pointWidth'=> 20,
+                    'pointWidth' => 20,
                     'borderRadius' => '8px',
                     'innerRadius' => '50%',
                 ]
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
             'series' => [[
                 'name' => 'Male',

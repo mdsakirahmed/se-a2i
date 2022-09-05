@@ -13,13 +13,15 @@ class Chart3 extends Component
 
     public function render()
     {
-        $this->chart =Chart::findOrFail($this->chart_id);
-        if(app()->currentLocale() == 'bn'){
+        $this->chart = Chart::findOrFail($this->chart_id);
+        if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
-        }else{
+            $this->datasource = $this->chart->bn_datasource;
+        } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart3', [
@@ -45,27 +47,27 @@ class Chart3 extends Component
         GROUP BY students_participation_percentage
         ORDER BY students_participation_percentage ASC
         LIMIT 1000");
-        
+
         array_unshift($data, array_pop($data));
-        
+
         return [
             'chart' => [
                 'type' => 'column'
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
+
             'title' => [
                 'text' => ''
             ],
 
             'xAxis' => [
                 'categories' => collect($data)->pluck('students_participation_percentage'),
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -74,13 +76,13 @@ class Chart3 extends Component
                 'min' => 0,
                 'title' => [
                     'text' => 'Percentage of Upazila',
-                    'style'=>[
-                        'fontSize'=>'15px'
+                    'style' => [
+                        'fontSize' => '15px'
                     ]
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -109,15 +111,15 @@ class Chart3 extends Component
                     ]
                 ],
                 'series' => [
-                    'dataLabels'=> [
-                        'enabled'=> true,
-                        'style'=>[
-                            'textShadow'=>false,
-                            'strokeWidth'=>0,
-                            'textOutline'=>false
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false
                         ]
                     ],
-                    'pointWidth'=> 30,
+                    'pointWidth' => 30,
                     'borderRadius' => '10px',
                 ]
             ],

@@ -18,9 +18,11 @@ class Chart37 extends Component
     if (app()->currentLocale() == 'bn') {
       $this->name = $this->chart->bn_name;
       $this->description = $this->chart->bn_description;
+      $this->datasource = $this->chart->bn_datasource;
     } else {
       $this->name = $this->chart->en_name;
       $this->description = $this->chart->en_description;
+      $this->datasource = $this->chart->en_datasource;
     }
 
     return view('livewire.chart37', [
@@ -28,7 +30,8 @@ class Chart37 extends Component
     ]);
   }
 
-  public function change_divition(){
+  public function change_divition()
+  {
     $this->selected_district = null;
     $this->update_chart();
   }
@@ -112,18 +115,18 @@ class Chart37 extends Component
     $formated_data = [];
     foreach (collect($array_data_set)->groupBy('district') as $district => $district_wise_data) {
       array_push($formated_data, [
-            'district' => $district, 
-            'value' => round(collect($district_wise_data)->sum('value'), 2), 
-            'division' => collect($district_wise_data)->first()['division']
-        ]);
+        'district' => $district,
+        'value' => round(collect($district_wise_data)->sum('value'), 2),
+        'division' => collect($district_wise_data)->first()['division']
+      ]);
     }
-    
+
     $this->divisions = collect($formated_data)->pluck('division')->unique();
 
-    if($this->selected_division){
-        $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
-    }else{
-        $this->districts = collect($formated_data)->pluck('district');
+    if ($this->selected_division) {
+      $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
+    } else {
+      $this->districts = collect($formated_data)->pluck('district');
     }
 
     //Get data from json file
@@ -133,21 +136,21 @@ class Chart37 extends Component
     $filter_geojson = $geojson;
     $filter_geojson['features'] = [];
     foreach ($geojson['features'] as $feature) {
-        if ($this->selected_district && $this->selected_division) {
-            if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else if ($this->selected_district && !$this->selected_division) {
-            if ($feature['properties']['district'] == $this->selected_district) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else if (!$this->selected_district && $this->selected_division) {
-            if ($feature['properties']['division'] == $this->selected_division) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else {
-            array_push($filter_geojson['features'], $feature);
+      if ($this->selected_district && $this->selected_division) {
+        if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
+          array_push($filter_geojson['features'], $feature);
         }
+      } else if ($this->selected_district && !$this->selected_division) {
+        if ($feature['properties']['district'] == $this->selected_district) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else if (!$this->selected_district && $this->selected_division) {
+        if ($feature['properties']['division'] == $this->selected_division) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else {
+        array_push($filter_geojson['features'], $feature);
+      }
     }
     $geojson = $filter_geojson;
 
@@ -162,8 +165,8 @@ class Chart37 extends Component
         'text' => ""
       ],
 
-      'credits'=>[
-        'enabled'=>false
+      'credits' => [
+        'enabled' => false
       ],
 
       'accessibility' => [
@@ -190,7 +193,7 @@ class Chart37 extends Component
         'headerFormat' => '',
         'pointFormat' => 'District: {point.district}<br> Moderate to Severe Food Insecurity : {point.value:,.2f}',
         'style' => [
-            'color' => '#fff'
+          'color' => '#fff'
         ],
         'valueDecimals' => 0,
         'backgroundColor' => '#444444',
@@ -200,7 +203,7 @@ class Chart37 extends Component
       ],
       'series' => [
         [
-          'data' => collect($formated_data)->map(function($data){
+          'data' => collect($formated_data)->map(function ($data) {
             return [$data['district'], $data['value']];
           }),
           'keys' => ["district", "value"],
@@ -213,12 +216,12 @@ class Chart37 extends Component
           'dataLabels' => [
             'enabled' => true,
             'format' => "{point.properties.district}",
-            'style'=>[
-              'textShadow'=>false,
-              'strokeWidth'=>0,
-              'textOutline'=>false,
-              'color'=> '#000'
-          ]
+            'style' => [
+              'textShadow' => false,
+              'strokeWidth' => 0,
+              'textOutline' => false,
+              'color' => '#000'
+            ]
           ]
         ]
       ]

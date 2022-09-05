@@ -20,9 +20,11 @@ class Chart20 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart20');
@@ -157,8 +159,8 @@ class Chart20 extends Component
         foreach (collect($db_data_set)->groupBy('fiscal_year') as $fiscal_year => $fiscal_year_wise_data) {
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
-                'data' =>  $fiscal_year_wise_data->map(function($data){
-                    return ["$data->country".'&nbsp; <img src="'.("/assets/flags/$data->country.png").'" width="20" height="15">', $data->remittance_in_crore_bdt];
+                'data' =>  $fiscal_year_wise_data->map(function ($data) {
+                    return ["$data->country" . '&nbsp; <img src="' . ("/assets/flags/$data->country.png") . '" width="20" height="15">', $data->remittance_in_crore_bdt];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -168,55 +170,55 @@ class Chart20 extends Component
         $this->chart_data_set = $this->get_data();
     }
 
-    public function get_data($selected_key_for_data_view = 0) 
+    public function get_data($selected_key_for_data_view = 0)
     {
         return [
-            'chart'=> [
-                'renderTo'=> 'container',
-                'type'=> 'bar'
+            'chart' => [
+                'renderTo' => 'container',
+                'type' => 'bar'
             ],
 
             'title' => [
                 'text' => ''
             ],
-            
-            'credits'=>[
-                'enabled'=>false
-              ],
-            'plotOptions'=> [
-                'column'=> [
-                    'stacking'=> 'normal',
-                    'dataLabels'=> [
-                        'enabled'=> false
+
+            'credits' => [
+                'enabled' => false
+            ],
+            'plotOptions' => [
+                'column' => [
+                    'stacking' => 'normal',
+                    'dataLabels' => [
+                        'enabled' => false
                     ]
                 ],
                 'series' => [
-                    'animation'=> false,
-                    'pointWidth'=>20,
+                    'animation' => false,
+                    'pointWidth' => 20,
                     'borderRadius' => '8px',
                 ]
-               
+
             ],
-            'xAxis'=> [
-                'type'=> "category",
-                'labels'=>[
-                    'useHTML'=> true,
-                    'style'=>[
-                        'fontSize'=>'13px'
+            'xAxis' => [
+                'type' => "category",
+                'labels' => [
+                    'useHTML' => true,
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
             'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Remittance (Crore BDT)',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
+                'labels' => [
                     'format' =>  '{value}',
-                    'style'=>[
-                        'fontSize'=>'13px'
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -232,8 +234,8 @@ class Chart20 extends Component
                 'borderColor' => '#eeee',
                 'borderRadius' => 10,
                 'borderWidth' => 3,
-              ],
-            'series'=> [$this->fotmated_data_set[$selected_key_for_data_view]]
+            ],
+            'series' => [$this->fotmated_data_set[$selected_key_for_data_view]]
         ];
     }
 

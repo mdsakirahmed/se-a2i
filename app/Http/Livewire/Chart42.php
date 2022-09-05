@@ -18,9 +18,11 @@ class Chart42 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart42');
@@ -216,7 +218,7 @@ class Chart42 extends Component
         foreach (collect($db_data_set)->groupBy('year') as $fiscal_year => $fiscal_year_wise_data) {
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
-                'data' =>  $fiscal_year_wise_data->map(function($data){
+                'data' =>  $fiscal_year_wise_data->map(function ($data) {
                     return ["$data->p_name", $data->budget];
                 }),
                 'color' =>  '#83C341',
@@ -227,43 +229,43 @@ class Chart42 extends Component
         $this->chart_data_set = $this->get_data();
     }
 
-    public function get_data($selected_key_for_data_view = 0) 
+    public function get_data($selected_key_for_data_view = 0)
     {
         return [
-            'chart'=> [
-                'renderTo'=> 'container',
-                'type'=> 'bar'
+            'chart' => [
+                'renderTo' => 'container',
+                'type' => 'bar'
             ],
 
             'title' => [
                 'text' => ''
             ],
 
-            'credits'=>[
-                'enabled'=>false
+            'credits' => [
+                'enabled' => false
             ],
 
-            'xAxis'=> [
-                'type'=> "category",
-                'labels'=>[
-                    'useHTML'=> true,
-                    'style'=>[
-                        'fontSize'=>'13px'
+            'xAxis' => [
+                'type' => "category",
+                'labels' => [
+                    'useHTML' => true,
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
             'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Budget in Crore bdt',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'rotation'=>-45,
+                'labels' => [
+                    'rotation' => -45,
                     'format' =>  '{value}',
-                    'style'=>[
-                        'fontSize'=>'13px'
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -274,15 +276,15 @@ class Chart42 extends Component
                     ], 'enableMouseTracking' =>  true
                 ],
                 'series' => [
-                    'animation'=> false,
-                    'pointWidth'=>20,
+                    'animation' => false,
+                    'pointWidth' => 20,
                     'borderRadius' => '8px',
                 ]
             ],
             'tooltip' => [
-                'shared'=> true,
-                'outside'=> true,
-                'crosshairs'=> true,
+                'shared' => true,
+                'outside' => true,
+                'crosshairs' => true,
                 'useHTML' => true,
                 'headerFormat' => '',
                 'pointFormat' => '{point.name}<br>Budget In Crore Bdt: {point.y:,.2f}<br>Year: {series.name}',

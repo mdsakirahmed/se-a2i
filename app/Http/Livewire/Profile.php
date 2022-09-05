@@ -14,16 +14,17 @@ class Profile extends Component
         return view('livewire.profile')->layout('layouts.backend.app');
     }
 
-    public function submit(){
+    public function submit()
+    {
         $this->validate([
             'old_password' => 'required|string',
             'new_password' => 'required|string|min:4'
         ]);
-        if($this->old_password){
+        if ($this->old_password) {
             if (Hash::check($this->old_password, auth()->user()->password)) {
                 auth()->user()->update(['password' => bcrypt($this->new_password)]);
                 toastr()->success('Successfully changed');
-            }else{
+            } else {
                 toastr()->error('Old password is not correct');
             }
         }

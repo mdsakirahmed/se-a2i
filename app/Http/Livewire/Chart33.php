@@ -21,9 +21,11 @@ class Chart33 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart33', [
@@ -55,13 +57,13 @@ class Chart33 extends Component
             ], 'credits' =>  [
                 'enabled' =>  false
             ],
-            'plotOptions'=> [
-                'pie'=> [
-                    'innerSize'=> 100,
-                    'depth'=> 45
+            'plotOptions' => [
+                'pie' => [
+                    'innerSize' => 100,
+                    'depth' => 45
                 ]
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
+            'colors' => ['#7F3F98', '#83C341', '#FFB207'],
             'series' =>  [
                 [
                     'name' => '', // must use title or empty
