@@ -656,6 +656,40 @@ header .custom h3 {
   }
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 0px dotted black;
+  opacity: 1 !important;
+  font-size: 15px;
+  font-weight: 500;
+  color: #636566;
+  transition: 0.3s;
+  float: right;
+}
+.tooltip i {
+  font-size: 18px;
+  vertical-align: text-bottom;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.9019607843);
+  color: #fff;
+  border-radius: 6px;
+  padding: 15px 20px;
+  position: absolute;
+  z-index: 1;
+  top: -91px;
+  right: 105%;
+  min-width: 450px;
+  text-align: left;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 #about .content-area .container .hero-header .block-group {
   align-items: flex-start;
 }
