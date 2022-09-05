@@ -12,39 +12,28 @@
             {!! $description !!}
             </p>
         </div>
-            <div class="row">
-               
-                <div class="form-group col-md-2">
-                    <label for="" class="col-form-label">Fiscal Year</label>
-                    <select class="form-control" wire:model="f_year" wire:change="chart_update">
-                        <option value="">All</option>
-                        @foreach($f_years as $f_year)
-                            <option value="{{ $f_year }}">{{ $f_year }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                
-                <div class="form-group col-md-2">
-                    <label for="" class="col-form-label">Implementing Ministry 1</label>
-                    <select class="form-control"wire:model="imp_min" wire:change="chart_update">
-                        <option value="">All</option>
-                        @foreach($imp_mins as $imp_min)
-                            <option value="{{ $imp_min }}">{{ $imp_min }}</option>
-                        @endforeach 
-                    </select>
-                </div>
-            
-                <div class=" form-group col-md-2">
-                    <label for="" class="col-form-label">Implementing Ministry 2</label>
-                    <select class="form-control"wire:model="imp_min" wire:change="chart_update">
-                        <option value="">All</option>
-                        @foreach($imp_2_mins as $imp_2_min)
-                            <option value="{{ $imp_min }}">{{ $imp_2_min }}</option>
-                        @endforeach 
-                    </select>
-                </div>
+            <div>
+                <select wire:model="f_year" wire:change="chart_update">
+                    <option value="">All Fiscal Year</option>
+                    @foreach($f_years as $f_year)
+                        <option value="{{ $f_year }}">{{ $f_year }}</option>
+                    @endforeach
+                </select>
+         
+                <select wire:model="imp_min" wire:change="chart_update">
+                    <option value="">All Implementing Ministry 1</option>
+                    @foreach($imp_mins as $imp_min)
+                        <option value="{{ $imp_min }}">{{ $imp_min }}</option>
+                    @endforeach 
+                </select>
+                <select wire:model="imp_min" wire:change="chart_update">
+                    <option value="">All Implementing Ministry 2</option>
+                    @foreach($imp_2_mins as $imp_2_min)
+                        <option value="{{ $imp_min }}">{{ $imp_2_min }}</option>
+                    @endforeach 
+                </select>
             </div>
-
+            
            <figure class="highcharts-figure" wire:ignore>
                <div id="chart_id_{{ $chart->id }}"> </div>
            </figure>

@@ -4,25 +4,28 @@
     <div class="content-area">
         <div class="container">
             <header>
-                <h3>
-                    {{ __('About') }}
-                </h3>
+                <div class="custom">
+                    <h3>
+                        {{ __('About') }}
+                    </h3>
+                </div>
             </header>
-            <div class="card-lg">
+            <div class="hero-header">
                 <div class="block-group">
-                    <div class="block-70">
-                    <h5 class="c-primary fw-bold">{{ __('about title 1') }}</h5>
-                        <p class="mb-md-4">{{ __('about description 1') }}</p>
-                        <h5 class="c-secondary fw-bold">{{ __('about title 2') }}</h5>
+                    <div class="block-60">
+                    <h3>{{ __('about title 1') }}</h3>
                         <p>{{ __('about description 1') }}</p>
+
+                        <!-- <h5 class="c-secondary fw-bold">{{ __('about title 2') }}</h5>
+                        <p>{{ __('about description 1') }}</p> -->
                     </div>
-                    <div class="block-30">
-                        <img src="{{ asset('assets/img/about2.png') }}" />
+                    <div class="block-40">
+                        <img src="{{ asset('assets/img/about-hero-header.png') }}" />
                     </div>
                 </div>
             </div>
             <div class="card-primary">
-                <p>{{ __('about title 3') }}</p>
+                <p>{{ __('about description 2') }}</p>
             </div>
             <div id="dataConcept">
                 <header>

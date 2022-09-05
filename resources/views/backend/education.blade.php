@@ -4,24 +4,26 @@
     <div class="content-area">
         <div class="container">
             <header>
-                <h3>
-                    {{ __('Education') }}
-                </h3>
+                <div class="custom">
+                    <h3>
+                        {{ __('Education') }}
+                    </h3>
+                </div>
             </header>
-            <div class="card-lg">
+            <div class="hero-header">
                 <div class="block-group">
                     <div class="block-60">
-                    <h5 class="c-secondary fw-bold">{{ __('education green text') }}</h5>
+                    <!-- <h5 class="c-secondary fw-bold">{{ __('education green text') }}</h5>
                         <p class="mb-md-4">
                             {{ __('education description 1') }}
-                        </p>
-                        <h5 class="c-primary fw-bold">{{ __('education purple text') }}</h5>
+                        </p> -->
+                        <h3>{{ __('education purple text') }}</h3>
                         <p>
                             {{ __('education description 2') }}
                         </p>
                     </div>
                     <div class="block-40">
-                        <img src="{{ asset('assets/img/education.png') }}" />
+                        <img src="{{ asset('assets/img/education1.png') }}" />
                     </div>
                 </div>
             </div>
