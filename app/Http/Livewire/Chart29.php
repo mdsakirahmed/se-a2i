@@ -98,6 +98,12 @@ class Chart29 extends Component
                     'pointWidth'=>10,
                     ],
             ], 
+
+            'tooltip'=> [
+               
+                'pointFormat'=>'{series.name} : {point.y} (In million)',
+            ],
+
             'series' =>  [
                 [
                     'name' =>  'Internet Banking',

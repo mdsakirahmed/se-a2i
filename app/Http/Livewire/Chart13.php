@@ -140,7 +140,7 @@ class Chart13 extends Component
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
-                'pointFormat' => '{series.name} : {point.y}%',
+                'pointFormat' => '{series.name} (In thousand) : {point.y} ',
                 'style' => [
                     'color' => '#fff'
                 ],

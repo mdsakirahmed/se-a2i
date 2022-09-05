@@ -99,6 +99,12 @@ class Chart30 extends Component
                     'pointWidth'=>10
                 ],
             ], 
+
+            'tooltip'=> [
+                
+                'pointFormat'=>'{series.name} : {point.y} (In thousand crore BDT)',
+            ],
+
             'series' =>  [
                 [
                     'name' =>  'Rural',

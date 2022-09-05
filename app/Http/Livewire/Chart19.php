@@ -187,7 +187,7 @@ class Chart19 extends Component
       'tooltip' => [
         'useHTML' => true,
         'headerFormat' => '',
-        'pointFormat' => 'District: {point.district}<br>Percent Change In Overseas Employment 19-20:	{point.value:,.2f}',
+        'pointFormat' => 'District: {point.district}<br>Percent Change In Overseas Employment (19-20):	{point.value:,.2f}',
         'style' => [
             'color' => '#fff'
         ],
