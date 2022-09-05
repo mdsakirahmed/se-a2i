@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart34 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 34;
+    public $name, $description, $datasource, $chart_id = 34;
     public $chart_type = 'column';
     public $divisions, $selected_division, $districts, $selected_district;
 
@@ -22,15 +22,17 @@ class Chart34 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         $this->divisions = DB::connection('mysql2')->select("SELECT distinct division FROM education_covid19_impact");
-        if($this->selected_division){
+        if ($this->selected_division) {
             $this->districts = DB::connection('mysql2')->select("SELECT distinct district FROM education_covid19_impact WHERE division = '$this->selected_division'");
-        }else{
+        } else {
             $this->districts = DB::connection('mysql2')->select("SELECT distinct district FROM education_covid19_impact");
         }
 
@@ -58,7 +60,7 @@ class Chart34 extends Component
 
     public function get_data()
     {
-        if($this->selected_district){
+        if ($this->selected_district) {
             $data = DB::connection('mysql2')->select("SELECT
             upazila_pro AS upazila_pro,
             early_marriage AS early_marriage,
@@ -80,8 +82,8 @@ class Chart34 extends Component
             LIMIT 1000");
             $data = collect($data)->groupBy('upazila_pro');
             $title = 'Percentage of District';
-        }else{
-            if($this->selected_division){
+        } else {
+            if ($this->selected_division) {
                 $data = DB::connection('mysql2')->select("SELECT district AS district,
                 early_marriage AS early_marriage,
                 max(event_percent) AS `event_percent`
@@ -101,7 +103,7 @@ class Chart34 extends Component
                 LIMIT 1000");
                 $data = collect($data)->groupBy('district');
                 $title = 'Percentage of District';
-            }else{
+            } else {
                 $data = DB::connection('mysql2')->select("SELECT division_pro AS division_pro,
                 early_marriage AS early_marriage,
                 max(event_percent) AS `event_percent`
@@ -123,15 +125,15 @@ class Chart34 extends Component
                 $title = 'Percentage of Upazila';
             }
         }
-       
+
         $formated_data = array();
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
             array_push($formated_data, [
                 'location'  => $key,
                 'increased' => round($value->where('early_marriage', 'Increased')->sum('event_percent'), 2),
                 'decreased' => round($value->where('early_marriage', 'Decreased')->sum('event_percent'), 2),
                 'same'      => round($value->where('early_marriage', 'Same')->sum('event_percent'), 2),
-            ]); 
+            ]);
         }
 
         return [
@@ -149,9 +151,9 @@ class Chart34 extends Component
             'xAxis' => [
                 'categories' =>  collect($formated_data)->pluck('location'),
                 'crosshair' => true,
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -159,23 +161,23 @@ class Chart34 extends Component
                 'min' => 0,
                 'title' => [
                     'text' => $title,
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',
@@ -202,11 +204,11 @@ class Chart34 extends Component
                 'name' => 'Same',
                 'color' => "#7F3F98",
                 'data' =>  collect($formated_data)->pluck('same'),
-            ],[
+            ], [
                 'name' => 'Decreased',
                 'color' => "#FFB207",
                 'data' =>  collect($formated_data)->pluck('decreased'),
-            ] ],
+            ]],
         ];
     }
 }

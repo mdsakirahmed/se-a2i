@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart8 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 8;
+    public $name, $description, $datasource, $chart_id = 8;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart8 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart8', [
@@ -87,7 +89,7 @@ class Chart8 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
 
             'title' => [
@@ -101,13 +103,13 @@ class Chart8 extends Component
             'yAxis' => [
                 'title' => [
                     'text' => 'Percentage of School',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -116,20 +118,20 @@ class Chart8 extends Component
                 'accessibility' => [
                     'rangeDescription' => ''
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
 
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
 
             'plotOptions' => [

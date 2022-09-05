@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart12 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 12;
+    public $name, $description, $datasource, $chart_id = 12;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart12 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart12', [
@@ -42,11 +44,11 @@ class Chart12 extends Component
         // dd(collect($data));
 
         $real_gdp_per_capita_years_data_set['year'] =
-        $real_gdp_per_capita_years_data_set['bangladesh'] =
-        $real_gdp_per_capita_years_data_set['india'] =
-        $real_gdp_per_capita_years_data_set['pakistan'] =
-        array();
-        foreach(collect($data) as $data_of_a_year){
+            $real_gdp_per_capita_years_data_set['bangladesh'] =
+            $real_gdp_per_capita_years_data_set['india'] =
+            $real_gdp_per_capita_years_data_set['pakistan'] =
+            array();
+        foreach (collect($data) as $data_of_a_year) {
             array_push($real_gdp_per_capita_years_data_set['year'], (int) $data_of_a_year->year);
             array_push($real_gdp_per_capita_years_data_set['bangladesh'], (float) number_format($data_of_a_year->bangladesh,  2, '.', ''));
             array_push($real_gdp_per_capita_years_data_set['india'], (float) number_format($data_of_a_year->india,  2, '.', ''));
@@ -60,7 +62,7 @@ class Chart12 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
 
             'title' => [
@@ -80,9 +82,9 @@ class Chart12 extends Component
                 'accessibility' => [
                     'rangeDescription' => ''
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -90,23 +92,23 @@ class Chart12 extends Component
             'yAxis' => [
                 'title' => [
                     'text' => 'GDP per Capita at Current Market Prices (US$)',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
 
             'plotOptions' => [
@@ -140,7 +142,7 @@ class Chart12 extends Component
                 'name' => 'India',
                 'color' => "#83C341",
                 'data' =>  $real_gdp_per_capita_years_data_set['india'],
-            ],[
+            ], [
                 'name' => 'Pakistan',
                 'color' => "#FFB207",
                 'data' =>  $real_gdp_per_capita_years_data_set['pakistan'],

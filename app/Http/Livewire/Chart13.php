@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart13 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 13;
+    public $name, $description, $datasource, $chart_id = 13;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart13 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart13', [
@@ -54,20 +56,20 @@ class Chart13 extends Component
         GROUP BY year");
 
         $economy_employment_overseas_category_wise['year'] =
-        $economy_employment_overseas_category_wise['Professional'] =
-        $economy_employment_overseas_category_wise['Less'] =
-        $economy_employment_overseas_category_wise['Semi'] =
-        $economy_employment_overseas_category_wise['Skilled'] =
-        $economy_employment_overseas_category_wise['Others'] =
-        array();
-        foreach(collect($data) as $data_of_a_year){
-            if((int)$data_of_a_year->year >= 1990){
-            array_push($economy_employment_overseas_category_wise['year'], (int)$data_of_a_year->year);
-            array_push($economy_employment_overseas_category_wise['Professional'], round((float) $data_of_a_year->Professional)/1000);
-            array_push($economy_employment_overseas_category_wise['Less'], round((float) $data_of_a_year->Less)/1000);
-            array_push($economy_employment_overseas_category_wise['Semi'], round((float) $data_of_a_year->Semi)/1000);
-            array_push($economy_employment_overseas_category_wise['Skilled'], round((float)$data_of_a_year->Skilled)/1000);
-            array_push($economy_employment_overseas_category_wise['Others'], round((float)$data_of_a_year->Others)/1000);
+            $economy_employment_overseas_category_wise['Professional'] =
+            $economy_employment_overseas_category_wise['Less'] =
+            $economy_employment_overseas_category_wise['Semi'] =
+            $economy_employment_overseas_category_wise['Skilled'] =
+            $economy_employment_overseas_category_wise['Others'] =
+            array();
+        foreach (collect($data) as $data_of_a_year) {
+            if ((int)$data_of_a_year->year >= 1990) {
+                array_push($economy_employment_overseas_category_wise['year'], (int)$data_of_a_year->year);
+                array_push($economy_employment_overseas_category_wise['Professional'], round((float) $data_of_a_year->Professional) / 1000);
+                array_push($economy_employment_overseas_category_wise['Less'], round((float) $data_of_a_year->Less) / 1000);
+                array_push($economy_employment_overseas_category_wise['Semi'], round((float) $data_of_a_year->Semi) / 1000);
+                array_push($economy_employment_overseas_category_wise['Skilled'], round((float)$data_of_a_year->Skilled) / 1000);
+                array_push($economy_employment_overseas_category_wise['Others'], round((float)$data_of_a_year->Others) / 1000);
             }
         }
 
@@ -78,7 +80,7 @@ class Chart13 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
 
             'title' => [
@@ -98,9 +100,9 @@ class Chart13 extends Component
                 'accessibility' => [
                     'rangeDescription' => ''
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -108,24 +110,24 @@ class Chart13 extends Component
             'yAxis' => [
                 'title' => [
                     'text' => 'Number of overseas employment (in thousand)',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'format'=>'{value}',
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'format' => '{value}',
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
 
             'plotOptions' => [
@@ -156,7 +158,7 @@ class Chart13 extends Component
                     'name' => 'Professional',
                     'color' => "#7F3F98",
                     'data' =>   $economy_employment_overseas_category_wise['Professional'],
-                ], 
+                ],
                 [
                     'name' => 'Less',
                     'color' => "#83C341",
@@ -166,7 +168,7 @@ class Chart13 extends Component
                     'name' => 'Semi',
                     'color' => "#16507B",
                     'data' =>  $economy_employment_overseas_category_wise['Semi'],
-                ], 
+                ],
                 [
                     'name' => 'Skilled',
                     'color' => "#FF6361",

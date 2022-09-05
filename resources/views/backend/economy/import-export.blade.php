@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 @section('content')
-<section id="education">
+<section id="overviewOftheEconomy">
     <div class="content-area">
         <div class="container">
             <header>

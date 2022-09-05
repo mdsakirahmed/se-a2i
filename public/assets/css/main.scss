@@ -775,6 +775,7 @@ header {
   color: #636566;
   transition: 0.3s;
   float: right;
+  cursor: pointer;
   i {
     font-size: 18px;
     vertical-align: text-bottom;
@@ -796,6 +797,7 @@ header {
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  transition: 0.5s;
 }
 
 #about {
@@ -1021,7 +1023,7 @@ header {
 }
 
 #loginPage {
-    background-image: url('http://localhost/Socioeconomic-Web-HTML/assets/img/login-bg.jpg');
+    background-image: url('../img/login-bg.jpg');
     background-size: contain;
   .login-wrapper {
     background-color: rgba(226, 226, 226, 0.95);

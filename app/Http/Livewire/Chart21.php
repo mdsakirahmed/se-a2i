@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart21 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 21;
+    public $name, $description, $datasource, $chart_id = 21;
     public $countries, $selected_country, $years, $selected_year;
 
     public function render()
@@ -18,9 +18,11 @@ class Chart21 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart21', [
@@ -68,14 +70,14 @@ class Chart21 extends Component
                 'map' => collect($geojson)
             ],
 
-            'credits'=>[
-                'enabled'=>false
+            'credits' => [
+                'enabled' => false
             ],
 
             'title' => [
                 'text' => ""
             ],
-            
+
             'legend' => [
                 'enabled' => false
             ],

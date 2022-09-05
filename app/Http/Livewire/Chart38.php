@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart38 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 38;
+    public $name, $description, $datasource, $chart_id = 38;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart38 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart38', [
@@ -51,9 +53,9 @@ class Chart38 extends Component
         if ($this->fiscal_year) {
             $data = collect($data)->where('fiscal_year', $this->fiscal_year);
         }
-    
-        if($this->program_type){
-            $data = collect($data)->where('programme_type',$this->program_type);
+
+        if ($this->program_type) {
+            $data = collect($data)->where('programme_type', $this->program_type);
         }
 
         $formated_data = [];
@@ -74,21 +76,21 @@ class Chart38 extends Component
                 'text' => ''
             ],
 
-            'credits'=>[
-                'enabled'=>false
+            'credits' => [
+                'enabled' => false
             ],
-            'plotOptions'=> [
-                'series'=> [
-                'cursor' => 'pointer',
-                  'dataLabels'=> [
-                    'enabled'=> true,
-                    'allowOverlap'=> false,
-                    'style'=> [
-                      'fontSize'=> '12px'
+            'plotOptions' => [
+                'series' => [
+                    'cursor' => 'pointer',
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'allowOverlap' => false,
+                        'style' => [
+                            'fontSize' => '12px'
+                        ]
                     ]
-                  ]
                 ]
-              ],
+            ],
             'series' => [[
                 'type' => 'treemap',
                 'layoutAlgorithm' => 'squarified',
@@ -97,10 +99,10 @@ class Chart38 extends Component
                 'dataLabels' => [
                     'enabled' => true,
                     'format' => '{point.programme_name}<br>{point.value}',
-                    'style'=>[
-                        'textShadow'=>false,
-                        'strokeWidth'=>0,
-                        'textOutline'=>false
+                    'style' => [
+                        'textShadow' => false,
+                        'strokeWidth' => 0,
+                        'textOutline' => false
                     ]
                 ],
                 'tooltip' => [

@@ -15,9 +15,17 @@
      </figure>
      @livewire('component.renge-component', ['min' => null, 'max' => null, 'step' => null, 'value' => null, 'chart_id' => $chart->id, 'data_array' => collect($fotmated_data_set)->pluck('name')])
     </div>
-     {{-- <div class="card-footer">
-         {!! $description !!}
-     </div> --}}
+     <div class="card-footer">
+        @if ($datasource && $datasource != "<p><br></p>")
+            <div class="tooltip">
+                <i class="bx bx-info-circle"></i> 
+                Source
+                <span class="tooltiptext">
+                    {!! $datasource !!}
+                </span>
+            </div>
+        @endif
+     </div>
     </div>
 
     <script>

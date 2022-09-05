@@ -666,6 +666,7 @@ header .custom h3 {
   color: #636566;
   transition: 0.3s;
   float: right;
+  cursor: pointer;
 }
 .tooltip i {
   font-size: 18px;
@@ -688,6 +689,7 @@ header .custom h3 {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  transition: 0.5s;
 }
 
 #about .content-area .container .hero-header .block-group {
@@ -825,7 +827,7 @@ header .custom h3 {
 }
 
 #loginPage {
-  background-image: url("http://localhost/Socioeconomic-Web-HTML/assets/img/login-bg.jpg");
+  background-image: url("../img/login-bg.jpg");
   background-size: contain;
 }
 #loginPage .login-wrapper {
