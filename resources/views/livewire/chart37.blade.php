@@ -42,18 +42,19 @@
             <div id="chart_id_{{ $chart->id }}"> </div>
         </figure>
        </div>
-         <div class="card-footer">
-         {{--  {!! $description !!}--}} 
-         <div class="tooltip">
-            <i class="bx bx-info-circle"></i>
-            Source
-                <span class="tooltiptext">
-                Data Source: Bangladesh Integrated Household Survey (BIHS) 2018-2019, International Food Policy Research Institute (IFPRI)
 
-                Link: <a href="https://www.ifpri.org/publication/bangladesh-integrated-household-survey-bihs-2018-2019" target="_blank"> Bangladesh Integrated Household Survey (BIHS) 2018-2019 | IFPRI : International Food Policy Research Institute</a>
-                </span>
-            </div>
+        <div class="card-footer">
+            @if ($datasource && $datasource != "<p><br></p>")
+                <div class="tooltip">
+                    <i class="bx bx-info-circle"></i> 
+                    Source
+                    <span class="tooltiptext">
+                        {!! $datasource !!}
+                    </span>
+                </div>
+            @endif
         </div>  
+        
     </div>
     <script>
         //First loaded data

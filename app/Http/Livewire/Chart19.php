@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart19 extends Component
 {
   public  Chart $chart;
-  public $name, $description, $chart_id = 19;
+  public $name, $description, $datasource, $chart_id = 19;
   public $selected_district = [],  $selected_division = [];
 
   public function render()
@@ -18,9 +18,11 @@ class Chart19 extends Component
     if (app()->currentLocale() == 'bn') {
       $this->name = $this->chart->bn_name;
       $this->description = $this->chart->bn_description;
+      $this->datasource = $this->chart->bn_datasource;
     } else {
       $this->name = $this->chart->en_name;
       $this->description = $this->chart->en_description;
+      $this->datasource = $this->chart->en_datasource;
     }
 
     return view('livewire.chart19', [
@@ -28,7 +30,8 @@ class Chart19 extends Component
     ]);
   }
 
-  public function change_divition(){
+  public function change_divition()
+  {
     $this->selected_district = null;
     $this->update_chart();
   }
@@ -114,16 +117,16 @@ class Chart19 extends Component
     foreach (collect($array_data_set)->groupBy('district') as $district => $district_wise_data) {
 
       array_push($formated_data, [
-            'district' => $district, 'value' => round(collect($district_wise_data)->sum('value'), 2), 'division' => collect($district_wise_data)->first()['division']
-        ]);
+        'district' => $district, 'value' => round(collect($district_wise_data)->sum('value'), 2), 'division' => collect($district_wise_data)->first()['division']
+      ]);
     }
-    
+
     $this->divisions = collect($formated_data)->pluck('division')->unique();
 
-    if($this->selected_division){
-        $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
-    }else{
-        $this->districts = collect($formated_data)->pluck('district');
+    if ($this->selected_division) {
+      $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
+    } else {
+      $this->districts = collect($formated_data)->pluck('district');
     }
 
     //Get data from json file
@@ -133,21 +136,21 @@ class Chart19 extends Component
     $filter_geojson = $geojson;
     $filter_geojson['features'] = [];
     foreach ($geojson['features'] as $feature) {
-        if ($this->selected_district && $this->selected_division) {
-            if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else if ($this->selected_district && !$this->selected_division) {
-            if ($feature['properties']['district'] == $this->selected_district) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else if (!$this->selected_district && $this->selected_division) {
-            if ($feature['properties']['division'] == $this->selected_division) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else {
-            array_push($filter_geojson['features'], $feature);
+      if ($this->selected_district && $this->selected_division) {
+        if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
+          array_push($filter_geojson['features'], $feature);
         }
+      } else if ($this->selected_district && !$this->selected_division) {
+        if ($feature['properties']['district'] == $this->selected_district) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else if (!$this->selected_district && $this->selected_division) {
+        if ($feature['properties']['division'] == $this->selected_division) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else {
+        array_push($filter_geojson['features'], $feature);
+      }
     }
     $geojson = $filter_geojson;
 
@@ -158,8 +161,8 @@ class Chart19 extends Component
         'map' => collect($geojson)
       ],
 
-      'credits'=>[
-        'enabled'=>false
+      'credits' => [
+        'enabled' => false
       ],
 
       'title' => [
@@ -187,9 +190,9 @@ class Chart19 extends Component
       'tooltip' => [
         'useHTML' => true,
         'headerFormat' => '',
-        'pointFormat' => 'District: {point.district}<br>Percent Change In Overseas Employment 19-20:	{point.value:,.2f}',
+        'pointFormat' => 'District: {point.district}<br>Percent Change In Overseas Employment (19-20):	{point.value:,.2f}',
         'style' => [
-            'color' => '#fff'
+          'color' => '#fff'
         ],
         'valueDecimals' => 0,
         'backgroundColor' => '#444444',
@@ -199,9 +202,9 @@ class Chart19 extends Component
       ],
       'series' => [
         [
-          'data' => collect($formated_data)->map(function($data){
+          'data' => collect($formated_data)->map(function ($data) {
             return [$data['division'], $data['district'], $data['value']];
-        }),
+          }),
           'keys' => ["division", "district", "value"],
           'joinBy' => "district",
           'states' => [
@@ -212,16 +215,15 @@ class Chart19 extends Component
           'dataLabels' => [
             'enabled' => true,
             'format' => "{point.properties.district}",
-            'style'=>[
-              'textShadow'=>false,
-              'strokeWidth'=>0,
-              'textOutline'=>false,
-              'color'=> '#000'
-          ]
+            'style' => [
+              'textShadow' => false,
+              'strokeWidth' => 0,
+              'textOutline' => false,
+              'color' => '#000'
+            ]
           ]
         ]
       ]
     ];
   }
 }
-

@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart40 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 40;
+    public $name, $description, $datasource, $chart_id = 40;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart40 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart40', [
@@ -27,12 +29,14 @@ class Chart40 extends Component
         ]);
     }
 
-    public function filter_by_implementing_ministry_1($value){
+    public function filter_by_implementing_ministry_1($value)
+    {
         $this->implementing_ministry_1 = $value;
         $this->chart_update();
     }
 
-    public function filter_by_implementing_ministry_2($value){
+    public function filter_by_implementing_ministry_2($value)
+    {
         $this->implementing_ministry_2 = $value;
         $this->chart_update();
     }
@@ -71,9 +75,9 @@ class Chart40 extends Component
         if ($this->fiscal_year) {
             $data = collect($data)->where('fiscal_year', $this->fiscal_year);
         }
-    
-        if($this->program_type){
-            $data = collect($data)->where('programme_type',$this->program_type);
+
+        if ($this->program_type) {
+            $data = collect($data)->where('programme_type', $this->program_type);
         }
 
         $formated_data = [];
@@ -94,8 +98,8 @@ class Chart40 extends Component
                 'text' => ''
             ],
 
-            'credits'=>[
-                'enabled'=>false
+            'credits' => [
+                'enabled' => false
             ],
 
             'series' => [[
@@ -106,10 +110,10 @@ class Chart40 extends Component
                 'dataLabels' => [
                     'enabled' => true,
                     'format' => '{point.programme_name}<br>{point.value}',
-                    'style'=>[
-                        'textShadow'=>false,
-                        'strokeWidth'=>0,
-                        'textOutline'=>false
+                    'style' => [
+                        'textShadow' => false,
+                        'strokeWidth' => 0,
+                        'textOutline' => false
                     ]
                 ],
                 'tooltip' => [

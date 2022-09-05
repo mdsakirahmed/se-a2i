@@ -14,7 +14,7 @@ class Backup extends Component
         $files = scandir($path);
         $files = array_diff(scandir($path), array('.', '..'));
 
-        return view('backend.backup',[
+        return view('backend.backup', [
             'backups' => $files,
         ])->layout('layouts.backend.app');
     }

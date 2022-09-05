@@ -21,9 +21,9 @@ class RengeComponent extends Component
 
     public function mount($min, $max, $step, $value, $chart_id, $data_array)
     {
-        if(count($data_array) <= 0){
+        if (count($data_array) <= 0) {
             $array_count = 1;
-        }else{
+        } else {
             $array_count = count($data_array);
         }
         $this->min = $min ?? 0;

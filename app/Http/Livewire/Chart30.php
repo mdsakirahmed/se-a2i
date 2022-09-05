@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart30 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 30;
+    public $name, $description, $datasource, $chart_id = 30;
 
     public function render()
     {
@@ -20,9 +20,11 @@ class Chart30 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart30', [
@@ -56,22 +58,22 @@ class Chart30 extends Component
             // ]
             , 'xAxis' =>  [
                 'categories' =>  collect($data)->pluck('date'),
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ], 'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Volume of transactions (In thousand crore BDT)',
-                    'style'=>[
-                        'fontSize'=>'14px'
-                    ]  
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
                 ],
-                'labels'=>[
+                'labels' => [
                     'format' =>  '{value}',
-                    'style'=>[
-                        'fontSize'=>'13px'
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -84,21 +86,27 @@ class Chart30 extends Component
                 'layout' => 'horizontal',
                 'x' => 0,
                 'y' => 0,
-                'margin'=> 45
+                'margin' => 45
             ],
             'plotOptions' =>  [
-                'bar'=> [
-                    'stacking'=> 'normal',
-                    'pointMargin'=> 10,
-                    'groupMargin'=> 0,
+                'bar' => [
+                    'stacking' => 'normal',
+                    'pointMargin' => 10,
+                    'groupMargin' => 0,
                     'enableMouseTracking' =>  true,
-                    'dataLabels'=> [
-                        'enabled'=> false,
-                        
+                    'dataLabels' => [
+                        'enabled' => false,
+
                     ],
-                    'pointWidth'=>10
+                    'pointWidth' => 10
                 ],
-            ], 
+            ],
+
+            'tooltip' => [
+
+                'pointFormat' => '{series.name} : {point.y} (In thousand crore BDT)',
+            ],
+
             'series' =>  [
                 [
                     'name' =>  'Rural',

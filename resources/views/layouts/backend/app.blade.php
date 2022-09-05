@@ -290,7 +290,7 @@
                                         <div class="nav-title-collapse">
                                             <h6>
                                                 <i class="bx bx-heart"></i>
-                                                Health
+                                                {{ __('Health') }}
                                             </h6>
                                             <div class="arrow">
                                                 <i class="bx bxs-down-arrow icon-show"></i>
@@ -303,28 +303,32 @@
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    Child Mortality
+                                                        {{ __('Child Mortality') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    Causes of Death
+                                                        {{ __('Causes of Death') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    Maternal/Child Health Services
+                                                        {{ __('Maternal/Child Health Services') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    SDG analytic hub
+                                                        {{ __('SDG Analytic Hub') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>

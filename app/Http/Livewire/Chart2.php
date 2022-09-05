@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart2 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 2;
+    public $name, $description, $datasource, $chart_id = 2;
 
     public function render()
     {
@@ -64,6 +64,7 @@ class Chart2 extends Component
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
+                'max'=> 100,
                 'title' => [
                     'text' => 'Percentage of Teachers',
                     'style'=>[
@@ -116,8 +117,8 @@ class Chart2 extends Component
                             'textOutline'=>false
                         ]
                     ],
-                    'pointWidth'=> 20,
-                    'borderRadius' => '8px',
+                    'pointWidth'=> 30,
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [

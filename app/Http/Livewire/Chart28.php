@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart28 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 28;
+    public $name, $description, $datasource, $chart_id = 28;
 
     public function render()
     {
@@ -20,9 +20,11 @@ class Chart28 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart28', [
@@ -57,22 +59,22 @@ class Chart28 extends Component
             // ]
             , 'xAxis' =>  [
                 'categories' =>  collect($data)->pluck('date'),
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
-            ], 
+            ],
             'yAxis' =>  [
                 'title' =>  [
                     'text' =>  'Volume of transactions (In thousand crore BDT)',
-                    'style'=>[
-                        'fontSize'=>'14px'
+                    'style' => [
+                        'fontSize' => '14px'
                     ]
                 ],
-                'labels'=>[
-                    'style'=>[
-                        'fontSize'=>'13px'
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
                     ]
                 ]
             ],
@@ -80,26 +82,31 @@ class Chart28 extends Component
                 'reversed' => true
             ],
             'legend' => [
-                'align' =>'left',
-                'verticalAlign'=> 'top',
-                'layout'=> 'horizontal',
-                'x'=> 0,
-                'y'=> 0,
-                'margin'=> 45
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
             'plotOptions' =>  [
-                'bar'=> [
-                    'stacking'=> 'normal',
-                    'pointMargin'=> 2,
-                    'groupPadding'=> 0,
-                    'dataLabels'=> [
-                        'enabled'=> false,
+                'bar' => [
+                    'stacking' => 'normal',
+                    'pointMargin' => 2,
+                    'groupPadding' => 0,
+                    'dataLabels' => [
+                        'enabled' => false,
                     ],
-                    'pointWidth'=>10,
-                    ],
-                    
-            ], 
-            
+                    'pointWidth' => 10,
+                ],
+
+            ],
+
+            'tooltip' => [
+
+                'pointFormat' => '{series.name} : {point.y} (In thousand crore BDT)',
+            ],
+
             'series' =>  [
                 [
                     'name' =>  'Internet Banking',
@@ -110,8 +117,7 @@ class Chart28 extends Component
                     'marker' =>  [
                         'radius' =>  3
                     ]
-                ]
-                , [
+                ], [
                     'name' =>  'Agent',
                     'data' =>  collect($data)->pluck('agent')->map(function ($value) {
                         return round($value / 1000, 2);
@@ -131,7 +137,7 @@ class Chart28 extends Component
                         'radius' =>  3
                     ]
                 ]
-                
+
             ]
         ];
     }

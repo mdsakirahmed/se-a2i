@@ -12,7 +12,8 @@ class Logout extends Component
         return view('livewire.logout');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         toastr()->success('Successfully logout');
         return redirect()->route('login');
