@@ -40,7 +40,7 @@ class Chart18 extends Component
         ORDER BY year ASC) AS a
             LEFT JOIN
         corona_socio_info.economy_remittance_yearly b ON a.year = b.year
-        ORDER BY a.year DESC");;
+        ORDER BY a.year DESC");
         $data = collect($data)->map(function ($data) {
             return [
                 "category" => substr($data->year, 0, 5).substr($data->year, 7, 10), "column-2" => round($data->number_of_employment / 1000,2), "column-1" => round($data->remittance_in_million_usd / 1000, 2)
@@ -92,14 +92,17 @@ class Chart18 extends Component
                     ]
                 ],
                 'labels' => [
-                    'format' => '{value}'
+                    'format' => '{value}',
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ],
                 'opposite' => true
             ]],
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
-                'pointFormat' => '{series.name} : {point.y:,.2f} %',
+                'pointFormat' => '{series.name} : {point.y:,.2f} ',
                 'style' => [
                     'color' => '#fff'
                 ],

@@ -99,6 +99,11 @@ class Chart28 extends Component
                     ],
                     
             ], 
+
+            'tooltip'=> [
+               
+                'pointFormat'=>'{series.name} : {point.y} (In thousand crore BDT)',
+            ],
             
             'series' =>  [
                 [

@@ -138,13 +138,15 @@
             display: inline-block;
             margin-right: 20px;
             margin-bottom: 20px;
-            padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+            min-width: 150px;
+            max-width: 240px;
+            padding: 0.375rem 0.75rem 0.375rem 0.75rem;
             -moz-padding-start: calc(0.75rem - 3px);
             font-size: 0.9rem;
             font-weight: 400;
             line-height: 1.5;
             color: #646e78;
-            background-color: #f8f9fa;`
+            background-color: rgb(199 205 215 / 25%);`
             background-image: url(data:image/svg+xml,%3csvg xmlns= 'http://www.w3.org/2000/svg' viewBox= '0 0 16 16' %3e%3cpath fill= 'none' stroke= '%23343a40' stroke-linecap= 'round' stroke-linejoin= 'round' stroke-width= '2' d= 'M2 5l6 6 6-6' /%3e%3c/svg%3e);
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
@@ -288,7 +290,7 @@
                                         <div class="nav-title-collapse">
                                             <h6>
                                                 <i class="bx bx-heart"></i>
-                                                Health
+                                                {{ __('Health') }}
                                             </h6>
                                             <div class="arrow">
                                                 <i class="bx bxs-down-arrow icon-show"></i>
@@ -301,28 +303,32 @@
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    Child Mortality
+                                                        {{ __('Child Mortality') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    Causes of Death
+                                                        {{ __('Causes of Death') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    Maternal/Child Health Services
+                                                        {{ __('Maternal/Child Health Services') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>
                                             <a href="#">
                                                 <div class="nav-title-sub">
                                                     <h6>
-                                                    SDG analytic hub
+                                                        {{ __('SDG Analytic Hub') }}
+                                                    
                                                     </h6>
                                                 </div>
                                             </a>

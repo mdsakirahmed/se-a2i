@@ -77,7 +77,18 @@ class Chart38 extends Component
             'credits'=>[
                 'enabled'=>false
             ],
-
+            'plotOptions'=> [
+                'series'=> [
+                'cursor' => 'pointer',
+                  'dataLabels'=> [
+                    'enabled'=> true,
+                    'allowOverlap'=> false,
+                    'style'=> [
+                      'fontSize'=> '12px'
+                    ]
+                  ]
+                ]
+              ],
             'series' => [[
                 'type' => 'treemap',
                 'layoutAlgorithm' => 'squarified',
@@ -96,12 +107,7 @@ class Chart38 extends Component
                     'useHTML' => true,
                     'pointFormat' => 'Programme name:<b>{point.programme_name}</b> <br> Budget Crore Bdt: <b>{point.value}</b> <br> Coverage (Lakh People): <b>{point.beneficiaries_lac_persons}</b> <br>  Implementing Ministry 1:	 <b>{point.implementing_ministry_1}</b>',
                 ]
-            ]],
-            'plotOptions' => [
-                'series' => [
-                    'cursor' => 'pointer'
-                ]
-            ],
+            ]]
         ];
     }
 }

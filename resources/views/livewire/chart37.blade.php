@@ -21,7 +21,7 @@
             </p>
         </div>
         <select wire:model="selected_division" wire:change="change_divition">
-            <option value="">All division</option>
+            <option value="">All Division</option>
             <option value="Khulna">Khulna</option>
             <option value="Barisal">Barisal</option>
             <option value="Rajshahi">Rajshahi</option>
@@ -32,7 +32,7 @@
             <option value="Mymensingh">Mymensingh</option>
         </select>
         <select wire:model="selected_district" wire:change="update_chart">
-            <option value="">All district</option>
+            <option value="">All District</option>
             @foreach ($districts as $district)
                 <option value="{{ $district }}">{{ $district }}</option>
             @endforeach
@@ -42,9 +42,18 @@
             <div id="chart_id_{{ $chart->id }}"> </div>
         </figure>
        </div>
-        {{-- <div class="card-footer">
-            {!! $description !!}
-        </div> --}}
+         <div class="card-footer">
+         {{--  {!! $description !!}--}} 
+         <div class="tooltip">
+            <i class="bx bx-info-circle"></i>
+            Source
+                <span class="tooltiptext">
+                Data Source: Bangladesh Integrated Household Survey (BIHS) 2018-2019, International Food Policy Research Institute (IFPRI)
+
+                Link: <a href="https://www.ifpri.org/publication/bangladesh-integrated-household-survey-bihs-2018-2019" target="_blank"> Bangladesh Integrated Household Survey (BIHS) 2018-2019 | IFPRI : International Food Policy Research Institute</a>
+                </span>
+            </div>
+        </div>  
     </div>
     <script>
         //First loaded data
