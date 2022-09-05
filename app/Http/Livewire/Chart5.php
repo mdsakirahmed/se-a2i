@@ -121,7 +121,8 @@ class Chart5 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'inside' => false,
-                        'format' => '{point.y:,.2f}%'
+                        'format' => '{point.y:,.2f}%',
+                        'color'=> '#323232'
                     ]
                 ],
                 'series' => [
@@ -130,7 +131,8 @@ class Chart5 extends Component
                         'style' => [
                             'textShadow' => false,
                             'strokeWidth' => 0,
-                            'textOutline' => false
+                            'textOutline' => false,
+                            'color'=> '#323232',
                         ]
                     ],
                     'borderRadius' => '10px',

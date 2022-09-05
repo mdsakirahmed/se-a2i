@@ -161,7 +161,7 @@ class Chart17 extends Component
                             'textShadow' => false,
                             'strokeWidth' => 0,
                             'textOutline' => false,
-                            'color' => '#000'
+                            'color' => '#323232'
                         ]
                     ]
                 ]

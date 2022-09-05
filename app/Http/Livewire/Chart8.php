@@ -138,7 +138,8 @@ class Chart8 extends Component
                 'series' => [
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => '{point.y}%'
+                        'format' => '{point.y}%',
+                        'color'=> '#323232'
                     ],
                     'pointStart' => 2014
                 ]
