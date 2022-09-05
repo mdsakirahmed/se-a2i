@@ -150,6 +150,11 @@ class Chart22 extends Component
                         'radius' =>  3
                     ]
                 ]
+            ],
+
+            'tooltip'=> [
+                'headerFormat' => '<b>{point.x}</b><br>',
+                'pointFormat'=>'{series.name} : {point.y:,.2f} (Billion US$)',
             ]
         ];
     }
