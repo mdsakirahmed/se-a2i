@@ -119,7 +119,7 @@ class Chart17 extends Component
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '',
-                'pointFormat' => 'Division: {point.division}<br>District: {point.district}<br>Remittance In Million Usd:	{point.value:,.2f}',
+                'pointFormat' => 'Division: {point.division}<br>District: {point.district}<br>Remittance (In Million Us$): {point.value:,.2f}',
                 'style' => [
                     'color' => '#fff'
                 ],

@@ -32,21 +32,40 @@ class Chart22 extends Component
 
     public function get_data()
     {
-        $imports = ImportCountry::groupBy('fiscal_year')
-            ->selectRaw('sum(import_in_usd) as import_in_usd, fiscal_year')
-            ->get()->toArray();
 
-        $exports = ExportCountry::groupBy('fiscal_year')
-            ->selectRaw('sum(export_in_usd) as export_in_usd, fiscal_year')
-            ->get()->toArray();
+        $data_set = DB::connection('mysql2')->select("SELECT
+        a.fiscal_year, a.import_in_usd, b.export_in_usd
+        FROM
+        (SELECT 
+            id,
+            fiscal_year,
+            SUM(import_in_usd) AS import_in_usd
+        FROM
+            economy_import_country
+        WHERE
+            country != ('Total')
+        GROUP BY fiscal_year) AS a
 
-        $data = [];
-        foreach (collect(array_merge_recursive($imports, $exports))->groupBy('fiscal_year') as $fiscal_year => $item) {
-            $import_export_data = array_merge_recursive($item[0], $item[1]);
-            array_push($data, [
-                'fiscal_year' =>    substr($fiscal_year ?? '', 0, 5) . substr($fiscal_year ?? '', 7, 10),
-                'import_in_usd' =>   round(((float)$import_export_data['import_in_usd']) / 1000000000, 2),
-                'export_in_usd' =>   round(((float)$import_export_data['export_in_usd']) / 1000000000, 2),
+        INNER JOIN
+        
+        (SELECT 
+            id,
+            fiscal_year,
+            SUM(export_in_usd) AS export_in_usd
+        FROM
+            economy_export_country
+        WHERE
+            country != ('Total Exports')
+        GROUP BY fiscal_year) AS b ON a.fiscal_year = b.fiscal_year");
+
+        // @dd($data_set);
+
+        $import_export_over_the_year = [];
+        foreach($data_set as $data){
+            array_push($import_export_over_the_year, [
+                'fiscal_year' => substr($data->fiscal_year, 0, 5).substr($data->fiscal_year, 7, 10),
+                'import_in_usd' => round(((float)$data->import_in_usd)/1000000000,2),
+                'export_in_usd' => round(((float)$data->export_in_usd)/1000000000,2),
             ]);
         }
 
@@ -83,7 +102,7 @@ class Chart22 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('fiscal_year'),
+                'categories' =>  collect($import_export_over_the_year)->pluck('fiscal_year'),
                 'labels' => [
                     'rotation' => -45,
                     'style' => [
@@ -117,20 +136,20 @@ class Chart22 extends Component
 
             'series' =>  [
                 [
-                    'name' =>  'Total exports',
-                    'data' =>  collect($data)->pluck('export_in_usd'),
-                    'color' =>  '#83C341',
-                    'marker' =>  [
-                        'radius' =>  3
-                    ]
-                ], [
                     'name' =>  'Total imports',
-                    'data' =>  collect($data)->pluck('import_in_usd'),
+                    'data' =>  collect($import_export_over_the_year)->pluck('import_in_usd'),
                     'color' =>  '#7F3F98',
                     'marker' =>  [
                         'radius' =>  3
                     ]
-                ],
+                ], [
+                    'name' =>  'Total exports',
+                    'data' =>  collect($import_export_over_the_year)->pluck('export_in_usd'),
+                    'color' =>  '#83C341',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
+                ]
             ]
         ];
     }
