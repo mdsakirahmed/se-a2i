@@ -140,6 +140,9 @@ class Chart2 extends Component
                 'name' => 'Female',
                 'stack' => 'gender',
                 'color' => "#83C341",
+                'dataLabels'=>[
+                    'color'=>'#323232'
+                ],
                 'data' =>  collect($data)->pluck('male_teacher')->map(function ($value) {
                     return round($value, 2);
                 }),

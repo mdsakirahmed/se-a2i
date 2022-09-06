@@ -115,8 +115,8 @@ class Chart9 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.y:,.2f}" . '%'
-
+                        'format' => "{point.y:,.2f}" . '%',
+                        'color'=> '#323232'
                     ]
                 ],
                 'series' => [

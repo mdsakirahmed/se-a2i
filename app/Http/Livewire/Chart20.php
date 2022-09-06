@@ -39,7 +39,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2009-2010'
+            fiscal_year = '2009-10'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -50,7 +50,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2010-2011'
+            fiscal_year = '2010-11'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -61,7 +61,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2011-2012'
+            fiscal_year = '2011-12'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -72,7 +72,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2012-2013'
+            fiscal_year = '2012-13'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -83,7 +83,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2013-2014'
+            fiscal_year = '2013-14'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -94,7 +94,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2014-2015'
+            fiscal_year = '2014-15'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -105,7 +105,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2015-2016'
+            fiscal_year = '2015-16'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -116,7 +116,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2016-2017'
+            fiscal_year = '2016-17'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -127,7 +127,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2017-2018'
+            fiscal_year = '2017-18'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -138,7 +138,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2018-2019'
+            fiscal_year = '2018-19'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -149,7 +149,7 @@ class Chart20 extends Component
         FROM
             corona_socio_info.economy_remittance_countrywise
         WHERE
-            fiscal_year = '2020-2021'
+            fiscal_year = '2020-21'
             AND country NOT IN ('Other Countries' , 'Total')
         GROUP BY fiscal_year , country
         ORDER BY remittance_in_crore_bdt DESC
@@ -196,7 +196,8 @@ class Chart20 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'inside' => false,
-                        'format' => "{point.y:,.2f}"
+                        'format' => "{point.y:,.2f}",
+                        'color'=> '#323232'
 
                     ], 
                     'enableMouseTracking' =>  true
