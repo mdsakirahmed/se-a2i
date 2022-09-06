@@ -60,6 +60,12 @@
                  Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
              });
          });
+
+         Highcharts.setOptions({
+            lang: {
+            thousandsSep: ','
+            }
+        });
      </script>
  </div>
  

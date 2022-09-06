@@ -67,6 +67,7 @@ class Chart38 extends Component
                 'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1'),
                 'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2'),
                 'budget_crore_bdt' => collect($data_set)->sum('budget_crore_bdt'),
+                'beneficiaries_lac_persons'=> collect($data_set)->sum('beneficiaries_lac_persons'),
                 'value' => collect($data_set)->sum('value'),
             ]);
         }
@@ -82,12 +83,19 @@ class Chart38 extends Component
             'plotOptions' => [
                 'series' => [
                     'cursor' => 'pointer',
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'allowOverlap' => false,
+                    'dataLabels'=>[
                         'style' => [
-                            'fontSize' => '12px'
+                        'textShadow' => false,
+                        'strokeWidth' => 0,
+                        'textOutline' => false
                         ]
+                    ],
+                ],
+                
+                'treemap'=>[
+                    'borderWidth'=>0,
+                    'style'=>[
+                        'strokeWidth'=>0
                     ]
                 ]
             ],
@@ -98,12 +106,8 @@ class Chart38 extends Component
                 'data' => $formated_data,
                 'dataLabels' => [
                     'enabled' => true,
-                    'format' => '{point.programme_name}<br>{point.value}',
-                    'style' => [
-                        'textShadow' => false,
-                        'strokeWidth' => 0,
-                        'textOutline' => false
-                    ]
+                    'format' => '{point.programme_name}',
+                    
                 ],
                 'tooltip' => [
                     'useHTML' => true,
