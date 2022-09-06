@@ -124,7 +124,8 @@ class Chart24 extends Component
                     ],
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.name}"
+                        'format' => "{point.name}",
+                        'color'=> '#323232'
                     ]
                 ]
             ]

@@ -196,7 +196,8 @@ class Chart20 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'inside' => false,
-                        'format' => "{point.y:,.2f}"
+                        'format' => "{point.y:,.2f}",
+                        'color'=> '#323232'
 
                     ], 
                     'enableMouseTracking' =>  true

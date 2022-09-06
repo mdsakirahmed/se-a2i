@@ -128,7 +128,7 @@ class Chart1 extends Component
             'series' => [[
                 'name' => 'Male',
                 'stack' => 'gender',
-                'color' => "#7F3F98",
+                'color' => "#7F3F98",                
                 'data' => collect($data)->pluck('female_student')->map(function ($value) {
                     return round($value, 2);
                 }),
@@ -136,6 +136,9 @@ class Chart1 extends Component
                 'name' => 'Female',
                 'stack' => 'gender',
                 'color' => "#83C341",
+                'dataLabels'=>[
+                    'color'=>'#323232'
+                ],
                 'data' =>  collect($data)->pluck('male_student')->map(function ($value) {
                     return round($value, 2);
                 }),

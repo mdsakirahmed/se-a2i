@@ -130,7 +130,7 @@ class Chart4 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'inside' => false,
-                        'color' => '#000000',
+                        'color'=> '#323232',
                         'style' => [
                             'textShadow' => false,
                             'strokeWidth' => 0,
