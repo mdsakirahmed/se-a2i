@@ -42,7 +42,7 @@ class Chart26 extends Component
 
     public function get_data()
     {
-        $db_data = DB::connection('mysql2')->select("SELECT fiscal_year, country, export_in_usd FROM corona_socio_info.economy_export_country"); // ok after clear data in db
+        $db_data = DB::connection('mysql2')->select("SELECT fiscal_year, country, export_million_usd FROM corona_socio_info.economy_export_country"); // ok after clear data in db
 
         // $this->countries = collect($db_data)->pluck('country')->unique();
 

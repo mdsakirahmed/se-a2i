@@ -43,7 +43,7 @@ class Chart24 extends Component
     public function get_data()
     {
 
-        $db_data = DB::connection('mysql2')->select("SELECT fiscal_year, country, import_in_usd FROM corona_socio_info.economy_import_country");
+        $db_data = DB::connection('mysql2')->select("SELECT fiscal_year, country, import_million_usd FROM corona_socio_info.economy_import_country");
 
         // $this->countries = collect($db_data)->pluck('country')->unique();
 
@@ -52,9 +52,9 @@ class Chart24 extends Component
         $formated_data = [];
         foreach (collect($db_data)->groupBy('country') as $country => $country_wise_data) {
             if ($this->selected_year) {
-                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_in_usd') / 1000000;
+                $value = collect($country_wise_data)->where('fiscal_year', $this->selected_year)->sum('import_million_usd') / 1000000;
             } else {
-                $value = collect($country_wise_data)->sum('import_in_usd') / 1000000;
+                $value = collect($country_wise_data)->sum('import_million_usd') / 1000000;
             }
             array_push($formated_data, [
                 'country' => $country, 'value' => round($value)

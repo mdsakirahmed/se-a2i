@@ -87,7 +87,7 @@ class Chart39 extends Component
                 'data' => $formated_data,
                 'dataLabels' => [
                     'enabled' => true,
-                    'format' => '{point.programme_name}<br>{point.value}',
+                    'format' => '{point.programme_name}',
                     'style' => [
                         'textShadow' => false,
                         'strokeWidth' => 0,
@@ -102,6 +102,12 @@ class Chart39 extends Component
             'plotOptions' => [
                 'series' => [
                     'cursor' => 'pointer'
+                ],
+                'treemap'=>[
+                    'borderWidth'=>0,
+                    'style'=>[
+                        'strokeWidth'=>0
+                    ]
                 ]
             ],
         ];

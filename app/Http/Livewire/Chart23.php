@@ -35,129 +35,129 @@ class Chart23 extends Component
         $db_data_set = DB::connection('mysql2')->select("(SELECT * FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2005-2006'
+                fiscal_year = '2005-06'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2006-2007'
+                fiscal_year = '2006-07'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2007-2008'
+                fiscal_year = '2007-08'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2008-2009'
+                fiscal_year = '2008-09'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2009-2010'
+                fiscal_year = '2009-10'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2010-2011'
+                fiscal_year = '2010-11'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2011-2012'
+                fiscal_year = '2011-12'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2012-2013'
+                fiscal_year = '2012-13'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2013-2014'
+                fiscal_year = '2013-14'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2014-2015'
+                fiscal_year = '2014-15'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2015-2016'
+                fiscal_year = '2015-16'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2016-2017'
+                fiscal_year = '2016-17'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2017-2018'
+                fiscal_year = '2017-18'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2018-2019'
+                fiscal_year = '2018-19'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2019-2020'
+                fiscal_year = '2019-20'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10) UNION ALL (SELECT 
                 *
             FROM
                 economy_import_country
             WHERE
-                fiscal_year = '2020-2021'
+                fiscal_year = '2020-21'
                     AND country NOT IN ('Top 15' , 'Total' , 'Imports of EPZ' , 'Special Category Imports')
-            ORDER BY import_in_usd DESC
+            ORDER BY import_million_usd DESC
             LIMIT 10)");
 
         $this->fotmated_data_set = array();
@@ -165,7 +165,7 @@ class Chart23 extends Component
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function ($data) {
-                    return ["$data->country" . '&nbsp; <img src="' . ("/assets/flags/$data->country.png") . '" width="20" height="15">', $data->import_in_usd / 1000000];
+                    return ["$data->country" . '&nbsp; <img src="' . ("/assets/flags/$data->country.png") . '" width="20" height="15">', $data->import_million_usd];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -173,8 +173,9 @@ class Chart23 extends Component
 
         //Default render by first one or key 0
         $this->chart_data_set = $this->get_data();
+        
     }
-
+//dd($selected_key_for_data_view);
     public function get_data($selected_key_for_data_view = 0)
     {
         return [

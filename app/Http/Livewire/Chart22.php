@@ -41,7 +41,7 @@ class Chart22 extends Component
         (SELECT 
             id,
             fiscal_year,
-            SUM(import_in_usd) AS import_in_usd
+            SUM(import_million_usd) AS import_in_usd
         FROM
             economy_import_country
         WHERE
@@ -53,7 +53,7 @@ class Chart22 extends Component
         (SELECT 
             id,
             fiscal_year,
-            SUM(export_in_usd) AS export_in_usd
+            SUM(export_million_usd) AS export_in_usd
         FROM
             economy_export_country
         WHERE
@@ -66,8 +66,8 @@ class Chart22 extends Component
         foreach ($data_set as $data) {
             array_push($import_export_over_the_year, [
                 'fiscal_year' => substr($data->fiscal_year, 0, 5) . substr($data->fiscal_year, 7, 10),
-                'import_in_usd' => round(((float)$data->import_in_usd) / 1000000000, 2),
-                'export_in_usd' => round(((float)$data->export_in_usd) / 1000000000, 2),
+                'import_in_usd' => round(((float)$data->import_in_usd) / 1000, 2),
+                'export_in_usd' => round(((float)$data->export_in_usd) / 1000, 2),
             ]);
         }
 
@@ -138,16 +138,16 @@ class Chart22 extends Component
 
             'series' =>  [
                 [
-                    'name' =>  'Total imports',
-                    'data' =>  collect($import_export_over_the_year)->pluck('import_in_usd'),
-                    'color' =>  '#7F3F98',
-                    'marker' =>  [
-                        'radius' =>  3
-                    ]
-                ], [
                     'name' =>  'Total exports',
                     'data' =>  collect($import_export_over_the_year)->pluck('export_in_usd'),
                     'color' =>  '#83C341',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
+                ],[
+                    'name' =>  'Total imports',
+                    'data' =>  collect($import_export_over_the_year)->pluck('import_in_usd'),
+                    'color' =>  '#7F3F98',
                     'marker' =>  [
                         'radius' =>  3
                     ]
