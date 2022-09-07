@@ -31,24 +31,20 @@ class Chart45 extends Component
 
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT
-        students_participation_percentage AS students_participation_percentage,
-        AVG(rate_of_students_participation_percentage) AS raite_of_students_participation_percentage
+        $data = DB::connection('mysql2')->select("SELECT 
+        year, region, mpi, hr, id_poor, vul_pov
         FROM
-            (SELECT
-                students_participation_percentage,
-                (COUNT(*) * 100) / (SELECT
-                            COUNT(*)
-                        FROM
-                            education_covid19_impact) AS rate_of_students_participation_percentage
-            FROM
-                education_covid19_impact WHERE students_participation_percentage IS NOT NULL
-            GROUP BY students_participation_percentage) AS expr_qry
-        GROUP BY students_participation_percentage
-        ORDER BY students_participation_percentage ASC
-        LIMIT 1000");
+        corona_socio_info.ophi_poverty;");
 
-        array_unshift($data, array_pop($data));
+        $formated_data = array();
+        foreach ($data as $key => $value) {
+            array_push($formated_data, [
+                'location'  => $key,
+                'hr' => round($value->where('early_marriage', 'Increased')->sum('event_percent'), 2),
+                'decreased' => round($value->where('early_marriage', 'Decreased')->sum('event_percent'), 2),
+                'same'      => round($value->where('early_marriage', 'Same')->sum('event_percent'), 2),
+            ]);
+        }
 
         return [
             'chart' => [

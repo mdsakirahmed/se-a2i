@@ -328,11 +328,10 @@
                                                     </h6>
                                                 </div>
                                             </a>
-                                             <a href="#">
-                                                <div class="nav-title-sub">
+                                             <a href="{{ route('backend.health.sdg-analytic-hub') }}">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.health.sdg-analytic-hub')) sub-active @endif">
                                                     <h6>
-                                                        {{ __('SDG Analytic Hub') }}
-                                                    
+                                                        {{ __('SDG Analytic Hub') }}                                                   
                                                     </h6>
                                                 </div>
                                             </a> 
