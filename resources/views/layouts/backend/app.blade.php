@@ -300,24 +300,24 @@
                                     </a>
                                     <div id="faq-list-3" class="collapse sub-collapse" data-bs-parent=".faq-list">
                                         <div class="sub-alignment">
-                                            <a href="#">
-                                                <div class="nav-title-sub">
+                                            <a href="{{ route('backend.health.child-mortality') }}">
+                                                <div class="nav-title-sub @if(request()->routeIs('backend.health.child-mortality')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Child Mortality') }}
                                                     
                                                     </h6>
                                                 </div>
                                             </a>
-                                            <a href="#">
-                                                <div class="nav-title-sub">
+                                            <a href="{{ route('backend.health.causes-of-death') }}">
+                                                <div class="nav-title-sub  @if(request()->routeIs('backend.health.causes-of-death')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Causes of Death') }}
                                                     
                                                     </h6>
                                                 </div>
                                             </a>
-                                            <a href="#">
-                                                <div class="nav-title-sub">
+                                            <a href="{{ route('backend.health.maternal-and-child-health-service') }}">
+                                                <div class="nav-title-sub  @if(request()->routeIs('backend.health.maternal-and-child-health-service')) sub-active @endif">
                                                     <h6>
                                                         {{ __('Maternal/Child Health Services') }}
                                                     
