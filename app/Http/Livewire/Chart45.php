@@ -121,9 +121,7 @@ class Chart45 extends Component
                     'borderRadius' => '5px',
                 ]
             ],
-            'legend' => [
-                'enabled' => false
-            ],
+            
             'series' => [[
                 'name' => 'Intensity of Deprivation among Poor',
                 'color' => "#83C341",
@@ -134,11 +132,11 @@ class Chart45 extends Component
                 'data' =>  $poverty_index_ophi_data_set['hr']
             ],[
                 'name' => 'Vulnerable to Poverty',
-                'color' => "#FFB207",
+                'color' => "#ee47b5",
                 'data' =>  $poverty_index_ophi_data_set['vul_pov']
             ],[
                 'name' => 'Multidimensional Poverty Index',
-                'color' => "#83C341",
+                'color' => "#FFB207",
                 'data' =>  $poverty_index_ophi_data_set['mpi']
             ]]
         ];
