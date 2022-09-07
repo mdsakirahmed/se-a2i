@@ -47,6 +47,18 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
         Route::view('budget-and-coverage', 'backend.social-protection.budget-and-coverage')->name('budget_and_coverage');
     });
 
+    //Health
+    Route::group(['prefix' => 'health', 'as' => 'health.'], function () {
+        Route::view('child-mortality', 'backend.health.child-mortality')->name('child-mortality');
+        Route::view('causes-of-death', 'backend.health.causes-of-death')->name('causes-of-death');
+        Route::view('maternal-and-child-health-service', 'backend.health.maternal-and-child-health-service')->name('maternal-and-child-health-service');
+        Route::view('sdg-analytic-hub', 'backend.health.sdg-analytic-hub')->name('sdg-analytic-hub');
+        Route::view('sdg-analytic-hub/heatmap', 'backend.health.sdg-analytic-hub.heatmap')->name('heatmap');
+        Route::view('sdg-analytic-hub/extrapolation', 'backend.health.sdg-analytic-hub.extrapolation')->name('extrapolation');
+        Route::view('sdg-analytic-hub/correlation-and-association', 'backend.health.sdg-analytic-hub.correlation-and-association')->name('correlation-and-association');
+
+    });
+
     Route::get('backup', Backup::class)->name('backup');
     Route::get('role-permission', RolePermission::class)->name('role_permission')->middleware(['can:role permission management']);
     Route::get('user-management', User::class)->name('user_management')->middleware(['can:user management']);

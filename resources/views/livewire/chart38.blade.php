@@ -66,6 +66,7 @@
             thousandsSep: ','
             }
         });
+        
      </script>
  </div>
  
