@@ -70,6 +70,7 @@
             thousandsSep: ','
             }
         });
+        
      </script>
  </div>
  

@@ -26,7 +26,10 @@
                 </div>
                 <div class="col-md-12 mb-5">
                     @livewire('chart40')
-                </div>               
+                </div>
+                <div class="col-md-12 mb-5">
+                    @livewire('chart44')
+                </div>                 
             </div>
         </div>
     </div>

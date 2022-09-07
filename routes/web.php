@@ -49,10 +49,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
 
     //Health
     Route::group(['prefix' => 'health', 'as' => 'health.'], function () {
+        Route::view('child-mortality', 'backend.health.child-mortality')->name('child-mortality');
         Route::view('causes-of-death', 'backend.health.causes-of-death')->name('causes-of-death');
-        // Route::view('child-mortality', 'backend.health.child-mortality')->name('child_mortality');
-        // Route::view('causes-of-death', 'backend.health.causes-of-death')->name('causes_of_death');
-        // Route::view('maternal-and-child-health-service', 'backend.health.maternal-and-child-health-service')->name('maternal_child_health_service');
+        Route::view('maternal-and-child-health-service', 'backend.health.maternal-and-child-health-service')->name('maternal-and-child-health-service');
+        Route::view('sdg-analytic-hub', 'backend.health.sdg-analytic-hub')->name('sdg-analytic-hub');
+        Route::view('sdg-analytic-hub/heatmap', 'backend.health.sdg-analytic-hub.heatmap')->name('heatmap');
+        Route::view('sdg-analytic-hub/extrapolation', 'backend.health.sdg-analytic-hub.extrapolation')->name('extrapolation');
+        Route::view('sdg-analytic-hub/correlation-and-association', 'backend.health.sdg-analytic-hub.correlation-and-association')->name('correlation-and-association');
+
     });
 
     Route::get('backup', Backup::class)->name('backup');
