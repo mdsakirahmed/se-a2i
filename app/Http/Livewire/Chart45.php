@@ -32,18 +32,22 @@ class Chart45 extends Component
     public function get_data()
     {
         $data = DB::connection('mysql2')->select("SELECT 
-        year, region, mpi, hr, id_poor, vul_pov
-        FROM
-        corona_socio_info.ophi_poverty;");
+            year, region, mpi, hr, id_poor, vul_pov
+            FROM
+            corona_socio_info.ophi_poverty;");
 
-        $formated_data = array();
-        foreach ($data as $key => $value) {
-            array_push($formated_data, [
-                'location'  => $key,
-                'hr' => round($value->where('early_marriage', 'Increased')->sum('event_percent'), 2),
-                'decreased' => round($value->where('early_marriage', 'Decreased')->sum('event_percent'), 2),
-                'same'      => round($value->where('early_marriage', 'Same')->sum('event_percent'), 2),
-            ]);
+        $poverty_index_ophi_data_set['region'] =
+        $poverty_index_ophi_data_set['mpi'] =
+        $poverty_index_ophi_data_set['hr'] =
+        $poverty_index_ophi_data_set['id_poor'] =
+        $poverty_index_ophi_data_set['vul_pov'] =
+        array();
+        foreach (collect($data) as $data_of_a_year) {
+            array_push($poverty_index_ophi_data_set['region'],$data_of_a_year->region);
+            array_push($poverty_index_ophi_data_set['mpi'],(float) $data_of_a_year->mpi);
+            array_push($poverty_index_ophi_data_set['hr'],(float) $data_of_a_year->hr);
+            array_push($poverty_index_ophi_data_set['id_poor'],(float) $data_of_a_year->id_poor);
+            array_push($poverty_index_ophi_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
         }
 
         return [
@@ -60,7 +64,8 @@ class Chart45 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('students_participation_percentage'),
+                'categories' => $poverty_index_ophi_data_set['region'],
+                'crosshair' => true,
                 'labels' => [
                     'style' => [
                         'fontSize' => '13px'
@@ -71,7 +76,7 @@ class Chart45 extends Component
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila',
+                    'text' => 'Percentage',
                     'style' => [
                         'fontSize' => '15px'
                     ]
@@ -82,10 +87,21 @@ class Chart45 extends Component
                     ]
                 ]
             ],
+
+            'legend' => [
+                'enabled'=>true,
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
+            ],
+
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
-                'pointFormat' => '{series.name} : {point.y:,.2f} %',
+                'pointFormat' => '{series.name} : {point.y:,.2f}',
                 'style' => [
                     'color' => '#fff'
                 ],
@@ -98,37 +114,32 @@ class Chart45 extends Component
 
             'plotOptions' => [
                 'column' => [
-                    'stacking' => 'normal',
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'inside' => false,
-                        'format' => "{point.y:,.2f}" . '%',
-                        'color'=> '#323232'
-                    ]
+                    'pointPadding' => 0.2,
+                    'borderWidth' => 0
                 ],
                 'series' => [
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'style' => [
-                            'textShadow' => false,
-                            'strokeWidth' => 0,
-                            'textOutline' => false
-                        ]
-                    ],
-                    'pointWidth' => 30,
-                    'borderRadius' => '10px',
+                    'borderRadius' => '5px',
                 ]
             ],
             'legend' => [
                 'enabled' => false
             ],
             'series' => [[
-                'name' => '',
-                'stack' => '',
+                'name' => 'Intensity of Deprivation among Poor',
                 'color' => "#83C341",
-                'data' =>  collect($data)->pluck('raite_of_students_participation_percentage')->map(function ($value) {
-                    return round($value, 2);
-                }),
+                'data' =>  $poverty_index_ophi_data_set['id_poor']
+            ],[
+                'name' => 'Headcount ratio: Population in multidimensional poverty',
+                'color' => "#7F3F98",
+                'data' =>  $poverty_index_ophi_data_set['hr']
+            ],[
+                'name' => 'Vulnerable to Poverty',
+                'color' => "#FFB207",
+                'data' =>  $poverty_index_ophi_data_set['vul_pov']
+            ],[
+                'name' => 'Multidimensional Poverty Index',
+                'color' => "#83C341",
+                'data' =>  $poverty_index_ophi_data_set['mpi']
             ]]
         ];
     }
