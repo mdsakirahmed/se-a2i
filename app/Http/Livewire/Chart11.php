@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart11 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 11;
+    public $name, $description, $datasource, $chart_id = 11;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart11 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart11', [
@@ -51,21 +53,34 @@ class Chart11 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
+
             'title' => [
                 'text' => ''
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
             'tooltip' => [
@@ -87,9 +102,22 @@ class Chart11 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
+                        'inside' => false,
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
+                ],
+                'series' => [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false,
+                            'color' => '#323232'
+                        ]
+                    ],
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [
@@ -98,7 +126,7 @@ class Chart11 extends Component
             'series' => [[
                 'name' => '',
                 'stack' => '',
-                'color' => "#83C341",
+                'color' => "#722A8D",
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),

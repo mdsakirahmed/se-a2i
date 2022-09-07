@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart29 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 29;
+    public $name, $description, $datasource, $chart_id = 29;
 
     public function render()
     {
@@ -20,9 +20,11 @@ class Chart29 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart29', [
@@ -56,43 +58,70 @@ class Chart29 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('date')
+                'categories' =>  collect($data)->pluck('date'),
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
             ], 'yAxis' =>  [
                 'title' =>  [
-                    'text' =>  'Number of transactions (In million)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                    'text' =>  'Number of transactions (In million)',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'format' =>  '{value}',
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
             'legend' => [
                 'reversed' => true
             ],
+            'legend' => [
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
+            ],
             'plotOptions' =>  [
-                'series' => [
-                    'stacking' => 'normal'
+                'bar' => [
+                    'stacking' => 'normal',
+                    'pointMargin' => 2,
+                    'groupPadding' => 0,
+                    'dataLabels' => [
+                        'enabled' => false,
+                    ],
+                    'pointWidth' => 10,
                 ],
-                'bar' =>  [
-                    'dataLabels' =>  [
-                        'enabled' =>  false
-                    ], 'enableMouseTracking' =>  true
-                ]
-            ], 'series' =>  [
+            ],
+
+            'tooltip' => [
+
+                'pointFormat' => '{series.name} : {point.y} (In million)',
+            ],
+
+            'series' =>  [
                 [
                     'name' =>  'Internet Banking',
                     'data' =>  collect($data)->pluck('banking')->map(function ($value) {
                         return round($value / 1000000, 2);
                     }),
-                    'color' =>  '#83C341',
+                    'color' =>  '#FFB207',
                     'marker' =>  [
                         'radius' =>  3
                     ]
-                ]
-                , [
+                ], [
                     'name' =>  'Agent',
                     'data' =>  collect($data)->pluck('agent')->map(function ($value) {
                         return round($value / 1000000, 2);
                     }),
-                    'color' =>  '#835420',
+                    'color' =>  '#EE47B5',
                     'marker' =>  [
                         'radius' =>  3
                     ]
@@ -107,7 +136,7 @@ class Chart29 extends Component
                         'radius' =>  3
                     ]
                 ]
-                
+
             ]
         ];
     }

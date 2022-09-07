@@ -1,78 +1,66 @@
-<div>
-
-
-
-    <div>
-        <style>
-            #chart_id_{{ $chart->id }} {
-                height: 800px;
-                min-width: 800px;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-        </style>
-        <div class="card">
-            <div class="card-header">
-                {{ $name }}
-                <div>
-                    <button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>
-                </div>
-            </div>
-           <div class="card-body">
-            <select wire:model="selected_division" wire:change="change_divition">
-                <option value="">All division</option>
-                <option value="Khulna">Khulna</option>
-                <option value="Barisal">Barisal</option>
-                <option value="Rajshahi">Rajshahi</option>
-                <option value="Chittagong">Chittagong</option>
-                <option value="Dhaka">Dhaka</option>
-                <option value="Rangpur">Rangpur</option>
-                <option value="Sylhet">Sylhet</option>
-                <option value="Mymensingh">Mymensingh</option>
-            </select>
-            <select wire:model="selected_district" wire:change="update_chart">
-                <option value="">All district</option>
-                @foreach ($districts as $district)
-                    <option value="{{ $district }}">{{ $district }}</option>
-                @endforeach
-            </select>
-            
-            <figure class="highcharts-figure">
-                <div id="chart_id_{{ $chart->id }}"> </div>
-            </figure>
-           </div>
-            <div class="card-footer">
-                {!! $description !!}
-            </div>
-        </div>
-        <script>
-            //First loaded data
-            Highcharts.mapChart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
-            
-            //chart update and re-render
-            window.addEventListener("chart_update_{{ $chart->id }}", event => {
-                Highcharts.mapChart("chart_id_{{ $chart->id }}", event.detail.data);
-            });
-        </script>
-    </div>
-
-    
-
-
-    
-    <div class="card">
+<div class="h-100">
+    <style>
+        #chart_id_{{ $chart->id }} {
+            height: 800px;
+            min-width: 800px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+    <div class="card h-100">
         <div class="card-header">
-            {{ $name }}
+            <h5>{{ $name }}</h5>
+            <div>
+                @can('chart info edit')<button type="button" class="btn btn-trans-icon" wire:click="$emit('editChartInfo', '{{ $chart_id }}')"><i class="bx bx-edit-alt"></i> Edit</button>@endcan
+            </div>
         </div>
-        <div class="card-body">
-            <iframe width="100%" height="660px" frameborder="0" allowfullscreen="true" src="https://public.tableau.com/views/Percentragechangeinoverseasemployment/Dashboard1?%3Aembed=y&%3AshowVizHome=no&:device=desktop">
-            </iframe>
-            <p class="text-center">
-                <button type="butto" class="btn btn-secondary btn-sm m-2" wire:click="$emit('editChartInfo', '{{ $chart->id }}')">Edit</button>
+       <div class="card-body">
+        <div class="card-desc">
+            <p>
+            {!! $description !!}
             </p>
         </div>
+        <select wire:model="selected_division" wire:change="change_divition">
+            <option value="">All division</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Barisal">Barisal</option>
+            <option value="Rajshahi">Rajshahi</option>
+            <option value="Chittagong">Chittagong</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Rangpur">Rangpur</option>
+            <option value="Sylhet">Sylhet</option>
+            <option value="Mymensingh">Mymensingh</option>
+        </select>
+        <select wire:model="selected_district" wire:change="update_chart">
+            <option value="">All district</option>
+            @foreach ($districts as $district)
+                <option value="{{ $district }}">{{ $district }}</option>
+            @endforeach
+        </select>
+        
+        <figure class="highcharts-figure">
+            <div id="chart_id_{{ $chart->id }}"> </div>
+        </figure>
+       </div>
         <div class="card-footer">
-            {!! $description !!}
+            @if ($datasource && $datasource != "<p><br></p>")
+                <div class="tooltip">
+                    <i class="bx bx-info-circle"></i> 
+                    Source
+                    <span class="tooltiptext">
+                        {!! $datasource !!}
+                    </span>
+                </div>
+            @endif
         </div>
     </div>
+    <script>
+        //First loaded data
+        Highcharts.mapChart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+        
+        //chart update and re-render
+        window.addEventListener("chart_update_{{ $chart->id }}", event => {
+            Highcharts.mapChart("chart_id_{{ $chart->id }}", event.detail.data);
+        });
+    </script>
 </div>

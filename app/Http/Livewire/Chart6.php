@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart6 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 6;
+    public $name, $description, $datasource, $chart_id = 6;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart6 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart6', [
@@ -89,7 +91,7 @@ class Chart6 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
 
             'title' => [
@@ -102,27 +104,44 @@ class Chart6 extends Component
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Percentage of School'
+                    'text' => 'Percentage of School',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
 
             'xAxis' => [
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
 
             'legend' => [
-                'layout' => 'vertical',
-                'align' => 'right',
-                'verticalAlign' => 'middle'
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
 
             'plotOptions' => [
                 'series' => [
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => '{point.y}%'
+                        'format' => '{point.y}%',
+                        'color'=> '#323232'
                     ],
                     'pointStart' => 2014
                 ]

@@ -9,17 +9,19 @@ use Livewire\Component;
 class Chart5 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 5;
+    public $name, $description, $datasource, $chart_id = 5;
 
     public function render()
     {
-        $this->chart =Chart::findOrFail($this->chart_id);
+        $this->chart = Chart::findOrFail($this->chart_id);
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart5', [
@@ -69,21 +71,34 @@ class Chart5 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
+
             'title' => [
                 'text' => ''
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
             'tooltip' => [
@@ -105,8 +120,22 @@ class Chart5 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => '{point.y:,.2f}%'
+                        'inside' => false,
+                        'format' => '{point.y:,.2f}%',
+                        'color'=> '#323232'
                     ]
+                ],
+                'series' => [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false,
+                            'color'=> '#323232',
+                        ]
+                    ],
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [

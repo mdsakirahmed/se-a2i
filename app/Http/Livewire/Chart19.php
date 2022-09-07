@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart19 extends Component
 {
   public  Chart $chart;
-  public $name, $description, $chart_id = 19;
+  public $name, $description, $datasource, $chart_id = 19;
   public $selected_district = [],  $selected_division = [];
 
   public function render()
@@ -18,9 +18,11 @@ class Chart19 extends Component
     if (app()->currentLocale() == 'bn') {
       $this->name = $this->chart->bn_name;
       $this->description = $this->chart->bn_description;
+      $this->datasource = $this->chart->bn_datasource;
     } else {
       $this->name = $this->chart->en_name;
       $this->description = $this->chart->en_description;
+      $this->datasource = $this->chart->en_datasource;
     }
 
     return view('livewire.chart19', [
@@ -28,7 +30,8 @@ class Chart19 extends Component
     ]);
   }
 
-  public function change_divition(){
+  public function change_divition()
+  {
     $this->selected_district = null;
     $this->update_chart();
   }
@@ -112,18 +115,18 @@ class Chart19 extends Component
 
     $formated_data = [];
     foreach (collect($array_data_set)->groupBy('district') as $district => $district_wise_data) {
-        // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
-        array_push($formated_data, [
-            'district' => $district, 'value' => round(collect($district_wise_data)->sum('value'), 2), 'division' => collect($district_wise_data)->first()['division']
-        ]);
+
+      array_push($formated_data, [
+        'district' => $district, 'value' => round(collect($district_wise_data)->sum('value'), 2), 'division' => collect($district_wise_data)->first()['division']
+      ]);
     }
-    
+
     $this->divisions = collect($formated_data)->pluck('division')->unique();
 
-    if($this->selected_division){
-        $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
-    }else{
-        $this->districts = collect($formated_data)->pluck('district');
+    if ($this->selected_division) {
+      $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
+    } else {
+      $this->districts = collect($formated_data)->pluck('district');
     }
 
     //Get data from json file
@@ -133,21 +136,21 @@ class Chart19 extends Component
     $filter_geojson = $geojson;
     $filter_geojson['features'] = [];
     foreach ($geojson['features'] as $feature) {
-        if ($this->selected_district && $this->selected_division) {
-            if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else if ($this->selected_district && !$this->selected_division) {
-            if ($feature['properties']['district'] == $this->selected_district) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else if (!$this->selected_district && $this->selected_division) {
-            if ($feature['properties']['division'] == $this->selected_division) {
-                array_push($filter_geojson['features'], $feature);
-            }
-        } else {
-            array_push($filter_geojson['features'], $feature);
+      if ($this->selected_district && $this->selected_division) {
+        if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
+          array_push($filter_geojson['features'], $feature);
         }
+      } else if ($this->selected_district && !$this->selected_division) {
+        if ($feature['properties']['district'] == $this->selected_district) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else if (!$this->selected_district && $this->selected_division) {
+        if ($feature['properties']['division'] == $this->selected_division) {
+          array_push($filter_geojson['features'], $feature);
+        }
+      } else {
+        array_push($filter_geojson['features'], $feature);
+      }
     }
     $geojson = $filter_geojson;
 
@@ -156,6 +159,10 @@ class Chart19 extends Component
     return [
       'chart' => [
         'map' => collect($geojson)
+      ],
+
+      'credits' => [
+        'enabled' => false
       ],
 
       'title' => [
@@ -174,29 +181,49 @@ class Chart19 extends Component
       ],
 
       'colorAxis' => [
-        'tickPixelInterval' => 100
+        'tickPixelInterval' => 100,
+        'min' => collect($formated_data)->min('value'),
+        'max' => collect($formated_data)->max('value'),
+        'minColor' => '#cfc5d4',
+        'maxColor' => '#7F3F98'
       ],
-
+      'tooltip' => [
+        'useHTML' => true,
+        'headerFormat' => '',
+        'pointFormat' => 'District: {point.district}<br>Percent Change In Overseas Employment (19-20):	{point.value:,.2f}',
+        'style' => [
+          'color' => '#fff'
+        ],
+        'valueDecimals' => 0,
+        'backgroundColor' => '#444444',
+        'borderColor' => '#eeee',
+        'borderRadius' => 10,
+        'borderWidth' => 3,
+      ],
       'series' => [
         [
-          'data' => collect($formated_data)->map(function($data){
-            return [$data['district'], $data['value']];
-        }),
-          'keys' => ["district", "value"],
+          'data' => collect($formated_data)->map(function ($data) {
+            return [$data['division'], $data['district'], $data['value']];
+          }),
+          'keys' => ["division", "district", "value"],
           'joinBy' => "district",
-          'name' => "Moderate to Severe Food Insecurity",
           'states' => [
             'hover' => [
-              'color' => "#a4edba"
+              'color' => "#9cc13d"
             ]
           ],
           'dataLabels' => [
             'enabled' => true,
-            'format' => "{point.properties.district}"
+            'format' => "{point.properties.district}",
+            'style' => [
+              'textShadow' => false,
+              'strokeWidth' => 0,
+              'textOutline' => false,
+              'color' => '#323232'
+            ]
           ]
         ]
       ]
     ];
   }
 }
-

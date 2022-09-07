@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart1 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 1;
+    public $name, $description, $datasource, $chart_id = 1;
 
     public function render()
     {
@@ -42,7 +42,8 @@ class Chart1 extends Component
 
         return [
             'chart' => [
-                'type' => 'column'
+                'type' => 'column',
+                'className' => 'bar-chart'
             ],
 
             'credits' => [
@@ -54,15 +55,31 @@ class Chart1 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year')
+                'categories' => collect($data)->pluck('year'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
+                'max'=> 100,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Students'
+                    'text' => 'Percentage of Students',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
+            
+            
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
@@ -84,12 +101,34 @@ class Chart1 extends Component
                         'enabled' => true,
                         'format' => "{point.y:,.2f}" . '%',
                     ]
+                ],
+                'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'pointWidth'=> 30,
+                    'borderRadius' => '10px',
+                    'innerRadius' => '50%',
                 ]
+            ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0,
+                'margin'=> 45
             ],
             'series' => [[
                 'name' => 'Male',
                 'stack' => 'gender',
-                'color' => "#7F3F98",
+                'color' => "#7F3F98",                
                 'data' => collect($data)->pluck('female_student')->map(function ($value) {
                     return round($value, 2);
                 }),
@@ -97,6 +136,9 @@ class Chart1 extends Component
                 'name' => 'Female',
                 'stack' => 'gender',
                 'color' => "#83C341",
+                'dataLabels'=>[
+                    'color'=>'#323232'
+                ],
                 'data' =>  collect($data)->pluck('male_student')->map(function ($value) {
                     return round($value, 2);
                 }),

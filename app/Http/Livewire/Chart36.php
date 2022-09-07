@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart36 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 36;
+    public $name, $description, $datasource, $chart_id = 36;
     public $chart_type = 'column';
     public $divisions, $selected_division, $districts, $selected_district;
 
@@ -22,9 +22,11 @@ class Chart36 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         $this->divisions = DB::connection('mysql2')->select("SELECT distinct division FROM education_covid19_impact");
@@ -122,18 +124,18 @@ class Chart36 extends Component
                         ORDER BY child_labor, division_pro ASC
                 LIMIT 1000");
                 $data = collect($data)->groupBy('division_pro');
-                $title = 'Percentage of Upazial';
+                $title = 'Percentage of Upazila';
             }
         }
 
         $formated_data = array();
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
             array_push($formated_data, [
                 'location'  => $key,
                 'increased' => round($value->where('child_labor', 'Increased')->sum('event_percent'), 2),
                 'decreased' => round($value->where('child_labor', 'Decreased')->sum('event_percent'), 2),
                 'same'      => round($value->where('child_labor', 'Same')->sum('event_percent'), 2),
-            ]); 
+            ]);
         }
 
         return [
@@ -150,13 +152,34 @@ class Chart36 extends Component
             ],
             'xAxis' => [
                 'categories' =>  collect($formated_data)->pluck('location'),
-                'crosshair' => true
+                'crosshair' => true,
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'min' => 0,
                 'title' => [
-                    'text' => $title
+                    'text' => $title,
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
+            ],
+            'legend' => [
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:10px">{point.key}</span><table>',
@@ -170,20 +193,23 @@ class Chart36 extends Component
                 'column' => [
                     'pointPadding' => 0.2,
                     'borderWidth' => 0
+                ],
+                'series' => [
+                    'borderRadius' => '5px',
                 ]
             ],
             'series' => [[
-                'name' => 'Decreased',
-                'color' => "#7F3F98",
-                'data' =>  collect($formated_data)->pluck('decreased'),
-            ], [
                 'name' => 'Increased',
                 'color' => "#83C341",
                 'data' => collect($formated_data)->pluck('increased'),
             ], [
                 'name' => 'Same',
-                'color' => "#833341",
+                'color' => "#7F3F98",
                 'data' =>  collect($formated_data)->pluck('same'),
+            ], [
+                'name' => 'Decreased',
+                'color' => "#FFB207",
+                'data' =>  collect($formated_data)->pluck('decreased'),
             ]],
         ];
     }

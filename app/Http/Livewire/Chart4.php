@@ -9,17 +9,19 @@ use Livewire\Component;
 class Chart4 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 4;
+    public $name, $description, $datasource, $chart_id = 4;
 
     public function render()
     {
-        $this->chart =Chart::findOrFail($this->chart_id);
+        $this->chart = Chart::findOrFail($this->chart_id);
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart4', [
@@ -72,21 +74,34 @@ class Chart4 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
+
             'title' => [
                 'text' => ''
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
             'tooltip' => [
@@ -110,15 +125,28 @@ class Chart4 extends Component
                         'enabled' => true,
                         'format' => '{point.y:,.2f}%'
                     ]
+                ],
+                'series' => [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+                        'color'=> '#323232',
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false
+                        ]
+                    ],
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [
-                'enabled' => false
+                'enabled' => false,
             ],
             'series' => [
                 [
                     'name' => '',
-                    'color' => "#83C341",
+                    'color' => "#722A8D",
                     'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                         return round($value, 2);
                     }),

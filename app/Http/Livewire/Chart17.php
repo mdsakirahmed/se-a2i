@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart17 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 17;
+    public $name, $description, $datasource, $chart_id = 17;
     public $years, $districts, $divisions, $selected_year, $selected_district, $selected_division;
 
     public function render()
@@ -18,9 +18,11 @@ class Chart17 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart17', [
@@ -54,17 +56,16 @@ class Chart17 extends Component
             } else {
                 $value = collect($district_wise_data)->sum('total_remitance_usd');
             }
-            // ** DB district are Upercase but out json file is not same as a string, that is why whe change DISTRICT to District format value by ucfirst(strtolower(trans($district)))
             array_push($formated_data, [
                 'district' => ucfirst(strtolower(trans($district))), 'value' => round($value), 'division' => ucfirst(strtolower(trans(collect($district_wise_data)->first()->division)))
             ]);
         }
-        
+
         $this->divisions = collect($formated_data)->pluck('division')->unique();
 
-        if($this->selected_division){
+        if ($this->selected_division) {
             $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
-        }else{
+        } else {
             $this->districts = collect($formated_data)->pluck('district');
         }
 
@@ -99,6 +100,10 @@ class Chart17 extends Component
                 'map' => collect($geojson)
             ],
 
+            'credits' => [
+                'enabled' => false
+            ],
+
             'title' => [
                 'text' => ""
             ],
@@ -113,17 +118,35 @@ class Chart17 extends Component
                     'verticalAlign' => "bottom"
                 ]
             ],
+            'tooltip' => [
+                'useHTML' => true,
+                'headerFormat' => '',
+                'pointFormat' => 'Division: {point.division}<br>District: {point.district}<br>Remittance (In Million Us$): {point.value:,.2f}',
+                'style' => [
+                    'color' => '#fff'
+                ],
+                'valueDecimals' => 0,
+                'backgroundColor' => '#444444',
+                'borderColor' => '#eeee',
+                'borderRadius' => 10,
+                'borderWidth' => 3,
+            ],
 
             'colorAxis' => [
-                'tickPixelInterval' => 100
+                'tickPixelInterval' => 100,
+                'min' => collect($formated_data)->min('value'),
+                'max' => collect($formated_data)->max('value'),
+                'type' => 'logarithmic',
+                'minColor' => '#cfc5d4',
+                'maxColor' => '#7F3F98'
             ],
 
             'series' => [
                 [
-                    'data' => collect($formated_data)->map(function($data){
-                        return [$data['district'], $data['value']];
+                    'data' => collect($formated_data)->map(function ($data) {
+                        return [$data['division'], $data['district'], $data['value']];
                     }),
-                    'keys' => ["district", "value"],
+                    'keys' => ["division", "district", "value"],
                     'joinBy' => "district",
                     'name' => "Remittance In Million USD",
                     'states' => [
@@ -133,7 +156,13 @@ class Chart17 extends Component
                     ],
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.properties.district}"
+                        'format' => "{point.properties.district}",
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false,
+                            'color' => '#323232'
+                        ]
                     ]
                 ]
             ]

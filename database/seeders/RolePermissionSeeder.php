@@ -17,17 +17,19 @@ class RolePermissionSeeder extends Seeder
     public function run()
     {
         Permission::insert([
-            ['name' => 'manage language', 'guard_name' => 'web'],
-            ['name' => 'manage user', 'guard_name' => 'web'],
-            ['name' => 'view dashboard', 'guard_name' => 'web'],
-            ['name' => 'upload file', 'guard_name' => 'web'],
-            ['name' => 'view file', 'guard_name' => 'web'],
-            ['name' => 'update chart info', 'guard_name' => 'web'],
-            ['name' => 'manager file information', 'guard_name' => 'web'],
+            ['name' => 'user management', 'guard_name' => 'web'],
+            ['name' => 'role permission management', 'guard_name' => 'web'],
+            ['name' => 'chart info edit', 'guard_name' => 'web'],
         ]);
         
         //Role
-        $role = Role::create(['name' => 'Admin']);
-        $role->syncPermissions(Permission::all());
+        $admin = Role::create(['name' => 'admin']);
+        $admin->syncPermissions(Permission::all());
+
+        $editor = Role::create(['name' => 'editor']);
+        $editor->syncPermissions(['chart info edit']);
+
+        $viewer = Role::create(['name' => 'viewer']);
+
     }
 }

@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart14 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 14;
+    public $name, $description, $datasource, $chart_id = 14;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart14 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart14', [
@@ -47,37 +49,37 @@ class Chart14 extends Component
         GROUP BY fiscal_year");
 
         $categories = $series =
-        $GeneralPointToPoint =
-        $FoodPointToPoint =
-        $NonFoodPointToPoint = [];
-        foreach(collect($data) as $data){
-            array_push($categories, substr($data->fiscal_year, 0, 5).substr($data->fiscal_year, 7, 10));
+            $GeneralPointToPoint =
+            $FoodPointToPoint =
+            $NonFoodPointToPoint = [];
+        foreach (collect($data) as $data) {
+            array_push($categories, substr($data->fiscal_year, 0, 5) . substr($data->fiscal_year, 7, 10));
             array_push($GeneralPointToPoint, (float)$data->GeneralPointToPoint);
             array_push($FoodPointToPoint, (float)$data->FoodPointToPoint);
             array_push($NonFoodPointToPoint, (float)$data->NonFoodPointToPoint);
         }
 
-        $series=[
+        $series = [
             [
                 'name' => 'Overall (Change in CPI)',
                 'data' => $GeneralPointToPoint,
-                'marker'=> [
-                    'radius'=>3
+                'marker' => [
+                    'radius' => 3
                 ]
-                
+
             ],
             [
                 'name' => 'Food Inflation',
                 'data' => $FoodPointToPoint,
-                'marker'=> [
-                    'radius'=>3
+                'marker' => [
+                    'radius' => 3
                 ]
             ],
             [
                 'name' => 'Non-food Inflation',
                 'data' => $NonFoodPointToPoint,
-                'marker'=> [
-                    'radius'=>3
+                'marker' => [
+                    'radius' => 3
                 ]
             ]
         ];
@@ -89,7 +91,7 @@ class Chart14 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
 
             'title' => [
@@ -108,18 +110,34 @@ class Chart14 extends Component
                 'categories' => $categories,
                 'accessibility' => [
                     'rangeDescription' => ''
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
 
             'yAxis' => [
                 'title' => [
-                    'text' => 'Inflation Rate (%)'
+                    'text' => 'Inflation Rate (%)',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
             'legend' => [
-                'layout' => 'vertical',
-                'align' => 'right',
-                'verticalAlign' => 'middle'
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
             ],
 
             'plotOptions' => [
@@ -144,7 +162,7 @@ class Chart14 extends Component
                 'borderRadius' => 10,
                 'borderWidth' => 3,
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            'colors' => ['#7F3F98', '#83C341', '#FFB207'],
             'series' => $series,
 
             'responsive' => [

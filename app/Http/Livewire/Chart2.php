@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart2 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 2;
+    public $name, $description, $datasource, $chart_id = 2;
 
     public function render()
     {
@@ -54,14 +54,35 @@ class Chart2 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year')
+                'categories' => collect($data)->pluck('year'),
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
+                'max'=> 100,
                 'title' => [
-                    'text' => 'Percentage of Teachers'
+                    'text' => 'Percentage of Teachers',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
+            ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0
             ],
             'tooltip' => [
                 'useHTML' => true,
@@ -85,7 +106,28 @@ class Chart2 extends Component
                         'format' => "{point.y:,.2f}" . '%'
 
                     ]
+                ],
+                'series' => [
+                    'dataLabels'=> [
+                        'enabled'=> true,
+                        'rotation'=> 270,
+                        'style'=>[
+                            'textShadow'=>false,
+                            'strokeWidth'=>0,
+                            'textOutline'=>false
+                        ]
+                    ],
+                    'pointWidth'=> 30,
+                    'borderRadius' => '10px',
                 ]
+            ],
+            'legend' => [
+                'align' =>'left',
+                'verticalAlign'=> 'top',
+                'layout'=> 'horizontal',
+                'x'=> 0,
+                'y'=> 0,
+                'margin'=> 45
             ],
             'series' => [[
                 'name' => 'Male',
@@ -98,6 +140,9 @@ class Chart2 extends Component
                 'name' => 'Female',
                 'stack' => 'gender',
                 'color' => "#83C341",
+                'dataLabels'=>[
+                    'color'=>'#323232'
+                ],
                 'data' =>  collect($data)->pluck('male_teacher')->map(function ($value) {
                     return round($value, 2);
                 }),

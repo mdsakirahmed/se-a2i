@@ -9,7 +9,7 @@ use Livewire\Component;
 class Chart9 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 9;
+    public $name, $description, $datasource, $chart_id = 9;
 
     public function render()
     {
@@ -17,9 +17,11 @@ class Chart9 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart9', [
@@ -64,21 +66,34 @@ class Chart9 extends Component
             ],
 
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
-            
+
             'title' => [
                 'text' => ''
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('category')
+                'categories' => collect($data)->pluck('category'),
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
             ],
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila'
+                    'text' => 'Percentage of Upazila',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
             'tooltip' => [
@@ -100,9 +115,23 @@ class Chart9 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.y:,.2f}" . '%'
-
+                        'format' => "{point.y:,.2f}" . '%',
+                        'color'=> '#323232'
                     ]
+                ],
+                'series' => [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false
+                        ]
+                    ],
+                    'pointWidth' => 30,
+                    'borderRadius' => '10px',
                 ]
             ],
             'legend' => [

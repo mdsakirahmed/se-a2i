@@ -12,7 +12,7 @@ use Livewire\Component;
 class Chart22 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 22;
+    public $name, $description, $datasource, $chart_id = 22;
 
     public function render()
     {
@@ -20,9 +20,11 @@ class Chart22 extends Component
         if (app()->currentLocale() == 'bn') {
             $this->name = $this->chart->bn_name;
             $this->description = $this->chart->bn_description;
+            $this->datasource = $this->chart->bn_datasource;
         } else {
             $this->name = $this->chart->en_name;
             $this->description = $this->chart->en_description;
+            $this->datasource = $this->chart->en_datasource;
         }
 
         return view('livewire.chart22', [
@@ -32,21 +34,40 @@ class Chart22 extends Component
 
     public function get_data()
     {
-        $imports = ImportCountry::groupBy('fiscal_year')
-            ->selectRaw('sum(import_in_usd) as import_in_usd, fiscal_year')
-            ->get()->toArray();
 
-        $exports = ExportCountry::groupBy('fiscal_year')
-            ->selectRaw('sum(export_in_usd) as export_in_usd, fiscal_year')
-            ->get()->toArray();
+        $data_set = DB::connection('mysql2')->select("SELECT
+        a.fiscal_year, a.import_in_usd, b.export_in_usd
+        FROM
+        (SELECT 
+            id,
+            fiscal_year,
+            SUM(import_million_usd) AS import_in_usd
+        FROM
+            economy_import_country
+        WHERE
+            country != ('Total')
+        GROUP BY fiscal_year) AS a
 
-        $data = [];
-        foreach (collect(array_merge_recursive($imports, $exports))->groupBy('fiscal_year') as $fiscal_year => $item) {
-            $import_export_data = array_merge_recursive($item[0], $item[1]);
-            array_push($data, [
-                'fiscal_year' =>    substr($fiscal_year ?? '', 0, 5).substr($fiscal_year ?? '', 7, 10),
-                'import_in_usd' =>   round(((float)$import_export_data['import_in_usd'])/1000000000,2),
-                'export_in_usd' =>   round(((float)$import_export_data['export_in_usd'])/1000000000,2),
+        INNER JOIN
+        
+        (SELECT 
+            id,
+            fiscal_year,
+            SUM(export_million_usd) AS export_in_usd
+        FROM
+            economy_export_country
+        WHERE
+            country != ('Total Exports')
+        GROUP BY fiscal_year) AS b ON a.fiscal_year = b.fiscal_year");
+
+        // @dd($data_set);
+
+        $import_export_over_the_year = [];
+        foreach ($data_set as $data) {
+            array_push($import_export_over_the_year, [
+                'fiscal_year' => substr($data->fiscal_year, 0, 5) . substr($data->fiscal_year, 7, 10),
+                'import_in_usd' => round(((float)$data->import_in_usd) / 1000, 2),
+                'export_in_usd' => round(((float)$data->export_in_usd) / 1000, 2),
             ]);
         }
 
@@ -54,19 +75,28 @@ class Chart22 extends Component
             'chart' =>  [
                 'type' =>  'area', 'zoomType' => 'xy'
             ],
-            
+
             'credits' => [
-                'enabled'=>false
+                'enabled' => false
             ],
 
             'title' =>  [
                 'text' =>  ''
             ],
-            
+
             'credits' =>  [
                 'enabled' =>  false
             ],
-            
+
+            'legend' => [
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
+            ],
+
             'subtitle' =>  [
                 'text' =>  ''
             ]
@@ -74,17 +104,30 @@ class Chart22 extends Component
             //     'radius' =>  5
             // ]
             , 'xAxis' =>  [
-                'categories' =>  collect($data)->pluck('fiscal_year')
-            ],
-            
-            'yAxis' =>  [
-                'title' =>  [
-                    'text' =>  'Imports/Exports (Billion US$)'
-                ], 'labels' =>  [
-                    'format' =>  '{value}'
+                'categories' =>  collect($import_export_over_the_year)->pluck('fiscal_year'),
+                'labels' => [
+                    'rotation' => -45,
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
                 ]
             ],
-            
+
+            'yAxis' =>  [
+                'title' =>  [
+                    'text' =>  'Imports/Exports (Billion US$)',
+                    'style' => [
+                        'fontSize' => '14px'
+                    ]
+                ],
+                'labels' => [
+                    'format' =>  '{value}',
+                    'style' => [
+                        'fontSize' => '13px'
+                    ]
+                ]
+            ],
+
             'plotOptions' =>  [
                 'line' =>  [
                     'dataLabels' =>  [
@@ -92,20 +135,29 @@ class Chart22 extends Component
                     ], 'enableMouseTracking' =>  true
                 ]
             ],
-            
-            'series' =>  [[
-                'name' =>  'Total exports', 'data' =>  collect($data)->pluck('export_in_usd'),
-                'color' =>  '#83C341',
-                'marker' =>  [
-                    'radius' =>  3
-                ]
+
+            'series' =>  [
+                [
+                    'name' =>  'Total exports',
+                    'data' =>  collect($import_export_over_the_year)->pluck('export_in_usd'),
+                    'color' =>  '#83C341',
+                    'marker' =>  [
+                        'radius' =>  3
+                    ]
                 ],[
-                    'name' =>  'Total imports', 'data' =>  collect($data)->pluck('import_in_usd'),
+                    'name' =>  'Total imports',
+                    'data' =>  collect($import_export_over_the_year)->pluck('import_in_usd'),
                     'color' =>  '#7F3F98',
                     'marker' =>  [
                         'radius' =>  3
                     ]
-                ]]
+                ]
+            ],
+
+            'tooltip' => [
+                'headerFormat' => '<b>{point.x}</b><br>',
+                'pointFormat' => '{series.name} : {point.y:,.2f} (Billion US$)',
+            ]
         ];
     }
 }

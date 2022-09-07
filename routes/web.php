@@ -2,6 +2,9 @@
 
 use App\Http\Livewire\Backup;
 use App\Http\Livewire\Login;
+use App\Http\Livewire\Profile;
+use App\Http\Livewire\RolePermission;
+use App\Http\Livewire\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,10 +42,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
 
     //Social Protection
     Route::group(['prefix' => 'social-protection', 'as' => 'social_protection.'], function () {
-        Route::view('/', 'backend.social-protection.social-protection')->name('index');
+        Route::view('index', 'backend.social-protection.social-protection')->name('index');
         Route::view('food-security', 'backend.social-protection.food-security')->name('food_security');
-        Route::view('social-protection', 'backend.social-protection.budget-and-coverage')->name('budget_and_coverage');
+        Route::view('budget-and-coverage', 'backend.social-protection.budget-and-coverage')->name('budget_and_coverage');
+    });
+
+    //Health
+    Route::group(['prefix' => 'health', 'as' => 'health.'], function () {
+        Route::view('child-mortality', 'backend.health.child-mortality')->name('child_mortality');
+        Route::view('causes-of-death', 'backend.health.causes-of-death')->name('causes_of_death');
+        Route::view('maternal-and-child-health-service', 'backend.health.maternal-and-child-health-service')->name('maternal_child_health_service');
     });
 
     Route::get('backup', Backup::class)->name('backup');
+    Route::get('role-permission', RolePermission::class)->name('role_permission')->middleware(['can:role permission management']);
+    Route::get('user-management', User::class)->name('user_management')->middleware(['can:user management']);
+    Route::get('profile', Profile::class)->name('profile');
 });

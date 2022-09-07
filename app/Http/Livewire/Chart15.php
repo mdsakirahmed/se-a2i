@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 class Chart15 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $chart_id = 15;
+    public $name, $description, $datasource, $chart_id = 15;
     public $chart_type = 'column';
 
     public $chart_data_set = [];
@@ -73,12 +73,26 @@ class Chart15 extends Component
                 'text'=> ''
             ],
             'xAxis'=> [
-                'categories'=> $categories
+                'categories'=> $categories,
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
+                ]
             ],
             'yAxis'=> [
                 'min'=> 0,
+                'max'=> 100,
                 'title'=> [
-                    'text'=> 'Percentage of Economy (%)'
+                    'text'=> 'Percentage of Economy (%)',
+                    'style'=>[
+                        'fontSize'=>'14px'
+                    ]
+                ],
+                'labels'=>[
+                    'style'=>[
+                        'fontSize'=>'13px'
+                    ]
                 ]
             ],
             'legend'=> [
@@ -87,15 +101,21 @@ class Chart15 extends Component
             'plotOptions'=> [
                 'column'=> [
                     'stacking'=> 'normal'
-                ]
+                ],
+            //     'series' => [
+            //     'pointWidth'=> 20,
+            //     'borderRadius' => '8px',
+            // ]
             ],
-            'colors'=> ['#7F3F98', '#83C341', '#16507B'],
+            
+            'colors'=> ['#7F3F98', '#83C341', '#FFB207'],
             'legend' => [
                 'layout' => 'vertical',
                 'align' => 'right',
                 'verticalAlign' => 'middle',
                 'itemMarginTop' => 10,
-                'itemMarginBottom' => 10
+                'itemMarginBottom' => 10,
+                'margin'=> 45
             ],
             'series'=> $series,
         ];
