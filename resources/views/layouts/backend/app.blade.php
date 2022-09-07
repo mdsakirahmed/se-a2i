@@ -215,6 +215,7 @@
     <main id="main">
         <section id="main-nav" class="fixed-top">
             <div class="container">
+        
                 <div class="main-nav">
                     <div class="container" data-aos="fade-up">
                         <div class="faq-list">
@@ -332,6 +333,7 @@
                                                     </h6>
                                                 </div>
                                             </a>
+                                            
                                         </div>
                                     </div>
                                 </li>
