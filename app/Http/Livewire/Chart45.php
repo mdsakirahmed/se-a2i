@@ -28,67 +28,61 @@ class Chart45 extends Component
             'chart_data_set' => $this->get_data()
         ]);
     }
-    public function filter_by_hr($value)
-    {
-        $this->hr = $value;
-        $this->chart_update();
-    }
-
-    public function filter_by_id_poor($value)
-    {
-        $this->id_poor = $value;
-        $this->chart_update();
-    }
 
     public function chart_update()
     {
         $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
     }
 
-    public $fiscal_year, $program_type, $implementing_ministry_1, $implementing_ministry_2;
+    public $poverties = [
+        'A', 'B', 'C', 'D'
+    ];
+    public $selected_poverty;
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT 
-            year, region, mpi, hr, id_poor, vul_pov
-            FROM
-            corona_socio_info.ophi_poverty;");
+        $data = DB::connection('mysql2')->select("SELECT year, region, mpi, hr, id_poor, vul_pov FROM corona_socio_info.ophi_poverty;");
 
+        $categories = collect($data)->pluck('region')->unique();
 
-        // $this->hr = collect($data)->pluck('hr')->unique();
-        // $this->id_poor = collect($data)->pluck('id_poor')->unique();
-        // $this->vul_pov = collect($data)->pluck('vul_pov')->unique();
-        // $this->mpi = collect($data)->pluck('mpi')->unique();
-
-        // if ($this->hr) {
-        //     $data = collect($data)->where('hr', $this->hr);
-        // }
-
-        // if ($this->id_poor) {
-        //     $data = collect($data)->where('id_poor', $this->id_poor);
-        // }
-
-        // if ($this->vul_pov) {
-        //     $data = collect($data)->where('vul_pov', $this->vul_pov);
-        // }
-
-        // if ($this->mpi) {
-        //     $data = collect($data)->where('mpi', $this->mpi);
-        // }
-
-
-        $poverty_index_ophi_data_set['region'] =
-        $poverty_index_ophi_data_set['mpi'] =
-        $poverty_index_ophi_data_set['hr'] =
-        $poverty_index_ophi_data_set['id_poor'] =
-        $poverty_index_ophi_data_set['vul_pov'] =
-        array();
-        foreach (collect($data) as $data_of_a_year) {
-            array_push($poverty_index_ophi_data_set['region'],$data_of_a_year->region);
-            array_push($poverty_index_ophi_data_set['mpi'],(float) $data_of_a_year->mpi);
-            array_push($poverty_index_ophi_data_set['hr'],(float) $data_of_a_year->hr);
-            array_push($poverty_index_ophi_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-            array_push($poverty_index_ophi_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
+        $formated_data = [];
+        switch ($this->selected_poverty) {
+            case 'A':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            case 'B':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            case 'C':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            case 'D':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            default:
+                array_push($formated_data, [
+                    'name' => "A",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
         }
+
+
 
         return [
             'chart' => [
@@ -104,7 +98,7 @@ class Chart45 extends Component
             ],
 
             'xAxis' => [
-                'categories' => $poverty_index_ophi_data_set['region'],
+                'categories' => $categories,
                 'crosshair' => true,
                 'labels' => [
                     'style' => [
@@ -129,7 +123,7 @@ class Chart45 extends Component
             ],
 
             'legend' => [
-                'enabled'=>true,
+                'enabled' => true,
                 'align' => 'left',
                 'verticalAlign' => 'top',
                 'layout' => 'horizontal',
@@ -161,28 +155,31 @@ class Chart45 extends Component
                     'borderRadius' => '5px',
                 ]
             ],
-            
-            'series' => [[
-                'name' => 'Headcount ratio: Population in multidimensional poverty',
-                'color' => "#83C341",
-                'data' =>  $poverty_index_ophi_data_set['hr']
-            ],
-            [
-                'name' => 'Headcount ratio: Population in multidimensional poverty',
-                'color' => "#7F3F98",
-                'data' =>  $poverty_index_ophi_data_set['ind_poor']
-            ],
-            [
-                'name' => 'Headcount ratio: Population in multidimensional poverty',
-                'color' => "#FFB207",
-                'data' =>  $poverty_index_ophi_data_set['vul_pov']
-            ],
-            [
-                'name' => 'Headcount ratio: Population in multidimensional poverty',
-                'color' => "#83C341",
-                'data' =>  $poverty_index_ophi_data_set['mpi']
-            ]
-            ]
+
+            'series' => $formated_data
+
+            // 'series' => [
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#83C341",
+            //         'data' =>  $poverty_index_ophi_data_set['hr']
+            //     ],
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#7F3F98",
+            //         'data' =>  $poverty_index_ophi_data_set['mpi']
+            //     ],
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#FFB207",
+            //         'data' =>  $poverty_index_ophi_data_set['vul_pov']
+            //     ],
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#83C341",
+            //         'data' =>  $poverty_index_ophi_data_set['mpi']
+            //     ]
+            // ]
         ];
     }
 }

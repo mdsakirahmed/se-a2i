@@ -7,6 +7,11 @@
              </div>
      </div>
     <div class="card-body">
+        <select class="form-select" wire:model="selected_poverty" wire:change="chart_update">
+            @foreach ($poverties as $poverty)
+                <option value="{{ $poverty }}">{{ $poverty }}</option>
+            @endforeach
+        </select>
         <figure class="highcharts-figure">
             <div id="chart_id_{{ $chart->id }}"> </div>
         </figure>
@@ -29,6 +34,14 @@
         </div>
     </div>
      <script>
-         Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+         $(document).ready(function() {
+            //First loaded data
+            Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+            
+            //chart update and re-render
+            window.addEventListener("chart_update_{{ $chart->id }}", event => {
+                Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+            });
+        });
      </script>
  </div>
