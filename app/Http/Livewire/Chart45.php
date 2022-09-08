@@ -35,7 +35,7 @@ class Chart45 extends Component
     }
 
     public $poverties = [
-        'A', 'B', 'C', 'D'
+        'Headcount ratio: Population in multidimensional poverty', 'Intensity of Deprivation among Poor', 'Vulnerable to Poverty', 'Multidimensional Poverty Index'
     ];
     public $selected_poverty;
     public function get_data()
@@ -46,37 +46,37 @@ class Chart45 extends Component
 
         $formated_data = [];
         switch ($this->selected_poverty) {
-            case 'A':
+            case 'Headcount ratio: Population in multidimensional poverty':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
                     'color' => "#83C341",
                     'data' =>  collect($data)->pluck('hr')
                 ]);
                 break;
-            case 'B':
+            case 'Intensity of Deprivation among Poor':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
-                    'color' => "#83C341",
-                    'data' =>  collect($data)->pluck('hr')
+                    'color' => "#7F3F98",
+                    'data' =>  collect($data)->pluck('id_poor')
                 ]);
                 break;
-            case 'C':
+            case 'Vulnerable to Poverty':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
-                    'color' => "#83C341",
-                    'data' =>  collect($data)->pluck('hr')
+                    'color' => "#FFB207",
+                    'data' =>  collect($data)->pluck('vul_pov')
                 ]);
                 break;
-            case 'D':
+            case 'Multidimensional Poverty Index':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
-                    'color' => "#83C341",
-                    'data' =>  collect($data)->pluck('hr')
+                    'color' => "#EE47B5",
+                    'data' =>  collect($data)->pluck('mpi')
                 ]);
                 break;
             default:
                 array_push($formated_data, [
-                    'name' => "A",
+                    'name' => "Headcount ratio: Population in multidimensional poverty",
                     'color' => "#83C341",
                     'data' =>  collect($data)->pluck('hr')
                 ]);
