@@ -9,7 +9,7 @@
     <div class="card-body">
         <select class="form-select" wire:model="selected_poverty" wire:change="chart_update">
             <option>Index</option>
-            @foreach ($poverties as $poverty)
+            @foreach ($poverties as $poverty)               
                 <option value="{{ $poverty }}">{{ $poverty }}</option>
             @endforeach
         </select>

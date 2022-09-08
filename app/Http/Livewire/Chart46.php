@@ -6,10 +6,10 @@ use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart45 extends Component
+class Chart46 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $datasource, $chart_id = 45;
+    public $name, $description, $datasource, $chart_id = 46;
 
     public function render()
     {
@@ -24,7 +24,7 @@ class Chart45 extends Component
             $this->datasource = $this->chart->en_datasource;
         }
 
-        return view('livewire.chart45', [
+        return view('livewire.chart46', [
             'chart_data_set' => $this->get_data()
         ]);
     }
@@ -35,59 +35,70 @@ class Chart45 extends Component
     }
 
     public $poverties = [
-        'Headcount ratio: Population in multidimensional poverty', 
-        'Intensity of Deprivation among Poor', 
-        'Vulnerable to Poverty', 
-        'Multidimensional Poverty Index'
+        'Number of poor at $1.90 a day (2011 PPP) in millions', 
+        'Gini Index', 
+        'Income Held by Highest 10%', 
+        'Poverty Gap at $1.90 a day (2011 PPP) in percentage',
+        'Poverty headcount ratio at $1.90 a day (2011 PPP) in % population'
     ];
     public $selected_poverty;
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT year, region, mpi, hr, id_poor, vul_pov FROM corona_socio_info.ophi_poverty;");
+        $data = DB::connection('mysql2')->select("SELECT year,gini,income_10,poor,gap,poverty_hr FROM corona_socio_info.wb_poverty_indicator;");
 
-        $categories = collect($data)->pluck('region')->unique();
+        $categories = collect($data)->pluck('year')->unique();
 
         $formated_data = [];
         switch ($this->selected_poverty) {
-            case 'Headcount ratio: Population in multidimensional poverty':
+            case 'Number of poor at $1.90 a day (2011 PPP) in millions':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
                     'color' => "#83C341",
-                    'data' =>  collect($data)->pluck('hr')
+                    'data' =>  collect($data)->pluck('poor')
                 ]);
                 break;
-            case 'Intensity of Deprivation among Poor':
+            case 'Gini Index':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
                     'color' => "#7F3F98",
-                    'data' =>  collect($data)->pluck('id_poor')
+                    'data' =>  collect($data)->pluck('gini')
                 ]);
                 break;
-            case 'Vulnerable to Poverty':
+            case 'Income Held by Highest 10%':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
                     'color' => "#FFB207",
-                    'data' =>  collect($data)->pluck('vul_pov')
+                    'data' =>  collect($data)->pluck('income_10')
                 ]);
                 break;
-            case 'Multidimensional Poverty Index':
+            case 'Poverty Gap at $1.90 a day (2011 PPP) in percentage':
                 array_push($formated_data, [
                     'name' => "$this->selected_poverty",
                     'color' => "#EE47B5",
-                    'data' =>  collect($data)->pluck('mpi')
+                    'data' =>  collect($data)->pluck('gap')
                 ]);
                 break;
+            case 'Poverty headcount ratio at $1.90 a day (2011 PPP) in % population':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#7F3F98",
+                    'data' =>  collect($data)->pluck('poverty_hr')
+                ]);
+                break;
+
             default:
                 array_push($formated_data, [
-                    'name' => "Headcount ratio: Population in multidimensional poverty",
+                    'name' => "Number of poor at $1.90 a day (2011 PPP) in millions",
                     'color' => "#83C341",
-                    'data' =>  collect($data)->pluck('hr')
+                    'data' =>  collect($data)->pluck('poor')
                 ]);
         }
 
+
+
         return [
             'chart' => [
-                'type' => 'column'
+                'type' => 'bar'
             ],
 
             'credits' => [
@@ -101,6 +112,12 @@ class Chart45 extends Component
             'xAxis' => [
                 'categories' => $categories,
                 'crosshair' => true,
+                'title' => [
+                    'text' => 'Year',
+                    'style' => [
+                        'fontSize' => '15px'
+                    ]
+                ],
                 'labels' => [
                     'style' => [
                         'fontSize' => '13px'
@@ -109,13 +126,7 @@ class Chart45 extends Component
             ],
             'yAxis' => [
                 'allowDecimals' => false,
-                'min' => 0,
-                'title' => [
-                    'text' => 'Percentage',
-                    'style' => [
-                        'fontSize' => '15px'
-                    ]
-                ],
+                'min' => 0,               
                 'labels' => [
                     'style' => [
                         'fontSize' => '13px'
@@ -154,7 +165,7 @@ class Chart45 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'inside' => false,
-                        'format' => "{point.y:,.2f}" . '%',
+                        'format' => "{point.y:,.2f}",
                         'color'=> '#323232'
                     ]
                 ],
