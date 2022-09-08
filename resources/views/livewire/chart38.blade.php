@@ -12,25 +12,21 @@
                 {!! $description !!}
                 </p>
             </div>
-             <div class="row">              
-                 <div class="form-group col-md-2">
-                     <label for="" class="col-form-label">Fiscal Year</label>
-                     <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
-                         <option value="">All</option>
-                         @foreach($fiscal_yeas as $fiscal_year)
-                             <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
-                         @endforeach
-                     </select>
-                 </div>
-                 <div class="form-group col-md-2">
-                     <label for="" class="col-form-label">Programme Type</label>
-                     <select class="form-control"wire:model="program_type" wire:change="chart_update">
-                         <option value="">All</option>
-                         @foreach($program_types as $program_type)
-                             <option value="{{ $program_type }}">{{ $program_type }}</option>
-                         @endforeach 
-                     </select>
-                 </div>
+
+             <div>              
+                <select wire:model="fiscal_year" wire:change="chart_update">
+                    <option value="">All Fiscal Year</option>
+                    @foreach($fiscal_yeas as $fiscal_year)
+                    <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
+                    @endforeach
+                </select>
+
+                <select wire:model="program_type" wire:change="chart_update">
+                    <option value="">All Programme Type</option>
+                    @foreach($program_types as $program_type)
+                    <option value="{{ $program_type }}">{{ $program_type }}</option>
+                    @endforeach 
+                </select>
              </div>
  
             <figure class="highcharts-figure" wire:ignore>

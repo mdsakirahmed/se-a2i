@@ -13,14 +13,14 @@
             <div class="hero-header">
                 <div class="block-group">
                     <div class="block-60">
-                    <h3>{{ __('about title 1') }}</h3>
+                    <h3 data-aos="fade-in">{{ __('about title 1') }}</h3>
                         <p>{{ __('about description 1') }}</p>
 
                         <!-- <h5 class="c-secondary fw-bold">{{ __('about title 2') }}</h5>
                         <p>{{ __('about description 1') }}</p> -->
                     </div>
                     <div class="block-40">
-                        <img src="{{ asset('assets/img/about-hero-header.png') }}" />
+                        <img src="{{ asset('assets/img/about-hero-header.png') }}" data-aos="fade-in"/>
                     </div>
                 </div>
             </div>
