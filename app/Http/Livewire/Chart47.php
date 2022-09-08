@@ -50,44 +50,44 @@ class Chart47 extends Component
         FROM
         corona_socio_info.bbs_poverty_and_sqd_poverty;");
 
-        $poverty_squared_poverty_gap_data_set['region'] =
-        $poverty_squared_poverty_gap_data_set['year'] =
-        $poverty_squared_poverty_gap_data_set['poverty_gap_national_lower'] =
-        $poverty_squared_poverty_gap_data_set['poverty_gap_national_upper'] =
-        $poverty_squared_poverty_gap_data_set['poverty_gap_rural_lower'] =
+        // $poverty_squared_poverty_gap_data_set['region'] =
+        // $poverty_squared_poverty_gap_data_set['year'] =
+        // $poverty_squared_poverty_gap_data_set['poverty_gap_national_lower'] =
+        // $poverty_squared_poverty_gap_data_set['poverty_gap_national_upper'] =
+        // $poverty_squared_poverty_gap_data_set['poverty_gap_rural_lower'] =
 
-        $poverty_squared_poverty_gap_data_set['poverty_gap_rural_upper'] =
-        $poverty_squared_poverty_gap_data_set['poverty_gap_urban_lower'] =
-        $poverty_squared_poverty_gap_data_set['poverty_gap_urban_upper'] =
-        $poverty_squared_poverty_gap_data_set['squared_poverty_gap_national_lower'] =
-        $poverty_squared_poverty_gap_data_set['squared_poverty_gap_national_upper'] =
+        // $poverty_squared_poverty_gap_data_set['poverty_gap_rural_upper'] =
+        // $poverty_squared_poverty_gap_data_set['poverty_gap_urban_lower'] =
+        // $poverty_squared_poverty_gap_data_set['poverty_gap_urban_upper'] =
+        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_national_lower'] =
+        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_national_upper'] =
 
-        $poverty_squared_poverty_gap_data_set['squared_poverty_gap_rural_lower'] =
-        $poverty_squared_poverty_gap_data_set['squared_poverty_gap_rural_upper'] =
-        $poverty_squared_poverty_gap_data_set['squared_poverty_gap_urban_lower'] =
-        $poverty_squared_poverty_gap_data_set['squared_poverty_gap_urban_upper'] =
+        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_rural_lower'] =
+        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_rural_upper'] =
+        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_urban_lower'] =
+        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_urban_upper'] =
 
 
-        array();
-        foreach (collect($data) as $data_of_a_year) {
-            array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
-            array_push($poverty_squared_poverty_gap_data_set['year'], $data_of_a_year->year);
-            array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
-            array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-            array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
+        // array();
+        // foreach (collect($data) as $data_of_a_year) {
+        //     array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
+        //     array_push($poverty_squared_poverty_gap_data_set['year'], $data_of_a_year->year);
+        //     array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
+        //     array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
+        //     array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
 
-            array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
-            array_push($poverty_squared_poverty_gap_data_set['mpi'],(float) $data_of_a_year->mpi);
-            array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
-            array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-            array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
+        //     array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
+        //     array_push($poverty_squared_poverty_gap_data_set['mpi'],(float) $data_of_a_year->mpi);
+        //     array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
+        //     array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
+        //     array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
 
-            array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
-            array_push($poverty_squared_poverty_gap_data_set['mpi'],(float) $data_of_a_year->mpi);
-            array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
-            array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-            array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
-        }
+        //     array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
+        //     array_push($poverty_squared_poverty_gap_data_set['mpi'],(float) $data_of_a_year->mpi);
+        //     array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
+        //     array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
+        //     array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
+        // }
 
         return [
             'chart' => [
@@ -103,7 +103,7 @@ class Chart47 extends Component
             ],
 
             'xAxis' => [
-                'categories' => $poverty_squared_poverty_gap_data_set['region'],
+                'categories' => ['Dhaka', 'Barishal', 'Khulna'],
                 'labels'=>[
                     'style'=>[
                         'fontSize'=>'13px'
