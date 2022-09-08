@@ -17,13 +17,13 @@
                         <p class="mb-md-4">
                             {{ __('education description 1') }}
                         </p> -->
-                        <h3 data-aos="fade-in">{{ __('education purple text') }}</h3>
+                        <h3>{{ __('education purple text') }}</h3>
                         <p>
                             {{ __('education description 2') }}
                         </p>
                     </div>
                     <div class="block-40">
-                        <img data-aos="fade-in" src="{{ asset('assets/img/education1.png') }}" />
+                        <img src="{{ asset('assets/img/education1.png') }}" />
                     </div>
                 </div>
             </div>

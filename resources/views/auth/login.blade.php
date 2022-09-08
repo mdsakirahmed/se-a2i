@@ -6,7 +6,7 @@
                     <img src="assets/img/logo-ico.png"/>
                 </div>
                 <div class="title-area">
-                    <h3>
+                    <h3 data-aos="fade-in">
                         Socioeconomic Dashboard
                     </h3>
                     <h4>
@@ -31,6 +31,9 @@
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="remember" wire:model="remember">
                                 <label class="form-check-label" for="remember">Remember</label>
+                            </div>
+                            <div class="default-link">
+                                <a href="#">Forgot Password?</a>
                             </div>
                         </div>
                         <button type="submit" class="button-primary-full">LOGIN</button>
