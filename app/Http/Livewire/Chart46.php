@@ -35,7 +35,11 @@ class Chart46 extends Component
     }
 
     public $poverties = [
-        'Number of poor at $1.90 a day (2011 PPP) in millions', 'Gini Index', 'Income Held by Highest 10%', 'Poverty Gap at $1.90 a day (2011 PPP) in percentage','Poverty headcount ratio at $1.90 a day (2011 PPP) in % population'
+        'Number of poor at $1.90 a day (2011 PPP) in millions', 
+        'Gini Index', 
+        'Income Held by Highest 10%', 
+        'Poverty Gap at $1.90 a day (2011 PPP) in percentage',
+        'Poverty headcount ratio at $1.90 a day (2011 PPP) in % population'
     ];
     public $selected_poverty;
     public function get_data()
@@ -157,10 +161,25 @@ class Chart46 extends Component
             'plotOptions' => [
                 'column' => [
                     'pointPadding' => 0.2,
-                    'borderWidth' => 0
+                    'borderWidth' => 0,
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+                        'format' => "{point.y:,.2f}",
+                        'color'=> '#323232'
+                    ]
                 ],
                 'series' => [
-                    'borderRadius' => '5px',
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false
+                        ]
+                    ],
+                    'pointWidth' => 30,
+                    'borderRadius' => '10px',
                 ]
             ],
 

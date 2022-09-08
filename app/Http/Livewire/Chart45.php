@@ -35,7 +35,10 @@ class Chart45 extends Component
     }
 
     public $poverties = [
-        'Headcount ratio: Population in multidimensional poverty', 'Intensity of Deprivation among Poor', 'Vulnerable to Poverty', 'Multidimensional Poverty Index'
+        'Headcount ratio: Population in multidimensional poverty', 
+        'Intensity of Deprivation among Poor', 
+        'Vulnerable to Poverty', 
+        'Multidimensional Poverty Index'
     ];
     public $selected_poverty;
     public function get_data()
@@ -81,8 +84,6 @@ class Chart45 extends Component
                     'data' =>  collect($data)->pluck('hr')
                 ]);
         }
-
-
 
         return [
             'chart' => [
@@ -149,37 +150,29 @@ class Chart45 extends Component
             'plotOptions' => [
                 'column' => [
                     'pointPadding' => 0.2,
-                    'borderWidth' => 0
+                    'borderWidth' => 0,
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+                        'format' => "{point.y:,.2f}" . '%',
+                        'color'=> '#323232'
+                    ]
                 ],
                 'series' => [
-                    'borderRadius' => '5px',
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'style' => [
+                            'textShadow' => false,
+                            'strokeWidth' => 0,
+                            'textOutline' => false
+                        ]
+                    ],
+                    'pointWidth' => 30,
+                    'borderRadius' => '10px',
                 ]
             ],
 
             'series' => $formated_data
-
-            // 'series' => [
-            //     [
-            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
-            //         'color' => "#83C341",
-            //         'data' =>  $poverty_index_ophi_data_set['hr']
-            //     ],
-            //     [
-            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
-            //         'color' => "#7F3F98",
-            //         'data' =>  $poverty_index_ophi_data_set['mpi']
-            //     ],
-            //     [
-            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
-            //         'color' => "#FFB207",
-            //         'data' =>  $poverty_index_ophi_data_set['vul_pov']
-            //     ],
-            //     [
-            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
-            //         'color' => "#83C341",
-            //         'data' =>  $poverty_index_ophi_data_set['mpi']
-            //     ]
-            // ]
         ];
     }
 }
