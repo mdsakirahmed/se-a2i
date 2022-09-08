@@ -73,6 +73,7 @@ class Chart38 extends Component
         }
 
         return [
+
             'title' => [
                 'text' => ''
             ],
