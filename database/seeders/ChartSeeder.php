@@ -360,6 +360,38 @@ class ChartSeeder extends Seeder
                 'bn_description' => '',
                 'en_description' => '',
             ],
+            [ // chart id 44
+                'bn_name' => 'Poverty rate BBS', 
+                'en_name' => 'Poverty rate BBS',
+                'bn_datasource' => '',
+                'en_datasource' => '',
+                'bn_description' => '',
+                'en_description' => '',
+            ],
+            [ // chart id 45
+                'bn_name' => 'Poverty Index OPHI', 
+                'en_name' => 'Poverty Index OPHI',
+                'bn_datasource' => '',
+                'en_datasource' => '',
+                'bn_description' => '',
+                'en_description' => '',
+            ],
+            [ // chart id 44
+                'bn_name' => 'Poverty Index WB', 
+                'en_name' => 'Poverty Index WB',
+                'bn_datasource' => '',
+                'en_datasource' => '',
+                'bn_description' => '',
+                'en_description' => '',
+            ],
+            [ // chart id 45
+                'bn_name' => 'Poverty & Squared Poverty Gap BBS', 
+                'en_name' => 'Poverty & Squared Poverty Gap BBS',
+                'bn_datasource' => '',
+                'en_datasource' => '',
+                'bn_description' => '',
+                'en_description' => '',
+            ],
         ]);
     }
 }

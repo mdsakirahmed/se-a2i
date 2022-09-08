@@ -6,10 +6,10 @@ use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class Chart2 extends Component
+class Chart47 extends Component
 {
     public  Chart $chart;
-    public $name, $description, $datasource, $chart_id = 2;
+    public $name, $description, $datasource, $chart_id = 47;
 
     public function render()
     {
@@ -22,23 +22,29 @@ class Chart2 extends Component
             $this->description = $this->chart->en_description;
         }
 
-        return view('livewire.chart2', [
+        return view('livewire.chart47', [
             'chart_data_set' => $this->get_data()
         ]);
     }
 
+    public function chart_update()
+    {
+        $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
+    }
+
+    public $selected_column = null;
+    public $selected_column_type = null;
+
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT 
-        year,
-        SUM(total_teacher) as total_teacher,
-        ((SUM(female_teacher) * 100) / SUM(total_teacher)) AS female_teacher,
-        (((SUM(total_teacher) - SUM(female_teacher)) * 100) / SUM(total_teacher)) AS male_teacher
-        FROM
-            corona_socio_info.education_statistics
-        WHERE
-            year IS NOT NULL
-        GROUP BY year");
+        if(!$this->selected_column)
+        $this->selected_column = "poverty";
+        if(!$this->selected_column_type)
+        $this->selected_column_type = "lower";
+
+        $data = DB::connection('mysql2')->select("SELECT * FROM corona_socio_info.bbs_poverty_and_sqd_poverty;");
+
+        $regions = collect($data)->pluck('region')->unique();
 
         return [
             'chart' => [
@@ -54,7 +60,7 @@ class Chart2 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('year'),
+                'categories' => $regions,
                 'labels'=>[
                     'style'=>[
                         'fontSize'=>'13px'
@@ -64,9 +70,8 @@ class Chart2 extends Component
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
-                'max'=> 100,
                 'title' => [
-                    'text' => 'Percentage of Teachers',
+                    'text' => 'Count medals',
                     'style'=>[
                         'fontSize'=>'14px'
                     ]
@@ -103,7 +108,7 @@ class Chart2 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.y:,.2f}" . '%'
+                        // 'format' => '{point.series.name}'
 
                     ]
                 ],
@@ -129,24 +134,48 @@ class Chart2 extends Component
                 'y'=> 0,
                 'margin'=> 45
             ],
-            'series' => [[
-                'name' => 'Male',
-                'stack' => 'gender',
-                'color' => "#7F3F98",
-                'data' => collect($data)->pluck('female_teacher')->map(function ($value) {
-                    return round($value, 2);
-                }),
+            'series' => [ [
+                'name' => 'National-10',
+                'data' => $this->get_data_by_year_and_column(2010, $this->selected_column."_gap_national_".$this->selected_column_type),
+                'color' => '#83C341',
+                'stack' => '2010'
             ], [
-                'name' => 'Female',
-                'stack' => 'gender',
-                'color' => "#83C341",
-                'dataLabels'=>[
-                    'color'=>'#323232'
-                ],
-                'data' =>  collect($data)->pluck('male_teacher')->map(function ($value) {
-                    return round($value, 2);
-                }),
+                'name' => 'Rural-10',
+                'color' => '#7F3F98',
+                'data' => $this->get_data_by_year_and_column(2010, $this->selected_column."_gap_rural_".$this->selected_column_type),
+                'stack' => '2010'
+            ], [
+                'name' => 'Urban-10',
+                'color' => '#FFB207',
+                'data' => $this->get_data_by_year_and_column(2010, $this->selected_column."_gap_urban_".$this->selected_column_type),
+                'stack' => '2010'
+            ],  [
+                'name' => 'National-16',
+                'data' => $this->get_data_by_year_and_column(2016, $this->selected_column."_gap_national_".$this->selected_column_type),
+                'color' => '#83C341',
+                'stack' => '2016'
+            ], [
+                'name' => 'Rural-16',
+                'color' => '#7F3F98',
+                'data' => $this->get_data_by_year_and_column(2016, $this->selected_column."_gap_rural_".$this->selected_column_type),
+                'stack' => '2016'
+            ], [
+                'name' => 'Urban-16',
+                'color' => '#FFB207',
+                'data' => $this->get_data_by_year_and_column(2016, $this->selected_column."_gap_urban_".$this->selected_column_type),
+                'stack' => '2016'
             ]]
         ];
     }
+
+    public function get_data_by_year_and_column($year, $column){
+        $data = DB::connection('mysql2')->select("SELECT * FROM corona_socio_info.bbs_poverty_and_sqd_poverty;");
+        $array_data = [];
+        foreach(collect($data)->where('year', $year)->pluck($column) as $column_value){
+            array_push($array_data, (float)$column_value);
+        }
+        return $array_data;
+    }
+
 }
+
