@@ -49,58 +49,58 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="card-desc">
-                <p>
-                {!! $description !!}
-                </p>
-            </div>
-             <div class="row align-items-center">
+                <div class="card-desc">
+                    <p>
+                    {!! $description !!}
+                    </p>
+                </div>
+                <div class="row align-items-center">
                 
-                 <div class="form-group col-md-2">
-                     <label for="" class="col-form-label">Fiscal Year</label>
-                     <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
-                         <option value="">All</option>
-                         @foreach($fiscal_yeas as $fiscal_year)
-                             <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
-                         @endforeach
-                     </select>
-                 </div>
+                    <div class="form-group col-md-2">
+                        <label for="" class="col-form-label">Fiscal Year</label>
+                        <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
+                            <option value="">All</option>
+                            @foreach($fiscal_yeas as $fiscal_year)
+                                <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                  
-                 <div class="form-group col-md-2">
-                     <label for="" class="col-form-label">Programme Type</label>
-                     <select class="form-control"wire:model="program_type" wire:change="chart_update">
-                         <option value="">All</option>
-                         @foreach($program_types as $program_type)
-                             <option value="{{ $program_type }}">{{ $program_type }}</option>
-                         @endforeach 
-                     </select>
-                 </div>
-                 <div class="form-group col-md-8">
-                     <div class="dropdown-container float-right">
-                         <button class="dropdown-trigger btn btn-success btn-sm float-right">DropDown</button>
-                         <div class="dropdown-content">
-                             <ul>
-                                 <li> 
-                                    Implementing Ministry 1
-                                     <ul>
-                                        @foreach($implementing_ministry_1s as $implementing_ministry_1)
-                                            <li><a href="javascript:void(0)" wire:click="filter_by_implementing_ministry_1('{{ $implementing_ministry_1 }}')">{{ $implementing_ministry_1 }}</a></li>
-                                        @endforeach
-                                     </ul>
-                                 </li>
-                                 <li> 
-                                    Implementing Ministry  2
-                                    <ul>
-                                        @foreach($implementing_ministry_2s as $implementing_ministry_2)
-                                            <li><a href="javascript:void(0)" wire:click="filter_by_implementing_ministry_2('{{ $implementing_ministry_2 }}')">{{ $implementing_ministry_2 }}</a></li>
-                                        @endforeach
-                                     </ul>
-                                 </li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
-             </div>
+                    <div class="form-group col-md-2">
+                        <label for="" class="col-form-label">Programme Type</label>
+                        <select class="form-control"wire:model="program_type" wire:change="chart_update">
+                            <option value="">All</option>
+                            @foreach($program_types as $program_type)
+                                <option value="{{ $program_type }}">{{ $program_type }}</option>
+                            @endforeach 
+                        </select>
+                    </div>
+                    <div class="form-group col-md-8">
+                        <div class="dropdown-container float-right">
+                         <button class="dropdown-trigger btn btn-success btn-sm float-right">Implementing Ministry</button>
+                            <div class="dropdown-content">
+                                <ul>
+                                    <li> 
+                                        Implementing Ministry 1
+                                        <ul>
+                                            @foreach($implementing_ministry_1s as $implementing_ministry_1)
+                                                <li><a href="javascript:void(0)" wire:click="filter_by_implementing_ministry_1('{{ $implementing_ministry_1 }}')">{{ $implementing_ministry_1 }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    <li> 
+                                        Implementing Ministry  2
+                                        <ul>
+                                            @foreach($implementing_ministry_2s as $implementing_ministry_2)
+                                                <li><a href="javascript:void(0)" wire:click="filter_by_implementing_ministry_2('{{ $implementing_ministry_2 }}')">{{ $implementing_ministry_2 }}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
  
             <figure class="highcharts-figure" wire:ignore>
                 <div id="chart_id_{{ $chart->id }}"> </div>
