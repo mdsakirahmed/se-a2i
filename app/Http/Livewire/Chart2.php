@@ -34,11 +34,11 @@ class Chart2 extends Component
         SUM(total_teacher) as total_teacher,
         ((SUM(female_teacher) * 100) / SUM(total_teacher)) AS female_teacher,
         (((SUM(total_teacher) - SUM(female_teacher)) * 100) / SUM(total_teacher)) AS male_teacher
-    FROM
-        corona_socio_info.education_statistics
-    WHERE
-        year IS NOT NULL
-    GROUP BY year");
+        FROM
+            corona_socio_info.education_statistics
+        WHERE
+            year IS NOT NULL
+        GROUP BY year");
 
         return [
             'chart' => [

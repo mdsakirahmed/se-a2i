@@ -170,7 +170,7 @@ class Chart45 extends Component
             [
                 'name' => 'Headcount ratio: Population in multidimensional poverty',
                 'color' => "#7F3F98",
-                'data' =>  $poverty_index_ophi_data_set['ind_poor']
+                'data' =>  $poverty_index_ophi_data_set['id_poor']
             ],
             [
                 'name' => 'Headcount ratio: Population in multidimensional poverty',
