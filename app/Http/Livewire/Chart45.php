@@ -29,22 +29,60 @@ class Chart45 extends Component
         ]);
     }
 
+    public function chart_update()
+    {
+        $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
+    }
+
+    public $poverties = [
+        'A', 'B', 'C', 'D'
+    ];
+    public $selected_poverty;
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT 
-        year, region, mpi, hr, id_poor, vul_pov
-        FROM
-        corona_socio_info.ophi_poverty;");
+        $data = DB::connection('mysql2')->select("SELECT year, region, mpi, hr, id_poor, vul_pov FROM corona_socio_info.ophi_poverty;");
 
-        $formated_data = array();
-        foreach ($data as $key => $value) {
-            array_push($formated_data, [
-                'location'  => $key,
-                'hr' => round($value->where('early_marriage', 'Increased')->sum('event_percent'), 2),
-                'decreased' => round($value->where('early_marriage', 'Decreased')->sum('event_percent'), 2),
-                'same'      => round($value->where('early_marriage', 'Same')->sum('event_percent'), 2),
-            ]);
+        $categories = collect($data)->pluck('region')->unique();
+
+        $formated_data = [];
+        switch ($this->selected_poverty) {
+            case 'A':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            case 'B':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            case 'C':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            case 'D':
+                array_push($formated_data, [
+                    'name' => "$this->selected_poverty",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
+                break;
+            default:
+                array_push($formated_data, [
+                    'name' => "A",
+                    'color' => "#83C341",
+                    'data' =>  collect($data)->pluck('hr')
+                ]);
         }
+
+
 
         return [
             'chart' => [
@@ -60,7 +98,8 @@ class Chart45 extends Component
             ],
 
             'xAxis' => [
-                'categories' => collect($data)->pluck('students_participation_percentage'),
+                'categories' => $categories,
+                'crosshair' => true,
                 'labels' => [
                     'style' => [
                         'fontSize' => '13px'
@@ -71,7 +110,7 @@ class Chart45 extends Component
                 'allowDecimals' => false,
                 'min' => 0,
                 'title' => [
-                    'text' => 'Percentage of Upazila',
+                    'text' => 'Percentage',
                     'style' => [
                         'fontSize' => '15px'
                     ]
@@ -82,10 +121,21 @@ class Chart45 extends Component
                     ]
                 ]
             ],
+
+            'legend' => [
+                'enabled' => true,
+                'align' => 'left',
+                'verticalAlign' => 'top',
+                'layout' => 'horizontal',
+                'x' => 0,
+                'y' => 0,
+                'margin' => 45
+            ],
+
             'tooltip' => [
                 'useHTML' => true,
                 'headerFormat' => '<b>{point.key}</b><br>',
-                'pointFormat' => '{series.name} : {point.y:,.2f} %',
+                'pointFormat' => '{series.name} : {point.y:,.2f}',
                 'style' => [
                     'color' => '#fff'
                 ],
@@ -98,38 +148,38 @@ class Chart45 extends Component
 
             'plotOptions' => [
                 'column' => [
-                    'stacking' => 'normal',
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'inside' => false,
-                        'format' => "{point.y:,.2f}" . '%',
-                        'color'=> '#323232'
-                    ]
+                    'pointPadding' => 0.2,
+                    'borderWidth' => 0
                 ],
                 'series' => [
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'style' => [
-                            'textShadow' => false,
-                            'strokeWidth' => 0,
-                            'textOutline' => false
-                        ]
-                    ],
-                    'pointWidth' => 30,
-                    'borderRadius' => '10px',
+                    'borderRadius' => '5px',
                 ]
             ],
-            'legend' => [
-                'enabled' => false
-            ],
-            'series' => [[
-                'name' => '',
-                'stack' => '',
-                'color' => "#83C341",
-                'data' =>  collect($data)->pluck('raite_of_students_participation_percentage')->map(function ($value) {
-                    return round($value, 2);
-                }),
-            ]]
+
+            'series' => $formated_data
+
+            // 'series' => [
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#83C341",
+            //         'data' =>  $poverty_index_ophi_data_set['hr']
+            //     ],
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#7F3F98",
+            //         'data' =>  $poverty_index_ophi_data_set['mpi']
+            //     ],
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#FFB207",
+            //         'data' =>  $poverty_index_ophi_data_set['vul_pov']
+            //     ],
+            //     [
+            //         'name' => 'Headcount ratio: Population in multidimensional poverty',
+            //         'color' => "#83C341",
+            //         'data' =>  $poverty_index_ophi_data_set['mpi']
+            //     ]
+            // ]
         ];
     }
 }
