@@ -27,67 +27,24 @@ class Chart47 extends Component
         ]);
     }
 
+    public function chart_update()
+    {
+        $this->dispatchBrowserEvent("chart_update_$this->chart_id", ['data' => $this->get_data()]);
+    }
+
+    public $selected_column = null;
+    public $selected_column_type = null;
+
     public function get_data()
     {
-        $data = DB::connection('mysql2')->select("SELECT
-        year,
-        region,
+        if(!$this->selected_column)
+        $this->selected_column = "poverty";
+        if(!$this->selected_column_type)
+        $this->selected_column_type = "lower";
 
-        poverty_gap_national_lower,
-        poverty_gap_national_upper,
-        poverty_gap_rural_lower,
-        poverty_gap_rural_upper,
+        $data = DB::connection('mysql2')->select("SELECT * FROM corona_socio_info.bbs_poverty_and_sqd_poverty;");
 
-        poverty_gap_urban_lower,
-        poverty_gap_urban_upper,
-        squared_poverty_gap_national_lower,
-        squared_poverty_gap_national_upper,
-
-        squared_poverty_gap_rural_lower,
-        squared_poverty_gap_rural_upper,
-        squared_poverty_gap_urban_lower,
-        squared_poverty_gap_urban_upper
-        FROM
-        corona_socio_info.bbs_poverty_and_sqd_poverty;");
-
-        // $poverty_squared_poverty_gap_data_set['region'] =
-        // $poverty_squared_poverty_gap_data_set['year'] =
-        // $poverty_squared_poverty_gap_data_set['poverty_gap_national_lower'] =
-        // $poverty_squared_poverty_gap_data_set['poverty_gap_national_upper'] =
-        // $poverty_squared_poverty_gap_data_set['poverty_gap_rural_lower'] =
-
-        // $poverty_squared_poverty_gap_data_set['poverty_gap_rural_upper'] =
-        // $poverty_squared_poverty_gap_data_set['poverty_gap_urban_lower'] =
-        // $poverty_squared_poverty_gap_data_set['poverty_gap_urban_upper'] =
-        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_national_lower'] =
-        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_national_upper'] =
-
-        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_rural_lower'] =
-        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_rural_upper'] =
-        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_urban_lower'] =
-        // $poverty_squared_poverty_gap_data_set['squared_poverty_gap_urban_upper'] =
-
-
-        // array();
-        // foreach (collect($data) as $data_of_a_year) {
-        //     array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
-        //     array_push($poverty_squared_poverty_gap_data_set['year'], $data_of_a_year->year);
-        //     array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
-        //     array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-        //     array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
-
-        //     array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
-        //     array_push($poverty_squared_poverty_gap_data_set['mpi'],(float) $data_of_a_year->mpi);
-        //     array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
-        //     array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-        //     array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
-
-        //     array_push($poverty_squared_poverty_gap_data_set['region'],$data_of_a_year->region);
-        //     array_push($poverty_squared_poverty_gap_data_set['mpi'],(float) $data_of_a_year->mpi);
-        //     array_push($poverty_squared_poverty_gap_data_set['hr'],(float) $data_of_a_year->hr);
-        //     array_push($poverty_squared_poverty_gap_data_set['id_poor'],(float) $data_of_a_year->id_poor);
-        //     array_push($poverty_squared_poverty_gap_data_set['vul_pov'],(float) $data_of_a_year->vul_pov);
-        // }
+        $regions = collect($data)->pluck('region')->unique();
 
         return [
             'chart' => [
@@ -103,7 +60,7 @@ class Chart47 extends Component
             ],
 
             'xAxis' => [
-                'categories' => ['Dhaka', 'Barishal', 'Khulna'],
+                'categories' => $regions,
                 'labels'=>[
                     'style'=>[
                         'fontSize'=>'13px'
@@ -151,7 +108,7 @@ class Chart47 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => '{point.series.name}'
+                        // 'format' => '{point.series.name}'
 
                     ]
                 ],
@@ -177,37 +134,48 @@ class Chart47 extends Component
                 'y'=> 0,
                 'margin'=> 45
             ],
-            'series' => [[
-                'name'=> 'National-10',
-                'data'=> [148, 133, 124],
-                'color'=>'#83C341',
-                'stack'=> '2010'
-              ], [
-                'name'=> 'Rural-10',
-                'color'=>'#7F3F98',
-                'data'=> [102, 98, 65],
-                'stack'=> '2010'
-              ], [
-                'name'=> 'Urban-10',
-                'color'=>'#FFB207',
-                'data'=> [102, 98, 65],
-                'stack'=> '2010'
-              ], [
-                'name'=> 'National-16',
-                'data'=> [113, 122, 95],
-                'color'=>'#83C341',
-                'stack'=> '2016'
-              ], [
-                'name'=> 'Rural-16',
-                'color'=>'#7F3F98',
-                'data'=> [113, 122, 95],
-                'stack'=> '2016'
-              ], [
-                'name'=> 'Urban-16',
-                'color'=>'#FFB207',
-                'data'=> [113, 122, 95],
-                'stack'=> '2016'
-              ]]
+            'series' => [ [
+                'name' => 'National-10',
+                'data' => $this->get_data_by_year_and_column(2010, $this->selected_column."_gap_national_".$this->selected_column_type),
+                'color' => '#83C341',
+                'stack' => '2010'
+            ], [
+                'name' => 'Rural-10',
+                'color' => '#7F3F98',
+                'data' => $this->get_data_by_year_and_column(2010, $this->selected_column."_gap_rural_".$this->selected_column_type),
+                'stack' => '2010'
+            ], [
+                'name' => 'Urban-10',
+                'color' => '#FFB207',
+                'data' => $this->get_data_by_year_and_column(2010, $this->selected_column."_gap_urban_".$this->selected_column_type),
+                'stack' => '2010'
+            ],  [
+                'name' => 'National-16',
+                'data' => $this->get_data_by_year_and_column(2016, $this->selected_column."_gap_national_".$this->selected_column_type),
+                'color' => '#83C341',
+                'stack' => '2016'
+            ], [
+                'name' => 'Rural-16',
+                'color' => '#7F3F98',
+                'data' => $this->get_data_by_year_and_column(2016, $this->selected_column."_gap_rural_".$this->selected_column_type),
+                'stack' => '2016'
+            ], [
+                'name' => 'Urban-16',
+                'color' => '#FFB207',
+                'data' => $this->get_data_by_year_and_column(2016, $this->selected_column."_gap_urban_".$this->selected_column_type),
+                'stack' => '2016'
+            ]]
         ];
     }
+
+    public function get_data_by_year_and_column($year, $column){
+        $data = DB::connection('mysql2')->select("SELECT * FROM corona_socio_info.bbs_poverty_and_sqd_poverty;");
+        $array_data = [];
+        foreach(collect($data)->where('year', $year)->pluck($column) as $column_value){
+            array_push($array_data, (float)$column_value);
+        }
+        return $array_data;
+    }
+
 }
+
