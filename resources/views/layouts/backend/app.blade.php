@@ -159,6 +159,16 @@
             border-radius: 1rem;
             transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         }
+        @media screen and (max-width: 480px) {
+            .card-body select {
+                margin-right: 10px;
+                margin-bottom: 20px;
+                min-width: 120px;
+                max-width: 240px;
+                padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+                font-size: 0.75rem;
+            }
+        }
         .col-form-label {
             font-size: 0.85em;
             font-weight: 500;
