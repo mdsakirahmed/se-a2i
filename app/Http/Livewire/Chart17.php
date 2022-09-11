@@ -56,8 +56,9 @@ class Chart17 extends Component
             } else {
                 $value = collect($district_wise_data)->sum('total_remitance_usd');
             }
+            echo(ucwords(strtolower(trans($district))).": round($value) </br>");
             array_push($formated_data, [
-                'district' => ucfirst(strtolower(trans($district))), 'value' => round($value), 'division' => ucfirst(strtolower(trans(collect($district_wise_data)->first()->division)))
+                'district' => ucwords(strtolower(trans($district))), 'value' => round($value), 'division' => ucwords(strtolower(trans(collect($district_wise_data)->first()->division)))
             ]);
         }
 
