@@ -10,7 +10,7 @@ class Chart48 extends Component
 {
     public  Chart $chart;
     public $name, $description, $datasource, $chart_id = 48;
-    public $years, $districts, $divisions, $selected_year, $selected_district, $selected_division;
+    public $years, $districts, $divisions, $selected_year, $selected_district, $selected_division, $selected_subdistrict;
 
     public function render()
     {
@@ -58,22 +58,21 @@ class Chart48 extends Component
             }
             // echo(ucwords(strtolower(trans($subdistrict))).": $value </br>");
             array_push($formated_data, [
-                'value' => round($value), 
-                'subdistrict' => ucwords(strtolower(trans($subdistrict))), 
+                'value' => round($value),
+                'subdistrict' => ucwords(strtolower(trans($subdistrict))),
                 'district' => ucwords(strtolower(trans(collect($subdistrict_wise_data)->first()->district))),
                 'division' => ucwords(strtolower(trans(collect($subdistrict_wise_data)->first()->division)))
             ]);
         }
 
         $this->divisions = collect($formated_data)->pluck('division')->unique();
-        $this->districts = collect($formated_data)->pluck('district')->unique();
-        $this->subdistricts = collect($formated_data)->pluck('subdistrict')->unique();
+        // $this->subdistricts = collect($formated_data)->pluck('subdistrict')->unique();
 
-        // if ($this->selected_division) {
-        //     $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
-        // } else {
-        //     $this->districts = collect($formated_data)->pluck('district');
-        // }
+        if ($this->selected_division) {
+            $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district')->unique();
+        } else {
+            $this->districts = collect($formated_data)->pluck('district')->unique();
+        }
 
         //Get data from json file
         $geojson = json_decode(file_get_contents(public_path('assets/json/bangladesh.geojson.json')), true);
@@ -83,15 +82,15 @@ class Chart48 extends Component
         $filter_geojson['features'] = [];
         foreach ($geojson['features'] as $feature) {
             if ($this->selected_district && $this->selected_division) {
-                if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
+                if ($feature['properties']['NAME_1'] == $this->selected_district && $feature['properties']['NAME_2'] == $this->selected_division) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else if ($this->selected_district && !$this->selected_division) {
-                if ($feature['properties']['district'] == $this->selected_district) {
+                if ($feature['properties']['NAME_2'] == $this->selected_district) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else if (!$this->selected_district && $this->selected_division) {
-                if ($feature['properties']['division'] == $this->selected_division) {
+                if ($feature['properties']['NAME_1'] == $this->selected_division) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else {
@@ -119,7 +118,7 @@ class Chart48 extends Component
             ],
             'legend' => [
                 'enabled' => false
-              ],
+            ],
             'mapNavigation' => [
                 'enabled' => true,
                 'buttonOptions' => [
@@ -152,7 +151,6 @@ class Chart48 extends Component
             'series' => [
                 [
                     'data' => collect($formated_data)->map(function ($data) {
-                        echo ("Division:". $data['division'] ."District:". $data['district'] ."Subdistrict:". $data['subdistrict']. "Value:". $data['value'] ."</br>");
                         return [$data['division'], $data['district'], $data['subdistrict'], $data['value']];
                     }),
                     'keys' => ["division", "district", "subdistrict", "value"],
