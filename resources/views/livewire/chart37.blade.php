@@ -49,6 +49,11 @@
         <figure class="highcharts-figure">
             <div id="chart_id_{{ $chart->id }}"> </div>
         </figure>
+        <div style="display: flex; justify-content:center;">
+            <div style="height:15px; width:200px; background-color:#00FF00; margin:5px; font-size:10px; border-radius:5px; text-align:center;">Secure</div>
+            <div style="height:15px; width:200px; background-color:#FFFF00; margin:5px; font-size:10px; border-radius:5px; text-align:center;">Average</div>
+            <div style="height:15px; width:200px; background-color:#FF0000; margin:5px; font-size:10px; border-radius:5px; text-align:center;">Danger</div>
+           </div>
        </div>
 
         <div class="card-footer">
