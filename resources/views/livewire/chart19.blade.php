@@ -33,7 +33,7 @@
             <option value="Khulna">Khulna</option>
             <option value="Barishal">Barishal</option>
             <option value="Rajshahi">Rajshahi</option>
-            <option value="Chittagong">Chittagong</option>
+            <option value="Chattogram">Chattogram</option>
             <option value="Dhaka">Dhaka</option>
             <option value="Rangpur">Rangpur</option>
             <option value="Sylhet">Sylhet</option>
