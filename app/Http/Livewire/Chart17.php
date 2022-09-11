@@ -111,7 +111,9 @@ class Chart17 extends Component
             'accessibility' => [
                 'typeDescription' => ""
             ],
-
+            'legend' => [
+                'enabled' => false
+              ],
             'mapNavigation' => [
                 'enabled' => true,
                 'buttonOptions' => [
