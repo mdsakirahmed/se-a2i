@@ -44,68 +44,66 @@ class Chart48 extends Component
     public function get_data()
     {
 
-
-        // $db_data = DB::connection('mysql2')->select("SELECT year, division, district, sum(remittance_in_million_usd) as total_remitance_usd
-        //         FROM corona_socio_info.economy_remittance_districtwise group by year, division, district");
-
-        $db_data = DB::connection('mysql2')->select("SELECT * FROM poverty_yearly_upazilawise");
+        $db_data = DB::connection('mysql2')->select("SELECT
+        year, division, district, subdistrict, upper FROM corona_socio_info.poverty_yearly_upazilawise;");
 
         $this->years = collect($db_data)->pluck('year')->unique();
 
         $formated_data = [];
         foreach (collect($db_data)->groupBy('subdistrict') as $subdistrict => $subdistrict_wise_data) {
             if ($this->selected_year) {
-                $value = collect($subdistrict_wise_data)->where('year', $this->selected_year)->sum('total_remitance_usd');
+                $value = collect($subdistrict_wise_data)->where('year', $this->selected_year)->sum('upper');
             } else {
-                $value = collect($subdistrict_wise_data)->sum('total_remitance_usd');
+                $value = collect($subdistrict_wise_data)->sum('upper');
             }
-            // echo(ucwords(strtolower(trans($subdistrict))).": round($value) </br>");
+            // echo(ucwords(strtolower(trans($subdistrict))).": $value </br>");
             array_push($formated_data, [
+                'value' => round($value), 
                 'subdistrict' => ucwords(strtolower(trans($subdistrict))), 
-                'district' =>ucwords(strtolower(trans(collect($subdistrict_wise_data)->first()->district))),
-                'division' => ucwords(strtolower(trans(collect($subdistrict_wise_data)->first()->division))),
-                'value' => round($value)
+                'district' => ucwords(strtolower(trans(collect($subdistrict_wise_data)->first()->district))),
+                'division' => ucwords(strtolower(trans(collect($subdistrict_wise_data)->first()->division)))
             ]);
         }
 
         $this->divisions = collect($formated_data)->pluck('division')->unique();
         $this->districts = collect($formated_data)->pluck('district')->unique();
+        $this->subdistricts = collect($formated_data)->pluck('subdistrict')->unique();
 
         // if ($this->selected_division) {
-        //     $this->subdistricts = collect($formated_data)->where('division', $this->selected_division)->pluck('subdistrict');
+        //     $this->districts = collect($formated_data)->where('division', $this->selected_division)->pluck('district');
         // } else {
-        //     $this->subdistricts = collect($formated_data)->pluck('subdistrict');
+        //     $this->districts = collect($formated_data)->pluck('district');
         // }
 
         //Get data from json file
         $geojson = json_decode(file_get_contents(public_path('assets/json/bangladesh.geojson.json')), true);
 
         //Filter data
-        // $filter_geojson = $geojson;
-        // $filter_geojson['features'] = [];
-        // foreach ($geojson['features'] as $feature) {
-        //     if ($this->selected_district && $this->selected_division) {
-        //         if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
-        //             array_push($filter_geojson['features'], $feature);
-        //         }
-        //     } else if ($this->selected_district && !$this->selected_division) {
-        //         if ($feature['properties']['district'] == $this->selected_district) {
-        //             array_push($filter_geojson['features'], $feature);
-        //         }
-        //     } else if (!$this->selected_district && $this->selected_division) {
-        //         if ($feature['properties']['division'] == $this->selected_division) {
-        //             array_push($filter_geojson['features'], $feature);
-        //         }
-        //     } else {
-        //         array_push($filter_geojson['features'], $feature);
-        //     }
-        // }
-        // $geojson = $filter_geojson;
+        $filter_geojson = $geojson;
+        $filter_geojson['features'] = [];
+        foreach ($geojson['features'] as $feature) {
+            if ($this->selected_district && $this->selected_division) {
+                if ($feature['properties']['district'] == $this->selected_district && $feature['properties']['division'] == $this->selected_division) {
+                    array_push($filter_geojson['features'], $feature);
+                }
+            } else if ($this->selected_district && !$this->selected_division) {
+                if ($feature['properties']['district'] == $this->selected_district) {
+                    array_push($filter_geojson['features'], $feature);
+                }
+            } else if (!$this->selected_district && $this->selected_division) {
+                if ($feature['properties']['division'] == $this->selected_division) {
+                    array_push($filter_geojson['features'], $feature);
+                }
+            } else {
+                array_push($filter_geojson['features'], $feature);
+            }
+        }
+        $geojson = $filter_geojson;
 
         //Make map data set
         return [
             'chart' => [
-                'map' => collect($geojson['features'])
+                'map' => collect($geojson)
             ],
 
             'credits' => [
@@ -144,8 +142,8 @@ class Chart48 extends Component
 
             'colorAxis' => [
                 'tickPixelInterval' => 100,
-                'min' => 1,
-                'max' => 10,
+                'min' => collect($formated_data)->min('value'),
+                'max' => collect($formated_data)->max('value'),
                 'type' => 'logarithmic',
                 'minColor' => '#cfc5d4',
                 'maxColor' => '#7F3F98'
@@ -154,10 +152,11 @@ class Chart48 extends Component
             'series' => [
                 [
                     'data' => collect($formated_data)->map(function ($data) {
+                        echo ("Division:". $data['division'] ."District:". $data['district'] ."Subdistrict:". $data['subdistrict']. "Value:". $data['value'] ."</br>");
                         return [$data['division'], $data['district'], $data['subdistrict'], $data['value']];
                     }),
                     'keys' => ["division", "district", "subdistrict", "value"],
-                    'joinBy' => ['upazila', 'subdistrict'],
+                    'joinBy' => "subdistrict",
                     'name' => "Remittance In Million USD",
                     'states' => [
                         'hover' => [
@@ -166,7 +165,7 @@ class Chart48 extends Component
                     ],
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => "{point.properties.subdistrict}",
+                        'format' => "{point.properties.subdistrict} ",
                         'style' => [
                             'textShadow' => false,
                             'strokeWidth' => 0,
