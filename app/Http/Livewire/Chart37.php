@@ -172,7 +172,9 @@ class Chart37 extends Component
       'accessibility' => [
         'typeDescription' => ""
       ],
-
+      'legend' => [
+        'enabled' => false
+      ],
       'mapNavigation' => [
         'enabled' => true,
         'buttonOptions' => [
@@ -185,8 +187,11 @@ class Chart37 extends Component
         'min' => collect($formated_data)->min('value'),
         'max' => collect($formated_data)->max('value'),
         'type' => 'logarithmic',
-        'minColor' => '#cfc5d4',
-        'maxColor' => '#7F3F98'
+        'stops' => [
+          [0, '#00FF00'],
+          [0.5, '#FFFF00'],
+          [1, '#FF0000']
+        ]
       ],
       'tooltip' => [
         'useHTML' => true,
