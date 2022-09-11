@@ -285,6 +285,43 @@ class Chart16 extends Component
             ],
             'colors' => ['#EE47B5', '#FFB207', '#7F3F98', '#83C341',],
             'series' => $series,
+            'responsive'=> [
+                'rules'=> [[
+                    'condition'=> [
+                        'maxWidth'=> 500
+                    ],
+                    'chartOptions'=> [
+                        'plotOptions'=> [
+                            'series'=> [
+                                'pointWidth'=> 15,
+                                'borderRadius'=>'5px'
+                            ]
+                        ],
+
+                        'yAxis'=>[
+                            'title' => [
+                                'text' => 'Percentage of Students',
+                                'style'=>[
+                                    'fontSize'=>'12px'
+                                ]
+                            ],
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ],
+                        'xAxis'=>[
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ]
+                            
+                    ]
+                ]]
+            ]
         ];
     }
 

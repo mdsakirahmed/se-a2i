@@ -153,7 +153,7 @@ class Chart18 extends Component
                     }),
 
                 ],
-            ]
+            ],
         ];
     }
 }

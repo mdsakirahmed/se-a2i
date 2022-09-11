@@ -183,6 +183,26 @@ class Chart8 extends Component
                             'layout' => 'horizontal',
                             'align' => 'center',
                             'verticalAlign' => 'bottom'
+                        ],
+                        'yAxis'=>[
+                            'title' => [
+                                'text' => 'Percentage of Students',
+                                'style'=>[
+                                    'fontSize'=>'12px'
+                                ]
+                            ],
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ],
+                        'xAxis'=>[
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
                         ]
                     ]
                 ]]
