@@ -1,10 +1,18 @@
 <div class="h-100">
     <style>
-        #chart_id_{{ $chart->id }} {
+       #chart_id_{{ $chart->id }} {
             height: 800px;
-            min-width: 800px;
+            width: 800px;
             max-width: 800px;
             margin: 0 auto;
+        }
+        @media screen and (max-width: 480px) {
+                #chart_id_{{ $chart->id }} {
+                height: auto;
+                width: auto;
+                max-width: auto;
+                margin: 0 auto;
+            }
         }
     </style>
     <div class="card h-100">
