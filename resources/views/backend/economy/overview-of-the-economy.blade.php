@@ -4,20 +4,19 @@
     <div class="content-area">
         <div class="container">
             <header>
-                <h3>
-                    {{ __('Overview of the Economy') }}
-                </h3>
+                <div class="custom">
+                    <h3>
+                        {{ __('Overview of the Economy') }}
+                    </h3>
+                </div>
             </header>
-            <div class="card-lg">
+            <div class="hero-header">
                 <div class="block-group">
                     <div class="block-60">
-                        <p class="mb-md-4">
-                            <span class="c-secondary fw-bold">{{ __('overview of the economy green text') }}</span>,
-                            {{ __('overview of the economy description 1') }}
-                        </p>
+                        <h3>
+                          {{ __('overview of the economy green text') }}</h3>
                         <p>
-                            <span class="c-primary fw-bold">{{ __('overview of the economy purple text') }}</span>
-                            {{ __('overview of the economy description 2') }}
+                        {{ __('overview of the economy description 1') }}
                         </p>
                     </div>
                     <div class="block-40">
