@@ -138,7 +138,36 @@ class Chart28 extends Component
                     ]
                 ]
 
-            ]
+                    ],
+                    'responsive'=>[
+                        'rules'=>[[
+                            'condition'=> [
+                                'maxWidth'=> 500
+                            ],
+                            'chartOptions'=>[
+                                'yAxis'=>[
+                                    'title' => [
+                                        'text' => 'Percentage of Students',
+                                        'style'=>[
+                                            'fontSize'=>'12px'
+                                        ]
+                                    ],
+                                    'labels'=>[
+                                        'style'=>[
+                                            'fontSize'=>'10px'
+                                        ]
+                                    ]
+                                ],
+                                'xAxis'=>[
+                                    'labels'=>[
+                                        'style'=>[
+                                            'fontSize'=>'10px'
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]]
+                    ]
         ];
     }
 }

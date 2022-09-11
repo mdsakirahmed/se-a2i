@@ -144,7 +144,56 @@ class Chart9 extends Component
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),
-            ]]
+            ]],
+            'responsive'=> [
+                'rules'=> [[
+                    'condition'=> [
+                        'maxWidth'=> 500
+                    ],
+                    'chartOptions'=> [
+                        'plotOptions'=> [
+                            'column'=> [
+                                'pointWidth'=> 15,
+                                'borderRadius'=>'8px',
+                                'dataLabels'=>[
+                                    'inside' => true,
+                                ]
+                            ],
+                            'series'=>[
+                                'dataLabels'=>[
+                                    'rotation'=> 270,
+                                    'style'=>[
+                                        'fontSize'=>'10px'
+                                    ]
+                                ]
+                            ]    
+                        ],
+
+                        'yAxis'=>[
+                            'title' => [
+                                'text' => 'Percentage of Students',
+                                'style'=>[
+                                    'fontSize'=>'12px'
+                                ]
+                            ],
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ],
+                        'xAxis'=>[
+                            'labels'=>[
+                                'rotation'=>270,
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ]
+                            
+                    ]
+                ]]
+            ]
         ];
     }
 }

@@ -31,9 +31,9 @@
         <select wire:model="selected_division" wire:change="change_divition">
             <option value="">All division</option>
             <option value="Khulna">Khulna</option>
-            <option value="Barisal">Barisal</option>
+            <option value="Barishal">Barishal</option>
             <option value="Rajshahi">Rajshahi</option>
-            <option value="Chittagong">Chittagong</option>
+            <option value="Chattogram">Chattogram</option>
             <option value="Dhaka">Dhaka</option>
             <option value="Rangpur">Rangpur</option>
             <option value="Sylhet">Sylhet</option>
