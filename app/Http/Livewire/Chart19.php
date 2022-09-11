@@ -184,8 +184,8 @@ class Chart19 extends Component
         'tickPixelInterval' => 100,
         'min' => collect($formated_data)->min('value'),
         'max' => collect($formated_data)->max('value'),
-        'minColor' => '#cfc5d4',
-        'maxColor' => '#7F3F98'
+        'minColor' => '#20F9C0',
+        'maxColor' => '#03045E'
       ],
       'tooltip' => [
         'useHTML' => true,
@@ -219,7 +219,7 @@ class Chart19 extends Component
               'textShadow' => false,
               'strokeWidth' => 0,
               'textOutline' => false,
-              'color' => '#323232'
+              'color' => '#444444'
             ]
           ]
         ]

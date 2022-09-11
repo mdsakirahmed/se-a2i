@@ -139,8 +139,8 @@ class Chart17 extends Component
                 'min' => collect($formated_data)->min('value'),
                 'max' => collect($formated_data)->max('value'),
                 'type' => 'logarithmic',
-                'minColor' => '#cfc5d4',
-                'maxColor' => '#7F3F98'
+                'minColor' => '#20F9C0',
+                'maxColor' => '#03045E'
             ],
 
             'series' => [
@@ -163,7 +163,7 @@ class Chart17 extends Component
                             'textShadow' => false,
                             'strokeWidth' => 0,
                             'textOutline' => false,
-                            'color' => '#323232'
+                            'color' => '#444444'
                         ]
                     ]
                 ]
