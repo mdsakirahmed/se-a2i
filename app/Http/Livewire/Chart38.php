@@ -66,9 +66,9 @@ class Chart38 extends Component
                 'programme_type' => collect($data_set)->pluck('programme_type'),
                 'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1'),
                 'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2'),
-                'budget_crore_bdt' => collect($data_set)->sum('budget_crore_bdt'),
-                'beneficiaries_lac_persons'=> collect($data_set)->sum('beneficiaries_lac_persons'),
-                'value' => collect($data_set)->sum('value'),
+                'budget_crore_bdt' => round(collect($data_set)->sum('budget_crore_bdt'), 2),
+                'beneficiaries_lac_persons'=> round(collect($data_set)->sum('beneficiaries_lac_persons'), 2),
+                'value' => round(collect($data_set)->sum('value'), 2),
             ]);
         }
 
