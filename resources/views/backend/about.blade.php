@@ -37,7 +37,7 @@
                             <img src="{{ asset('assets/img/demo1.png') }}" />
                         </div>
                         <div class="mobile">
-                            <img src="{{ asset('assets/img/demo1-moblie.png') }}" />
+                            <img src="{{ asset('assets/img/demo1-mobile.png') }}" />
                         </div>
                     </div>
                 </div>
