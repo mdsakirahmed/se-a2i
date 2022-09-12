@@ -188,9 +188,9 @@ class Chart37 extends Component
         'max' => collect($formated_data)->max('value'),
         'type' => 'logarithmic',
         'stops' => [
-          [0, '#00FF00'],
-          [0.5, '#FFFF00'],
-          [1, '#FF0000']
+          [0, '#80ce0c'],
+          [0.5, '#00b4d8'],
+          [1, '#dc235b']
         ]
       ],
       'tooltip' => [
@@ -215,7 +215,7 @@ class Chart37 extends Component
           'joinBy' => "district",
           'states' => [
             'hover' => [
-              'color' => "#80CE0C"
+              'color' => "#a800ff"
             ]
           ],
           'dataLabels' => [
