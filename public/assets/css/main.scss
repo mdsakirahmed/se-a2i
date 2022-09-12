@@ -472,11 +472,14 @@ header {
   }
 
   img {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
+    -o-object-fit: cover;
     object-fit: cover;
     border-radius: 50%;
+    margin-left: 10px;
     border: 2px solid #ffffff;
+    box-shadow: 0px 0px 0.7px 1.2px rgb(0 0 0 / 12%);
 
     &:nth-child(3) {
       margin-left: -12px;
@@ -611,6 +614,9 @@ header {
 
           &:hover {
             background: #96cb1f;
+            i {
+             color: #000000; 
+            }
           }
 
           &:focus {
@@ -681,11 +687,14 @@ header {
         }
 
         .sub-active {
-          background: #96cb1f !important;
+          background: #9fd527!important;
 
           h6 {
             font-weight: 600 !important;
             color: #000000;
+            i {
+              color: #000000; 
+             }
           }
 
           a {
@@ -709,7 +718,11 @@ header {
 
             h6 {
               color: #000000;
+              i {
+                color: #000000; 
+               }
             }
+            
           }
 
           .sub-active {
@@ -717,6 +730,9 @@ header {
 
             h6 {
               color: #000000;
+              i {
+                color: #000000; 
+               }
             }
 
             a {
@@ -767,6 +783,9 @@ header {
 
           &:hover {
             background: #96cb1f;
+            i {
+              color: #000000; 
+             }
           }
         }
 
@@ -784,11 +803,8 @@ header {
           background: #96cb1f;
 
           h6 {
-
             i {
-
               color: #000000;
-
             }
 
           }
@@ -923,11 +939,14 @@ header {
               caret-color: transparent;
 
               &:hover {
-                background: #80CE0C;
+                background: #96cb1f;
+                i {
+                  color: #000000; 
+                 }
               }
 
               &:focus {
-                background: #80CE0C;
+                background: #96cb1f;
               }
 
               h6 {
@@ -967,7 +986,7 @@ header {
               display: flex;
               justify-content: space-between;
               align-items: center;
-              background: #80CE0C;
+              background: #96cb1f;
               border: 1px solid gainsboro;
               border-radius: 10px;
               padding: 10px;
@@ -994,7 +1013,7 @@ header {
             }
 
             .sub-active {
-              background: #80ce0c !important;
+              background: #9fd527!important;
 
               h6 {
                 font-weight: 600 !important;
@@ -1018,7 +1037,7 @@ header {
               transition: 0.3s;
 
               &:hover {
-                background: #80ce0c;
+                background: #96cb1f;
 
                 h6 {
                   color: #000000;
@@ -1026,7 +1045,7 @@ header {
               }
 
               .sub-active {
-                background: #80ce0c;
+                background: #96cb1f;
 
                 h6 {
                   color: #000000;
@@ -1079,7 +1098,7 @@ header {
               background: white;
 
               &:hover {
-                background: #80CE0C;
+                background: #96cb1f;
               }
             }
 
@@ -1094,7 +1113,7 @@ header {
 
             .nav-title-collapse-active {
 
-              background: #80CE0C;
+              background: #96cb1f;
 
               h6 {
 
@@ -1772,6 +1791,24 @@ header {
   width: 100% !important;
 }
 
+.legend-chart-37 {
+  width: 80%;
+  padding: 4px 20px;
+  border-radius: 30px;
+  background: rgb(128,206,12);
+  background: linear-gradient(90deg, rgba(128,206,12,1) 0%, rgba(0,180,216,1) 50%, rgba(220,35,91,1) 100%);
+  margin: 0 auto;
+  .legend-titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    p {
+      margin-bottom: 0px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}
 
 
 
