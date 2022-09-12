@@ -60,7 +60,7 @@ class Chart19 extends Component
       ['division' => 'Rangpur', 'district' => 'Dinajpur', 'value' => -75.06775068],
       ['division' => 'Dhaka', 'district' => 'Faridpur', 'value' => -64.04726315],
       ['division' => 'Chattogram', 'district' => 'Feni', 'value' => -63.24145386],
-      ['division' => 'Rangpur', 'district' => 'Gaibandah', 'value' => -72.23602485],
+      ['division' => 'Rangpur', 'district' => 'Gaibandhah', 'value' => -72.23602485],
       ['division' => 'Dhaka', 'district' => 'Gazipur', 'value' => -73.02234943],
       ['division' => 'Dhaka', 'district' => 'Gopalganj', 'value' => -63.38780641],
       ['division' => 'Sylhet', 'district' => 'Habiganj', 'value' => -70.31277302],
