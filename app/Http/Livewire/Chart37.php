@@ -59,7 +59,7 @@ class Chart37 extends Component
       ['division' => 'Rangpur', 'district' => 'Dinajpur', 'value' => 40.00],
       ['division' => 'Dhaka', 'district' => 'Faridpur', 'value' => 55.77],
       ['division' => 'Chattogram', 'district' => 'Feni', 'value' => 53.33],
-      ['division' => 'Rangpur', 'district' => 'Gaibandah', 'value' => 55.17],
+      ['division' => 'Rangpur', 'district' => 'Gaibandhah', 'value' => 55.17],
       ['division' => 'Dhaka', 'district' => 'Gazipur', 'value' => 33.33],
       ['division' => 'Dhaka', 'district' => 'Gopalganj', 'value' => 31.03],
       ['division' => 'Sylhet', 'district' => 'Habiganj', 'value' => 57.50],
