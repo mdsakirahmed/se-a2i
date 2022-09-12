@@ -130,7 +130,51 @@ class Chart11 extends Component
                 'data' =>  collect($data)->pluck('column-1')->map(function ($value) {
                     return round($value, 2);
                 }),
-            ]]
+            ]],
+            'responsive'=> [
+                'rules'=> [[
+                    'condition'=> [
+                        'maxWidth'=> 500
+                    ],
+                    'chartOptions'=> [
+                        'plotOptions'=> [
+                            'bar'=> [
+                                'pointWidth'=> 15,
+                                'borderRadius'=>'8px',
+                            ],
+                            'series'=>[
+                                'dataLabels'=>[
+                                    'style'=>[
+                                        'fontSize'=>'10px'
+                                    ]
+                                ]
+                            ]    
+                        ],
+
+                        'yAxis'=>[
+                            'title' => [
+                                'text' => 'Percentage of Students',
+                                'style'=>[
+                                    'fontSize'=>'12px'
+                                ]
+                            ],
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ],
+                        'xAxis'=>[
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ]
+                            
+                    ]
+                ]]
+            ]    
         ];
     }
 }

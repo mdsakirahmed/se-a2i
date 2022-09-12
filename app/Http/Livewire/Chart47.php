@@ -108,7 +108,7 @@ class Chart47 extends Component
                     'stacking' => 'normal',
                     'dataLabels' => [
                         'enabled' => true,
-                        // 'format' => '{point.series.name}'
+                        //'format' => '{point.series.name}'
 
                     ]
                 ],

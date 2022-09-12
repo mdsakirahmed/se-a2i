@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Traits\DataCleanerTrait;
 
 class Chart24 extends Component
 {
+    use DataCleanerTrait;
+
     public  Chart $chart;
     public $name, $description, $datasource, $chart_id = 24;
     public $countries, $selected_country, $years, $selected_year;
@@ -57,7 +60,7 @@ class Chart24 extends Component
                 $value = collect($country_wise_data)->sum('import_million_usd') / 1000000;
             }
             array_push($formated_data, [
-                'country' => $country, 'value' => round($value)
+                'country' => $this->data_clean($country), 'value' => round($value)
             ]);
         }
 
@@ -82,7 +85,9 @@ class Chart24 extends Component
             'accessibility' => [
                 'typeDescription' => ""
             ],
-
+            'legend' => [
+                'enabled' => false
+            ],
             'mapNavigation' => [
                 'enabled' => true,
                 'buttonOptions' => [
@@ -125,7 +130,7 @@ class Chart24 extends Component
                     'dataLabels' => [
                         'enabled' => true,
                         'format' => "{point.name}",
-                        'color'=> '#323232'
+                        'color' => '#323232'
                     ]
                 ]
             ]

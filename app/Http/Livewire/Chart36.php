@@ -211,6 +211,35 @@ class Chart36 extends Component
                 'color' => "#FFB207",
                 'data' =>  collect($formated_data)->pluck('decreased'),
             ]],
+            'responsive'=>[
+                'rules'=>[[
+                    'condition'=> [
+                        'maxWidth'=> 500
+                    ],
+                    'chartOptions'=>[
+                        'yAxis'=>[
+                            'title' => [
+                                'text' => 'Percentage of Students',
+                                'style'=>[
+                                    'fontSize'=>'12px'
+                                ]
+                            ],
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ],
+                        'xAxis'=>[
+                            'labels'=>[
+                                'style'=>[
+                                    'fontSize'=>'10px'
+                                ]
+                            ]
+                        ]
+                    ]
+                ]]
+            ]
         ];
     }
 }

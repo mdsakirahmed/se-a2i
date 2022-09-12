@@ -376,7 +376,7 @@ class ChartSeeder extends Seeder
                 'bn_description' => '',
                 'en_description' => '',
             ],
-            [ // chart id 44
+            [ // chart id 46
                 'bn_name' => 'Poverty Index WB', 
                 'en_name' => 'Poverty Index WB',
                 'bn_datasource' => '',
@@ -384,9 +384,18 @@ class ChartSeeder extends Seeder
                 'bn_description' => '',
                 'en_description' => '',
             ],
-            [ // chart id 45
+            [ // chart id 47
                 'bn_name' => 'Poverty & Squared Poverty Gap BBS', 
                 'en_name' => 'Poverty & Squared Poverty Gap BBS',
+                'bn_datasource' => '',
+                'en_datasource' => '',
+                'bn_description' => '',
+                'en_description' => '',
+            ],
+
+            [ // chart id 48
+                'bn_name' => 'Poverty Rate Regional', 
+                'en_name' => 'Poverty Rate Regional',
                 'bn_datasource' => '',
                 'en_datasource' => '',
                 'bn_description' => '',
