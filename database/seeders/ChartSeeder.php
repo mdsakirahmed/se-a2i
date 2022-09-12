@@ -309,8 +309,8 @@ class ChartSeeder extends Seeder
                 'en_name' => 'District Wise Food Insecurity',
                 'bn_datasource' => '',
                 'en_datasource' => '',
-                'bn_description' => 'Rajshahi, Rangpur and Sylhet (North-eastern) regions are more vulnerable to food insecurity whereas the Khulna and Chittagong southern regions have low vulnerability in Bangladesh. Therefore, resources should be allocated targeting the regions with more food insecurity.',
-                'en_description' => 'Rajshahi, Rangpur and Sylhet (North-eastern) regions are more vulnerable to food insecurity whereas the Khulna and Chittagong southern regions have low vulnerability in Bangladesh. Therefore, resources should be allocated targeting the regions with more food insecurity.',
+                'bn_description' => 'Rajshahi, Rangpur and Sylhet (North-eastern) regions are more vulnerable to food insecurity whereas the Khulna and Chattogram southern regions have low vulnerability in Bangladesh. Therefore, resources should be allocated targeting the regions with more food insecurity.',
+                'en_description' => 'Rajshahi, Rangpur and Sylhet (North-eastern) regions are more vulnerable to food insecurity whereas the Khulna and Chattogram southern regions have low vulnerability in Bangladesh. Therefore, resources should be allocated targeting the regions with more food insecurity.',
             ],
             [ // chart id 38
                 'bn_name' => 'প্রোগ্রাম এবং প্রোগ্রামের ধরণ অনুসারে বাজেটের বন্টন', 
