@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   background: #fff;
   z-index: 1031;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid #e6f2fb;
 }
 
@@ -143,7 +143,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header .logo img {
   transition: all 0.5s;
-  max-height: 50px;
+  max-height: 45px;
 }
 
 @media (max-width: 992px) {

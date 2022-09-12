@@ -510,10 +510,10 @@ header .custom h3 {
   caret-color: transparent;
 }
 .main-nav .container .faq-list a .nav-title:hover {
-  background: #80CE0C;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a .nav-title:focus {
-  background: #80CE0C;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a .nav-title h6 {
   font-size: 13px;
@@ -530,7 +530,7 @@ header .custom h3 {
   margin-right: 10px;
 }
 .main-nav .container .faq-list a .nav-title-active {
-  background: #80CE0C;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a .nav-title-active h6 i {
   color: #000000;
@@ -539,7 +539,7 @@ header .custom h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #80CE0C;
+  background: #96cb1f;
   border: 1px solid gainsboro;
   border-radius: 10px;
   padding: 10px;
@@ -563,7 +563,7 @@ header .custom h3 {
   margin-right: 10px;
 }
 .main-nav .container .faq-list a .sub-active {
-  background: #80ce0c !important;
+  background: #96cb1f !important;
 }
 .main-nav .container .faq-list a .sub-active h6 {
   font-weight: 600 !important;
@@ -584,13 +584,13 @@ header .custom h3 {
   transition: 0.3s;
 }
 .main-nav .container .faq-list a .nav-title-sub:hover {
-  background: #80ce0c;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a .nav-title-sub:hover h6 {
   color: #000000;
 }
 .main-nav .container .faq-list a .nav-title-sub .sub-active {
-  background: #80ce0c;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a .nav-title-sub .sub-active h6 {
   color: #000000;
@@ -633,7 +633,7 @@ header .custom h3 {
   background: white;
 }
 .main-nav .container .faq-list a.collapsed .nav-title-collapse:hover {
-  background: #80CE0C;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a.collapsed .icon-show {
   display: flex;
@@ -643,7 +643,7 @@ header .custom h3 {
   display: none;
 }
 .main-nav .container .faq-list a.collapsed .nav-title-collapse-active {
-  background: #80CE0C;
+  background: #96cb1f;
 }
 .main-nav .container .faq-list a.collapsed .nav-title-collapse-active h6 i {
   color: #000000;
@@ -771,7 +771,7 @@ header .custom h3 {
   margin-right: 10px;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-active {
-  background: #80CE0C;
+  background: #96cb1f;
 }
 #main-nav .container .main-nav .container .faq-list a .nav-title-active h6 i {
   color: #000000;
@@ -920,9 +920,13 @@ header .custom h3 {
   }
 }
 
+#header.header-scrolled {
+  padding: 4px 0;
+  box-shadow: 0px 3px 4px RGB(41 72 152/6%);
+}
 #header.header-scrolled .logo img {
   transition: all 0.2s;
-  max-height: 33px;
+  max-height: 40px;
 }
 
 #main-nav.main-nav-scrolled {

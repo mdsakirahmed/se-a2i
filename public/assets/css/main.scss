@@ -610,11 +610,11 @@ header {
           caret-color: transparent;
 
           &:hover {
-            background: #80CE0C;
+            background: #96cb1f;
           }
 
           &:focus {
-            background: #80CE0C;
+            background: #96cb1f;
           }
 
           h6 {
@@ -636,7 +636,7 @@ header {
 
         .nav-title-active {
 
-          background: #80CE0C;
+          background: #96cb1f;
 
           h6 {
 
@@ -654,7 +654,7 @@ header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #80CE0C;
+          background: #96cb1f;
           border: 1px solid gainsboro;
           border-radius: 10px;
           padding: 10px;
@@ -681,7 +681,7 @@ header {
         }
 
         .sub-active {
-          background: #80ce0c !important;
+          background: #96cb1f !important;
 
           h6 {
             font-weight: 600 !important;
@@ -705,7 +705,7 @@ header {
           transition: 0.3s;
 
           &:hover {
-            background: #80ce0c;
+            background: #96cb1f;
 
             h6 {
               color: #000000;
@@ -713,7 +713,7 @@ header {
           }
 
           .sub-active {
-            background: #80ce0c;
+            background: #96cb1f;
 
             h6 {
               color: #000000;
@@ -766,7 +766,7 @@ header {
           background: white;
 
           &:hover {
-            background: #80CE0C;
+            background: #96cb1f;
           }
         }
 
@@ -781,7 +781,7 @@ header {
 
         .nav-title-collapse-active {
 
-          background: #80CE0C;
+          background: #96cb1f;
 
           h6 {
 
@@ -949,7 +949,7 @@ header {
 
             .nav-title-active {
 
-              background: #80CE0C;
+              background: #96cb1f;
 
               h6 {
 
@@ -1160,10 +1160,12 @@ header {
 }
 
 #header.header-scrolled {
+  padding: 4px 0;
+  box-shadow: 0px 3px 4px RGB(41 72 152/6%);
   .logo {
     img {
       transition: all 0.2s;
-      max-height: 50px;
+      max-height: 40px;
     }
   }
 }
