@@ -151,6 +151,7 @@ class Chart48 extends Component
             'series' => [
                 [
                     'data' => collect($formated_data)->map(function ($data) {
+                        //echo($data['division'] ." : ". $data['district'] ." : ". $data['subdistrict'] ." : ". $data['value']."</br>");
                         return [$data['division'], $data['district'], $data['subdistrict'], $data['value']];
                     }),
                     'keys' => ["division", "district", "subdistrict", "value"],
