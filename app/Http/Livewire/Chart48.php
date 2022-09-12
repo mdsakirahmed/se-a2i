@@ -81,9 +81,9 @@ class Chart48 extends Component
         $filter_geojson = $geojson;
         $filter_geojson['features'] = [];
         foreach ($geojson['features'] as $feature) {
-            if($feature['properties']['NAME_3'] != $feature['properties']['NAME_2']){
-                echo("NAME_2: ".$feature['properties']['NAME_2']."   ------------   NAME_3: ".$feature['properties']['NAME_3']."</br>");
-            }
+            // if($feature['properties']['NAME_3'] != $feature['properties']['NAME_2']){
+            //     echo("NAME_2: ".$feature['properties']['NAME_2']."   ------------   NAME_3: ".$feature['properties']['NAME_3']."</br>");
+            // }
             if ($this->selected_district && $this->selected_division) {
                 if ($feature['properties']['NAME_1'] == $this->selected_district && $feature['properties']['NAME_3'] == $this->selected_division) {
                     array_push($filter_geojson['features'], $feature);
