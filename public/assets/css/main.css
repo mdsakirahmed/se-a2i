@@ -922,7 +922,7 @@ header .custom h3 {
 
 #header.header-scrolled .logo img {
   transition: all 0.2s;
-  max-height: 33px;
+  max-height: 50px;
 }
 
 #main-nav.main-nav-scrolled {
