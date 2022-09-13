@@ -75,7 +75,7 @@ class Chart48 extends Component
         }
 
         //Get data from json file
-        $geojson = json_decode(file_get_contents(public_path('assets/json/bangladesh.geojson.json')), true);
+        $geojson = json_decode(file_get_contents(public_path('assets/json/bangladesh-sub-district.geojson.json')), true);
 
         //Filter data
         $filter_geojson = $geojson;
