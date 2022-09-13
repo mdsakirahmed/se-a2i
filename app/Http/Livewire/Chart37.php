@@ -65,7 +65,7 @@ class Chart37 extends Component
       ['division' => 'Sylhet', 'district' => 'Habiganj', 'value' => 57.50],
       ['division' => 'Mymensingh', 'district' => 'Jamalpur', 'value' => 40.00],
       ['division' => 'Khulna', 'district' => 'Jashore', 'value' => 30.95],
-      ['division' => 'Barishal', 'district' => 'Jhalokati', 'value' => 30.00],
+      ['division' => 'Barishal', 'district' => 'Jhalakathi', 'value' => 30.00],
       ['division' => 'Khulna', 'district' => 'Jhenaidah', 'value' => 43.33],
       ['division' => 'Rajshahi', 'district' => 'Joypurhat', 'value' => 50.00],
       ['division' => 'Chattogram', 'district' => 'Khagrachhari', 'value' => 40.00],
