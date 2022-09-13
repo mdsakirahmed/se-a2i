@@ -85,7 +85,7 @@ class Chart48 extends Component
             //     echo("NAME_2: ".$feature['properties']['NAME_2']."   ------------   NAME_3: ".$feature['properties']['NAME_3']."</br>");
             // }
             if ($this->selected_division && $this->selected_district) {
-                if ($feature['properties']['NAME_1'] == $this->selected_division && $feature['properties']['NAME_2'] == $this->selected_district) {
+                if ($feature['properties']['NAME_1'] == $this->selected_division && $feature['properties']['NAME_3'] == $this->selected_district) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else if ($this->selected_division && !$this->selected_district) {
@@ -93,7 +93,7 @@ class Chart48 extends Component
                     array_push($filter_geojson['features'], $feature);
                 }
             } else if ($this->selected_district && !$this->selected_division) {
-                if ($feature['properties']['NAME_2'] == $this->selected_district) {
+                if ($feature['properties']['NAME_3'] == $this->selected_district) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else {
