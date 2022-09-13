@@ -66,7 +66,7 @@ class Chart19 extends Component
       ['division' => 'Sylhet', 'district' => 'Habiganj', 'value' => -70.31277302],
       ['division' => 'Mymensingh', 'district' => 'Jamalpur', 'value' => -70.17258222],
       ['division' => 'Khulna', 'district' => 'Jashore', 'value' => -68.87394378],
-      ['division' => 'Barishal', 'district' => 'Jhalokati', 'value' => -69.01350798],
+      ['division' => 'Barishal', 'district' => 'Jhalakathi', 'value' => -69.01350798],
       ['division' => 'Khulna', 'district' => 'Jhenaidah', 'value' => -68.80663197],
       ['division' => 'Rajshahi', 'district' => 'Joypurhat', 'value' => -74.63948284],
       ['division' => 'Chattogram', 'district' => 'Khagrachhari', 'value' => -66.25310174],
