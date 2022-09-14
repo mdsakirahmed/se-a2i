@@ -69,16 +69,16 @@ class Chart41 extends Component
         $this->p_types = collect($data)->unique('programme_type')->pluck('programme_type');
         
         if($this->x_min){
-            $data = collect($data)->where('beneficiaries_lac_persons', '>', $this->x_min);
+            $data = collect($data)->where('budget_crore_bdt', '>', $this->x_min);
         }
         if($this->x_max){
-            $data = collect($data)->where('beneficiaries_lac_persons', '<', $this->x_max);
+            $data = collect($data)->where('budget_crore_bdt', '<', $this->x_max);
         }
         if($this->y_min){
-            $data = collect($data)->where('budget_crore_bdt', '>', $this->y_min);
+            $data = collect($data)->where('beneficiaries_lac_persons', '>', $this->y_min);
         }
         if($this->y_max){
-            $data = collect($data)->where('budget_crore_bdt', '<', $this->y_max);
+            $data = collect($data)->where('beneficiaries_lac_persons', '<', $this->y_max);
         }
 
 
