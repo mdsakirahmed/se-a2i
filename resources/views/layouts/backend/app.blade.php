@@ -200,7 +200,7 @@
                 justify-content-between">
 
                 <h1 class="logo"><a href="{{ route('backend.about') }}"><img
-                            src="{{ asset('assets/img/logo2.png') }}" /></a>
+                            src="{{ asset('assets/img/logo3.png') }}" /></a>
                 </h1>
 
                 <nav id="navbar" class="navbar">
