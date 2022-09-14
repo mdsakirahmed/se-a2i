@@ -19,7 +19,7 @@ class Chart41 extends Component
     public $imp_2_min, $imp_2_mins;
     public $p_type, $p_types;
 
-    public $x_min, $x_max, $y_min, $y_max;
+    public $x_min, $x_max, $y_min, $y_max, $x_min_default_value, $x_max_default_value, $y_min_default_value, $y_max_default_value;
 
     public function render()
     {
@@ -67,6 +67,11 @@ class Chart41 extends Component
         $this->imp_mins = collect($data)->unique('implementing_ministry_1')->pluck('implementing_ministry_1');
         $this->imp_2_mins = collect($data)->unique('implementing_ministry_2')->pluck('implementing_ministry_2');
         $this->p_types = collect($data)->unique('programme_type')->pluck('programme_type');
+
+        $this->x_min_default_value = collect($data)->min('budget_crore_bdt');
+        $this->x_max_default_value = collect($data)->max('budget_crore_bdt');
+        $this->y_min_default_value = collect($data)->min('beneficiaries_lac_persons');
+        $this->y_max_default_value = collect($data)->max('beneficiaries_lac_persons');
         
         if($this->x_min){
             $data = collect($data)->where('budget_crore_bdt', '>', $this->x_min);

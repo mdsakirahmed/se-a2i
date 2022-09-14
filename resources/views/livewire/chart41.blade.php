@@ -37,15 +37,14 @@
            <figure class="highcharts-figure" wire:ignore>
                <div id="chart_id_{{ $chart->id }}"> </div>
            </figure>
-           <input type="number" wire:change="chart_update" wire:model="x_min" placeholder="x min">
-           <input type="number" wire:change="chart_update" wire:model="x_max" placeholder="x max">
-           <input type="number" wire:change="chart_update" wire:model="y_min" placeholder="y min">
-           <input type="number" wire:change="chart_update" wire:model="y_max" placeholder="y max">
-           <div wire:loading>
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-            </div>
+           <br>
+           <div id="x_slider_for_{{ $chart->id }}" wire:ignore></div>
+           <div id="y_slider_for_{{ $chart->id }}" wire:ignore></div>
+           <br>
+
+
+
+
            {{-- <button type="butto"
                class="btn  @if($chart_type == 'column') btn-success @else btn-secondary @endif btn-sm m-2"
                wire:click="change_chart_type('column')">Column</button>
@@ -75,6 +74,8 @@
             @endif
        </div>
    </div>
+
+
     <script>
          $(document).ready(function () {
             //First loaded data
@@ -84,6 +85,31 @@
             window.addEventListener("chart_update_{{ $chart->id }}", event => {
                 Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
             });
+
+            $("#x_slider_for_{{ $chart->id }}").slider({
+                min: {{ $x_min_default_value }},
+                max: {{ $x_max_default_value }},
+                step: 1,
+                values: [{{ $x_min_default_value }}, {{ $x_max_default_value }}],
+                slide: function(event, ui) {
+                    @this.set('x_min', ui.values[0]);
+                    @this.set('x_max', ui.values[1]);
+                    @this.chart_update()
+                }
+            });
+           
+            $("#y_slider_for_{{ $chart->id }}").slider({
+                min: {{ $y_min_default_value }},
+                max: {{ $y_max_default_value }},
+                step: 1,
+                values: [{{ $y_min_default_value }}, {{ $y_max_default_value }}],
+                slide: function(event, ui) {
+                    @this.set('y_min', ui.values[0]);
+                    @this.set('y_max', ui.values[1]);
+                    @this.chart_update()
+                }
+            });
+           
         });
     </script>
 </div>
