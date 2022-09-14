@@ -37,6 +37,15 @@
            <figure class="highcharts-figure" wire:ignore>
                <div id="chart_id_{{ $chart->id }}"> </div>
            </figure>
+           <input type="number" wire:change="chart_update" wire:model="x_min" placeholder="x min">
+           <input type="number" wire:change="chart_update" wire:model="x_max" placeholder="x max">
+           <input type="number" wire:change="chart_update" wire:model="y_min" placeholder="y min">
+           <input type="number" wire:change="chart_update" wire:model="y_max" placeholder="y max">
+           <div wire:loading>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
            {{-- <button type="butto"
                class="btn  @if($chart_type == 'column') btn-success @else btn-secondary @endif btn-sm m-2"
                wire:click="change_chart_type('column')">Column</button>

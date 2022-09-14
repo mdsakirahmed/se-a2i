@@ -19,6 +19,8 @@ class Chart41 extends Component
     public $imp_2_min, $imp_2_mins;
     public $p_type, $p_types;
 
+    public $x_min, $x_max, $y_min, $y_max;
+
     public function render()
     {
         $this->chart = Chart::findOrFail($this->chart_id);
@@ -65,6 +67,19 @@ class Chart41 extends Component
         $this->imp_mins = collect($data)->unique('implementing_ministry_1')->pluck('implementing_ministry_1');
         $this->imp_2_mins = collect($data)->unique('implementing_ministry_2')->pluck('implementing_ministry_2');
         $this->p_types = collect($data)->unique('programme_type')->pluck('programme_type');
+        
+        if($this->x_min){
+            $data = collect($data)->where('beneficiaries_lac_persons', '>', $this->x_min);
+        }
+        if($this->x_max){
+            $data = collect($data)->where('beneficiaries_lac_persons', '<', $this->x_max);
+        }
+        if($this->y_min){
+            $data = collect($data)->where('budget_crore_bdt', '>', $this->y_min);
+        }
+        if($this->y_max){
+            $data = collect($data)->where('budget_crore_bdt', '<', $this->y_max);
+        }
 
 
 
