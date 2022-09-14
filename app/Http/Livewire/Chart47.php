@@ -79,7 +79,12 @@ class Chart47 extends Component
                 'labels'=>[
                     'style'=>[
                         'fontSize'=>'13px'
-                    ]
+                    ]    
+                ],
+                'stackLabels' => [
+                    'enabled' => true, 
+                    'useHTML' => true,
+                    'format' => '{stack}',
                 ]
             ],
             'legend' => [

@@ -54,6 +54,9 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/south-street/jquery-ui.css" />
+
         <style>
         .highcharts-figure,
         .highcharts-data-table table {
@@ -197,7 +200,7 @@
                 justify-content-between">
 
                 <h1 class="logo"><a href="{{ route('backend.about') }}"><img
-                            src="{{ asset('assets/img/logo2.png') }}" /></a>
+                            src="{{ asset('assets/img/logo3.png') }}" /></a>
                 </h1>
 
                 <nav id="navbar" class="navbar">
@@ -890,6 +893,10 @@
                 }}"></script>
             <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js')
                 }}"></script>
+
+            <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
 
             <!-- Template Main JS File -->
             <script src="{{ asset('assets/js/main.js') }}"></script>
