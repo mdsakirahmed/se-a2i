@@ -31,12 +31,14 @@ class Chart40 extends Component
 
     public function filter_by_implementing_ministry_1($value)
     {
+        $this->implementing_ministry_2 = null;
         $this->implementing_ministry_1 = $value;
         $this->chart_update();
     }
 
     public function filter_by_implementing_ministry_2($value)
     {
+        $this->implementing_ministry_1 = null;
         $this->implementing_ministry_2 = $value;
         $this->chart_update();
     }
