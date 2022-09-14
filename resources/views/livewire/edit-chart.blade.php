@@ -18,9 +18,7 @@
                     <hr>
                     <b>Bangla description</b>
                     <div class="mb-3" wire:ignore>
-                        {{-- <textarea wire:model.defer="bn_description" id="bn_description"></textarea> --}}
-                        {{-- <div id="bn_description">{!! $bn_description !!}</div> --}}
-                        <textarea type="text" input="bn_description" id="bn_description" class="form-control summernote" wire:model="bn_description">{{ $bn_description }}</textarea>
+                        <div id="bn_description">{!! $bn_description !!}</div>
                     </div>
                     <b>English description</b>
                     <div class="mb-3" wire:ignore>

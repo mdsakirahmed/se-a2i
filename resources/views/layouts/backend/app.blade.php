@@ -50,10 +50,8 @@
         <script src="https://code.highcharts.com/modules/treemap.js"></script>
         {{-- highcharts end --}}
 
-        <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/south-street/jquery-ui.css" />
 
@@ -894,7 +892,7 @@
             <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js')
                 }}"></script>
 
-            <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+            {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
             <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 
