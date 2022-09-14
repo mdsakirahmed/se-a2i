@@ -5,28 +5,25 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('Budget and Coverage') }}
+                    {{ __('Poverty and Inequality') }}
                 </h3>
             </header>
             <div class="row">
                 <div class="col-md-12 mb-5">
-                    @livewire('chart41')
+                    @livewire('chart44')
                 </div>
                 <div class="col-md-12 mb-5">
-                    @livewire('chart42')
+                    @livewire('chart45')
                 </div>
                 <div class="col-md-12 mb-5">
-                    @livewire('chart38')
+                    @livewire('chart46')
                 </div>
                 <div class="col-md-12 mb-5">
-                    @livewire('chart43')
+                    @livewire('chart47')
                 </div>
                 <div class="col-md-12 mb-5">
-                    @livewire('chart39')
-                </div>
-                <div class="col-md-12 mb-5">
-                    @livewire('chart40')
-                </div>         
+                    @livewire('chart48')
+                </div>                  
             </div>
         </div>
     </div>

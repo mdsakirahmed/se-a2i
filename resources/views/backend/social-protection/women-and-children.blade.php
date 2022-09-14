@@ -5,7 +5,7 @@
         <div class="container">
             <header>
                 <h3>
-                    {{ __('Social Protection') }}
+                    {{ __('Women and Children') }}
                 </h3>
             </header>
             <div class="row">
