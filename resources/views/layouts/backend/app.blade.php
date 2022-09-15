@@ -30,6 +30,10 @@
     {{-- jQuery ui css --}}
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/south-street/jquery-ui.css" />
     {{-- jQuery ui css end --}}
+    
+    {{-- Summernote css --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    {{-- Summernote css end --}}
 
     <style>
         .highcharts-figure,
@@ -801,15 +805,17 @@
             </div>
         </div>
     </footer><!-- End Footer -->
-
+    
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
     {{-- jQuery js --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     {{-- jQuery end --}}
+    {{-- Summernote js --}}
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    {{-- Summernote js end --}}
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
