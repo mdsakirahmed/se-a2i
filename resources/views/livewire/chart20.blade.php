@@ -10,10 +10,11 @@
             {!! $description !!}
             </p>
         </div>
+        @livewire('component.renge-component', ['min' => null, 'max' => null, 'step' => null, 'value' => null, 'chart_id' => $chart->id, 'data_array' => collect($fotmated_data_set)->pluck('name')])
+
      <figure class="highcharts-figure">
          <div id="chart_id_{{ $chart->id }}"> </div>
      </figure>
-     @livewire('component.renge-component', ['min' => null, 'max' => null, 'step' => null, 'value' => null, 'chart_id' => $chart->id, 'data_array' => collect($fotmated_data_set)->pluck('name')])
     </div>
      <div class="card-footer">
         @if ($datasource && $datasource != "<p><br></p>")

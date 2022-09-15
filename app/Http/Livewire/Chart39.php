@@ -64,10 +64,10 @@ class Chart39 extends Component
                 'fiscal_year' => collect($data_set)->pluck('fiscal_year'),
                 'programme_name' => $programme_name,
                 'programme_type' => collect($data_set)->pluck('programme_type'),
-                'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1'),
-                'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2'),
-                'budget_crore_bdt' => collect($data_set)->sum('budget_crore_bdt'),
-                'value' => collect($data_set)->sum('value'),
+                'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1')->unique(),
+                'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2')->unique(),
+                'budget_crore_bdt' => round(collect($data_set)->sum('budget_crore_bdt'),2),
+                'value' => round(collect($data_set)->sum('value'),2),
             ]);
         }
 

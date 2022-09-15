@@ -75,7 +75,14 @@
                             @endforeach 
                         </select>
                     </div>
-                    <div class="form-group col-md-8">
+                    <div class="form-group col-md-2">
+                        <label for="" class="col-form-label">Value Type</label>
+                        <select class="form-control" wire:model="value_type" wire:change="chart_update">
+                            <option value="">Budget</option>
+                            <option value="beneficiaries">Beneficiaries</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
                         <div class="dropdown-container float-right">
                          <button class="dropdown-trigger btn btn-success btn-sm float-right">Implementing Ministry</button>
                             <div class="dropdown-content">

@@ -50,10 +50,11 @@
         <script src="https://code.highcharts.com/modules/treemap.js"></script>
         {{-- highcharts end --}}
 
-        <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/south-street/jquery-ui.css" />
+
         <style>
         .highcharts-figure,
         .highcharts-data-table table {
@@ -197,7 +198,7 @@
                 justify-content-between">
 
                 <h1 class="logo"><a href="{{ route('backend.about') }}"><img
-                            src="{{ asset('assets/img/logo2.png') }}" /></a>
+                            src="{{ asset('assets/img/logo3.png') }}" /></a>
                 </h1>
 
                 <nav id="navbar" class="navbar">
@@ -305,9 +306,7 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Overview
-                                                                    of the
-                                                                    Economy') }}
+                                                                    __('Overview of the Economy') }}
                                                                 </h6>
                                                             </div>
                                                         </a>
@@ -321,10 +320,7 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Overseas
-                                                                    Employment
-                                                                    and
-                                                                    Remittance')
+                                                                    __('Overseas Employment and Remittance')
                                                                     }}
                                                                 </h6>
                                                             </div>
@@ -339,8 +335,7 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Import
-                                                                    and Export')
+                                                                    __('Import and Export')
                                                                     }}
                                                                 </h6>
                                                             </div>
@@ -355,9 +350,7 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Banking
-                                                                    and
-                                                                    Finance') }}
+                                                                    __('Banking and Finance') }}
                                                                 </h6>
                                                             </div>
                                                         </a>
@@ -400,8 +393,7 @@
                                                                 sub-active
                                                                 @endif">
                                                                 <h6>
-                                                                    {{ __('Child
-                                                                    Mortality')
+                                                                    {{ __('Child Mortality')
                                                                     }}
 
                                                                 </h6>
@@ -417,8 +409,7 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Causes
-                                                                    of Death')
+                                                                    __('Causes of Death')
                                                                     }}
 
                                                                 </h6>
@@ -434,9 +425,7 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Maternal/Child
-                                                                    Health
-                                                                    Services')
+                                                                    __('Maternal/Child Health Services')
                                                                     }}
 
                                                                 </h6>
@@ -451,9 +440,7 @@
                                                                 sub-active
                                                                 @endif">
                                                                 <h6>
-                                                                    {{ __('SDG
-                                                                    Analytic
-                                                                    Hub') }}
+                                                                    {{ __('SDG Analytic Hub') }}
                                                                 </h6>
                                                             </div>
                                                         </a>
@@ -493,37 +480,6 @@
                                                     data-bs-parent=".faq-list">
                                                     <div class="sub-alignment">
                                                         <a href="{{
-                                                            route('backend.social_protection.index')
-                                                            }}">
-                                                            <div
-                                                                class="nav-title-sub
-                                                                @if(request()->routeIs('backend.social_protection.index'))
-                                                                sub-active
-                                                                @endif">
-                                                                <h6>
-                                                                    {{
-                                                                    __('Social
-                                                                    Protection')
-                                                                    }}
-                                                                </h6>
-                                                            </div>
-                                                        </a>
-                                                        <a href="{{
-                                                            route('backend.social_protection.food_security')
-                                                            }}">
-                                                            <div
-                                                                class="nav-title-sub
-                                                                @if(request()->routeIs('backend.social_protection.food_security'))
-                                                                sub-active
-                                                                @endif">
-                                                                <h6>
-                                                                    {{ __('Food
-                                                                    Security')
-                                                                    }}
-                                                                </h6>
-                                                            </div>
-                                                        </a>
-                                                        <a href="{{
                                                             route('backend.social_protection.budget_and_coverage')
                                                             }}">
                                                             <div
@@ -533,9 +489,36 @@
                                                                 @endif">
                                                                 <h6>
                                                                     {{
-                                                                    __('Budget
-                                                                    and
-                                                                    Coverage')
+                                                                    __('Budget and Coverage')
+                                                                    }}
+                                                                </h6>
+                                                            </div>
+                                                        </a>    
+                                                        <a href="{{
+                                                            route('backend.social_protection.food_insecurity')
+                                                            }}">
+                                                            <div
+                                                                class="nav-title-sub
+                                                                @if(request()->routeIs('backend.social_protection.food_insecurity'))
+                                                                sub-active
+                                                                @endif">
+                                                                <h6>
+                                                                    {{ __('Food Security')
+                                                                    }}
+                                                                </h6>
+                                                            </div>
+                                                        </a>
+                                                        <a href="{{
+                                                            route('backend.social_protection.women-and-children')
+                                                            }}">
+                                                            <div
+                                                                class="nav-title-sub
+                                                                @if(request()->routeIs('backend.social_protection.women-and-children'))
+                                                                sub-active
+                                                                @endif">
+                                                                <h6>
+                                                                    {{
+                                                                    __('Social Protection')
                                                                     }}
                                                                 </h6>
                                                             </div>
@@ -682,8 +665,7 @@
                                                         @if(request()->routeIs('backend.economy.overview_of_the_economy'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Overview of
-                                                            the Economy') }}
+                                                            {{ __('Overview of the Economy') }}
                                                         </h6>
                                                     </div>
                                                 </a>
@@ -694,9 +676,7 @@
                                                         @if(request()->routeIs('backend.economy.overseas_employment_and_remittance'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Overseas
-                                                            Employment and
-                                                            Remittance') }}
+                                                            {{ __('Overseas Employment and Remittance') }}
                                                         </h6>
                                                     </div>
                                                 </a>
@@ -707,8 +687,7 @@
                                                         @if(request()->routeIs('backend.economy.import_export'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Import and
-                                                            Export') }}
+                                                            {{ __('Import and Export') }}
                                                         </h6>
                                                     </div>
                                                 </a>
@@ -719,8 +698,7 @@
                                                         @if(request()->routeIs('backend.economy.banking_and_finance'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Banking and
-                                                            Finance') }}
+                                                            {{ __('Banking and Finance') }}
                                                         </h6>
                                                     </div>
                                                 </a>
@@ -756,8 +734,7 @@
                                                         @if(request()->routeIs('backend.health.child-mortality'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Child
-                                                            Mortality') }}
+                                                            {{ __('Child Mortality') }}
 
                                                         </h6>
                                                     </div>
@@ -769,8 +746,7 @@
                                                         @if(request()->routeIs('backend.health.causes-of-death'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Causes of
-                                                            Death') }}
+                                                            {{ __('Causes of Death') }}
 
                                                         </h6>
                                                     </div>
@@ -783,8 +759,7 @@
                                                         sub-active @endif">
                                                         <h6>
                                                             {{
-                                                            __('Maternal/Child
-                                                            Health Services') }}
+                                                            __('Maternal/Child Health Services') }}
                                                         </h6>
                                                     </div>
                                                 </a>
@@ -795,8 +770,7 @@
                                                         @if(request()->routeIs('backend.health.sdg-analytic-hub'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('SDG Analytic
-                                                            Hub') }}
+                                                            {{ __('SDG Analytic Hub') }}
                                                         </h6>
                                                     </div>
                                                 </a>
@@ -832,41 +806,50 @@
                                             data-bs-parent=".faq-list">
                                             <div class="sub-alignment">
                                                 <a href="{{
-                                                    route('backend.social_protection.index')
-                                                    }}">
-                                                    <div class="nav-title-sub
-                                                        @if(request()->routeIs('backend.social_protection.index'))
-                                                        sub-active @endif">
-                                                        <h6>
-                                                            {{ __('Social
-                                                            Protection') }}
-                                                        </h6>
-                                                    </div>
-                                                </a>
-                                                <a href="{{
-                                                    route('backend.social_protection.food_security')
-                                                    }}">
-                                                    <div class="nav-title-sub
-                                                        @if(request()->routeIs('backend.social_protection.food_security'))
-                                                        sub-active @endif">
-                                                        <h6>
-                                                            {{ __('Food
-                                                            Security') }}
-                                                        </h6>
-                                                    </div>
-                                                </a>
-                                                <a href="{{
                                                     route('backend.social_protection.budget_and_coverage')
                                                     }}">
                                                     <div class="nav-title-sub
                                                         @if(request()->routeIs('backend.social_protection.budget_and_coverage'))
                                                         sub-active @endif">
                                                         <h6>
-                                                            {{ __('Budget and
-                                                            Coverage') }}
+                                                            {{ __('Budget and Coverage') }}
                                                         </h6>
                                                     </div>
                                                 </a>
+                                                <a href="{{
+                                                    route('backend.social_protection.poverty-and-inequality')
+                                                    }}">
+                                                    <div class="nav-title-sub
+                                                        @if(request()->routeIs('backend.social_protection.poverty-and-inequality'))
+                                                        sub-active @endif">
+                                                        <h6>
+                                                            {{ __('Poverty and Inequality') }}
+                                                        </h6>
+                                                    </div>
+                                                </a>
+                                                <a href="{{
+                                                    route('backend.social_protection.women-and-children')
+                                                    }}">
+                                                    <div class="nav-title-sub
+                                                        @if(request()->routeIs('backend.social_protection.women-and-children'))
+                                                        sub-active @endif">
+                                                        <h6>
+                                                            {{ __('Women and Children') }}
+                                                        </h6>
+                                                    </div>
+                                                </a>
+                                                <a href="{{
+                                                    route('backend.social_protection.food_insecurity')
+                                                    }}">
+                                                    <div class="nav-title-sub
+                                                        @if(request()->routeIs('backend.social_protection.food_insecurity'))
+                                                        sub-active @endif">
+                                                        <h6>
+                                                            {{ __('Food Security') }}
+                                                        </h6>
+                                                    </div>
+                                                </a>
+                                                
                                             </div>
                                         </div>
                                     </li>
@@ -908,6 +891,10 @@
                 }}"></script>
             <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js')
                 }}"></script>
+
+            {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+            <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
 
             <!-- Template Main JS File -->
             <script src="{{ asset('assets/js/main.js') }}"></script>

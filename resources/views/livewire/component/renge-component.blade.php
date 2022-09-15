@@ -51,7 +51,7 @@
             .slidecontainer_{{ $chart_id }} {
                 background:red;
                 position: relative;
-                bottom: 15px;
+                bottom: 30px;
             }
     
         </style>
