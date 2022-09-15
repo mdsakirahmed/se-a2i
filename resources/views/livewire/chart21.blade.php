@@ -40,13 +40,16 @@
             @endif
         </div>
     </div>
-    <script>
-        //First loaded data
-        Highcharts.mapChart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
-        
-        //chart update and re-render
-        window.addEventListener("chart_update_{{ $chart->id }}", event => {
-            Highcharts.mapChart("chart_id_{{ $chart->id }}", event.detail.data);
-        });
-    </script>
+    @push('scripts')
+        <script>
+            //First loaded data
+            Highcharts.mapChart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+            
+            //chart update and re-render
+            window.addEventListener("chart_update_{{ $chart->id }}", event => {
+                Highcharts.mapChart("chart_id_{{ $chart->id }}", event.detail.data);
+            });
+        </script>
+    @endpush
+    
 </div>
