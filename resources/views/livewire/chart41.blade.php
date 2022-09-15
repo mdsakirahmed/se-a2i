@@ -75,41 +75,42 @@
        </div>
    </div>
 
+    @push('scripts')
+        <script>
+            $(document).ready(function () {
+                //First loaded data
+                Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
 
-    <script>
-         $(document).ready(function () {
-            //First loaded data
-            Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+                //chart update and re-render
+                window.addEventListener("chart_update_{{ $chart->id }}", event => {
+                    Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+                });
 
-            //chart update and re-render
-            window.addEventListener("chart_update_{{ $chart->id }}", event => {
-                Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+                $("#x_slider_for_{{ $chart->id }}").slider({
+                    min: {{ $x_min_default_value }},
+                    max: {{ $x_max_default_value }},
+                    step: 1,
+                    values: [{{ $x_min_default_value }}, {{ $x_max_default_value }}],
+                    slide: function(event, ui) {
+                        @this.set('x_min', ui.values[0]);
+                        @this.set('x_max', ui.values[1]);
+                        @this.chart_update()
+                    }
+                });
+                
+                $("#y_slider_for_{{ $chart->id }}").slider({
+                    min: {{ $y_min_default_value }},
+                    max: {{ $y_max_default_value }},
+                    step: 1,
+                    values: [{{ $y_min_default_value }}, {{ $y_max_default_value }}],
+                    slide: function(event, ui) {
+                        @this.set('y_min', ui.values[0]);
+                        @this.set('y_max', ui.values[1]);
+                        @this.chart_update()
+                    }
+                });
             });
-
-            $("#x_slider_for_{{ $chart->id }}").slider({
-                min: {{ $x_min_default_value }},
-                max: {{ $x_max_default_value }},
-                step: 1,
-                values: [{{ $x_min_default_value }}, {{ $x_max_default_value }}],
-                slide: function(event, ui) {
-                    @this.set('x_min', ui.values[0]);
-                    @this.set('x_max', ui.values[1]);
-                    @this.chart_update()
-                }
-            });
-           
-            $("#y_slider_for_{{ $chart->id }}").slider({
-                min: {{ $y_min_default_value }},
-                max: {{ $y_max_default_value }},
-                step: 1,
-                values: [{{ $y_min_default_value }}, {{ $y_max_default_value }}],
-                slide: function(event, ui) {
-                    @this.set('y_min', ui.values[0]);
-                    @this.set('y_max', ui.values[1]);
-                    @this.chart_update()
-                }
-            });
-           
-        });
-    </script>
+        </script>
+    @endpush
+   
 </div>
