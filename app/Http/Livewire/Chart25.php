@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Chart;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Traits\DataCleanerTrait;
 
 class Chart25 extends Component
 {
+    use DataCleanerTrait;
+
     public  Chart $chart;
     public $name, $description, $datasource, $chart_id = 25;
 
@@ -164,7 +167,8 @@ class Chart25 extends Component
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function ($data) {
-                    return ["$data->country" . '&nbsp; <img src="' . ("/assets/flags/$data->country.png") . '" width="20" height="15">', $data->export_million_usd];
+                    $country = $this->data_clean($data->country);
+                    return [$country . '&nbsp; <img src="' . ("/assets/flags/$country.png") . '" width="20" height="15">', $data->export_million_usd];
                 }),
                 'color' =>  '#83C341',
             ]);
