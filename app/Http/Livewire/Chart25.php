@@ -3,9 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Chart;
-use App\Models\SecondDatabase\ExportCountry;
-use App\Models\SecondDatabase\ImportCountry;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -38,7 +35,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2005-06'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -46,7 +43,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2006-07'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -54,7 +51,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2007-08'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -62,7 +59,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2008-09'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -70,7 +67,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2009-10'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -78,7 +75,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2010-11'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -86,7 +83,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2011-12'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -94,7 +91,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2012-13'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -102,7 +99,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2013-14'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -110,7 +107,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2014-15'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -118,7 +115,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2015-16'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -126,7 +123,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2016-17'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -134,7 +131,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2017-18'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -142,7 +139,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2018-19'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -150,7 +147,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2019-20'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -158,7 +155,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2020-21'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10)");
 
