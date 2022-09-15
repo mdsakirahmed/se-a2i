@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/south-street/jquery-ui.css" />
     {{-- jQuery ui css end --}}
 
-
     <style>
         .highcharts-figure,
         .highcharts-data-table table {
@@ -809,6 +808,7 @@
     {{-- jQuery js --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     {{-- jQuery end --}}
 
     <!-- Vendor JS Files -->
@@ -819,9 +819,6 @@
     <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
     <script src="{{ asset('assets/vendor/purecounter/purecounter.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
-    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
