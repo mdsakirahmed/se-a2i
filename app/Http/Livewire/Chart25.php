@@ -192,30 +192,6 @@ class Chart25 extends Component
             'credits' => [
                 'enabled' => false
             ],
-
-            'plotOptions' => [
-                'bar' =>  [
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'inside' => false,
-                        'format' => "{point.y:,.2f}",
-                        'color'=> '#323232'
-
-                    ], 
-                    'enableMouseTracking' =>  true
-                ],
-                'column' => [
-                    'stacking' => 'normal',
-                    'dataLabels' => [
-                        'enabled' => false
-                    ]
-                ],
-                'series' => [
-                    'animation' => false,
-                    'pointWidth' => 20,
-                    'borderRadius' => '8px',
-                ]
-            ],
             'xAxis' => [
                 'type' => "category",
                 'labels' => [
@@ -239,6 +215,25 @@ class Chart25 extends Component
                     ]
                 ]
             ],
+            'plotOptions' => [
+                'bar' =>  [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+                        'format' => "{point.y:,.2f}",
+                        'color'=> '#323232'
+
+                    ], 
+                    'enableMouseTracking' =>  true
+                ],
+               
+                'series' => [
+                    'animation' => false,
+                    'pointWidth' => 20,
+                    'borderRadius' => '8px',
+                ]
+            ],
+            
             'tooltip' => [
                 'shared' => true,
                 'outside' => true,
@@ -278,7 +273,6 @@ class Chart25 extends Component
 
                         'yAxis'=>[
                             'title' => [
-                                'text' => 'Percentage of Students',
                                 'style'=>[
                                     'fontSize'=>'12px'
                                 ]

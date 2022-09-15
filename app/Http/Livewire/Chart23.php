@@ -270,7 +270,6 @@ class Chart23 extends Component
 
                         'yAxis'=>[
                             'title' => [
-                                'text' => 'Percentage of Students',
                                 'style'=>[
                                     'fontSize'=>'12px'
                                 ]
