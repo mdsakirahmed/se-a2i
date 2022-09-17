@@ -1,12 +1,13 @@
 <div class="h-100">
     <style type="text/css">
         .dropdown-trigger:hover {
-            background-color: #0dcaf0;
+            background-color: transparent;
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
+            right: 34px;
         }
 
         .dropdown-content ul {
@@ -14,6 +15,7 @@
             padding: 0;
             width: auto;
             margin-top: 10px;
+            border-radius: 10px;
         }
 
         .dropdown-content ul li {
@@ -24,15 +26,20 @@
             padding: 8px 20px;
             font-size: 13px;
             font-weight: 500;
-            background-color: #ede7ef;
+            background-color: #ffffff;
+            border: 1px solid #f3f3f3;
             color: #3a3a3a;
             z-index: 2;
+            box-shadow: 1px 2px 2px rgb(0 0 0 / 26%);
         }
 
         .dropdown-content ul li ul {
             position: absolute;
-            left: 100%;
+            right: 100%;
             top: 0;
+            min-width: 220px;
+            max-height: 300px;
+            overflow-y: scroll;
             visibility: hidden;
         }
 
@@ -83,8 +90,8 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <div class="dropdown-container float-right">
-                         <button class="dropdown-trigger btn btn-success btn-sm float-right">Implementing Ministry</button>
+                        <div class="dropdown-container text-right">
+                         <button class="dropdown-trigger btn-dropdown">Implementing Ministry</button>
                             <div class="dropdown-content">
                                 <ul>
                                     <li> 
