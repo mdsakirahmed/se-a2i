@@ -60,8 +60,10 @@
                 //First loaded data
                 let chart38 = Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
                 chart38.series[0].points.forEach(function(point) {
-                    if(point.shapeArgs.width < point.dataLabel.width) {
-                        point.dataLabel.hide();
+                    if(point.shapeArgs && point.dataLabel) {
+                        if(point.shapeArgs.width < point.dataLabel.width) {
+                            point.dataLabel.hide();
+                        }
                     }
                 });
     
