@@ -124,7 +124,7 @@ class Chart40 extends Component
                 'data' => $formated_data,
                 'dataLabels' => [
                     'enabled' => true,
-                    'format' => '{point.programme_name}',
+                    'format' => '{point.implementing_ministry_1}<br>{point.implementing_ministry_2}',
                     'style' => [
                         'textShadow' => false,
                         'strokeWidth' => 0,
@@ -138,7 +138,10 @@ class Chart40 extends Component
             ]],
             'plotOptions' => [
                 'series' => [
-                    'cursor' => 'pointer'
+                    'cursor' => 'pointer',
+                    'dataLabels'=>[
+                        'allowOverlap'=>false,
+                    ]
                 ],
                 'treemap'=>[
                     'borderWidth'=>0,

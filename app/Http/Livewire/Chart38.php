@@ -85,6 +85,7 @@ class Chart38 extends Component
                 'series' => [
                     'cursor' => 'pointer',
                     'dataLabels'=>[
+                        'allowOverlap'=> false,
                         'style' => [
                         'textShadow' => false,
                         'strokeWidth' => 0,

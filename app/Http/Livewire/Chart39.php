@@ -101,7 +101,10 @@ class Chart39 extends Component
             ]],
             'plotOptions' => [
                 'series' => [
-                    'cursor' => 'pointer'
+                    'cursor' => 'pointer',
+                    'dataLabels'=>[
+                        'allowOverlap'=> false,
+                    ]
                 ],
                 'treemap'=>[
                     'borderWidth'=>0,
