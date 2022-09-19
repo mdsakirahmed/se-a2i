@@ -1,11 +1,5 @@
 <div>
     {{-- Modal Start--}}
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-
     <div wire:ignore.self class="modal fade" id="chart_edit_modal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -18,9 +12,7 @@
                     <hr>
                     <b>Bangla description</b>
                     <div class="mb-3" wire:ignore>
-                        {{-- <textarea wire:model.defer="bn_description" id="bn_description"></textarea> --}}
-                        {{-- <div id="bn_description">{!! $bn_description !!}</div> --}}
-                        <textarea type="text" input="bn_description" id="bn_description" class="form-control summernote" wire:model="bn_description">{{ $bn_description }}</textarea>
+                        <div id="bn_description">{!! $bn_description !!}</div>
                     </div>
                     <b>English description</b>
                     <div class="mb-3" wire:ignore>
@@ -48,8 +40,8 @@
             </div>
         </div>
     </div>
-    {{-- Modal End--}}
-
+    
+    @push('scripts')
     <script>
         window.addEventListener('open_modal', event => {
 
@@ -94,4 +86,6 @@
             });
         });
     </script>
+    @endpush
+    {{-- Modal End--}}
 </div>

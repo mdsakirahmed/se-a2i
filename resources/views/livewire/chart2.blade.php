@@ -28,7 +28,9 @@
         @endif
     </div> 
    </div>
-    <script>
-        Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
-    </script>
+    @push('scripts')
+        <script>
+            Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+        </script>
+    @endpush
 </div>

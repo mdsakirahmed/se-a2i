@@ -3,14 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Chart;
-use App\Models\SecondDatabase\ExportCountry;
-use App\Models\SecondDatabase\ImportCountry;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use App\Traits\DataCleanerTrait;
 
 class Chart25 extends Component
 {
+    use DataCleanerTrait;
+
     public  Chart $chart;
     public $name, $description, $datasource, $chart_id = 25;
 
@@ -38,7 +38,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2005-06'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -46,7 +46,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2006-07'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -54,7 +54,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2007-08'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -62,7 +62,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2008-09'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -70,7 +70,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2009-10'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -78,7 +78,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2010-11'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -86,7 +86,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2011-12'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -94,7 +94,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2012-13'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -102,7 +102,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2013-14'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -110,7 +110,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2014-15'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -118,7 +118,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2015-16'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -126,7 +126,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2016-17'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -134,7 +134,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2017-18'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -142,7 +142,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2018-19'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -150,7 +150,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2019-20'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10) UNION ALL (SELECT 
         *
@@ -158,7 +158,7 @@ class Chart25 extends Component
         economy_export_country
     WHERE
         fiscal_year = '2020-21'
-            AND country NOT IN ('Other Countries' , 'Total Exports', 'Exports of EPZ')
+            AND country NOT IN ('Other Countries' , 'Total', 'Exports of EPZ')
     ORDER BY export_million_usd DESC
     LIMIT 10)");
 
@@ -167,7 +167,8 @@ class Chart25 extends Component
             array_push($this->fotmated_data_set, [
                 'name' =>  $fiscal_year,
                 'data' =>  $fiscal_year_wise_data->map(function ($data) {
-                    return ["$data->country" . '&nbsp; <img src="' . ("/assets/flags/$data->country.png") . '" width="20" height="15">', $data->export_million_usd];
+                    $country = $this->data_clean($data->country);
+                    return [$country . '&nbsp; <img src="' . ("/assets/flags/$country.png") . '" width="20" height="15">', $data->export_million_usd];
                 }),
                 'color' =>  '#83C341',
             ]);
@@ -192,30 +193,6 @@ class Chart25 extends Component
             'credits' => [
                 'enabled' => false
             ],
-
-            'plotOptions' => [
-                'bar' =>  [
-                    'dataLabels' => [
-                        'enabled' => true,
-                        'inside' => false,
-                        'format' => "{point.y:,.2f}",
-                        'color'=> '#323232'
-
-                    ], 
-                    'enableMouseTracking' =>  true
-                ],
-                'column' => [
-                    'stacking' => 'normal',
-                    'dataLabels' => [
-                        'enabled' => false
-                    ]
-                ],
-                'series' => [
-                    'animation' => false,
-                    'pointWidth' => 20,
-                    'borderRadius' => '8px',
-                ]
-            ],
             'xAxis' => [
                 'type' => "category",
                 'labels' => [
@@ -239,6 +216,25 @@ class Chart25 extends Component
                     ]
                 ]
             ],
+            'plotOptions' => [
+                'bar' =>  [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'inside' => false,
+                        'format' => "{point.y:,.2f}",
+                        'color'=> '#323232'
+
+                    ], 
+                    'enableMouseTracking' =>  true
+                ],
+               
+                'series' => [
+                    'animation' => false,
+                    'pointWidth' => 20,
+                    'borderRadius' => '8px',
+                ]
+            ],
+            
             'tooltip' => [
                 'shared' => true,
                 'outside' => true,
@@ -278,7 +274,6 @@ class Chart25 extends Component
 
                         'yAxis'=>[
                             'title' => [
-                                'text' => 'Percentage of Students',
                                 'style'=>[
                                     'fontSize'=>'12px'
                                 ]

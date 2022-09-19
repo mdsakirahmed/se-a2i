@@ -110,6 +110,7 @@ class Chart45 extends Component
             'yAxis' => [
                 'allowDecimals' => false,
                 'min' => 0,
+                'max'=> 50,
                 'title' => [
                     'text' => 'Percentage',
                     'style' => [

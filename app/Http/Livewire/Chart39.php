@@ -64,10 +64,10 @@ class Chart39 extends Component
                 'fiscal_year' => collect($data_set)->pluck('fiscal_year'),
                 'programme_name' => $programme_name,
                 'programme_type' => collect($data_set)->pluck('programme_type'),
-                'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1'),
-                'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2'),
-                'budget_crore_bdt' => collect($data_set)->sum('budget_crore_bdt'),
-                'value' => collect($data_set)->sum('value'),
+                'implementing_ministry_1' => collect($data_set)->pluck('implementing_ministry_1')->unique(),
+                'implementing_ministry_2' => collect($data_set)->pluck('implementing_ministry_2')->unique(),
+                'budget_crore_bdt' => round(collect($data_set)->sum('budget_crore_bdt'),2),
+                'value' => round(collect($data_set)->sum('value'),2),
             ]);
         }
 
@@ -79,7 +79,7 @@ class Chart39 extends Component
             'credits' => [
                 'enabled' => false
             ],
-
+            'colors' => ['#80CE0C', '#7F3F98', '#FFB207', '#9D1941','#3F37C9','#0077B6','#05AE82','#B4F553','#D2B2DF','#FFDD92','#E6628A','#4895EF','#90E0EF','#20F9C0','#406706','#41204D','#E9680B','#5E0F27','#3A0CA3','#03045E','#06394A','#96F10E','#B47ECA','#FFC649','#DC235B','#4361EE','#00B4D8','#06DFA7'],
             'series' => [[
                 'type' => 'treemap',
                 'layoutAlgorithm' => 'squarified',

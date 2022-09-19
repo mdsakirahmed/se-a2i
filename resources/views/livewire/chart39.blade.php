@@ -55,16 +55,33 @@
             @endif
         </div>
     </div>
-     <script>
-          $(document).ready(function () {
-             //First loaded data
-             Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
- 
-             //chart update and re-render
-             window.addEventListener("chart_update_{{ $chart->id }}", event => {
-                 Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
-             });
-         });
-     </script>
+    @push('scripts')
+        <script>
+            $(document).ready(function () {
+                //First loaded data
+                let chart39 = Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+                chart39.series[0].points.forEach(function(point) {
+                    if(point.shapeArgs && point.dataLabel) {
+                        if(point.shapeArgs.width < point.dataLabel.width) {
+                            point.dataLabel.hide();
+                        }
+                    }
+                });
+    
+                //chart update and re-render
+                window.addEventListener("chart_update_{{ $chart->id }}", event => {
+                    let chart39 = Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+                    chart39.series[0].points.forEach(function(point) {
+                        if(point.shapeArgs && point.dataLabel) {
+                            if(point.shapeArgs.width < point.dataLabel.width) {
+                                point.dataLabel.hide();
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+    @endpush
+     
  </div>
  

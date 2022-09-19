@@ -75,7 +75,7 @@ class Chart48 extends Component
         }
 
         //Get data from json file
-        $geojson = json_decode(file_get_contents(public_path('assets/json/bangladesh.geojson.json')), true);
+        $geojson = json_decode(file_get_contents(public_path('assets/json/bangladesh-sub-district.geojson.json')), true);
 
         //Filter data
         $filter_geojson = $geojson;
@@ -84,16 +84,16 @@ class Chart48 extends Component
             // if($feature['properties']['NAME_3'] != $feature['properties']['NAME_2']){
             //     echo("NAME_2: ".$feature['properties']['NAME_2']."   ------------   NAME_3: ".$feature['properties']['NAME_3']."</br>");
             // }
-            if ($this->selected_district && $this->selected_division) {
-                if ($feature['properties']['NAME_1'] == $this->selected_district && $feature['properties']['NAME_3'] == $this->selected_division) {
+            if ($this->selected_division && $this->selected_district) {
+                if ($feature['properties']['NAME_1'] == $this->selected_division && $feature['properties']['NAME_3'] == $this->selected_district) {
+                    array_push($filter_geojson['features'], $feature);
+                }
+            } else if ($this->selected_division && !$this->selected_district) {
+                if ($feature['properties']['NAME_1'] == $this->selected_division) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else if ($this->selected_district && !$this->selected_division) {
-                if ($feature['properties']['NAME_2'] == $this->selected_district) {
-                    array_push($filter_geojson['features'], $feature);
-                }
-            } else if (!$this->selected_district && $this->selected_division) {
-                if ($feature['properties']['NAME_1'] == $this->selected_division) {
+                if ($feature['properties']['NAME_3'] == $this->selected_district) {
                     array_push($filter_geojson['features'], $feature);
                 }
             } else {

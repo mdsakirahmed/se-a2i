@@ -42,9 +42,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
 
     //Social Protection
     Route::group(['prefix' => 'social-protection', 'as' => 'social_protection.'], function () {
-        Route::view('index', 'backend.social-protection.social-protection')->name('index');
-        Route::view('food-security', 'backend.social-protection.food-security')->name('food_security');
+        Route::view('women-and-children', 'backend.social-protection.women-and-children')->name('women-and-children');
+        Route::view('food-insecurity', 'backend.social-protection.food-insecurity')->name('food_insecurity');
         Route::view('budget-and-coverage', 'backend.social-protection.budget-and-coverage')->name('budget_and_coverage');
+        Route::view('poverty-and-inequality', 'backend.social-protection.poverty-and-inequality')->name('poverty-and-inequality');
     });
 
     //Health

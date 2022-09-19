@@ -4,20 +4,20 @@
     <div class="content-area">
         <div class="container">
             <header>
-                <h3>
+                <div class="custom">
+                    <h3>
                     {{ __('Import and Export') }}
-                </h3>
+                    </h3>
+                </div>
             </header>
-            <div class="card-lg">
+            <div class="hero-header">
                 <div class="block-group">
                     <div class="block-60">
-                        <p class="mb-md-4">
-                            <span class="c-secondary fw-bold">{{ __('import export green text') }}</span>,
-                            {{ __('import export description 1') }}
-                        </p>
+                        <h3>
+                        {{ __('import export green text') }}
+                        </h3>
                         <p>
-                            <span class="c-primary fw-bold">{{ __('import export purple text') }}</span>
-                            {{ __('import export description 2') }}
+                        {{ __('import export description 1') }}
                         </p>
                     </div>
                     <div class="block-40">
@@ -25,6 +25,7 @@
                     </div>
                 </div>
             </div>
+           
             <div class="row">
                 <div class="col-md-12 mb-5">
                     @livewire('chart22')
