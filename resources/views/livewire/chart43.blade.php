@@ -16,7 +16,7 @@
          <div id="chart_id_{{ $chart->id }}"> </div>
      </figure>
     </div>
-     <div class="card-footer">
+     <div>
         <div class="card-desc">
             <p>
             {!! $description !!}

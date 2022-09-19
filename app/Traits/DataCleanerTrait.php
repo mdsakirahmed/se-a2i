@@ -13,7 +13,7 @@ trait DataCleanerTrait {
     public function data_clean($data) {
         $data = mb_convert_encoding($data, 'UTF-8', 'UTF-8');
         $data = str_replace("'", "", "$data");
-        return $data;
+        return preg_replace('/[^\da-z ]/i', '', $data);
     }
 
 }

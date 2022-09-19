@@ -58,17 +58,31 @@
         <script>
             $(document).ready(function () {
                 //First loaded data
-                Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+                let chart38 = Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
+                chart38.series[0].points.forEach(function(point) {
+                    if(point.shapeArgs && point.dataLabel) {
+                        if(point.shapeArgs.width < point.dataLabel.width) {
+                            point.dataLabel.hide();
+                        }
+                    }
+                });
     
                 //chart update and re-render
                 window.addEventListener("chart_update_{{ $chart->id }}", event => {
-                    Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+                    let chart38 = Highcharts.chart("chart_id_{{ $chart->id }}", event.detail.data);
+                    chart38.series[0].points.forEach(function(point) {
+                        if(point.shapeArgs && point.dataLabel) {
+                            if(point.shapeArgs.width < point.dataLabel.width) {
+                                point.dataLabel.hide();
+                            }
+                        }
+                    });
                 });
             });
 
             Highcharts.setOptions({
                 lang: {
-                thousandsSep: ','
+                    thousandsSep: ','
                 }
             });
             

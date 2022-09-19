@@ -3,9 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Chart;
-use App\Models\SecondDatabase\ExportCountry;
-use App\Models\SecondDatabase\ImportCountry;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -270,7 +267,6 @@ class Chart23 extends Component
 
                         'yAxis'=>[
                             'title' => [
-                                'text' => 'Percentage of Students',
                                 'style'=>[
                                     'fontSize'=>'12px'
                                 ]

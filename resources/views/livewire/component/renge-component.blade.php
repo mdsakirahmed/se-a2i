@@ -46,7 +46,7 @@
             color: #1b3400a !important;
             font-weight: bold;
         }
-       
+        
         .slidecontainer_{{ $chart_id }} {
             background:red;
             position: relative;
@@ -54,6 +54,7 @@
         }
     </style>
     @endpush
+
     <div class="w-100 text-center">
         <button type="button" class="btn btn-sm btn-green mb-5" id="start_btn_chart_id_{{ $chart_id }}">Start</button>
         &nbsp;
@@ -69,32 +70,32 @@
     </div>
     
     @push('scripts')
-    <script>
-        $(document).ready(function() {
-            d3.select("#range_chart_id_{{ $chart_id }}").on('input', function() {
-                window.livewire.emit("change_selected_key_and_chart_update_{{ $chart_id }}", this.value);
+        <script>
+            $(document).ready(function() {
+                d3.select("#range_chart_id_{{ $chart_id }}").on('input', function() {
+                    window.livewire.emit("change_selected_key_and_chart_update_{{ $chart_id }}", this.value);
+                });
+    
+                let myTimer;
+                d3.select("#start_btn_chart_id_{{ $chart_id }}").on("click", function() {
+                    clearInterval(myTimer);
+                    myTimer = setInterval(function() {
+                        let b = d3.select("#range_chart_id_{{ $chart_id }}");
+                        let t = (+b.property("value") + 1) % (+b.property("max") + 1);
+                        if (t == 0) {
+                            t = +b.property("min");
+                        }
+                        b.property("value", t);
+                        this.Livewire.emit("change_selected_key_and_chart_update_{{ $chart_id }}", t);
+                        console.log(t);
+                    }, 3000);
+                });
+    
+                d3.select("#stop_btn_chart_id_{{ $chart_id }}").on("click", function() {
+                    clearInterval(myTimer);
+                });
             });
-
-            let myTimer;
-            d3.select("#start_btn_chart_id_{{ $chart_id }}").on("click", function() {
-                clearInterval(myTimer);
-                myTimer = setInterval(function() {
-                    let b = d3.select("#range_chart_id_{{ $chart_id }}");
-                    let t = (+b.property("value") + 1) % (+b.property("max") + 1);
-                    if (t == 0) {
-                        t = +b.property("min");
-                    }
-                    b.property("value", t);
-                    this.Livewire.emit("change_selected_key_and_chart_update_{{ $chart_id }}", t);
-                    console.log(t);
-                }, 3000);
-            });
-
-            d3.select("#stop_btn_chart_id_{{ $chart_id }}").on("click", function() {
-                clearInterval(myTimer);
-            });
-        });
-
-    </script>  
+    
+        </script>
     @endpush
 </div>
