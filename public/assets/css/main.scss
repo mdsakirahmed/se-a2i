@@ -112,6 +112,11 @@ p {
     background: transparent;
     color: #722A8D
   }
+  @include xs {
+    min-width: 40px;
+    padding: 1px 8px;
+    font-size: 11px;
+  }
 }
 
 .btn-green {
@@ -166,6 +171,11 @@ p {
     border: 2px solid #722A8D;
     background: #722A8D;
     color: #ffffff
+  }
+  @include xs{
+    min-width: 40px;
+    padding: 1px 8px;
+    font-size: 11px;
   }
 }
 
@@ -643,7 +653,7 @@ header {
             }
           }
 
-          &:focus {
+          &:focus { 
             background: #96cb1f;
           }
 
@@ -1832,6 +1842,12 @@ header {
       font-weight: 600;
     }
   }
+}
+.y-slide-right {
+    position: absolute !important;
+    top: 35%;
+    right: 28px;
+    height: 34% !important;
 }
 
 
