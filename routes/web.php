@@ -57,7 +57,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'backend', 'as' => 'backend.']
         Route::view('sdg-analytic-hub/heatmap', 'backend.health.sdg-analytic-hub.heatmap')->name('heatmap');
         Route::view('sdg-analytic-hub/extrapolation', 'backend.health.sdg-analytic-hub.extrapolation')->name('extrapolation');
         Route::view('sdg-analytic-hub/correlation-and-association', 'backend.health.sdg-analytic-hub.correlation-and-association')->name('correlation-and-association');
-
     });
 
     Route::get('backup', Backup::class)->name('backup');

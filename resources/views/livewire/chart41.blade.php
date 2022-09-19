@@ -38,8 +38,9 @@
                <div id="chart_id_{{ $chart->id }}"> </div>
            </figure>
            <br>
+           <div class="y-slide-right" id="y_slider_for_{{ $chart->id }}" wire:ignore></div>
            <div id="x_slider_for_{{ $chart->id }}" wire:ignore></div>
-           <div id="y_slider_for_{{ $chart->id }}" wire:ignore></div>
+           
            <br>
 
 
@@ -99,6 +100,7 @@
                 });
                 
                 $("#y_slider_for_{{ $chart->id }}").slider({
+                    orientation: "vertical",
                     min: {{ $y_min_default_value }},
                     max: {{ $y_max_default_value }},
                     step: 1,
