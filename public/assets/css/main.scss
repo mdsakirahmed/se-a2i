@@ -1,3 +1,6 @@
+@import url('https://fonts.maateen.me/adorsho-lipi/font.css');
+
+
 @mixin xs {
   @media only screen and (max-width: 480px) {
     @content;
@@ -42,6 +45,7 @@
 
 body {
   color: #000000;
+  font-family: "AdorshoLipi", "Poppins", sans-serif !important;
 }
 
 p {
@@ -346,12 +350,14 @@ header {
   margin-bottom: 25px;
 
   h3 {
+    font-family: "AdorshoLipi", "Poppins", sans-serif !important;
     font-size: 24px;
     font-weight: 800;
   }
 
   .custom {
     h3 {
+      font-family: "AdorshoLipi", "Poppins", sans-serif;
       font-size: 22px;
       font-weight: 800;
       color: #722a8d;
@@ -389,6 +395,7 @@ header {
     margin-bottom: 15px;
 
     h5 {
+      font-family: "AdorshoLipi", "Poppins", sans-serif;
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 12px;
@@ -419,6 +426,7 @@ header {
 
     .card-desc {
       p {
+        font-family: "AdorshoLipi", "Poppins", sans-serif;
         font-size: 0.9rem;
         color: #5E6282;
         line-height: 1.7;
@@ -428,6 +436,7 @@ header {
   }
 
   .card-footer {
+    font-family: "AdorshoLipi", "Poppins", sans-serif;
     font-size: 12px;
     background-color: transparent;
     border: 0;
@@ -658,6 +667,7 @@ header {
           }
 
           h6 {
+            font-family: "AdorshoLipi", "Poppins", sans-serif;
             font-size: 13px;
             font-weight: 700;
             color: black;
@@ -704,6 +714,7 @@ header {
           caret-color: transparent;
 
           h6 {
+            font-family: "AdorshoLipi", "Poppins", sans-serif;
             font-size: 13px;
             font-weight: 700;
             color: black;
@@ -775,6 +786,7 @@ header {
           }
 
           h6 {
+            font-family: "AdorshoLipi", "Poppins", sans-serif;
             font-size: 12px;
             font-weight: 600;
             color: #000000;
@@ -1346,6 +1358,7 @@ header {
             width: calc(60% - 50px);
 
             h3 {
+              font-family: "AdorshoLipi", "Poppins", sans-serif;
               font-size: 30px;
               font-weight: 700;
               line-height: 1.8;
@@ -1354,6 +1367,7 @@ header {
             }
 
             p {
+              font-family: "AdorshoLipi", "Poppins", sans-serif;
               font-size: 16px;
               font-weight: 400;
               line-height: 1.69;
@@ -1471,6 +1485,7 @@ header {
             width: calc(60% - 15px);
 
             h3 {
+              font-family: "AdorshoLipi", "Poppins", sans-serif;
               font-size: 30px;
               font-weight: 700;
               line-height: 1.8;
@@ -1479,6 +1494,7 @@ header {
             }
 
             p {
+              font-family: "AdorshoLipi", "Poppins", sans-serif;
               font-size: 16px;
               font-weight: 400;
               line-height: 1.69;
@@ -1569,6 +1585,7 @@ header {
             width: calc(60% - 15px); 
 
             h3 {
+              font-family: "AdorshoLipi", "Poppins", sans-serif;
               font-size: 30px;
               font-weight: 700;
               line-height: 1.8;
@@ -1577,6 +1594,7 @@ header {
             }
 
             p {
+              font-family: "AdorshoLipi", "Poppins", sans-serif;
               font-size: 16px;
               font-weight: 400;
               line-height: 1.69;
@@ -1679,6 +1697,7 @@ header {
 
         .title-area {
           h3 {
+            font-family: "AdorshoLipi", "Poppins", sans-serif;
             color: #430a58;
             font-weight: 700;
             text-transform: uppercase;
@@ -1844,12 +1863,31 @@ header {
   }
 }
 .y-slide-right {
-    position: absolute !important;
-    top: 35%;
-    right: 28px;
-    height: 34% !important;
+  position: absolute !important;
+  top: 40%;
+  left: 33px;
+  height: 33% !important;
+  background: #f5f1f7;
+  width: 7px !important;
 }
 
+.ui-slider-horizontal {
+  height: 9px !important;
+  width: 33%;
+  margin: 0 auto;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border-radius: 50% !important;
+  height: 13px !important;
+  width: 13px !important;
+  border: 0px solid #327E04 !important;
+  background: #8630a7 !important;
+  font-size: 13px;
+}
+.ui-widget-content {
+  background: #fcf5ff !important;
+}
 
 
 ::-webkit-input-placeholder {

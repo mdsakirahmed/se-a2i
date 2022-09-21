@@ -6,7 +6,7 @@
                     <img src="assets/img/logo-ico.png"/>
                 </div>
                 <div class="title-area">
-                    <h3 data-aos="fade-in">
+                    <h3>
                         Socioeconomic Dashboard
                     </h3>
                     <h4>
