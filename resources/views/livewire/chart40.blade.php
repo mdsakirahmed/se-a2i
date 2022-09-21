@@ -65,9 +65,9 @@
                 
                     <div class="form-group col-md-2">
                         <label for="" class="col-form-label">Fiscal Year</label>
-                        <select class="form-control" wire:model="fiscal_year" wire:change="chart_update">
+                        <select class="form-control" wire:model="year" wire:change="chart_update">
                             <option value="">All</option>
-                            @foreach($fiscal_yeas as $fiscal_year)
+                            @foreach($years as $fiscal_year)
                                 <option value="{{ $fiscal_year }}">{{ $fiscal_year }}</option>
                             @endforeach
                         </select>
@@ -75,9 +75,9 @@
                  
                     <div class="form-group col-md-2">
                         <label for="" class="col-form-label">Programme Type</label>
-                        <select class="form-control"wire:model="program_type" wire:change="chart_update">
+                        <select class="form-control"wire:model="p_type" wire:change="chart_update">
                             <option value="">All</option>
-                            @foreach($program_types as $program_type)
+                            @foreach($p_types as $program_type)
                                 <option value="{{ $program_type }}">{{ $program_type }}</option>
                             @endforeach 
                         </select>
@@ -85,8 +85,8 @@
                     <div class="form-group col-md-2">
                         <label for="" class="col-form-label">Value Type</label>
                         <select class="form-control" wire:model="value_type" wire:change="chart_update">
-                            <option value="">Budget</option>
-                            <option value="beneficiaries">Beneficiaries</option>
+                            <option value="budget">Budget</option>
+                            <option value="coverage">Beneficiaries</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
@@ -140,7 +140,7 @@
     @push('scripts')
         <script>
             $(document).ready(function () {
-                //First loaded data
+                // First loaded data
                 let chart40 = Highcharts.chart("chart_id_{{ $chart->id }}", {!! collect($chart_data_set) !!});
                 chart40.series[0].points.forEach(function(point) {
                     if(point.shapeArgs && point.dataLabel) {
@@ -166,6 +166,7 @@
             $(".dropdown-trigger").click(function() {
                 $(this).siblings().toggle();
             });
+
             $(".dropdown-content > ul > li").click(function(e) {
                 $(this).children().addClass("active");
                 $(this).siblings().children().removeClass("active");
