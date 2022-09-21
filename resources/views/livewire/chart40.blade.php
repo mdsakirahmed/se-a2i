@@ -86,7 +86,7 @@
                         <label for="" class="col-form-label">Value Type</label>
                         <select class="form-control" wire:model="value_type" wire:change="chart_update">
                             <option value="budget">Budget</option>
-                            <option value="coverage">Beneficiaries</option>
+                            <option value="coverage">Coverage</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">

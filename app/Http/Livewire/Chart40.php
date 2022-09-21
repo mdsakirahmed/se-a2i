@@ -120,23 +120,39 @@ class Chart40 extends Component
                 array_push($formated_data, [
                     'name' =>  $this->data_clean($p_name),
                     'parent' => "id_".$parent_id,
-                    'value' => $value
+                    'value' => $value,
+                    'coverage' => round(collect($p_name_wise_data_set)->sum('coverage'), 2),
+                    'budget' => round(collect($p_name_wise_data_set)->sum('budget'), 2),
                 ]);
             }
         }
 
-        // dd($formated_data);
-        // return $formated_data;
+        if($this->value_type == 'coverage'){
+            $tooltip_title =  'Coverage (Lakh People):';
+        }else{
+            $tooltip_title = 'Budget Crore Bdt:';
+        }
 
         return [
+            'title' => [
+                'text' => ''
+            ],
+            'credits' => [
+                'enabled' => false
+            ],
+            'colors' => ['#80CE0C', '#7F3F98', '#FFB207', '#9D1941','#3F37C9','#0077B6','#05AE82','#B4F553','#D2B2DF','#FFDD92','#E6628A','#4895EF','#90E0EF','#20F9C0','#406706','#41204D','#E9680B','#5E0F27','#3A0CA3','#03045E','#06394A','#96F10E','#B47ECA','#FFC649','#DC235B','#4361EE','#00B4D8','#06DFA7'],
             'series' => [[
-                'name' => 'Regions',
                 'type' => 'treemap',
                 'layoutAlgorithm' => 'squarified',
                 'allowDrillToNode' => true,
                 'animationLimit' => 1000,
                 'dataLabels' => [
                     'enabled' => false
+                ],
+                'tooltip' => [
+                    'useHTML' => true,
+                    'pointFormat' => 
+                    "$tooltip_title <b>{point.value}</b>",
                 ],
                 'levels' => [[
                     'level' => 1,
@@ -157,13 +173,7 @@ class Chart40 extends Component
                     'exposeAsGroupOnly' => true
                 ],
                 'data' =>collect($formated_data)
-            ]],
-            'subtitle' => [
-                'text' => ''
-            ],
-            'title' => [
-                'text' => ''
-            ]
+            ]]
         ];
     }
 }
